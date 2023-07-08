@@ -1,0 +1,29 @@
+import Image from "next/image";
+import Link from "next/link";
+
+type Props = {
+  className?: string;
+};
+
+export default function LimitesPessoalSection(props: Props) {
+  return (
+    <Link
+      href="/municipio/2023/colatina/gestao-fiscal/pessoal"
+      className={`flex justify-center gap-20 p-12 ${props.className ?? ""}`}
+    >
+      <section className="max-w-xl">
+        <h2 className="title-with-vertical-bar">Limites com pessoal</h2>
+        <p className="mt-8 text-gray-dark text-2xl">
+          Verifique a evolução das despesas com pessoal e encargos do município
+          nos últimos exercícios.
+        </p>
+      </section>
+      <Image
+        src="/banners/limites-pessoal.png"
+        alt="Verifique a evolução das despesas com pessoal e encargos do município nos últimos exercícios."
+        height={278}
+        width={475}
+      />
+    </Link>
+  );
+}

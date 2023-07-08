@@ -1,0 +1,35 @@
+.carousel-title {
+  @apply font-bold;
+  @apply mb-3;
+  @apply text-2xl;
+}
+
+section .panel {
+  height: 180px;
+  @apply flex;
+  @apply flex-col;
+  @apply gap-3;
+  @apply inset-0;
+  @apply items-center;
+}
+
+section .panel img {
+  margin-top: 11px;
+}
+
+section a {
+  @apply text-sm;
+}
+
+section .title-with-vertical-bar {
+  font-size: 2vw;
+  @apply h-12;
+  @apply border-l-4;
+  @apply border-l-amber-300;
+  @apply pl-3;
+  @apply pt-1;
+}
+
+footer a {
+  color: white;
+}

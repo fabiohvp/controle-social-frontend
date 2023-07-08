@@ -1,0 +1,25 @@
+{
+  "title": "INTELIGÊNCIA ARTIFICIAL",
+  "articles": [
+    {
+      "description": "Previsões sobre gastos com pessoal",
+      "href": "/estado/2023/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/projecao.png",
+        "width": 50
+      },
+      "title": "Projeções"
+    },
+    {
+      "description": "Acompanhe o andamento e as eventuais paralisações",
+      "href": "/estado/2023/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/obras-publicas.svg",
+        "width": 50
+      },
+      "title": "Obras públicas"
+    }
+  ]
+}

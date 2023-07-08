@@ -1,0 +1,25 @@
+.item-round {
+  width: 100px;
+  @apply text-blue-dark;
+}
+
+.item-round .icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  margin-left: 15px;
+  width: 70px;
+  @apply bg-gray-200;
+  @apply rounded-full;
+  @apply text-4xl;
+}
+
+.item-round .title {
+  align-self: flex-start;
+  text-align: center;
+  word-wrap: break-word;
+  @apply font-semibold;
+  @apply mt-2;
+  @apply text-link;
+}

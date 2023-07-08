@@ -1,0 +1,55 @@
+{
+  "title": "MUNICÍPIOS",
+  "articles": [
+    {
+      "description": "Diversas informações para você fiscalizar o município",
+      "href": "/municipio/2023/colatina/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/municipio-geolocalizado.png",
+        "width": 39
+      },
+      "title": "Colatina"
+    },
+    {
+      "description": "Selecione o município que deseja fiscalizar",
+      "href": "/municipio/2023/colatina/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/mapa-es.png",
+        "width": 32
+      },
+      "title": "Todos os municípios"
+    },
+    {
+      "description": "Visão geral da situação dos municípios capixabas",
+      "href": "/municipio/2023/colatina/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/indicadores.png",
+        "width": 50
+      },
+      "title": "Indicadores consolidados"
+    },
+    {
+      "description": "Identifique similaridades e diferenças entre municípios",
+      "href": "/municipio/2023/colatina/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/comparador.png",
+        "width": 59
+      },
+      "title": "Comparador"
+    },
+    {
+      "description": "Escolha um tema e veja a situação de cada município",
+      "href": "/municipio/2023/colatina/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icones/ranking.png",
+        "width": 50
+      },
+      "title": "Ranking"
+    }
+  ]
+}
