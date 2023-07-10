@@ -8,14 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "gray-header": "#F8F8F8",
+        "menu-active": "#E3E3E3",
+
         "gray-light": "#d1d5db",
         "gray-medium": "#6b7280",
         "gray-dark": "#4b5563",
+
         "blue-dark": "#082b54",
+        "blue-menu": "#364B60",
 
         link: "#5486b3",
         negative: "#c0392b",
         positive: "#27ae60",
+      },
+      width: {
+        "menu-small": "50px",
       },
     },
   },

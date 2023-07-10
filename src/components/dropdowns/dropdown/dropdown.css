@@ -1,0 +1,40 @@
+.dropdown {
+  height: 100%;
+}
+
+.dropdown > .content {
+  overflow: hidden;
+  position: absolute;
+  @apply bg-white;
+  @apply rounded;
+  @apply shadow-md;
+  @apply top-0;
+  @apply z-30;
+}
+
+.dropdown > .content > ul {
+  max-height: 24rem;
+  overflow-x: hidden;
+  @apply overflow-y-auto;
+  @apply h-full;
+}
+
+.dropdown > .content > ul > li {
+  text-align: left;
+}
+
+.dropdown > .content > ul > li > * {
+  display: flex;
+  @apply p-1;
+  @apply text-black;
+}
+
+.dropdown > .content > ul > li:hover {
+  @apply bg-gray-200;
+}
+
+.dropdown > .content > ul > li.active,
+.dropdown > .content > ul > li.active > * {
+  @apply text-white;
+  @apply bg-sky-700;
+}

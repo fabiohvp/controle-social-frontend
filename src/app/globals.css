@@ -29,6 +29,10 @@
   }
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 a {
   @apply text-link;
 }

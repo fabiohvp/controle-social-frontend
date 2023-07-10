@@ -45,11 +45,11 @@ export default function Sections() {
                     className="group flex flex-1 text-center"
                   >
                     <div className="relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                      <Panel className="absolute flex flex-col justify-around bg-gray-50">
+                      <Panel className="absolute flex flex-col justify-around bg-gray-50 panel">
                         <Image {...article.image} alt={article.title} />
                         <h3 className="font-normal">{article.title}</h3>
                       </Panel>
-                      <Panel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <Panel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden] panel">
                         <h3 className="mt-2">{article.title}</h3>
                         <p>{article.description}</p>
                       </Panel>

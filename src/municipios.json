@@ -1,0 +1,470 @@
+[
+  {
+    "nome": "Afonso Cláudio",
+    "codigo": 1,
+    "codigoSerpro": 5601,
+    "nomeNormalizado": "afonso-claudio"
+  },
+  {
+    "nome": "Agua Doce Do Norte",
+    "codigo": 59,
+    "codigoSerpro": 5717,
+    "nomeNormalizado": "agua-doce-do-norte"
+  },
+  {
+    "nome": "Aguia Branca",
+    "codigo": 60,
+    "codigoSerpro": 5733,
+    "nomeNormalizado": "aguia-branca"
+  },
+  {
+    "nome": "Alegre",
+    "codigo": 2,
+    "codigoSerpro": 5603,
+    "nomeNormalizado": "alegre"
+  },
+  {
+    "nome": "Alfredo Chaves",
+    "codigo": 3,
+    "codigoSerpro": 5605,
+    "nomeNormalizado": "alfredo-chaves"
+  },
+  {
+    "nome": "Alto Rio Novo",
+    "codigo": 61,
+    "codigoSerpro": 5719,
+    "nomeNormalizado": "alto-rio-novo"
+  },
+  {
+    "nome": "Anchieta",
+    "codigo": 4,
+    "codigoSerpro": 5607,
+    "nomeNormalizado": "anchieta"
+  },
+  {
+    "nome": "Apiaca",
+    "codigo": 5,
+    "codigoSerpro": 5609,
+    "nomeNormalizado": "apiaca"
+  },
+  {
+    "nome": "Aracruz",
+    "codigo": 6,
+    "codigoSerpro": 5611,
+    "nomeNormalizado": "aracruz"
+  },
+  {
+    "nome": "Atilio Vivacqua",
+    "codigo": 7,
+    "codigoSerpro": 5613,
+    "nomeNormalizado": "atilio-vivacqua"
+  },
+  {
+    "nome": "Baixo Guandu",
+    "codigo": 8,
+    "codigoSerpro": 5615,
+    "nomeNormalizado": "baixo-guandu"
+  },
+  {
+    "nome": "Barra De Sao Francisco",
+    "codigo": 9,
+    "codigoSerpro": 5617,
+    "nomeNormalizado": "barra-de-sao-francisco"
+  },
+  {
+    "nome": "Boa Esperanca",
+    "codigo": 10,
+    "codigoSerpro": 5619,
+    "nomeNormalizado": "boa-esperanca"
+  },
+  {
+    "nome": "Bom Jesus Do Norte",
+    "codigo": 11,
+    "codigoSerpro": 5621,
+    "nomeNormalizado": "bom-jesus-do-norte"
+  },
+  {
+    "nome": "Brejetuba",
+    "codigo": 74,
+    "codigoSerpro": 758,
+    "nomeNormalizado": "brejetuba"
+  },
+  {
+    "nome": "Cachoeiro De Itapemirim",
+    "codigo": 12,
+    "codigoSerpro": 5623,
+    "nomeNormalizado": "cachoeiro-de-itapemirim"
+  },
+  {
+    "nome": "Cariacica",
+    "codigo": 13,
+    "codigoSerpro": 5625,
+    "nomeNormalizado": "cariacica"
+  },
+  {
+    "nome": "Castelo",
+    "codigo": 14,
+    "codigoSerpro": 5627,
+    "nomeNormalizado": "castelo"
+  },
+  {
+    "nome": "Colatina",
+    "codigo": 15,
+    "codigoSerpro": 5629,
+    "nomeNormalizado": "colatina"
+  },
+  {
+    "nome": "Conceicao Da Barra",
+    "codigo": 16,
+    "codigoSerpro": 5631,
+    "nomeNormalizado": "conceicao-da-barra"
+  },
+  {
+    "nome": "Conceicao Do Castelo",
+    "codigo": 17,
+    "codigoSerpro": 5633,
+    "nomeNormalizado": "conceicao-do-castelo"
+  },
+  {
+    "nome": "Divino De Sao Lourenco",
+    "codigo": 18,
+    "codigoSerpro": 5635,
+    "nomeNormalizado": "divino-de-sao-lourenco"
+  },
+  {
+    "nome": "Domingos Martins",
+    "codigo": 19,
+    "codigoSerpro": 5637,
+    "nomeNormalizado": "domingos-martins"
+  },
+  {
+    "nome": "Dores Do Rio Preto",
+    "codigo": 20,
+    "codigoSerpro": 5639,
+    "nomeNormalizado": "dores-do-rio-preto"
+  },
+  {
+    "nome": "Ecoporanga",
+    "codigo": 21,
+    "codigoSerpro": 5641,
+    "nomeNormalizado": "ecoporanga"
+  },
+  {
+    "nome": "Fundao",
+    "codigo": 22,
+    "codigoSerpro": 5643,
+    "nomeNormalizado": "fundao"
+  },
+  {
+    "nome": "Governador Lindenberg",
+    "codigo": 80,
+    "codigoSerpro": 1114,
+    "nomeNormalizado": "governador-lindenberg"
+  },
+  {
+    "nome": "Guacui",
+    "codigo": 23,
+    "codigoSerpro": 5645,
+    "nomeNormalizado": "guacui"
+  },
+  {
+    "nome": "Guarapari",
+    "codigo": 24,
+    "codigoSerpro": 5647,
+    "nomeNormalizado": "guarapari"
+  },
+  {
+    "nome": "Ibatiba",
+    "codigo": 25,
+    "codigoSerpro": 5709,
+    "nomeNormalizado": "ibatiba"
+  },
+  {
+    "nome": "Ibiracu",
+    "codigo": 26,
+    "codigoSerpro": 5649,
+    "nomeNormalizado": "ibiracu"
+  },
+  {
+    "nome": "Ibitirama",
+    "codigo": 62,
+    "codigoSerpro": 6011,
+    "nomeNormalizado": "ibitirama"
+  },
+  {
+    "nome": "Iconha",
+    "codigo": 27,
+    "codigoSerpro": 5651,
+    "nomeNormalizado": "iconha"
+  },
+  {
+    "nome": "Irupi",
+    "codigo": 68,
+    "codigoSerpro": 2931,
+    "nomeNormalizado": "irupi"
+  },
+  {
+    "nome": "Itaguacu",
+    "codigo": 28,
+    "codigoSerpro": 5653,
+    "nomeNormalizado": "itaguacu"
+  },
+  {
+    "nome": "Itapemirim",
+    "codigo": 29,
+    "codigoSerpro": 5655,
+    "nomeNormalizado": "itapemirim"
+  },
+  {
+    "nome": "Itarana",
+    "codigo": 30,
+    "codigoSerpro": 5657,
+    "nomeNormalizado": "itarana"
+  },
+  {
+    "nome": "Iuna",
+    "codigo": 31,
+    "codigoSerpro": 5659,
+    "nomeNormalizado": "iuna"
+  },
+  {
+    "nome": "Jaguare",
+    "codigo": 32,
+    "codigoSerpro": 5713,
+    "nomeNormalizado": "jaguare"
+  },
+  {
+    "nome": "Jeronimo Monteiro",
+    "codigo": 33,
+    "codigoSerpro": 5661,
+    "nomeNormalizado": "jeronimo-monteiro"
+  },
+  {
+    "nome": "Joao Neiva",
+    "codigo": 63,
+    "codigoSerpro": 5721,
+    "nomeNormalizado": "joao-neiva"
+  },
+  {
+    "nome": "Laranja Da Terra",
+    "codigo": 64,
+    "codigoSerpro": 5723,
+    "nomeNormalizado": "laranja-da-terra"
+  },
+  {
+    "nome": "Linhares",
+    "codigo": 34,
+    "codigoSerpro": 5663,
+    "nomeNormalizado": "linhares"
+  },
+  {
+    "nome": "Mantenopolis",
+    "codigo": 35,
+    "codigoSerpro": 5665,
+    "nomeNormalizado": "mantenopolis"
+  },
+  {
+    "nome": "Marataizes",
+    "codigo": 75,
+    "codigoSerpro": 760,
+    "nomeNormalizado": "marataizes"
+  },
+  {
+    "nome": "Marechal Floriano",
+    "codigo": 69,
+    "codigoSerpro": 2929,
+    "nomeNormalizado": "marechal-floriano"
+  },
+  {
+    "nome": "Marilandia",
+    "codigo": 36,
+    "codigoSerpro": 5707,
+    "nomeNormalizado": "marilandia"
+  },
+  {
+    "nome": "Mimoso Do Sul",
+    "codigo": 37,
+    "codigoSerpro": 5667,
+    "nomeNormalizado": "mimoso-do-sul"
+  },
+  {
+    "nome": "Montanha",
+    "codigo": 38,
+    "codigoSerpro": 5669,
+    "nomeNormalizado": "montanha"
+  },
+  {
+    "nome": "Mucurici",
+    "codigo": 39,
+    "codigoSerpro": 5671,
+    "nomeNormalizado": "mucurici"
+  },
+  {
+    "nome": "Muniz Freire",
+    "codigo": 40,
+    "codigoSerpro": 5673,
+    "nomeNormalizado": "muniz-freire"
+  },
+  {
+    "nome": "Muqui",
+    "codigo": 41,
+    "codigoSerpro": 5675,
+    "nomeNormalizado": "muqui"
+  },
+  {
+    "nome": "Nova Venecia",
+    "codigo": 42,
+    "codigoSerpro": 5677,
+    "nomeNormalizado": "nova-venecia"
+  },
+  {
+    "nome": "Pancas",
+    "codigo": 43,
+    "codigoSerpro": 5679,
+    "nomeNormalizado": "pancas"
+  },
+  {
+    "nome": "Pedro Canario",
+    "codigo": 44,
+    "codigoSerpro": 5715,
+    "nomeNormalizado": "pedro-canario"
+  },
+  {
+    "nome": "Pinheiros",
+    "codigo": 45,
+    "codigoSerpro": 5681,
+    "nomeNormalizado": "pinheiros"
+  },
+  {
+    "nome": "Piuma",
+    "codigo": 46,
+    "codigoSerpro": 5683,
+    "nomeNormalizado": "piuma"
+  },
+  {
+    "nome": "Ponto Belo",
+    "codigo": 76,
+    "codigoSerpro": 762,
+    "nomeNormalizado": "ponto-belo"
+  },
+  {
+    "nome": "Presidente Kennedy",
+    "codigo": 47,
+    "codigoSerpro": 5685,
+    "nomeNormalizado": "presidente-kennedy"
+  },
+  {
+    "nome": "Rio Bananal",
+    "codigo": 48,
+    "codigoSerpro": 5711,
+    "nomeNormalizado": "rio-bananal"
+  },
+  {
+    "nome": "Rio Novo Do Sul",
+    "codigo": 49,
+    "codigoSerpro": 5687,
+    "nomeNormalizado": "rio-novo-do-sul"
+  },
+  {
+    "nome": "Santa Leopoldina",
+    "codigo": 50,
+    "codigoSerpro": 5689,
+    "nomeNormalizado": "santa-leopoldina"
+  },
+  {
+    "nome": "Santa Maria De Jetiba",
+    "codigo": 65,
+    "codigoSerpro": 5725,
+    "nomeNormalizado": "santa-maria-de-jetiba"
+  },
+  {
+    "nome": "Santa Teresa",
+    "codigo": 51,
+    "codigoSerpro": 5691,
+    "nomeNormalizado": "santa-teresa"
+  },
+  {
+    "nome": "Sao Domingos Do Norte",
+    "codigo": 70,
+    "codigoSerpro": 2933,
+    "nomeNormalizado": "sao-domingos-do-norte"
+  },
+  {
+    "nome": "Sao Gabriel Da Palha",
+    "codigo": 52,
+    "codigoSerpro": 5693,
+    "nomeNormalizado": "sao-gabriel-da-palha"
+  },
+  {
+    "nome": "Sao Jose Do Calcado",
+    "codigo": 53,
+    "codigoSerpro": 5695,
+    "nomeNormalizado": "sao-jose-do-calcado"
+  },
+  {
+    "nome": "Sao Mateus",
+    "codigo": 54,
+    "codigoSerpro": 5697,
+    "nomeNormalizado": "sao-mateus"
+  },
+  {
+    "nome": "Sao Roque Do Canaa",
+    "codigo": 77,
+    "codigoSerpro": 764,
+    "nomeNormalizado": "sao-roque-do-canaa"
+  },
+  {
+    "nome": "Serra",
+    "codigo": 55,
+    "codigoSerpro": 5699,
+    "nomeNormalizado": "serra"
+  },
+  {
+    "nome": "Sooretama",
+    "codigo": 78,
+    "codigoSerpro": 766,
+    "nomeNormalizado": "sooretama"
+  },
+  {
+    "nome": "Vargem Alta",
+    "codigo": 66,
+    "codigoSerpro": 5727,
+    "nomeNormalizado": "vargem-alta"
+  },
+  {
+    "nome": "Venda Nova Do Imigrante",
+    "codigo": 67,
+    "codigoSerpro": 5729,
+    "nomeNormalizado": "venda-nova-do-imigrante"
+  },
+  {
+    "nome": "Viana",
+    "codigo": 56,
+    "codigoSerpro": 5701,
+    "nomeNormalizado": "viana"
+  },
+  {
+    "nome": "Vila Pavao",
+    "codigo": 71,
+    "codigoSerpro": 2935,
+    "nomeNormalizado": "vila-pavao"
+  },
+  {
+    "nome": "Vila Valerio",
+    "codigo": 79,
+    "codigoSerpro": 768,
+    "nomeNormalizado": "vila-valerio"
+  },
+  {
+    "nome": "Vila Velha",
+    "codigo": 57,
+    "codigoSerpro": 5703,
+    "nomeNormalizado": "vila-velha"
+  },
+  {
+    "nome": "Vitoria",
+    "codigo": 58,
+    "codigoSerpro": 5705,
+    "nomeNormalizado": "vitoria"
+  }
+]

@@ -6,13 +6,10 @@ type Props = {
   style?: CSSProperties;
 };
 
-export default function Panel(props: Props) {
+export function SidebarList(props: Props) {
   return (
-    <div
-      className={`rounded-md border p-[5px] ${props.className ?? ""}`}
-      style={props.style}
-    >
+    <ul className={`${props.className ?? ""}`} style={props.style}>
       {props.children}
-    </div>
+    </ul>
   );
 }

@@ -1,6 +1,5 @@
 import DashboardFooter from "@/components/layout/dashboard/DashboardFooter";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import Image from "next/image";
 import Link from "next/link";
 import { BsCurrencyDollar } from "react-icons/bs";
@@ -17,7 +16,7 @@ import "./dados-abertos.css";
 
 export default function Page() {
   return (
-    <DashboardLayout>
+    <>
       <DashboardHeader />
       <div className="container text-sm">
         <h2 className="mb-1">Dados Abertos</h2>
@@ -227,6 +226,6 @@ export default function Page() {
         </div>
       </div>
       <DashboardFooter />
-    </DashboardLayout>
+    </>
   );
 }

@@ -1,0 +1,20 @@
+.dashboard-menu {
+  display: flex;
+  height: 100%;
+}
+
+.dashboard-menu > li {
+  align-items: center;
+  display: flex;
+  @apply text-sm;
+}
+
+.dashboard-menu > li.active {
+  @apply bg-menu-active;
+}
+
+.dashboard-menu.submenu > li {
+  @apply border-r;
+  @apply border-r-gray-300;
+  @apply text-sm;
+}
