@@ -1,22 +1,18 @@
 import PanelWithTitle from "@/components/layout/panel/PanelWithTitle";
 import Link from "next/link";
 import { FaUniversity } from "react-icons/fa";
+import { MunicipioPageProps } from "../MunicipioPageProps";
+import { ReceitasXDespesasPanel } from "./_panels/ReceitasXDespesasPanel";
 
 const FIRST_ROW_HEIGHT = "155px";
 
-export default function Page({
-  params,
-}: {
-  params: { ano: number; municipio: string };
-}) {
+export default async function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <div
       className="grid grid-flow-row gap-2 text-gray-dark"
       style={{ gridTemplateColumns: "2fr 1.5fr 2fr 2fr" }}
     >
-      <PanelWithTitle height={FIRST_ROW_HEIGHT} title="Receitas X Despesas">
-        <div>teste</div>
-      </PanelWithTitle>
+      <ReceitasXDespesasPanel height={FIRST_ROW_HEIGHT} {...params} />
       <PanelWithTitle
         height={FIRST_ROW_HEIGHT}
         title="Obrigações junto ao TCE-ES"
