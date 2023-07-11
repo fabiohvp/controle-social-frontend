@@ -1,4 +1,3 @@
-"use client";
 import Modal, { ModalProps } from "@/components/layout/modal/Modal";
 import Link from "next/link";
 

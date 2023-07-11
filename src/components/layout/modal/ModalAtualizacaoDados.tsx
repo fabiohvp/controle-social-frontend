@@ -1,4 +1,3 @@
-"use client";
 import Modal, { ModalProps } from "@/components/layout/modal/Modal";
 
 export default function ModalAtualizacaoDados({ setShow, show }: ModalProps) {

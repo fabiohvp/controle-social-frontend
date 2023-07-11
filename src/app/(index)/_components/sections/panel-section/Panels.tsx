@@ -41,8 +41,9 @@ export default function Sections() {
                 {section.articles.map((article) => (
                   <Link
                     href={article.href}
-                    title={article.title}
+                    key={article.href}
                     className="group flex flex-1 text-center"
+                    title={article.title}
                   >
                     <div className="relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                       <Panel className="absolute flex flex-col justify-around bg-gray-50 panel">
