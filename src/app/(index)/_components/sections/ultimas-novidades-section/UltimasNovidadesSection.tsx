@@ -818,7 +818,7 @@ export default function UltimasNovidadesSection(props: Props) {
               <li>
                 Nova seção
                 <Link href="/fiscalizacoes/2019/escolas">
-                  "Educação - Levantamento Oferta x Demanda"
+                  &quot;Educação - Levantamento Oferta x Demanda&quot;
                 </Link>
                 , que apresenta a oferta e demanda por vagas nas redes públicas
                 estaduais e municipais de ensino
@@ -826,7 +826,7 @@ export default function UltimasNovidadesSection(props: Props) {
               <li>
                 Nova seção
                 <Link href="/fiscalizacoes/receitasMunicipais">
-                  "Receita Pública Municipal"
+                  &quot;Receita Pública Municipal&quot;
                 </Link>
                 , onde são apresentados resultados das auditorias temáticas de
                 receita realizadas nos 78 municípios capixabas
@@ -838,9 +838,9 @@ export default function UltimasNovidadesSection(props: Props) {
             <hr />
             <ul className="styled">
               <li>
-                Nova seção "Previdência", onde são apresentados os dados de
-                instituto e fundos de previdência dos municípios que possuem
-                regime próprio de previdência social
+                Nova seção &quot;Previdência&quot;, onde são apresentados os
+                dados de instituto e fundos de previdência dos municípios que
+                possuem regime próprio de previdência social
               </li>
             </ul>
           </div>
@@ -856,18 +856,18 @@ export default function UltimasNovidadesSection(props: Props) {
                   title="Indicadores Consolidados"
                   href="/indicadoresConsolidados/2020/antecipacaoReceitasOrcamentarias"
                 >
-                  "Indicadores Consolidados/"
+                  &quot;Indicadores Consolidados/&quot;
                 </Link>
                 dos 78 municípios, com dados organizados por área temática
               </li>
               <li>
-                Nova seção "Destino do dinheiro", que apresenta com quais
-                despesas foi utilizado o dinheiro proveniente de determinadas
-                fontes de recursos
+                Nova seção &quot;Destino do dinheiro&quot;, que apresenta com
+                quais despesas foi utilizado o dinheiro proveniente de
+                determinadas fontes de recursos
               </li>
               <li>
-                Novos dados de "FUNDEB", onde são apresentados os recursos
-                destinados e recebidos pelos municípios e Estado
+                Novos dados de &quot;FUNDEB&quot;, onde são apresentados os
+                recursos destinados e recebidos pelos municípios e Estado
               </li>
               <li>
                 Modernização da interface para melhor compatibilidade com
@@ -886,15 +886,15 @@ export default function UltimasNovidadesSection(props: Props) {
                   href="/compararMunicipio/2021"
                   title="Comparação de Municípios"
                 >
-                  "Comparação entre municípios"
+                  &quot;Comparação entre municípios&quot;
                 </Link>
               </li>
               <li>
-                Dados de envio de remessa de "
+                Dados de envio de remessa de &quot;
                 <Link href="/obrigacaoEnvio/2020/municipios">
                   Folha de pagamento
                 </Link>
-                "
+                &quot;
               </li>
             </ul>
           </div>
@@ -909,15 +909,15 @@ export default function UltimasNovidadesSection(props: Props) {
                   href="/prestacaoConta/2017/municipios/Governo/07"
                   title="Prestações de Contas Anuais"
                 >
-                  "Prestações de Contas Anuais"
+                  &quot;Prestações de Contas Anuais&quot;
                 </Link>
               </li>
               <li>
-                Ranking de "
+                Ranking de &quot;
                 <Link href="/rankings/2020/municipios/educacao-educacaoPorAplicacaoFUNDEB">
                   Aplicação do FUNDEB
                 </Link>
-                "
+                &quot;
               </li>
             </ul>
           </div>
@@ -958,11 +958,11 @@ export default function UltimasNovidadesSection(props: Props) {
                   title="Obrigações junto ao TCE-ES"
                   href="/obrigacaoEnvio/2018/municipios"
                 >
-                  "Obrigações junto ao TCEES"
+                  &quot;Obrigações junto ao TCEES&quot;
                 </Link>
               </li>
               <li>
-                Nova aba "Leis de Orçamento" com opção de download dos
+                Nova aba &quot;Leis de Orçamento&quot; com opção de download dos
                 documentos referentes ao planejamento orçamentário (PPA, LOA e
                 LDO)
               </li>
@@ -1044,24 +1044,24 @@ export default function UltimasNovidadesSection(props: Props) {
                 </Link>
               </li>
               <li>
-                Ranking de "
+                Ranking de &quot;
                 <Link
                   ng-href="./rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
                   href="./rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
                 >
                   Receitas Arrecadadas x Despesas Liquidadas
                 </Link>
-                "
+                &quot;
               </li>
               <li>
-                Ranking de "
+                Ranking de &quot;
                 <Link
                   ng-href="./rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
                   href="./rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
                 >
                   Despesas Liquidadas x Despesas Pagas
                 </Link>
-                "
+                &quot;
               </li>
               <li>
                 Painel de Controle de

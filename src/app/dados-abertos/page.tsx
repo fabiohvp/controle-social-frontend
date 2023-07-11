@@ -208,12 +208,12 @@ export default function Page() {
             </ul>
           </section>
           <section>
-            <h4 className="mb-1">Plataforma "Dados ES"</h4>
+            <h4 className="mb-1">Plataforma &quot;Dados ES&quot;</h4>
             <p>
               Para gerar comodidade aos cidadãos o TCEES publica seus dados
               abertos na plataforma
               <Link href="http://dados.es.gov.br/" target="_blank">
-                "Dados ES"
+                &quot;Dados ES&quot;
               </Link>
               . Trata-se de uma iniciativa do Governo do Estado com o objetivo
               de concentrar e facilitar o acesso a dados sociais, econômicos e

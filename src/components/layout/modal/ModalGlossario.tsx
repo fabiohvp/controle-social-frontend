@@ -136,8 +136,8 @@ export default function ModalGlossario({ setShow, show }: ModalProps) {
         </p>
 
         <p style={{ textAlign: "justify" }}>
-          <strong>Per capita:</strong> expressão latina que significa "por
-          cabeça". No contexto do Painel de Controle é utilizado para se
+          <strong>Per capita:</strong> expressão latina que significa &quot;por
+          cabeça&quot;. No contexto do Painel de Controle é utilizado para se
           calcular valores associados ao cada habitante do município ou estado.
         </p>
 
