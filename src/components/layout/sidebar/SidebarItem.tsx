@@ -5,7 +5,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa6";
 import { SidebarList } from "./SidebarHelper";
 import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebar-constants";
-import { sidebarAnimating, sidebarOpen } from "./sidebar-state";
+import { sidebarOpen } from "./sidebar-state";
 
 //TODO: fix, obrigatorio href OU children
 type Props = {
@@ -73,9 +73,6 @@ type RenderProps = {
 };
 
 function Render(props: RenderProps) {
-  const [animating] = useAtom(sidebarAnimating);
-  const [open] = useAtom(sidebarOpen);
-
   return (
     <>
       <div className={ITEM_CLASS_NAMES} onClick={props.onClick}>

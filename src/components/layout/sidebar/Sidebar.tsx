@@ -7,7 +7,7 @@ import {
   CLASS_CLOSED_WIDTH,
   CLASS_OPENED_WIDTH,
 } from "./sidebar-constants";
-import { sidebarAnimating, sidebarOpen } from "./sidebar-state";
+import { sidebarOpen } from "./sidebar-state";
 
 type Props = {
   children: ReactNode;
@@ -16,7 +16,6 @@ type Props = {
 };
 
 export default function Sidebar(props: Props) {
-  const [animating, setAnimating] = useAtom(sidebarAnimating);
   const [open, setOpen] = useAtom(sidebarOpen);
   const [hovering, setHovering] = useState(false);
   const [width, setWidth] = useState(getWidth(open));
@@ -39,10 +38,6 @@ export default function Sidebar(props: Props) {
     setHovering(false);
   }
 
-  function onTransitionEnd(_: React.TransitionEvent<HTMLUListElement>) {
-    setAnimating(false);
-  }
-
   return (
     <SidebarList
       className={`bg-blue-menu h-screen overflow-y-auto py-1 text-white ${width} ${
@@ -54,7 +49,6 @@ export default function Sidebar(props: Props) {
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onTransitionEnd={onTransitionEnd}
     >
       {props.children}
     </SidebarList>
