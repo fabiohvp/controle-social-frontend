@@ -35,7 +35,7 @@ export default function ComparativosSection(props: Props) {
               width={840}
             />
           </Link>
-          <Link href="">
+          <Link href="rankings/2023/municipios/receita-receita-arrecadada">
             <p className="carousel-title">Também temos rankings temáticos</p>
             <Image
               src="/banners/comparativo-ranking-tematicos.png"

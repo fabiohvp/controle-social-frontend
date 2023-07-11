@@ -1,4 +1,4 @@
-import PanelWithTitle from "@/components/layout/panel/PanelWithTitle";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
@@ -21,13 +21,10 @@ export async function ReceitasXDespesasPanel({
     return data;
   }
 
-  let loading = true;
   const data = await getData({ ano, municipio });
-  loading = false;
-
   return (
     <PanelWithTitle height={height} title="Receitas X Despesas">
-      <ReceitasXDespesasChart loading={loading} />
+      <ReceitasXDespesasChart {...data} />
     </PanelWithTitle>
   );
 }

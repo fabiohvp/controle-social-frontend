@@ -1,7 +1,7 @@
 "use client";
 import HamburguerButton from "@/components/buttons/hambuguer/HamburguerButton";
 import { useAtom } from "jotai";
-import { sidebarOpen } from "../sidebar/sidebar-state";
+import { sidebarOpen } from "../../sidebar/sidebar-state";
 
 export default function DashboardSidebarButton() {
   const [, setSidebarOpen] = useAtom(sidebarOpen);

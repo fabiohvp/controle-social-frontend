@@ -2,12 +2,12 @@ import DashboardFooter from "@/components/layout/dashboard/DashboardFooter";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
 import DashboardHeaderMenu from "@/components/layout/dashboard/DashboardHeaderMenu";
 import "@/components/layout/dashboard/dashboard-layout.css";
-import Sidebar from "@/components/layout/sidebar/Sidebar";
+import Sidebar from "@/components/sidebar/Sidebar";
 import { ReactNode } from "react";
-import DropdownLinksAnos from "../_components/DropdownLinksAnos";
-import DropdownLinksMunicipios from "../_components/DropdownLinksMunicipios";
-import DropdownLinksRootPages from "../_components/DropdownLinksRootPages";
 import SidebarMunicipios from "../_components/SidebarMunicipios";
+import DropdownLinksAnos from "../_components/dropdowns/DropdownLinksAnos";
+import DropdownLinksMunicipios from "../_components/dropdowns/DropdownLinksMunicipios";
+import DropdownLinksRootPages from "../_components/dropdowns/DropdownLinksRootPages";
 import { MAX_HEIGHT_CONTENT } from "../municipio-constants";
 
 export default function MunicipioRootLayout({

@@ -1,4 +1,4 @@
-import PanelWithTitle from "@/components/layout/panel/PanelWithTitle";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Link from "next/link";
 import { FaUniversity } from "react-icons/fa";
 import { MunicipioPageProps } from "../MunicipioPageProps";

@@ -2,7 +2,7 @@
 import DropdownLinks from "@/components/dropdowns/links/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { municipioState } from "../municipio-state";
+import { municipioState } from "../../municipio-state";
 
 export default function DropdownLinksAnos() {
   const [state] = useAtom(municipioState);

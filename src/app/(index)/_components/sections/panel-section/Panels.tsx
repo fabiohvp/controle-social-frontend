@@ -1,4 +1,4 @@
-import Panel from "@/components/layout/panel/Panel";
+import Panel from "@/components/panel/Panel";
 import Image from "next/image";
 import Link from "next/link";
 import AREAS_TEMATICAS from "./areas-tematicas.json";
@@ -38,10 +38,10 @@ export default function Sections() {
                 {section.title}
               </h3>
               <div className="flex gap-2 mt-2">
-                {section.articles.map((article) => (
+                {section.articles.map((article, i) => (
                   <Link
                     href={article.href}
-                    key={article.href}
+                    key={i}
                     className="group flex flex-1 text-center"
                     title={article.title}
                   >

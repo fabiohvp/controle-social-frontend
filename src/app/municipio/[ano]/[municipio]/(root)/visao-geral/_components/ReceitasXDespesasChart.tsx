@@ -1,5 +1,7 @@
 "use client";
 import { EChart } from "@/components/charts/EChart";
+import { formatCurrency } from "@/formatters/number";
+import { COLOR } from "@/theme/colors";
 import { BarChart } from "echarts/charts";
 import {
   DatasetComponent,
@@ -9,12 +11,22 @@ import {
 import { CanvasRenderer } from "echarts/renderers";
 
 type Props = {
-  loading: boolean;
+  despesa: {
+    empenhada: number;
+    previsaoInicial: number;
+    liquidada: number;
+    paga: number;
+  };
+  receita: {
+    arrecadada: number;
+    previsaoInicial: number;
+  };
 };
 
 export default function ReceitasXDespesasChart(props: Props) {
   return (
     <EChart
+      style={{ height: "130px" }}
       components={[
         DatasetComponent,
         GridComponent,
@@ -22,46 +34,63 @@ export default function ReceitasXDespesasChart(props: Props) {
         BarChart,
         CanvasRenderer,
       ]}
-      loading={props.loading}
       option={{
-        dataset: {
-          source: [
-            ["score", "amount", "product"],
-            [89.3, 58212, "Matcha Latte"],
-            [57.1, 78254, "Milk Tea"],
-            [74.4, 41032, "Cheese Cocoa"],
-            [50.1, 12755, "Cheese Brownie"],
-            [89.7, 20145, "Matcha Cocoa"],
-            [68.1, 79146, "Tea"],
-            [19.6, 91852, "Orange Juice"],
-            [10.6, 101852, "Lemon Juice"],
-            [32.7, 20112, "Walnut Brownie"],
-          ],
+        grid: {
+          bottom: 0,
+          left: 120,
+          right: 20,
+          top: 10,
         },
-        grid: { containLabel: true },
-        xAxis: { name: "amount" },
-        yAxis: { type: "category" },
-        visualMap: {
-          orient: "horizontal",
-          left: "center",
-          min: 10,
-          max: 100,
-          text: ["High Score", "Low Score"],
-          // Map the score column to color
-          dimension: 0,
-          inRange: {
-            color: ["#65B581", "#FFCE34", "#FD665F"],
-          },
+        yAxis: {
+          axisLine: { show: false },
+          axisTick: { show: false },
+          type: "category",
+          data: [
+            "Receita prevista",
+            "Receita arrecadada",
+            "Despesa prevista",
+            "Despesa liquidada",
+          ].reverse(),
+        },
+        xAxis: {
+          splitLine: { show: false },
+          type: "value",
         },
         series: [
           {
-            type: "bar",
-            encode: {
-              // Map the "amount" column to X axis.
-              x: "amount",
-              // Map the "product" column to Y axis
-              y: "product",
+            label: {
+              formatter: (d: any) => formatCurrency(d.value),
+              position: "right",
+              show: true,
+              valueAnimation: true,
             },
+            data: [
+              {
+                value: props.receita.previsaoInicial,
+                itemStyle: {
+                  color: COLOR.receita,
+                },
+              },
+              {
+                value: props.receita.arrecadada,
+                itemStyle: {
+                  color: COLOR.receita,
+                },
+              },
+              {
+                value: props.despesa.previsaoInicial,
+                itemStyle: {
+                  color: COLOR.despesa,
+                },
+              },
+              {
+                value: props.despesa.liquidada,
+                itemStyle: {
+                  color: COLOR.despesa,
+                },
+              },
+            ].reverse(),
+            type: "bar",
           },
         ],
       }}

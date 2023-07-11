@@ -1,5 +1,5 @@
 "use client";
-import SidebarItem from "@/components/layout/sidebar/SidebarItem";
+import SidebarItem from "@/components/sidebar/SidebarItem";
 import { useParams } from "next/navigation";
 import { FaUniversity } from "react-icons/fa";
 import {
