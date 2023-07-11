@@ -2,11 +2,12 @@
 import { useAtom } from "jotai";
 import { CSSProperties, ReactNode, useEffect, useState } from "react";
 import { SidebarList } from "./SidebarHelper";
-import { sidebarOpen } from "./sidebar-state";
-
-const ANIMATION_SPEED = "0.25s";
-const CLASS_CLOSED_WIDTH = "w-[50px]";
-const CLASS_OPENED_WIDTH = "w-[230px]";
+import {
+  ANIMATION_SPEED,
+  CLASS_CLOSED_WIDTH,
+  CLASS_OPENED_WIDTH,
+} from "./sidebar-constants";
+import { sidebarAnimating, sidebarOpen } from "./sidebar-state";
 
 type Props = {
   children: ReactNode;
@@ -15,21 +16,31 @@ type Props = {
 };
 
 export default function Sidebar(props: Props) {
-  const [open] = useAtom(sidebarOpen);
+  const [animating, setAnimating] = useAtom(sidebarAnimating);
+  const [open, setOpen] = useAtom(sidebarOpen);
+  const [hovering, setHovering] = useState(false);
   const [width, setWidth] = useState(getWidth(open));
 
   useEffect(() => {
     setWidth(getWidth(open));
   }, [open]);
 
+  useEffect(() => {
+    setOpen(hovering);
+  }, [hovering]);
+
   function onMouseEnter(_: React.MouseEvent<HTMLUListElement>) {
     if (open) return;
-    setWidth(CLASS_OPENED_WIDTH);
+    setHovering(true);
   }
 
   function onMouseLeave(_: React.MouseEvent<HTMLUListElement>) {
-    if (open) return;
-    setWidth(CLASS_CLOSED_WIDTH);
+    if (!hovering) return;
+    setHovering(false);
+  }
+
+  function onTransitionEnd(_: React.TransitionEvent<HTMLUListElement>) {
+    setAnimating(false);
   }
 
   return (
@@ -43,6 +54,7 @@ export default function Sidebar(props: Props) {
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onTransitionEnd={onTransitionEnd}
     >
       {props.children}
     </SidebarList>

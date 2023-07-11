@@ -1,10 +1,11 @@
 "use client";
+import { useAtom } from "jotai";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa6";
 import { SidebarList } from "./SidebarHelper";
-
-const ANIMATION_SPEED = "0.35s";
+import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebar-constants";
+import { sidebarAnimating, sidebarOpen } from "./sidebar-state";
 
 //TODO: fix, obrigatorio href OU children
 type Props = {
@@ -15,44 +16,43 @@ type Props = {
   tooltip: string;
 };
 
-const ITEM_CLASS_NAMES =
-  "basis-full flex items-center justify-between overflow-hidden text-white";
+const ITEM_CLASS_NAMES = `flex items-center justify-between text-white ${CLASS_OPENED_WIDTH}`;
 
 export default function SidebarItem(props: Props) {
-  const [open, setOpen] = useState(false);
+  const [open] = useAtom(sidebarOpen);
+  const [itemOpen, setItemOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) {
+      setItemOpen(false);
+    }
+  }, [open]);
   return (
     <>
       <li
         title={props.tooltip}
-        className={`cursor-pointer overflow-x-hidden hover:bg-gray-500`}
+        className={`cursor-pointer overflow-hidden hover:bg-gray-500`}
       >
         {props.href ? (
-          <Link href={props.href} className={ITEM_CLASS_NAMES}>
-            <Render icon={props.icon} open={open} text={props.text} />
+          <Link href={props.href}>
+            <Render icon={props.icon} itemOpen={itemOpen} text={props.text} />
           </Link>
         ) : (
-          <div
-            className={ITEM_CLASS_NAMES}
-            onClick={() => setOpen((open) => !open)}
-          >
-            <Render icon={props.icon} open={open} text={props.text} />
-            <div className="mr-2 text-xs">
-              <FaChevronUp
-                style={{
-                  transition: `all ${ANIMATION_SPEED}`,
-                  transform: `${open ? "rotate(180deg)" : ""}`,
-                }}
-              />
-            </div>
-          </div>
+          <Render
+            arrow
+            icon={props.icon}
+            itemOpen={itemOpen}
+            text={props.text}
+            onClick={() => setItemOpen((open) => !open)}
+          />
         )}
       </li>
       {props.children && (
         <SidebarList
           style={{
-            maxHeight: open ? "100%" : "0",
+            maxHeight: itemOpen ? "100%" : "0",
             transition: `max-height ${ANIMATION_SPEED} ease-${
-              open ? "in" : "out"
+              itemOpen ? "in" : "out"
             }`,
             overflow: "hidden",
           }}
@@ -65,21 +65,35 @@ export default function SidebarItem(props: Props) {
 }
 
 type RenderProps = {
+  arrow?: boolean;
   icon: ReactNode;
-  open: boolean;
+  itemOpen: boolean;
   text: string;
+  onClick?: () => void;
 };
 
 function Render(props: RenderProps) {
+  const [animating] = useAtom(sidebarAnimating);
+  const [open] = useAtom(sidebarOpen);
+
   return (
     <>
-      <div className="flex gap-2 items-center p-2">
-        <div className="flex h-6 items-center justify-center shrink-0 w-10">
-          {props.icon}&nbsp;
-        </div>
-        <div className="ml-1 overflow-hidden shrink-0 text-sm">
+      <div className={ITEM_CLASS_NAMES} onClick={props.onClick}>
+        <div className="flex gap-1 items-center p-2 text-sm">
+          <span className="flex items-center justify-center h-6 mr-2 shrink-0 w-8">
+            {props.icon}&nbsp;
+          </span>
           {props.text}
         </div>
+        {props.arrow && (
+          <FaChevronUp
+            className="mr-2 text-xs"
+            style={{
+              transition: `all ${ANIMATION_SPEED}`,
+              transform: `${props.itemOpen ? "rotate(180deg)" : ""}`,
+            }}
+          />
+        )}
       </div>
     </>
   );
