@@ -1,470 +1,548 @@
 [
   {
+    "codigo": "001",
+    "codigoIBGE": 3200102,
+    "habilitado": true,
     "nome": "Afonso Cláudio",
-    "codigo": 1,
-    "codigoSerpro": 5601,
     "nomeNormalizado": "afonso-claudio"
   },
   {
-    "nome": "Agua Doce Do Norte",
-    "codigo": 59,
-    "codigoSerpro": 5717,
+    "codigo": "002",
+    "codigoIBGE": 3200169,
+    "habilitado": true,
+    "nome": "Água Doce do Norte",
     "nomeNormalizado": "agua-doce-do-norte"
   },
   {
-    "nome": "Aguia Branca",
-    "codigo": 60,
-    "codigoSerpro": 5733,
+    "codigo": "003",
+    "codigoIBGE": 3200136,
+    "habilitado": true,
+    "nome": "Águia Branca",
     "nomeNormalizado": "aguia-branca"
   },
   {
+    "codigo": "004",
+    "codigoIBGE": 3200201,
+    "habilitado": true,
     "nome": "Alegre",
-    "codigo": 2,
-    "codigoSerpro": 5603,
     "nomeNormalizado": "alegre"
   },
   {
+    "codigo": "005",
+    "codigoIBGE": 3200300,
+    "habilitado": true,
     "nome": "Alfredo Chaves",
-    "codigo": 3,
-    "codigoSerpro": 5605,
     "nomeNormalizado": "alfredo-chaves"
   },
   {
+    "codigo": "006",
+    "codigoIBGE": 3200359,
+    "habilitado": true,
     "nome": "Alto Rio Novo",
-    "codigo": 61,
-    "codigoSerpro": 5719,
     "nomeNormalizado": "alto-rio-novo"
   },
   {
+    "codigo": "007",
+    "codigoIBGE": 3200409,
+    "habilitado": true,
     "nome": "Anchieta",
-    "codigo": 4,
-    "codigoSerpro": 5607,
     "nomeNormalizado": "anchieta"
   },
   {
-    "nome": "Apiaca",
-    "codigo": 5,
-    "codigoSerpro": 5609,
+    "codigo": "008",
+    "codigoIBGE": 3200508,
+    "habilitado": true,
+    "nome": "Apiacá",
     "nomeNormalizado": "apiaca"
   },
   {
+    "codigo": "009",
+    "codigoIBGE": 3200607,
+    "habilitado": true,
     "nome": "Aracruz",
-    "codigo": 6,
-    "codigoSerpro": 5611,
     "nomeNormalizado": "aracruz"
   },
   {
-    "nome": "Atilio Vivacqua",
-    "codigo": 7,
-    "codigoSerpro": 5613,
+    "codigo": "010",
+    "codigoIBGE": 3200706,
+    "habilitado": true,
+    "nome": "Atílio Vivácqua",
     "nomeNormalizado": "atilio-vivacqua"
   },
   {
+    "codigo": "011",
+    "codigoIBGE": 3200805,
+    "habilitado": true,
     "nome": "Baixo Guandu",
-    "codigo": 8,
-    "codigoSerpro": 5615,
     "nomeNormalizado": "baixo-guandu"
   },
   {
-    "nome": "Barra De Sao Francisco",
-    "codigo": 9,
-    "codigoSerpro": 5617,
+    "codigo": "012",
+    "codigoIBGE": 3200904,
+    "habilitado": true,
+    "nome": "Barra de São Francisco",
     "nomeNormalizado": "barra-de-sao-francisco"
   },
   {
-    "nome": "Boa Esperanca",
-    "codigo": 10,
-    "codigoSerpro": 5619,
+    "codigo": "013",
+    "codigoIBGE": 3201001,
+    "habilitado": true,
+    "nome": "Boa Esperança",
     "nomeNormalizado": "boa-esperanca"
   },
   {
-    "nome": "Bom Jesus Do Norte",
-    "codigo": 11,
-    "codigoSerpro": 5621,
+    "codigo": "014",
+    "codigoIBGE": 3201100,
+    "habilitado": true,
+    "nome": "Bom Jesus do Norte",
     "nomeNormalizado": "bom-jesus-do-norte"
   },
   {
+    "codigo": "015",
+    "codigoIBGE": 3201159,
+    "habilitado": true,
     "nome": "Brejetuba",
-    "codigo": 74,
-    "codigoSerpro": 758,
     "nomeNormalizado": "brejetuba"
   },
   {
-    "nome": "Cachoeiro De Itapemirim",
-    "codigo": 12,
-    "codigoSerpro": 5623,
+    "codigo": "016",
+    "codigoIBGE": 3201209,
+    "habilitado": true,
+    "nome": "Cachoeiro de Itapemirim",
     "nomeNormalizado": "cachoeiro-de-itapemirim"
   },
   {
+    "codigo": "017",
+    "codigoIBGE": 3201308,
+    "habilitado": true,
     "nome": "Cariacica",
-    "codigo": 13,
-    "codigoSerpro": 5625,
     "nomeNormalizado": "cariacica"
   },
   {
+    "codigo": "018",
+    "codigoIBGE": 3201407,
+    "habilitado": true,
     "nome": "Castelo",
-    "codigo": 14,
-    "codigoSerpro": 5627,
     "nomeNormalizado": "castelo"
   },
   {
+    "codigo": "019",
+    "codigoIBGE": 3201506,
+    "habilitado": true,
     "nome": "Colatina",
-    "codigo": 15,
-    "codigoSerpro": 5629,
     "nomeNormalizado": "colatina"
   },
   {
-    "nome": "Conceicao Da Barra",
-    "codigo": 16,
-    "codigoSerpro": 5631,
+    "codigo": "020",
+    "codigoIBGE": 3201605,
+    "habilitado": true,
+    "nome": "Conceição da Barra",
     "nomeNormalizado": "conceicao-da-barra"
   },
   {
-    "nome": "Conceicao Do Castelo",
-    "codigo": 17,
-    "codigoSerpro": 5633,
+    "codigo": "021",
+    "codigoIBGE": 3201704,
+    "habilitado": true,
+    "nome": "Conceição do Castelo",
     "nomeNormalizado": "conceicao-do-castelo"
   },
   {
-    "nome": "Divino De Sao Lourenco",
-    "codigo": 18,
-    "codigoSerpro": 5635,
+    "codigo": "022",
+    "codigoIBGE": 3201803,
+    "habilitado": true,
+    "nome": "Divino de São Lourenço",
     "nomeNormalizado": "divino-de-sao-lourenco"
   },
   {
+    "codigo": "023",
+    "codigoIBGE": 3201902,
+    "habilitado": true,
     "nome": "Domingos Martins",
-    "codigo": 19,
-    "codigoSerpro": 5637,
     "nomeNormalizado": "domingos-martins"
   },
   {
-    "nome": "Dores Do Rio Preto",
-    "codigo": 20,
-    "codigoSerpro": 5639,
+    "codigo": "024",
+    "codigoIBGE": 3202009,
+    "habilitado": true,
+    "nome": "Dores do Rio Preto",
     "nomeNormalizado": "dores-do-rio-preto"
   },
   {
+    "codigo": "025",
+    "codigoIBGE": 3202108,
+    "habilitado": true,
     "nome": "Ecoporanga",
-    "codigo": 21,
-    "codigoSerpro": 5641,
     "nomeNormalizado": "ecoporanga"
   },
   {
-    "nome": "Fundao",
-    "codigo": 22,
-    "codigoSerpro": 5643,
+    "codigo": "026",
+    "codigoIBGE": 3202207,
+    "habilitado": true,
+    "nome": "Fundão",
     "nomeNormalizado": "fundao"
   },
   {
-    "nome": "Governador Lindenberg",
-    "codigo": 80,
-    "codigoSerpro": 1114,
-    "nomeNormalizado": "governador-lindenberg"
-  },
-  {
-    "nome": "Guacui",
-    "codigo": 23,
-    "codigoSerpro": 5645,
+    "codigo": "027",
+    "codigoIBGE": 3202306,
+    "habilitado": true,
+    "nome": "Guaçuí",
     "nomeNormalizado": "guacui"
   },
   {
+    "codigo": "028",
+    "codigoIBGE": 3202405,
+    "habilitado": true,
     "nome": "Guarapari",
-    "codigo": 24,
-    "codigoSerpro": 5647,
     "nomeNormalizado": "guarapari"
   },
   {
+    "codigo": "078",
+    "codigoIBGE": 3202256,
+    "habilitado": true,
+    "nome": "Governador Lindenberg",
+    "nomeNormalizado": "governador-lindenberg"
+  },
+  {
+    "codigo": "029",
+    "codigoIBGE": 3202454,
+    "habilitado": true,
     "nome": "Ibatiba",
-    "codigo": 25,
-    "codigoSerpro": 5709,
     "nomeNormalizado": "ibatiba"
   },
   {
-    "nome": "Ibiracu",
-    "codigo": 26,
-    "codigoSerpro": 5649,
+    "codigo": "030",
+    "codigoIBGE": 3202504,
+    "habilitado": true,
+    "nome": "Ibiraçu",
     "nomeNormalizado": "ibiracu"
   },
   {
+    "codigo": "031",
+    "codigoIBGE": 3202553,
+    "habilitado": true,
     "nome": "Ibitirama",
-    "codigo": 62,
-    "codigoSerpro": 6011,
     "nomeNormalizado": "ibitirama"
   },
   {
+    "codigo": "032",
+    "codigoIBGE": 3202603,
+    "habilitado": true,
     "nome": "Iconha",
-    "codigo": 27,
-    "codigoSerpro": 5651,
     "nomeNormalizado": "iconha"
   },
   {
+    "codigo": "033",
+    "codigoIBGE": 3202652,
+    "habilitado": true,
     "nome": "Irupi",
-    "codigo": 68,
-    "codigoSerpro": 2931,
     "nomeNormalizado": "irupi"
   },
   {
-    "nome": "Itaguacu",
-    "codigo": 28,
-    "codigoSerpro": 5653,
+    "codigo": "034",
+    "codigoIBGE": 3202702,
+    "habilitado": true,
+    "nome": "Itaguaçu",
     "nomeNormalizado": "itaguacu"
   },
   {
+    "codigo": "035",
+    "codigoIBGE": 3202801,
+    "habilitado": true,
     "nome": "Itapemirim",
-    "codigo": 29,
-    "codigoSerpro": 5655,
     "nomeNormalizado": "itapemirim"
   },
   {
+    "codigo": "036",
+    "codigoIBGE": 3202900,
+    "habilitado": true,
     "nome": "Itarana",
-    "codigo": 30,
-    "codigoSerpro": 5657,
     "nomeNormalizado": "itarana"
   },
   {
-    "nome": "Iuna",
-    "codigo": 31,
-    "codigoSerpro": 5659,
+    "codigo": "037",
+    "codigoIBGE": 3203007,
+    "habilitado": true,
+    "nome": "Iúna",
     "nomeNormalizado": "iuna"
   },
   {
-    "nome": "Jaguare",
-    "codigo": 32,
-    "codigoSerpro": 5713,
+    "codigo": "038",
+    "codigoIBGE": 3203056,
+    "habilitado": true,
+    "nome": "Jaguaré",
     "nomeNormalizado": "jaguare"
   },
   {
-    "nome": "Jeronimo Monteiro",
-    "codigo": 33,
-    "codigoSerpro": 5661,
+    "codigo": "039",
+    "codigoIBGE": 3203106,
+    "habilitado": true,
+    "nome": "Jerônimo Monteiro",
     "nomeNormalizado": "jeronimo-monteiro"
   },
   {
-    "nome": "Joao Neiva",
-    "codigo": 63,
-    "codigoSerpro": 5721,
+    "codigo": "040",
+    "codigoIBGE": 3203130,
+    "habilitado": true,
+    "nome": "João Neiva",
     "nomeNormalizado": "joao-neiva"
   },
   {
-    "nome": "Laranja Da Terra",
-    "codigo": 64,
-    "codigoSerpro": 5723,
+    "codigo": "041",
+    "codigoIBGE": 3203163,
+    "habilitado": true,
+    "nome": "Laranja da Terra",
     "nomeNormalizado": "laranja-da-terra"
   },
   {
+    "codigo": "042",
+    "codigoIBGE": 3203205,
+    "habilitado": true,
     "nome": "Linhares",
-    "codigo": 34,
-    "codigoSerpro": 5663,
     "nomeNormalizado": "linhares"
   },
   {
-    "nome": "Mantenopolis",
-    "codigo": 35,
-    "codigoSerpro": 5665,
+    "codigo": "043",
+    "codigoIBGE": 3203304,
+    "habilitado": true,
+    "nome": "Mantenópolis",
     "nomeNormalizado": "mantenopolis"
   },
   {
-    "nome": "Marataizes",
-    "codigo": 75,
-    "codigoSerpro": 760,
+    "codigo": "044",
+    "codigoIBGE": 3203320,
+    "habilitado": true,
+    "nome": "Marataízes",
     "nomeNormalizado": "marataizes"
   },
   {
+    "codigo": "045",
+    "codigoIBGE": 3203346,
+    "habilitado": true,
     "nome": "Marechal Floriano",
-    "codigo": 69,
-    "codigoSerpro": 2929,
     "nomeNormalizado": "marechal-floriano"
   },
   {
-    "nome": "Marilandia",
-    "codigo": 36,
-    "codigoSerpro": 5707,
+    "codigo": "046",
+    "codigoIBGE": 3203353,
+    "habilitado": true,
+    "nome": "Marilândia",
     "nomeNormalizado": "marilandia"
   },
   {
-    "nome": "Mimoso Do Sul",
-    "codigo": 37,
-    "codigoSerpro": 5667,
+    "codigo": "047",
+    "codigoIBGE": 3203403,
+    "habilitado": true,
+    "nome": "Mimoso do Sul",
     "nomeNormalizado": "mimoso-do-sul"
   },
   {
+    "codigo": "048",
+    "codigoIBGE": 3203502,
+    "habilitado": true,
     "nome": "Montanha",
-    "codigo": 38,
-    "codigoSerpro": 5669,
     "nomeNormalizado": "montanha"
   },
   {
+    "codigo": "049",
+    "codigoIBGE": 3203601,
+    "habilitado": true,
     "nome": "Mucurici",
-    "codigo": 39,
-    "codigoSerpro": 5671,
     "nomeNormalizado": "mucurici"
   },
   {
+    "codigo": "050",
+    "codigoIBGE": 3203700,
+    "habilitado": true,
     "nome": "Muniz Freire",
-    "codigo": 40,
-    "codigoSerpro": 5673,
     "nomeNormalizado": "muniz-freire"
   },
   {
+    "codigo": "051",
+    "codigoIBGE": 3203809,
+    "habilitado": true,
     "nome": "Muqui",
-    "codigo": 41,
-    "codigoSerpro": 5675,
     "nomeNormalizado": "muqui"
   },
   {
-    "nome": "Nova Venecia",
-    "codigo": 42,
-    "codigoSerpro": 5677,
+    "codigo": "052",
+    "codigoIBGE": 3203908,
+    "habilitado": true,
+    "nome": "Nova Venécia",
     "nomeNormalizado": "nova-venecia"
   },
   {
+    "codigo": "053",
+    "codigoIBGE": 3204005,
+    "habilitado": true,
     "nome": "Pancas",
-    "codigo": 43,
-    "codigoSerpro": 5679,
     "nomeNormalizado": "pancas"
   },
   {
-    "nome": "Pedro Canario",
-    "codigo": 44,
-    "codigoSerpro": 5715,
+    "codigo": "054",
+    "codigoIBGE": 3204054,
+    "habilitado": true,
+    "nome": "Pedro Canário",
     "nomeNormalizado": "pedro-canario"
   },
   {
+    "codigo": "055",
+    "codigoIBGE": 3204104,
+    "habilitado": true,
     "nome": "Pinheiros",
-    "codigo": 45,
-    "codigoSerpro": 5681,
     "nomeNormalizado": "pinheiros"
   },
   {
-    "nome": "Piuma",
-    "codigo": 46,
-    "codigoSerpro": 5683,
+    "codigo": "056",
+    "codigoIBGE": 3204203,
+    "habilitado": true,
+    "nome": "Piúma",
     "nomeNormalizado": "piuma"
   },
   {
+    "codigo": "057",
+    "codigoIBGE": 3204252,
+    "habilitado": true,
     "nome": "Ponto Belo",
-    "codigo": 76,
-    "codigoSerpro": 762,
     "nomeNormalizado": "ponto-belo"
   },
   {
+    "codigo": "058",
+    "codigoIBGE": 3204302,
+    "habilitado": true,
     "nome": "Presidente Kennedy",
-    "codigo": 47,
-    "codigoSerpro": 5685,
     "nomeNormalizado": "presidente-kennedy"
   },
   {
+    "codigo": "059",
+    "codigoIBGE": 3204351,
+    "habilitado": true,
     "nome": "Rio Bananal",
-    "codigo": 48,
-    "codigoSerpro": 5711,
     "nomeNormalizado": "rio-bananal"
   },
   {
-    "nome": "Rio Novo Do Sul",
-    "codigo": 49,
-    "codigoSerpro": 5687,
+    "codigo": "060",
+    "codigoIBGE": 3204401,
+    "habilitado": true,
+    "nome": "Rio Novo do Sul",
     "nomeNormalizado": "rio-novo-do-sul"
   },
   {
+    "codigo": "061",
+    "codigoIBGE": 3204500,
+    "habilitado": true,
     "nome": "Santa Leopoldina",
-    "codigo": 50,
-    "codigoSerpro": 5689,
     "nomeNormalizado": "santa-leopoldina"
   },
   {
-    "nome": "Santa Maria De Jetiba",
-    "codigo": 65,
-    "codigoSerpro": 5725,
+    "codigo": "062",
+    "codigoIBGE": 3204559,
+    "habilitado": true,
+    "nome": "Santa Maria de Jetibá",
     "nomeNormalizado": "santa-maria-de-jetiba"
   },
   {
+    "codigo": "063",
+    "codigoIBGE": 3204609,
+    "habilitado": true,
     "nome": "Santa Teresa",
-    "codigo": 51,
-    "codigoSerpro": 5691,
     "nomeNormalizado": "santa-teresa"
   },
   {
-    "nome": "Sao Domingos Do Norte",
-    "codigo": 70,
-    "codigoSerpro": 2933,
+    "codigo": "064",
+    "codigoIBGE": 3204658,
+    "habilitado": true,
+    "nome": "São Domingos do Norte",
     "nomeNormalizado": "sao-domingos-do-norte"
   },
   {
-    "nome": "Sao Gabriel Da Palha",
-    "codigo": 52,
-    "codigoSerpro": 5693,
+    "codigo": "065",
+    "codigoIBGE": 3204708,
+    "habilitado": true,
+    "nome": "São Gabriel da Palha",
     "nomeNormalizado": "sao-gabriel-da-palha"
   },
   {
-    "nome": "Sao Jose Do Calcado",
-    "codigo": 53,
-    "codigoSerpro": 5695,
+    "codigo": "066",
+    "codigoIBGE": 3204807,
+    "habilitado": true,
+    "nome": "São José do Calçado",
     "nomeNormalizado": "sao-jose-do-calcado"
   },
   {
-    "nome": "Sao Mateus",
-    "codigo": 54,
-    "codigoSerpro": 5697,
+    "codigo": "067",
+    "codigoIBGE": 3204906,
+    "habilitado": true,
+    "nome": "São Mateus",
     "nomeNormalizado": "sao-mateus"
   },
   {
-    "nome": "Sao Roque Do Canaa",
-    "codigo": 77,
-    "codigoSerpro": 764,
+    "codigo": "068",
+    "codigoIBGE": 3204955,
+    "habilitado": true,
+    "nome": "São Roque do Canaã",
     "nomeNormalizado": "sao-roque-do-canaa"
   },
   {
+    "codigo": "069",
+    "codigoIBGE": 3205002,
+    "habilitado": true,
     "nome": "Serra",
-    "codigo": 55,
-    "codigoSerpro": 5699,
     "nomeNormalizado": "serra"
   },
   {
+    "codigo": "070",
+    "codigoIBGE": 3205010,
+    "habilitado": true,
     "nome": "Sooretama",
-    "codigo": 78,
-    "codigoSerpro": 766,
     "nomeNormalizado": "sooretama"
   },
   {
+    "codigo": "071",
+    "codigoIBGE": 3205036,
+    "habilitado": true,
     "nome": "Vargem Alta",
-    "codigo": 66,
-    "codigoSerpro": 5727,
     "nomeNormalizado": "vargem-alta"
   },
   {
-    "nome": "Venda Nova Do Imigrante",
-    "codigo": 67,
-    "codigoSerpro": 5729,
+    "codigo": "072",
+    "codigoIBGE": 3205069,
+    "habilitado": true,
+    "nome": "Venda Nova do Imigrante",
     "nomeNormalizado": "venda-nova-do-imigrante"
   },
   {
+    "codigo": "073",
+    "codigoIBGE": 3205101,
+    "habilitado": true,
     "nome": "Viana",
-    "codigo": 56,
-    "codigoSerpro": 5701,
     "nomeNormalizado": "viana"
   },
   {
-    "nome": "Vila Pavao",
-    "codigo": 71,
-    "codigoSerpro": 2935,
+    "codigo": "074",
+    "codigoIBGE": 3205150,
+    "habilitado": true,
+    "nome": "Vila Pavão",
     "nomeNormalizado": "vila-pavao"
   },
   {
-    "nome": "Vila Valerio",
-    "codigo": 79,
-    "codigoSerpro": 768,
+    "codigo": "075",
+    "codigoIBGE": 3205176,
+    "habilitado": true,
+    "nome": "Vila Valério",
     "nomeNormalizado": "vila-valerio"
   },
   {
+    "codigo": "076",
+    "codigoIBGE": 3205200,
+    "habilitado": true,
     "nome": "Vila Velha",
-    "codigo": 57,
-    "codigoSerpro": 5703,
     "nomeNormalizado": "vila-velha"
   },
   {
-    "nome": "Vitoria",
-    "codigo": 58,
-    "codigoSerpro": 5705,
+    "codigo": "077",
+    "codigoIBGE": 3205309,
+    "habilitado": true,
+    "nome": "Vitória",
     "nomeNormalizado": "vitoria"
   }
 ]

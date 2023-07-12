@@ -11,7 +11,7 @@ type Props = {
 
 export default function PanelWithTitle(props: Props) {
   return (
-    <section className={`${props.className ?? ""}`}>
+    <section>
       <h5
         className="bg-gray-header border font-normal px-2 py-1 rounded-t-md"
         style={props.style}
@@ -19,7 +19,9 @@ export default function PanelWithTitle(props: Props) {
         {props.title}
       </h5>
       <div
-        className="border-b border-x p-2 overflow-hidden rounded-b-md"
+        className={`border-b border-x p-2 overflow-hidden rounded-b-md ${
+          props.className ?? ""
+        }`}
         style={{ height: props.height ?? "60px" }}
       >
         {props.children}

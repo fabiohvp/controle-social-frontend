@@ -1,10 +1,10 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import ReceitasXDespesasChart from "../../../_components/charts/ReceitasXDespesasChart";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
   getCodigoMunicipio,
 } from "../../MunicipioPageProps";
-import ReceitasXDespesasChart from "../_components/ReceitasXDespesasChart";
 
 export async function ReceitasXDespesasPanel({
   height,
