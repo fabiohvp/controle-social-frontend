@@ -52,8 +52,8 @@ export default async function SituacaoPrestacaoConta({
         <span>{data[0].processo.relator}</span>
       </div>
       <div className="text-left">Responsáveis</div>
-      {data[0].processo.responsaveis.map((responsavel) => (
-        <div className="flex justify-between">
+      {data[0].processo.responsaveis.map((responsavel, index) => (
+        <div key={index} className="flex justify-between">
           <span className="capitalize">
             <BsArrowReturnRight className="inline ml-3 mr-1 text-xs" />
             {responsavel.nome.toLocaleLowerCase()}
