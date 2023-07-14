@@ -59,7 +59,10 @@ export async function FundoPrevidenciarioPanel({
       }
       title="Previdência - Fundo Previdenciário"
     >
-      <DoughnutChart {...CHART_SETTINGS} selectedValue={Math.abs(data.valor)} />
+      <DoughnutChart
+        {...CHART_SETTINGS}
+        selectedValue={Math.abs(data?.valor)}
+      />
     </PanelWithTitle>
   );
 }

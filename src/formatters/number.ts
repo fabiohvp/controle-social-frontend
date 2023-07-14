@@ -1,4 +1,7 @@
 export function formatCurrency(value: number, fractionDigits = 2) {
+  if (!value) {
+    value = 0;
+  }
   return value.toFixed(fractionDigits).replace(".", ",");
 }
 

@@ -37,7 +37,7 @@ export async function FundoFinanceiroPanel({
       }
       title="Previdência - Fundo Financeiro"
     >
-      <div className="font-bold text-3xl">{formatCurrency(data.valor)}</div>
+      <div className="font-bold text-3xl">{formatCurrency(data?.valor)}</div>
       <div className="text-sm">
         Necessidade de cobertura financeira nos próximos 75 anos
       </div>
