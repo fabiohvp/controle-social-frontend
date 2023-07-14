@@ -1,3 +1,5 @@
+const COLORS = require("./src/theme/colors");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      overlowing: {
+        initial: "initial",
+      },
       colors: {
         "gray-header": "#F8F8F8",
         "menu-active": "#E3E3E3",
@@ -15,15 +20,16 @@ module.exports = {
         "gray-medium": "#6b7280",
         "gray-dark": "#4b5563",
 
-        "blue-dark": "#082b54",
+        "blue-dark": "#556778",
         "blue-menu": "#364B60",
 
         link: "#5486b3",
-        negative: "#c0392b",
-        positive: "#27ae60",
+
+        ...COLORS,
       },
       width: {
         "menu-small": "50px",
+        "menu-ano": "90px",
       },
     },
   },

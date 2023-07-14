@@ -1,23 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GiHamburgerMenu } from "react-icons/gi";
 import HeaderFixedButtons from "../HeaderFixedButtons";
 
 export default function DashboardHeader() {
   return (
     <div className="flex justify-between px-2" style={{ height: 56 }}>
       <div className="flex items-center gap-3">
-        <Link href="/" className="relative" style={{ height: 37, width: 121 }}>
+        <div className="border center h-10 rounded-xs text-xl w-10 sm:hidden">
+          <GiHamburgerMenu />
+        </div>
+        <Link href="/" className="relative">
           <Image
             src="/logos/cidades.png"
             alt="CidadES"
-            layout="fill"
-            objectFit="contain"
+            objectFit="cover"
+            height={37}
+            width={121}
           />
           <div className="absolute top-8 right-0 text-gray-medium text-xs">
             5.2.10
           </div>
         </Link>
-        <ul className="dashboard-menu font-bold">
+        <ul className="dashboard-menu font-bold hidden xl:flex">
           <li className="px-3 active">Municípios</li>
           <li className="px-3">Estado</li>
           <li className="px-3">Obrigações</li>
@@ -28,7 +33,7 @@ export default function DashboardHeader() {
           <li className="px-3">Boletins</li>
         </ul>
       </div>
-      <HeaderFixedButtons />
+      <HeaderFixedButtons className="hidden md:flex" />
     </div>
   );
 }

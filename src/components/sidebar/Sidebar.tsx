@@ -40,7 +40,7 @@ export default function Sidebar(props: Props) {
 
   return (
     <SidebarList
-      className={`bg-blue-menu h-screen overflow-y-auto py-1 text-white ${width} ${
+      className={`bg-blue-menu h-screen overflow-y-auto py-1 text-white hidden md:block ${width} ${
         props.className ?? ""
       }`}
       style={{

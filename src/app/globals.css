@@ -56,20 +56,14 @@ ul.styled li {
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
+.grid-cols-responsive {
+  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
 }
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
+
+.center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .fa-receita svg:first-child {
@@ -80,4 +74,46 @@ ul.styled li {
 .fa-despesa svg:last-child {
   font-size: 0.6em;
   margin-left: -0.5em;
+}
+
+.overflow-initial {
+  overflow: initial;
+}
+
+@screen sm {
+  .container {
+    width: 750px;
+  }
+}
+
+@screen lg {
+  .container {
+    width: 970px;
+  }
+}
+
+@screen xl {
+  .container {
+    width: 1170px;
+  }
+
+  .grid-cols-responsive-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-responsive-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-responsive-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-cols-responsive-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-cols-responsive-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

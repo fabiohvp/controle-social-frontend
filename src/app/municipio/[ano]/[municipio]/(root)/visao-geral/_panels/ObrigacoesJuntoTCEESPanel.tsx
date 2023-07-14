@@ -7,45 +7,31 @@ import {
   MunicipioPanelProps,
   getCodigoMunicipio,
 } from "../../MunicipioPageProps";
+import "./visao-geral-panels.css";
+
+async function getData({ ano, municipio }: MunicipioPageProps) {
+  "use server";
+  const codigo = getCodigoMunicipio(municipio);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = await res.json();
+  return data as { [key: string]: boolean };
+}
 
 export async function ObrigacoesJuntoTCEESPanel({
-  height,
   ano,
   municipio,
+  style,
 }: MunicipioPanelProps) {
-  async function getData({ ano, municipio }: MunicipioPageProps) {
-    "use server";
-    const codigo = getCodigoMunicipio(municipio);
-    const res = await fetch(
-      `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-    );
-    const data = await res.json();
-    return data as { [key: string]: boolean };
-  }
-
   const data = await getData({ ano, municipio });
-  console.log(data);
+
   return (
     <PanelWithTitle
-      className="flex items-center justify-center gap-4"
-      height={height}
+      className="center gap-4"
+      style={style}
       title="Obrigações junto ao TCE-ES"
     >
-      <style>
-        {`
-				.municipio-obrigacao-envio-ano:not(:last-child)::after {
-					border-top: 1px solid #ccc;
-					content: '----';
-					height: 1px;
-					left: 50px;
-					overflow-y: hidden;
-					position: absolute;
-					top: 30px;
-					width: 30px;
-					z-index: -1;
-				}
-				`}
-      </style>
       <ul className="flex justify-center gap-4">
         {Object.keys(data).map((key) => (
           <li

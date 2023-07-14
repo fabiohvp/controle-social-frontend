@@ -16,7 +16,7 @@ export default function DashboardFooter() {
     <div className="flex justify-center mt-6 p-2">
       <div className="w-5/12">
         <hr />
-        <div className="flex items-center justify-center">
+        <div className="center">
           <footer className="p-2 text-link text-sm">
             {showNumerals && (
               <div className="flex justify-center gap-2 text-gray-medium">

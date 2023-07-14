@@ -11,6 +11,7 @@ export default function DropdownLinksAnos() {
 
   return (
     <DropdownLinks
+      className="w-menu-ano sm:w-auto"
       generateUrl={(item) =>
         `/municipio/${item.value}/${routeParams.municipio}/${segments}`
       }

@@ -1,11 +1,13 @@
+import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
+
 export default function Page({
   params,
 }: {
   params: { ano: number; municipio: string };
 }) {
   return (
-    <div>
+    <DashboardLayout>
       Prestação conta: {params.ano} {params.municipio}
-    </div>
+    </DashboardLayout>
   );
 }

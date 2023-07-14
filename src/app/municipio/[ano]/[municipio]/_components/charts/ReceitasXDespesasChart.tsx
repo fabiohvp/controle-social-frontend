@@ -1,6 +1,6 @@
 "use client";
 import { EChart } from "@/components/charts/EChart";
-import { formatCurrency } from "@/formatters/number";
+import { formatCurrencyKMB } from "@/formatters/number";
 import { COLOR } from "@/theme/colors";
 import { BarChart } from "echarts/charts";
 import {
@@ -38,7 +38,6 @@ export default function ReceitasXDespesasChart(props: Props) {
         grid: {
           bottom: 0,
           left: 120,
-          right: 20,
           top: 10,
         },
         yAxis: {
@@ -59,7 +58,7 @@ export default function ReceitasXDespesasChart(props: Props) {
         series: [
           {
             label: {
-              formatter: (d: any) => formatCurrency(d.value),
+              formatter: (d: any) => formatCurrencyKMB(d.value),
               position: "right",
               show: true,
               valueAnimation: true,

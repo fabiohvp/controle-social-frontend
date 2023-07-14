@@ -11,9 +11,7 @@ type Props = {
 export default function ServicosIASection(props: Props) {
   return (
     <div
-      className={`bg-neutral-100 flex flex-col items-center justify-center p-12 ${
-        props.className ?? ""
-      }`}
+      className={`bg-neutral-100 center flex-col p-12 ${props.className ?? ""}`}
     >
       <p className="carousel-title">Serviços de inteligência artificial</p>
       <div className="border border-gray-400 rounded h-[295px]">

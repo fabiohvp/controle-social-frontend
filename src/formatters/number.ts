@@ -1,4 +1,8 @@
-export function formatCurrency(value: number) {
+export function formatCurrency(value: number, fractionDigits = 2) {
+  return value.toFixed(fractionDigits).replace(".", ",");
+}
+
+export function formatCurrencyKMB(value: number) {
   const stringValue = formatPositiveCurrencyValue(value);
 
   if (value < 0) {

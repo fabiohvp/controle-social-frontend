@@ -2,6 +2,7 @@
 import Loading from "@/components/loading/Loading";
 import { KeyValue } from "@/types/KeyValue";
 import {
+  CSSProperties,
   Key,
   ReactNode,
   RefObject,
@@ -24,13 +25,16 @@ type DropdownItem<T> = KeyValue<string, T> & {
 type Props<T extends Key> = {
   autoClose?: boolean;
   borderless?: boolean;
+  buttonClassName?: string;
   comparer?: (value?: T, selectedValue?: T) => boolean;
   className?: string;
   fit?: boolean;
   hideSearch?: boolean;
+  itemClassName?: string;
   items: DropdownItem<T>[];
   loading?: boolean;
   selectedValue?: T;
+  style?: CSSProperties;
 };
 
 export default function Dropdown<T extends Key>(props: Props<T>) {
@@ -122,15 +126,23 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
 
   if (props.loading) return <Loading />;
   return (
-    <div ref={element} className={`dropdown relative`}>
+    <div
+      ref={element}
+      className={`dropdown relative ${props.className ?? ""}`}
+      style={props.style}
+    >
       <button
-        className={`button flex items-center h-full w-full ${
+        className={`button flex h-full items-center px-2 w-full ${
           props.borderless ? "border-none" : ""
-        } ${props.className ?? ""}`}
+        } ${props.buttonClassName ?? ""}`}
         onClick={onButtonClick}
       >
-        <span className="flex items-center gap-1">
-          <span>
+        <span className="flex items-center gap-1 overflow-hidden">
+          <span
+            className={`overflow-hidden text-ellipsis ${
+              props.itemClassName ?? ""
+            }`}
+          >
             {
               props.items.find((item) =>
                 comparer(item.value, props.selectedValue)

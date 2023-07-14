@@ -10,11 +10,7 @@ type Props = {
 
 export default function ComparativosSection(props: Props) {
   return (
-    <div
-      className={`flex flex-col items-center justify-center p-12 ${
-        props.className ?? ""
-      }`}
-    >
+    <div className={`center flex-col p-12 ${props.className ?? ""}`}>
       <div className="border border-gray-400 rounded h-[380px]">
         <Carousel width={840} showThumbs={false}>
           <Link href="/projecao" className="h-full w-full block">

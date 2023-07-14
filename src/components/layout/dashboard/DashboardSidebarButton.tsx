@@ -8,7 +8,7 @@ export default function DashboardSidebarButton() {
 
   return (
     <div
-      className="bg-blue-menu cursor-pointer flex h-full items-center justify-center w-menu-small hover:opacity-90"
+      className="bg-blue-menu cursor-pointer h-full hidden items-center justify-center w-menu-small hover:opacity-90 md:flex"
       onClick={() => setSidebarOpen((o) => !o)}
     >
       <HamburguerButton />

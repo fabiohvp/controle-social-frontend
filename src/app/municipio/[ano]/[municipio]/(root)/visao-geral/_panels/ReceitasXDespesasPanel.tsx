@@ -6,24 +6,25 @@ import {
   getCodigoMunicipio,
 } from "../../MunicipioPageProps";
 
+async function getData({ ano, municipio }: MunicipioPageProps) {
+  "use server";
+  const codigo = getCodigoMunicipio(municipio);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = await res.json();
+  return data;
+}
+
 export async function ReceitasXDespesasPanel({
-  height,
   ano,
   municipio,
+  style,
 }: MunicipioPanelProps) {
-  async function getData({ ano, municipio }: MunicipioPageProps) {
-    "use server";
-    const codigo = getCodigoMunicipio(municipio);
-    const res = await fetch(
-      `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-    );
-    const data = await res.json();
-    return data;
-  }
-
   const data = await getData({ ano, municipio });
+
   return (
-    <PanelWithTitle height={height} title="Receitas X Despesas">
+    <PanelWithTitle style={style} title="Receitas X Despesas">
       <ReceitasXDespesasChart {...data} />
     </PanelWithTitle>
   );

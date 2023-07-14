@@ -25,12 +25,12 @@ export default function ArrecadacaoSection(props: Props) {
           <div className="self-end">Municípios</div>
 
           <div>Receitas</div>
-          <div className="text-positive value">24.0B</div>
-          <div className="text-positive value">24.0B</div>
+          <div className="text-positivo value">24.0B</div>
+          <div className="text-positivo value">24.0B</div>
 
           <div>Despesas</div>
-          <div className="text-negative value">21.5B</div>
-          <div className="text-negative value">17.9B</div>
+          <div className="text-negativo value">21.5B</div>
+          <div className="text-negativo value">17.9B</div>
         </div>
       </div>
       <div className="max-w-[96rem] relative">

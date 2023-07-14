@@ -39,11 +39,7 @@ const carouselItems: CarouselItem[] = [
 
 export default function ConhecaFerramentaSection(props: Props) {
   return (
-    <div
-      className={`bg-neutral-100 flex items-center justify-center p-12 ${
-        props.className ?? ""
-      }`}
-    >
+    <div className={`bg-neutral-100 center p-12 ${props.className ?? ""}`}>
       <Carousel showThumbs={false} width={840}>
         {carouselItems.map((carouselItem) => (
           <div key={carouselItem.videoId}>

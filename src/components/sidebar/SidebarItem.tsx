@@ -77,7 +77,7 @@ function Render(props: RenderProps) {
     <>
       <div className={ITEM_CLASS_NAMES} onClick={props.onClick}>
         <div className="flex gap-1 items-center p-2 text-sm">
-          <span className="flex items-center justify-center h-6 mr-2 shrink-0 w-8">
+          <span className="center h-6 mr-2 shrink-0 w-8">
             {props.icon}&nbsp;
           </span>
           {props.text}
