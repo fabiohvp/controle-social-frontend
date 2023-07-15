@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
+import MunicipioGestaoOrcamentariaSubmenuItems from "../../gestao-orcamentaria/MunicipioGestaoOrcamentariaSubmenuItems";
 
 export default function Page({
   params,
@@ -7,7 +7,7 @@ export default function Page({
   params: { ano: number; municipio: string };
 }) {
   return (
-    <DashboardLayout exibirBotaoIPCA menuItems={MunicipioSubmenuItems}>
+    <DashboardLayout menuItems={MunicipioGestaoOrcamentariaSubmenuItems}>
       Obrigação Envio: {params.ano} {params.municipio}
     </DashboardLayout>
   );

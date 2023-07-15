@@ -25,9 +25,6 @@ module.exports = {
 
         ...COLORS,
       },
-      width: {
-        "menu-small": "50px",
-      },
     },
   },
   plugins: [],

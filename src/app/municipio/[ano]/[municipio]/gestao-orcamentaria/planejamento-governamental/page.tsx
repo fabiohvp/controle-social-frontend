@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import MunicipioSubmenuItems from "../../(root)/MunicipioSubmenuItems";
+import MunicipioGestaoOrcamentariaSubmenuItems from "../MunicipioGestaoOrcamentariaSubmenuItems";
 
 export default function Page({
   params,
@@ -9,7 +9,7 @@ export default function Page({
   return (
     <DashboardLayout
       className="flex flex-col gap-2"
-      menuItems={MunicipioSubmenuItems}
+      menuItems={MunicipioGestaoOrcamentariaSubmenuItems}
     >
       Planejamento governamental: {params.ano} {params.municipio}
     </DashboardLayout>

@@ -1,6 +1,6 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import { MunicipioPageProps } from "../../MunicipioPageProps";
-import MunicipioGestaoOrcamentariaSubmenuItems from "../../gestao-orcamentaria/MunicipioGestaoOrcamentariaSubmenuItems";
+import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
 import { DespesaReceitaCorrentesPanel } from "./_panels/DespesaReceitaCorrentesPanel";
 import { EducacaoPanel } from "./_panels/EducacaoPanel";
 import { FundoFinanceiroPanel } from "./_panels/FundoFinanceiroPanel";
@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: MunicipioPageProps }) {
     <DashboardLayout
       className="flex flex-col gap-2"
       exibirBotaoIPCA
-      menuItems={MunicipioGestaoOrcamentariaSubmenuItems}
+      menuItems={MunicipioSubmenuItems}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">

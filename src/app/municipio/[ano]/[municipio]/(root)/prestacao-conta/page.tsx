@@ -1,4 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
+import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
 
 export default function Page({
   params,
@@ -6,7 +7,7 @@ export default function Page({
   params: { ano: number; municipio: string };
 }) {
   return (
-    <DashboardLayout>
+    <DashboardLayout menuItems={MunicipioSubmenuItems}>
       Prestação conta: {params.ano} {params.municipio}
     </DashboardLayout>
   );

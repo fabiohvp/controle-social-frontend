@@ -9,7 +9,6 @@ export default function Page({
   return (
     <DashboardLayout
       className="flex flex-col gap-2"
-      exibirBotaoIPCA
       menuItems={MunicipioGestaoFiscalSubmenuItems}
     >
       receita correnta liquida: {params.ano} {params.municipio}
