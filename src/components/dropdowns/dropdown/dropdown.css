@@ -3,13 +3,27 @@
 }
 
 .dropdown > .content {
+  left: 2vw;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  top: var(--dashboard-header-height);
+  width: 96vw;
   @apply bg-white;
+  @apply border;
+  @apply border-gray-200;
   @apply rounded;
+  @apply shadow-black;
   @apply shadow-md;
-  @apply top-0;
   @apply z-30;
+}
+
+@screen sm {
+  .dropdown > .content {
+    left: unset;
+    position: absolute;
+    top: unset;
+    width: unset;
+  }
 }
 
 .dropdown > .content > ul {

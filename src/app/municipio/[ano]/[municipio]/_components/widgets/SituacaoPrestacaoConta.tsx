@@ -3,7 +3,7 @@ import { FaHand } from "react-icons/fa6";
 import {
   MunicipioPageProps,
   getCodigoMunicipio,
-} from "../../(root)/MunicipioPageProps";
+} from "../../MunicipioPageProps";
 
 type Data = {
   chaveSeguranca: string;

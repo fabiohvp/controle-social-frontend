@@ -5,6 +5,7 @@
 .dashboard-menu > li {
   align-items: center;
   display: flex;
+  @apply min-w-0;
   @apply text-sm;
 }
 
@@ -15,5 +16,4 @@
 .dashboard-menu.submenu > li {
   @apply border-r;
   @apply border-r-gray-300;
-  @apply text-sm;
 }

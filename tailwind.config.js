@@ -1,3 +1,4 @@
+//https://tailwindcss.com/docs/configuration#referencing-in-java-script
 const COLORS = require("./src/theme/colors");
 
 /** @type {import('tailwindcss').Config} */
@@ -9,9 +10,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      overlowing: {
-        initial: "initial",
-      },
       colors: {
         "gray-header": "#F8F8F8",
         "menu-active": "#E3E3E3",
@@ -29,7 +27,6 @@ module.exports = {
       },
       width: {
         "menu-small": "50px",
-        "menu-ano": "90px",
       },
     },
   },

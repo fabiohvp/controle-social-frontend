@@ -14,7 +14,7 @@ export default function DashboardFooter() {
   const [showModalGlossario, setShowModalGlossario] = useState(false);
   return (
     <div className="flex justify-center mt-6 p-2">
-      <div className="w-5/12">
+      <div className="w-full sm:w-5/12">
         <hr />
         <div className="center">
           <footer className="p-2 text-link text-sm">

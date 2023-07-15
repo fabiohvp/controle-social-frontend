@@ -2,21 +2,13 @@ import DoughnutChart from "@/components/charts/DoughnutChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { COLOR } from "@/theme/colors";
+import { cache } from "react";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
   getCodigoMunicipio,
-} from "../../MunicipioPageProps";
+} from "../../../MunicipioPageProps";
 
-async function getData({ ano, municipio }: MunicipioPageProps) {
-  "use server";
-  const codigo = getCodigoMunicipio(municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetIValorIndiceCobertura?codigoUnidadeGestora=${codigo}E0900002&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = await res.json();
-  return data as { [key: string]: number };
-}
 const CHART_SETTINGS = {
   items: [
     {
@@ -39,6 +31,15 @@ const CHART_SETTINGS = {
   title: "Solvência do RPPS",
 };
 
+const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
+  const codigo = getCodigoMunicipio(municipio);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetIValorIndiceCobertura?codigoUnidadeGestora=${codigo}E0900002&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = await res.json();
+  return data as { [key: string]: number };
+});
+
 export async function FundoPrevidenciarioPanel({
   ano,
   municipio,
@@ -50,11 +51,15 @@ export async function FundoPrevidenciarioPanel({
     <PanelWithTitle
       style={style}
       legend={
-        <LegendTooltip id="pessoal-consolidado-tooltip">
-          Solvência, em finanças e contabilidade, é o estado do devedor que
-          possui seu ativo maior do que o passivo, ou a sua capacidade de
-          cumprir os compromissos com os recursos que constituem seu patrimônio
-          ou seu ativo.
+        <LegendTooltip id="previdencia-fundo-previdenciario-tooltip">
+          Solvência, em finanças e contabilidade, é<br />
+          o estado do devedor que possui seu ativo
+          <br />
+          maior do que o passivo, ou a sua capacidade
+          <br />
+          de cumprir os compromissos com os recursos
+          <br />
+          que constituem seu patrimônio ou seu ativo.
         </LegendTooltip>
       }
       title="Previdência - Fundo Previdenciário"

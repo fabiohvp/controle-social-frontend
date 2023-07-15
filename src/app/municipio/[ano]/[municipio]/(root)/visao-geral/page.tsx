@@ -1,5 +1,7 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { MunicipioPageProps } from "../MunicipioPageProps";
+import { MunicipioPageProps } from "../../MunicipioPageProps";
+import MunicipioGestaoOrcamentariaSubmenuItems from "../../gestao-orcamentaria/MunicipioGestaoOrcamentariaSubmenuItems";
+import { DespesaReceitaCorrentesPanel } from "./_panels/DespesaReceitaCorrentesPanel";
 import { EducacaoPanel } from "./_panels/EducacaoPanel";
 import { FundoFinanceiroPanel } from "./_panels/FundoFinanceiroPanel";
 import { FundoPrevidenciarioPanel } from "./_panels/FundoPrevidenciarioPanel";
@@ -19,8 +21,9 @@ const DOUGHNUT_STYLE = { height: WIDGET_HEIGHT };
 export default async function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      className="flex flex-col gap-1 text-gray-dark"
+      className="flex flex-col gap-2"
       exibirBotaoIPCA
+      menuItems={MunicipioGestaoOrcamentariaSubmenuItems}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
@@ -42,6 +45,7 @@ export default async function Page({ params }: { params: MunicipioPageProps }) {
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
         <FundoPrevidenciarioPanel style={DOUGHNUT_STYLE} {...params} />
         <FundoFinanceiroPanel style={DOUGHNUT_STYLE} {...params} />
+        <DespesaReceitaCorrentesPanel style={DOUGHNUT_STYLE} {...params} />
       </div>
     </DashboardLayout>
   );

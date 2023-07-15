@@ -1,8 +1,8 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Link from "next/link";
 import { FaUniversity } from "react-icons/fa";
+import { MunicipioPanelProps } from "../../../MunicipioPageProps";
 import SituacaoPrestacaoConta from "../../../_components/widgets/SituacaoPrestacaoConta";
-import { MunicipioPanelProps } from "../../MunicipioPageProps";
 
 export async function PrestacaoContaPrefeituraPanel({
   ano,

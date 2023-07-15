@@ -27,6 +27,14 @@
     @apply font-semibold;
     @apply text-xs;
   }
+
+  .overflow-initial {
+    overflow: initial;
+  }
+}
+
+:root {
+  --dashboard-header-height: 98px;
 }
 
 body {
@@ -76,10 +84,6 @@ ul.styled li {
   margin-left: -0.5em;
 }
 
-.overflow-initial {
-  overflow: initial;
-}
-
 @screen sm {
   .container {
     width: 750px;
@@ -98,22 +102,22 @@ ul.styled li {
   }
 
   .grid-cols-responsive-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .grid-cols-responsive-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .grid-cols-responsive-4 {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .grid-cols-responsive-5 {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .grid-cols-responsive-6 {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }

@@ -2,21 +2,12 @@ import DoughnutChart from "@/components/charts/DoughnutChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { COLOR } from "@/theme/colors";
+import { cache } from "react";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
   getCodigoMunicipio,
-} from "../../MunicipioPageProps";
-
-async function getData({ ano, municipio }: MunicipioPageProps) {
-  "use server";
-  const codigo = getCodigoMunicipio(municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Saude/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = await res.json();
-  return data as { [key: string]: number };
-}
+} from "../../../MunicipioPageProps";
 const CHART_SETTINGS = {
   items: [
     {
@@ -33,6 +24,16 @@ const CHART_SETTINGS = {
   style: { height: "200px" },
   title: "Limite constitucional",
 };
+
+const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
+  "use server";
+  const codigo = getCodigoMunicipio(municipio);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Saude/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = await res.json();
+  return data as { [key: string]: number };
+});
 
 export async function SaudePanel({
   ano,
@@ -51,7 +52,8 @@ export async function SaudePanel({
           <br />
           15% da soma dos recursos de impostos e<br />
           transferências em ações e serviços
-          <br /> públicos de saúde.
+          <br />
+          públicos de saúde.
         </LegendTooltip>
       }
       title="Educação"

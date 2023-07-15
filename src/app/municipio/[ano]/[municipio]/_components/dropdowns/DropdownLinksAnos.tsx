@@ -4,14 +4,18 @@ import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
 import { municipioState } from "../../municipio-state";
 
-export default function DropdownLinksAnos() {
+type Props = {
+  minWidth: string;
+};
+
+export default function DropdownLinksAnos(props: Props) {
   const [state] = useAtom(municipioState);
   const routeParams = useParams();
   const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
 
   return (
     <DropdownLinks
-      className="w-menu-ano sm:w-auto"
+      className="menu-ano sm:!min-w-0"
       generateUrl={(item) =>
         `/municipio/${item.value}/${routeParams.municipio}/${segments}`
       }
@@ -20,6 +24,7 @@ export default function DropdownLinksAnos() {
         value: ano.toString(),
       }))}
       selectedValue={routeParams.ano}
+      style={{ minWidth: props.minWidth }}
     />
   );
 }

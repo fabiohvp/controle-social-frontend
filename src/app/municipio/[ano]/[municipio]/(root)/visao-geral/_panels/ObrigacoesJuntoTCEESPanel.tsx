@@ -6,7 +6,7 @@ import {
   MunicipioPageProps,
   MunicipioPanelProps,
   getCodigoMunicipio,
-} from "../../MunicipioPageProps";
+} from "../../../MunicipioPageProps";
 import "./visao-geral-panels.css";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {
@@ -32,7 +32,7 @@ export async function ObrigacoesJuntoTCEESPanel({
       style={style}
       title="Obrigações junto ao TCE-ES"
     >
-      <ul className="flex justify-center gap-4">
+      <ul className="flex justify-center gap-4 z-[-1]">
         {Object.keys(data).map((key) => (
           <li
             key={key}

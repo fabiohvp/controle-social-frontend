@@ -1,21 +1,21 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { formatCurrency } from "@/formatters/number";
+import { cache } from "react";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
   getCodigoMunicipio,
-} from "../../MunicipioPageProps";
+} from "../../../MunicipioPageProps";
 
-async function getData({ ano, municipio }: MunicipioPageProps) {
-  "use server";
+const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: number };
-}
+});
 
 export async function FundoFinanceiroPanel({
   ano,
@@ -29,9 +29,13 @@ export async function FundoFinanceiroPanel({
       className="center flex-col gap-4"
       style={style}
       legend={
-        <LegendTooltip id="pessoal-consolidado-tooltip">
-          Diferença negativa entre receitas e despesas previdenciárias,
-          revelando a necessidade de cobertura de insuficiência financeira por
+        <LegendTooltip id="previdencia-fundo-financeiro-tooltip">
+          Diferença negativa entre receitas e despesas
+          <br />
+          previdenciárias, revelando a necessidade de
+          <br />
+          cobertura de insuficiência financeira por
+          <br />
           meio de aporte financeiro do ente federativo.
         </LegendTooltip>
       }

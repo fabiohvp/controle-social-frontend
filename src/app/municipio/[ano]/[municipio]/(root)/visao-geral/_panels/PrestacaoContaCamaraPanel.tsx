@@ -1,8 +1,8 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Image from "next/image";
 import Link from "next/link";
+import { MunicipioPanelProps } from "../../../MunicipioPageProps";
 import SituacaoPrestacaoConta from "../../../_components/widgets/SituacaoPrestacaoConta";
-import { MunicipioPanelProps } from "../../MunicipioPageProps";
 
 export async function PrestacaoContaCamaraPanel({
   ano,

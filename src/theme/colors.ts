@@ -12,4 +12,5 @@ export const COLOR = {
   chartInfo: "#EFF170",
   chartNegativo: "#E68465",
   chartPositivo: "#556778",
+  chartMuitoPositivo: "#8BA2AD",
 };
