@@ -31,7 +31,7 @@ function DropdownMenu(
     <div ref={element} {...props}>
       <button className="center gap-1">
         <span>{icon}</span>
-        <span>{title}</span>
+        <span className="hover:text-link">{title}</span>
         {active ? <FaCaretUp /> : <FaCaretDown />}
       </button>
       {active && (
