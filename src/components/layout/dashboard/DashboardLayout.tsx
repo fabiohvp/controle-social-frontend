@@ -2,6 +2,7 @@ import SidebarMunicipios from "@/app/municipio/[ano]/[municipio]/_components/Sid
 import LoadingPage from "@/components/loading/LoadingPage";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { ElementType, ReactNode, Suspense } from "react";
+import { twMerge } from "tailwind-merge";
 import IpcaButton from "../ipca/IpcaButton";
 import DashboardFooter from "./DashboardFooter";
 import DashboardHeader from "./DashboardHeader";
@@ -40,9 +41,10 @@ export default function DashboardLayout(props: Props) {
           <SidebarMunicipios />
         </Sidebar>
         <div
-          className={`p-2 overflow-y-auto text-gray-dark ${
-            props.className ?? ""
-          }`}
+          className={twMerge(
+            "p-2 overflow-y-auto text-gray-dark",
+            props.className
+          )}
           style={{ height: MAX_HEIGHT_CONTENT }}
         >
           <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>

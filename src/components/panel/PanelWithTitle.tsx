@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   children: ReactNode;
@@ -16,9 +17,10 @@ export default function PanelWithTitle(props: Props) {
         <span className="float-right">{props.legend}</span>
       </h5>
       <div
-        className={`border-b border-x p-2 overflow-hidden rounded-b-md ${
-          props.className ?? ""
-        }`}
+        className={twMerge(
+          "border-b border-x p-2 overflow-hidden rounded-b-md",
+          props.className
+        )}
         style={props.style}
       >
         {props.children}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -9,9 +10,10 @@ export default function PrevidenciaSection(props: Props) {
   return (
     <Link
       href="/municipio/2023/colatina/previdencia/receita"
-      className={`bg-neutral-100 flex justify-center gap-20 p-12 ${
-        props.className ?? ""
-      }`}
+      className={twMerge(
+        "bg-neutral-100 flex justify-center gap-20 p-12",
+        props.className
+      )}
     >
       <Image
         src="/banners/previdencia.png"

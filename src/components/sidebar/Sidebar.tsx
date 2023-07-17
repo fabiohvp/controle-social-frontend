@@ -1,6 +1,7 @@
 "use client";
 import { useAtom } from "jotai";
 import { CSSProperties, ReactNode, useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { SidebarList } from "./SidebarHelper";
 import {
   ANIMATION_SPEED,
@@ -40,9 +41,10 @@ export default function Sidebar(props: Props) {
 
   return (
     <SidebarList
-      className={`bg-blue-menu h-screen overflow-y-auto py-1 text-white hidden md:block ${width} ${
-        props.className ?? ""
-      }`}
+      className={twMerge(
+        `bg-blue-menu h-screen overflow-y-auto py-1 text-white hidden md:block ${width}`,
+        props.className
+      )}
       style={{
         ...props.style,
         transition: `width ${ANIMATION_SPEED} ease-${open ? "in" : "out"}`,

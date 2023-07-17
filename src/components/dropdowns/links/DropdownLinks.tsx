@@ -1,6 +1,7 @@
 import { KeyValue } from "@/types/KeyValue";
 import Link from "next/link";
 import { CSSProperties, Key } from "react";
+import { twMerge } from "tailwind-merge";
 import Dropdown from "../dropdown/Dropdown";
 
 type Props<T extends Key> = {
@@ -17,9 +18,10 @@ export default function DropdownLinks<T extends Key>(props: Props<T>) {
     <Dropdown
       autoClose={false}
       buttonClassName="min-w-full"
-      className={`whitespace-nowrap overflow-hidden text-ellipsis sm:overflow-initial ${
-        props.className ?? ""
-      }`}
+      className={twMerge(
+        "whitespace-nowrap overflow-hidden text-ellipsis sm:overflow-initial",
+        props.className
+      )}
       comparer={props.comparer}
       items={props.items.map((item) => ({
         key: item.key,

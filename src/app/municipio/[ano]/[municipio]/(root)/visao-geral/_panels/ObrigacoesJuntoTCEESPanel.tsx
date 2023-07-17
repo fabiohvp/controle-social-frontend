@@ -10,7 +10,6 @@ import {
 import "./visao-geral-panels.css";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {
-  "use server";
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
@@ -32,11 +31,11 @@ export async function ObrigacoesJuntoTCEESPanel({
       style={style}
       title="Obrigações junto ao TCE-ES"
     >
-      <ul className="flex justify-center gap-4 z-[-1]">
+      <ul className="flex justify-center gap-4">
         {Object.keys(data).map((key) => (
           <li
             key={key}
-            className="municipio-obrigacao-envio-ano flex flex-col gap-2 relative"
+            className="municipio-obrigacao-envio-ano flex flex-col gap-2"
           >
             <Link href={`/municipio/${key}/${municipio}/obrigacao-envio`}>
               <FaCheckCircle

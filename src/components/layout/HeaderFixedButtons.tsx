@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaLock } from "react-icons/fa6";
+import { twMerge } from "tailwind-merge";
 import TCEESLogo from "../Images/Logos/TCEESLogo";
 
 type Props = {
@@ -10,9 +11,10 @@ export default function HeaderFixedButtons(props: Props) {
   return (
     <>
       <span
-        className={`flex items-center gap-3 text-blue-dark ${
-          props.className ?? ""
-        }`}
+        className={twMerge(
+          "flex items-center gap-3 text-blue-dark",
+          props.className
+        )}
       >
         <span className="flex gap-2 items-center font-bold text-sm">
           <FaLock />

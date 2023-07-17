@@ -27,7 +27,6 @@ const CHART_SETTINGS = {
 };
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  "use server";
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Educacao/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
