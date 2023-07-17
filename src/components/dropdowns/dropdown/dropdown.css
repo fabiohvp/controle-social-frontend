@@ -8,23 +8,3 @@
   @apply overflow-y-auto;
   @apply h-full;
 }
-
-.dropdown > .dropdown-modal > ul > li {
-  text-align: left;
-}
-
-.dropdown > .dropdown-modal > ul > li > * {
-  display: flex;
-  @apply p-1;
-  @apply text-black;
-}
-
-.dropdown > .dropdown-modal > ul > li:hover {
-  @apply bg-gray-200;
-}
-
-.dropdown > .dropdown-modal > ul > li.active,
-.dropdown > .dropdown-modal > ul > li.active > * {
-  @apply text-white;
-  @apply bg-sky-700;
-}

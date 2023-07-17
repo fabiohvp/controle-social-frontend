@@ -1,4 +1,4 @@
-import PainelControleLogo from "@/components/Images/Logos/PainelControleLogo";
+import PainelControleLogo from "@/components/images/logos/PainelControleLogo";
 import Loading from "@/components/loading/Loading";
 
 export default function LoadingPage() {

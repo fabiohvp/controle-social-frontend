@@ -30,7 +30,7 @@ export default function Page() {
         </PanelWithTitle>
       </div>
       <iframe
-        src="https://app.powerbi.com/view?r=eyJrIjoiMTVlYjRlNGYtMGJjYS00NDEzLThmN2ItY2I3YzU3ZmU4MWY4IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9&pageName=ReportSection"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZTA0ODc1NzYtOTczYy00MjY1LTkxMjYtODU1NWY3MzZmMTQyIiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full w-full"
         seamless
       />

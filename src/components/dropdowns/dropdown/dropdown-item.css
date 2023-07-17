@@ -1,0 +1,19 @@
+.dropdown-item {
+  text-align: left;
+}
+
+.dropdown-item > * {
+  display: flex;
+  @apply p-1;
+  @apply text-black;
+}
+
+.dropdown-item:hover {
+  @apply bg-gray-200;
+}
+
+.dropdown-item.active,
+.dropdown-item.active > * {
+  @apply text-white;
+  @apply bg-sky-700;
+}

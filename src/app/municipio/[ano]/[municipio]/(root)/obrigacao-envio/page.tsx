@@ -1,11 +1,8 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
+import { MunicipioPageProps } from "../../MunicipioPageProps";
 import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
 
-export default function Page({
-  params,
-}: {
-  params: { ano: number; municipio: string };
-}) {
+export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout menuItems={MunicipioSubmenuItems}>
       Obrigação Envio: {params.ano} {params.municipio}

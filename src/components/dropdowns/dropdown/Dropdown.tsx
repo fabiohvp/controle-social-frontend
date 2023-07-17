@@ -3,14 +3,15 @@ import DropdownModal from "@/components/layout/modal/DropdownModal";
 import Loading from "@/components/loading/Loading";
 import useClickOutside from "@/hooks/useClickOutside";
 import { KeyValue } from "@/types/KeyValue";
-import { CSSProperties, ReactNode, RefObject, useRef, useState } from "react";
+import { CSSProperties, ReactNode, useRef, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 import { dropdownDefaultComparer } from "../dropdown-comparers";
+import DropdownItem from "./DropdownItem";
 import "./dropdown.css";
 
 type DropdownItem<T> = KeyValue<ReactNode, T> & {
-  render: () => ReactNode;
+  render: (item: KeyValue<ReactNode, T>) => ReactNode;
 };
 
 type Props<T> = {
@@ -33,8 +34,8 @@ export default function Dropdown<T>(props: Props<T>) {
   const [visibleItems, setVisibleItems] = useState(props.items);
   const comparer = props.comparer ?? dropdownDefaultComparer;
 
-  let element: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-  let search: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
+  let element = useRef<HTMLDivElement>(null);
+  let search = useRef<HTMLInputElement>(null);
 
   useClickOutside({ element, toggle: setActive });
 
@@ -104,14 +105,14 @@ export default function Dropdown<T>(props: Props<T>) {
           )}
           <ul>
             {visibleItems.map((item, index) => (
-              <li
+              <DropdownItem
                 key={index}
                 className={`${
                   comparer(item.value, props.selectedValue) ? "active" : ""
                 }`}
               >
-                {item.render()}
-              </li>
+                {item.render(item)}
+              </DropdownItem>
             ))}
           </ul>
         </DropdownModal>

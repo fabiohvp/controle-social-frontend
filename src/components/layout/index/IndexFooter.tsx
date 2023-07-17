@@ -1,4 +1,4 @@
-import TCEESLogo from "@/components/Images/Logos/TCEESLogo";
+import TCEESLogo from "@/components/images/logos/TCEESLogo";
 import Link from "next/link";
 
 export default function IndexFooter() {

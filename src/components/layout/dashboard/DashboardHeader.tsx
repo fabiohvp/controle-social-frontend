@@ -1,7 +1,8 @@
-import PainelControleLogo from "@/components/Images/Logos/PainelControleLogo";
+import PainelControleLogo from "@/components/images/logos/PainelControleLogo";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import HeaderFixedButtons from "../HeaderFixedButtons";
+import DashboardHeaderItems from "./DashboardHeaderMenu";
 
 export default function DashboardHeader() {
   return (
@@ -16,16 +17,7 @@ export default function DashboardHeader() {
             5.2.10
           </div>
         </Link>
-        <ul className="dashboard-menu font-bold hidden xl:flex">
-          <li className="px-3 active">Municípios</li>
-          <li className="px-3">Estado</li>
-          <li className="px-3">Obrigações</li>
-          <li className="px-3">Prestações de contas</li>
-          <li className="px-3">Fiscalizações</li>
-          <li className="px-3">Áreas temáticas</li>
-          <li className="px-3">Inteligência artificial</li>
-          <li className="px-3">Boletins</li>
-        </ul>
+        <DashboardHeaderItems />
       </div>
       <HeaderFixedButtons className="hidden md:flex" />
     </div>

@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 import IpcaButton from "../ipca/IpcaButton";
 import DashboardFooter from "./DashboardFooter";
 import DashboardHeader from "./DashboardHeader";
-import DashboardHeaderMenu from "./DashboardHeaderMenu";
+import DashboardHeaderSubmenu from "./DashboardHeaderSubmenu";
 import { MAX_HEIGHT_CONTENT } from "./dashboard-constants";
 import "./dashboard-layout.css";
 
@@ -22,14 +22,14 @@ export default function DashboardLayout(props: Props) {
     <>
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">
         <DashboardHeader />
-        <DashboardHeaderMenu>
+        <DashboardHeaderSubmenu>
           <props.menuItems />
           {props.exibirBotaoIPCA && (
             <li className="basis-8 ml-auto px-1 sm:basis-auto">
               <IpcaButton />
             </li>
           )}
-        </DashboardHeaderMenu>
+        </DashboardHeaderSubmenu>
       </header>
       <main
         className="text-sky-700 md:grid overflow-hidden"
