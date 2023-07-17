@@ -1,7 +1,7 @@
+import TCEESLogo from "@/components/images/logos/TCEESLogo";
 import Link from "next/link";
 import { FaLock } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
-import TCEESLogo from "../images/logos/TCEESLogo";
 
 type Props = {
   className?: string;
