@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -9,7 +10,7 @@ export default function EstruturaAdministrativaSection(props: Props) {
   return (
     <Link
       href="/areas-tematicas/educacao/visao-geral"
-      className={`flex justify-center gap-20 p-12 ${props.className ?? ""}`}
+      className={twMerge("flex justify-center gap-20 p-12", props.className)}
     >
       <Image
         src="/banners/estrutura-administrativa.png"

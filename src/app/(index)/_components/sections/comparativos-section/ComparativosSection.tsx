@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -10,7 +11,7 @@ type Props = {
 
 export default function ComparativosSection(props: Props) {
   return (
-    <div className={`center flex-col p-12 ${props.className ?? ""}`}>
+    <div className={twMerge("center flex-col p-12", props.className)}>
       <div className="border border-gray-400 rounded h-[380px]">
         <Carousel width={840} showThumbs={false}>
           <Link href="/projecao" className="h-full w-full block">

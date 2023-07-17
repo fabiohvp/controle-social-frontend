@@ -1,7 +1,8 @@
 import SidebarMunicipios from "@/app/municipio/[ano]/[municipio]/_components/SidebarMunicipios";
+import LoadingPage from "@/components/loading/LoadingPage";
 import Sidebar from "@/components/sidebar/Sidebar";
-import { ElementType, ReactNode } from "react";
-import { FaCog } from "react-icons/fa";
+import { ElementType, ReactNode, Suspense } from "react";
+import IpcaButton from "../ipca/IpcaButton";
 import DashboardFooter from "./DashboardFooter";
 import DashboardHeader from "./DashboardHeader";
 import DashboardHeaderMenu from "./DashboardHeaderMenu";
@@ -21,16 +22,10 @@ export default function DashboardLayout(props: Props) {
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">
         <DashboardHeader />
         <DashboardHeaderMenu>
-          {<props.menuItems />}
+          <props.menuItems />
           {props.exibirBotaoIPCA && (
             <li className="basis-8 ml-auto px-1 sm:basis-auto">
-              <div className="hidden md:block">
-                <input type="checkbox" className="mr-1" />
-                Correção pelo IPCA
-              </div>
-              <div className="md:hidden">
-                <FaCog />
-              </div>
+              <IpcaButton />
             </li>
           )}
         </DashboardHeaderMenu>
@@ -50,7 +45,7 @@ export default function DashboardLayout(props: Props) {
           }`}
           style={{ height: MAX_HEIGHT_CONTENT }}
         >
-          {props.children}
+          <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>
           <DashboardFooter />
         </div>
       </main>

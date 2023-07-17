@@ -10,7 +10,7 @@ export default function ArrecadacaoSection(props: Props) {
   return (
     <Link
       href="/areas-tematicas/educacao/visao-geral"
-      className={` ${props.className ?? ""}`}
+      className={props.className}
     >
       <div className="flex justify-center gap-20 p-12 relative">
         <Image

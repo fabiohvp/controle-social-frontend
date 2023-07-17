@@ -1,5 +1,7 @@
 "use client";
 
+import CloseButton from "@/components/buttons/close/CloseButton";
+
 export type ModalProps = {
   setShow: (show: boolean) => void;
   show: boolean;
@@ -23,14 +25,7 @@ export default function Modal({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <header className="flex items-start justify-between py-2 px-3 border-b border-solid border-slate-200 rounded-t">
                   <h3>{header}</h3>
-                  <button
-                    className="p-1 ml-auto bg-transparent border-0 float-right leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShow(false)}
-                  >
-                    <span className="bg-transparent opacity-50 h-6 w-6 text-lg block outline-none focus:outline-none">
-                      x
-                    </span>
-                  </button>
+                  <CloseButton onClick={() => setShow(false)} />
                 </header>
                 <main className="relative p-3 flex-auto max-h-[65vh] overflow-y-auto">
                   {main}

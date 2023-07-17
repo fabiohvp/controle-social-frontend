@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaLock } from "react-icons/fa6";
+import TCEESLogo from "../Images/Logos/TCEESLogo";
 
 type Props = {
   className?: string;
@@ -25,13 +25,7 @@ export default function HeaderFixedButtons(props: Props) {
         </span>
 
         <Link href="https://www.tcees.tc.br/" target="_blank">
-          <Image
-            src="/logos/tcees.svg"
-            alt="Logo Tribunal de Contas do Estado do Espírito Santo"
-            height={60}
-            width={296}
-            priority
-          />
+          <TCEESLogo style={{ height: 60 }} />
         </Link>
       </span>
     </>

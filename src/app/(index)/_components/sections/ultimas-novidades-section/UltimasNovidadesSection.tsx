@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -7,7 +8,9 @@ type Props = {
 
 export default function UltimasNovidadesSection(props: Props) {
   return (
-    <div className={`flex justify-center gap-20 p-12 ${props.className ?? ""}`}>
+    <div
+      className={twMerge("flex justify-center gap-20 p-12", props.className)}
+    >
       <section className="max-w-xl">
         <h2 className="title-with-vertical-bar">Últimas novidades</h2>
         <div className="h-72 mt-8 overflow-y-auto text-gray-dark">

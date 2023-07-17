@@ -17,7 +17,7 @@ const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const data = await res.json();
   return {
     ...data,
-    valorApurado: parseFloat(data.valorApurado.replace(",", ".")),
+    valorApurado: parseFloat(data?.valorApurado.replace(",", ".")),
   } as {
     valorAlerta: number;
     valorApurado: number;

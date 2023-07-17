@@ -1,7 +1,7 @@
 "use client";
 import { EChartsOption, SetOptionOpts } from "echarts";
 import * as echarts from "echarts/core";
-import { CSSProperties, useEffect, useRef } from "react";
+import { CSSProperties, useCallback, useEffect, useState } from "react";
 import "./echart.css";
 
 type EChartComponent = (registers: any) => void;
@@ -23,47 +23,40 @@ export function EChart({
   settings,
   theme,
 }: EChartProps): JSX.Element {
-  let chart: echarts.ECharts | undefined;
-  const chartRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
+  const [chart, setChart] = useState<echarts.ECharts>();
+  const element = useCallback((element: HTMLDivElement) => {
     echarts.use(components);
-    // Initialize chart
-    if (chartRef.current !== null) {
-      chart = echarts.init(chartRef.current, theme);
-    }
 
-    // Add chart resize listener
-    // ResizeObserver is leading to a bit janky UX
-    function resizeChart() {
-      chart?.resize();
-    }
+    const chart = echarts.init(element, theme);
+    chart.setOption(option);
+    setChart(chart);
+
+    const resizeChart = () => {
+      chart.resize();
+    };
     window.addEventListener("resize", resizeChart);
 
-    // Return cleanup function
     return () => {
-      chart?.dispose();
       window.removeEventListener("resize", resizeChart);
+      chart.dispose();
     };
-  }, [theme]);
+  }, []);
 
   useEffect(() => {
-    // Update chart
-    if (chart !== undefined) {
-      chart.setOption(option, settings);
-    }
-  }, [option, settings, theme]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
+    chart?.setOption(option, settings);
+  }, [option, settings]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
 
   useEffect(() => {
-    // Update chart
-    if (chart !== undefined) {
-      loading === true ? chart.showLoading() : chart.hideLoading();
+    if (loading === true) {
+      chart?.showLoading();
+    } else {
+      chart?.hideLoading();
     }
-  }, [loading, theme]);
+  }, [loading]);
 
   return (
     <div
-      ref={chartRef}
+      ref={element}
       className="echart"
       style={{ width: "100%", height: "100%", ...style }}
     />

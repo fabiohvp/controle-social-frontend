@@ -2,7 +2,11 @@
 import { EChart } from "@/components/charts/EChart";
 import { mdc } from "@/shared/math";
 import { GaugeChart, PieChart } from "echarts/charts";
-import { LegendComponent, TooltipComponent } from "echarts/components";
+import {
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+} from "echarts/components";
 import { LabelLayout } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
 import { CSSProperties } from "react";
@@ -23,6 +27,7 @@ export default function DoughnutChart(props: DoughnutChartProps) {
     <EChart
       style={props.style}
       components={[
+        GridComponent,
         TooltipComponent,
         LegendComponent,
         PieChart,

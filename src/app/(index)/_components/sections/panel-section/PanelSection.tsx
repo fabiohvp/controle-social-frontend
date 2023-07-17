@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 import Panels from "./Panels";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 export default function PanelSection(props: Props) {
   return (
     <div
-      className={`grid ${props.className ?? ""}`}
+      className={twMerge("grid", props.className)}
       style={{ gridTemplateColumns: "70% 30%" }}
     >
       <div className="overflow-auto">

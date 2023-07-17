@@ -1,4 +1,4 @@
-import Image from "next/image";
+import TCEESLogo from "@/components/Images/Logos/TCEESLogo";
 import Link from "next/link";
 
 export default function IndexFooter() {
@@ -6,13 +6,7 @@ export default function IndexFooter() {
     <div className="container flex justify-around">
       <section className="flex flex-col gap-5">
         <Link href="https://www.tcees.tc.br" target="_blank">
-          <Image
-            src="/logos/tcees.svg"
-            alt="Logo Tribunal de Contas do Estado do Espírito Santo"
-            height={60}
-            width={296}
-            style={{ color: "white", fill: "white", stroke: "white" }}
-          />
+          <TCEESLogo fill="white" />
         </Link>
         <h3>
           Telefone geral: &nbsp;

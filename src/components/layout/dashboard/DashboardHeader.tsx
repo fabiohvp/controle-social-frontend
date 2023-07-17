@@ -1,4 +1,4 @@
-import Image from "next/image";
+import PainelControleLogo from "@/components/Images/Logos/PainelControleLogo";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import HeaderFixedButtons from "../HeaderFixedButtons";
@@ -11,13 +11,7 @@ export default function DashboardHeader() {
           <GiHamburgerMenu />
         </div>
         <Link href="/" className="relative">
-          <Image
-            src="/logos/cidades.png"
-            alt="CidadES"
-            objectFit="cover"
-            height={37}
-            width={121}
-          />
+          <PainelControleLogo />
           <div className="absolute top-8 right-0 text-gray-medium text-xs">
             5.2.10
           </div>

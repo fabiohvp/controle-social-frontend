@@ -11,7 +11,7 @@ type Props = {
 export function SidebarList(props: Props) {
   return (
     <ul
-      className={`${props.className ?? ""}`}
+      className={props.className}
       style={props.style}
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}

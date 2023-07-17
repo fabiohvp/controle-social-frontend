@@ -1,24 +1,19 @@
 "use client";
+import DropdownModal from "@/components/layout/modal/DropdownModal";
 import Loading from "@/components/loading/Loading";
+import useClickOutside from "@/hooks/useClickOutside";
 import { KeyValue } from "@/types/KeyValue";
-import {
-  CSSProperties,
-  Key,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { CSSProperties, ReactNode, RefObject, useRef, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
+import { twMerge } from "tailwind-merge";
 import { dropdownDefaultComparer } from "../dropdown-comparers";
 import "./dropdown.css";
 
-type DropdownItem<T> = KeyValue<string, T> & {
+type DropdownItem<T> = KeyValue<ReactNode, T> & {
   render: () => ReactNode;
 };
 
-type Props<T extends Key> = {
+type Props<T> = {
   autoClose?: boolean;
   borderless?: boolean;
   buttonClassName?: string;
@@ -33,7 +28,7 @@ type Props<T extends Key> = {
   style?: CSSProperties;
 };
 
-export default function Dropdown<T extends Key>(props: Props<T>) {
+export default function Dropdown<T>(props: Props<T>) {
   const [active, setActive] = useState(false);
   const [visibleItems, setVisibleItems] = useState(props.items);
   const comparer = props.comparer ?? dropdownDefaultComparer;
@@ -41,21 +36,7 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
   let element: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   let search: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    window.addEventListener("click", onWindowClick);
-    return () => {
-      window.removeEventListener("click", onWindowClick);
-    };
-  }, []);
-
-  function onWindowClick(event: MouseEvent) {
-    if (!element.current) return;
-    if (element.current.contains(event.target as Node)) {
-      setActive((active) => !active);
-    } else {
-      setActive(false);
-    }
-  }
+  useClickOutside({ element, toggle: setActive });
 
   function onItemClick(event: React.MouseEvent<HTMLElement>) {
     if (!search.current) return;
@@ -71,7 +52,7 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
 
     if (searchText) {
       const filteredItems = props.items.filter((o) =>
-        o.key
+        (o.key as string)
           .toLocaleLowerCase()
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
@@ -87,7 +68,7 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
   return (
     <div
       ref={element}
-      className={`dropdown relative ${props.className ?? ""}`}
+      className={twMerge("dropdown relative", props.className)}
       style={props.style}
     >
       <button
@@ -111,7 +92,7 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
         </span>
       </button>
       {active && (
-        <div className="content" onClick={onItemClick}>
+        <DropdownModal onClick={onItemClick}>
           {props.hideSearch !== true && (
             <input
               ref={search}
@@ -122,9 +103,9 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
             />
           )}
           <ul>
-            {visibleItems.map((item) => (
+            {visibleItems.map((item, index) => (
               <li
-                key={item.value}
+                key={index}
                 className={`${
                   comparer(item.value, props.selectedValue) ? "active" : ""
                 }`}
@@ -133,7 +114,7 @@ export default function Dropdown<T extends Key>(props: Props<T>) {
               </li>
             ))}
           </ul>
-        </div>
+        </DropdownModal>
       )}
     </div>
   );

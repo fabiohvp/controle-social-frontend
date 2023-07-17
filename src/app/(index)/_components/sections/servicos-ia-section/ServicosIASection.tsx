@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -11,7 +12,10 @@ type Props = {
 export default function ServicosIASection(props: Props) {
   return (
     <div
-      className={`bg-neutral-100 center flex-col p-12 ${props.className ?? ""}`}
+      className={twMerge(
+        "bg-neutral-100 center flex-col p-12",
+        props.className
+      )}
     >
       <p className="carousel-title">Serviços de inteligência artificial</p>
       <div className="border border-gray-400 rounded h-[295px]">

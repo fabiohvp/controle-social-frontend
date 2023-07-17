@@ -25,7 +25,7 @@ export async function ReceitasXDespesasPanel({
 
   return (
     <PanelWithTitle style={style} title="Receitas X Despesas">
-      <ReceitasXDespesasChart {...data} />
+      <ReceitasXDespesasChart ano={ano} municipio={municipio} {...data} />
     </PanelWithTitle>
   );
 }

@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   children: ReactNode;
@@ -9,7 +10,7 @@ type Props = {
 export default function Panel(props: Props) {
   return (
     <div
-      className={`rounded-md border p-[5px] ${props.className ?? ""}`}
+      className={twMerge("rounded-md border p-[5px]", props.className)}
       style={props.style}
     >
       {props.children}

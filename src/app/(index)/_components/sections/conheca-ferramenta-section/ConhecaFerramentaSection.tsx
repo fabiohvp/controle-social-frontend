@@ -1,6 +1,7 @@
 "use client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
@@ -39,7 +40,7 @@ const carouselItems: CarouselItem[] = [
 
 export default function ConhecaFerramentaSection(props: Props) {
   return (
-    <div className={`bg-neutral-100 center p-12 ${props.className ?? ""}`}>
+    <div className={twMerge("bg-neutral-100 center p-12", props.className)}>
       <Carousel showThumbs={false} width={840}>
         {carouselItems.map((carouselItem) => (
           <div key={carouselItem.videoId}>
