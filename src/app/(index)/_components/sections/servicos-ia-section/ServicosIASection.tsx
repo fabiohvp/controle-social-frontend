@@ -20,7 +20,7 @@ export default function ServicosIASection(props: Props) {
       <p className="carousel-title">Serviços de inteligência artificial</p>
       <div className="border border-gray-400 rounded h-[295px]">
         <Carousel width={840} showThumbs={false}>
-          <Link href="/projecao" className="h-full w-full block">
+          <Link href="/projecao" className="block">
             <Image
               src="/banners/projecao-pessoal.png"
               alt="Visualize quais serão os gastos com pessoal do Estado e municípios projetados pelas nossas ferramentas de inteligência artificial"
@@ -28,7 +28,7 @@ export default function ServicosIASection(props: Props) {
               width={840}
             />
           </Link>
-          <Link href="/obras">
+          <Link href="/obras" className="block">
             <Image
               src="/banners/obras-publicas.png"
               alt="Visualize quais serão os gastos com pessoal do Estado e municípios projetados pelas nossas ferramentas de inteligência artificial"
