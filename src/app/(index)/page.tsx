@@ -17,7 +17,7 @@ import ServicosIASection from "./_components/sections/servicos-ia-section/Servic
 import UltimasNovidadesSection from "./_components/sections/ultimas-novidades-section/UltimasNovidadesSection";
 import "./index.css";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <PanelSection className="px-8" />

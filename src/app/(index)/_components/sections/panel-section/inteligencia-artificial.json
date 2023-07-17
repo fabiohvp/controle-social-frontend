@@ -3,7 +3,7 @@
   "articles": [
     {
       "description": "Previsões sobre gastos com pessoal",
-      "href": "/estado/2023/visao-geral",
+      "href": "/projecao",
       "image": {
         "height": 50,
         "src": "/icones/projecao.png",
@@ -13,7 +13,7 @@
     },
     {
       "description": "Acompanhe o andamento e as eventuais paralisações",
-      "href": "/estado/2023/visao-geral",
+      "href": "/obras",
       "image": {
         "height": 50,
         "src": "/icones/obras-publicas.svg",
