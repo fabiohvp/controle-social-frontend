@@ -4,7 +4,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 import { FaCog } from "react-icons/fa";
-import DropdownModal from "../modal/DropdownModal";
+import DropdownModal from "../../dropdowns/dropdown/DropdownModal";
 
 const IpcaCheckbox = dynamic(() => import("./IpcaCheckbox"), { ssr: false });
 

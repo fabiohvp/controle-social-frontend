@@ -1,4 +1,4 @@
-import Image from "next/image";
+import MapaESChart from "@/components/charts/MapaESChart";
 import { twMerge } from "tailwind-merge";
 import Panels from "./Panels";
 
@@ -22,12 +22,13 @@ export default function PanelSection(props: Props) {
         </p>
       </div>
       <div className="flex justify-center">
-        <Image
+        <MapaESChart />
+        {/* <Image
           src="/mapa.png"
           alt="Mapa do Espírito Santo"
           height={650}
           width={379}
-        />
+        /> */}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import { EChart } from "@/components/charts/EChart";
+import EChart from "@/components/charts/EChart";
 import { mdc } from "@/shared/math";
 import { GaugeChart, PieChart } from "echarts/charts";
 import {
@@ -11,7 +11,7 @@ import { LabelLayout } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
 import { CSSProperties } from "react";
 
-export type DoughnutChartProps = {
+export type Props = {
   items: {
     color: string;
     title: string;
@@ -22,7 +22,7 @@ export type DoughnutChartProps = {
   title: string;
 };
 
-export default function DoughnutChart(props: DoughnutChartProps) {
+export default function DoughnutChart(props: Props) {
   return (
     <EChart
       style={props.style}
@@ -35,7 +35,7 @@ export default function DoughnutChart(props: DoughnutChartProps) {
         CanvasRenderer,
         LabelLayout,
       ]}
-      option={{
+      options={{
         grid: {
           bottom: 0,
           left: 20,

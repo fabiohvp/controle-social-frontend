@@ -1,5 +1,5 @@
 "use client";
-import DropdownModal from "@/components/layout/modal/DropdownModal";
+import DropdownModal from "@/components/dropdowns/dropdown/DropdownModal";
 import Loading from "@/components/loading/Loading";
 import useClickOutside from "@/hooks/useClickOutside";
 import { KeyValue } from "@/types/KeyValue";
@@ -103,7 +103,7 @@ export default function Dropdown<T>(props: Props<T>) {
               onKeyUp={onSearch}
             />
           )}
-          <ul>
+          <ul className="body">
             {visibleItems.map((item, index) => (
               <DropdownItem
                 key={index}

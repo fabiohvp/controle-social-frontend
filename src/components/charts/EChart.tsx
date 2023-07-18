@@ -1,34 +1,49 @@
 "use client";
 import { EChartsOption, SetOptionOpts } from "echarts";
 import * as echarts from "echarts/core";
-import { CSSProperties, useCallback, useEffect, useState } from "react";
+import {
+  CSSProperties,
+  HTMLAttributes,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+import { twMerge } from "tailwind-merge";
 import "./echart.css";
 
 type EChartComponent = (registers: any) => void;
 
-export interface EChartProps {
+type Props = {
+  className?: string;
   components: EChartComponent[];
-  option: EChartsOption;
+  options: EChartsOption;
   loading?: boolean;
   style?: CSSProperties;
   settings?: SetOptionOpts;
   theme?: "light" | "dark";
-}
 
-export function EChart({
+  onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
+} & HTMLAttributes<HTMLDivElement>;
+
+export default function EChart({
+  className,
   components,
-  option,
+  options,
   loading,
   style,
   settings,
   theme,
-}: EChartProps): JSX.Element {
-  const [chart, setChart] = useState<echarts.ECharts>();
+  onInit,
+  ...props
+}: Props) {
+  const [chart, setChart] = useState<echarts.EChartsType>();
   const element = useCallback((element: HTMLDivElement) => {
     echarts.use(components);
 
     const chart = echarts.init(element, theme);
-    chart.setOption(option);
+    onInit && onInit(chart, element);
+
+    chart.setOption(options);
     setChart(chart);
 
     const resizeChart = () => {
@@ -43,8 +58,8 @@ export function EChart({
   }, []);
 
   useEffect(() => {
-    chart?.setOption(option, settings);
-  }, [option, settings]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
+    chart?.setOption(options, settings);
+  }, [options, settings]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
 
   useEffect(() => {
     if (loading === true) {
@@ -57,8 +72,9 @@ export function EChart({
   return (
     <div
       ref={element}
-      className="echart"
+      className={twMerge("echart", className)}
       style={{ width: "100%", height: "100%", ...style }}
+      {...props}
     />
   );
 }

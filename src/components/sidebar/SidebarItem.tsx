@@ -2,7 +2,7 @@
 import { useAtom } from "jotai";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
-import { FaChevronUp } from "react-icons/fa6";
+import { FaChevronDown } from "react-icons/fa6";
 import { SidebarList } from "./SidebarHelper";
 import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebar-constants";
 import { sidebarOpen } from "./sidebar-state";
@@ -83,7 +83,7 @@ function Render(props: RenderProps) {
           {props.text}
         </div>
         {props.arrow && (
-          <FaChevronUp
+          <FaChevronDown
             className="mr-2 text-xs"
             style={{
               transition: `all ${ANIMATION_SPEED}`,

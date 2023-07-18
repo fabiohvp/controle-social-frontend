@@ -21,3 +21,10 @@
     width: unset;
   }
 }
+
+.dropdown-modal .body {
+  max-height: 80vh;
+  overflow-x: hidden;
+  @apply overflow-y-auto;
+  @apply h-full;
+}

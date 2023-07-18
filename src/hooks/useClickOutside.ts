@@ -15,7 +15,12 @@ export default function useClickOutside(props: Props) {
 
   function onWindowClick(event: MouseEvent) {
     if (!props.element.current) return;
-    if (props.element.current.contains(event.target as Node)) {
+
+    const targetElement = event.target as HTMLElement;
+
+    if (props.element.current.contains(targetElement)) {
+      if (targetElement.tagName.toLocaleUpperCase() === "INPUT") return;
+
       props.toggle((active) => !active);
     } else {
       props.toggle(false);

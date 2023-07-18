@@ -1,5 +1,6 @@
 "use client";
 import DropdownItem from "@/components/dropdowns/dropdown/DropdownItem";
+import DropdownMunicipios from "@/components/dropdowns/dropdown/DropdownMunicipios";
 import AreaTematicaIcon from "@/components/images/icones/header/AreaTematicaIcon";
 import BoletimIcon from "@/components/images/icones/header/BoletimIcon";
 import EstadoIcon from "@/components/images/icones/header/EstadoIcon";
@@ -10,13 +11,13 @@ import ObrigacoesIcon from "@/components/images/icones/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icones/header/PrestacaoContaIcon";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import DropdownMenu from "../modal/DropdownMenu";
+import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 export default function DashboardHeaderItems() {
   return (
     <ul className="dashboard-menu font-bold hidden xl:flex">
       <li className="px-3 active">
-        <LinkMunicipios />
+        <DropdownMunicipios />
       </li>
       <li className="px-3">
         <LinkEstado />

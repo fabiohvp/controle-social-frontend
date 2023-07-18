@@ -7,7 +7,7 @@ import INTELIGENCIA_ARTIFICIAL from "./inteligencia-artificial.json";
 import MUNICIPIOS from "./municipios.json";
 import OUTRAS_OPCOES from "./outras-opcoes.json";
 
-type Section = {
+type Panel = {
   title: string;
   articles: {
     description: string;
@@ -21,24 +21,24 @@ type Section = {
   }[];
 };
 
-const sections: Section[][] = [
+const panels: Panel[][] = [
   [MUNICIPIOS, ESTADO],
   [AREAS_TEMATICAS],
   [INTELIGENCIA_ARTIFICIAL, OUTRAS_OPCOES],
 ];
 
-export default function Sections() {
+export default function Panels() {
   return (
     <>
-      {sections.map((sectionsList, index) => (
+      {panels.map((panelsList, index) => (
         <div className="flex gap-2 mt-6 mb-8" key={index}>
-          {sectionsList.map((section) => (
-            <section key={section.title}>
+          {panelsList.map((panel) => (
+            <section key={panel.title}>
               <h3 className="border-b-2 border-b-[#e4e4e4] pb-1">
-                {section.title}
+                {panel.title}
               </h3>
               <div className="flex gap-2 mt-2">
-                {section.articles.map((article, i) => (
+                {panel.articles.map((article, i) => (
                   <Link
                     href={article.href}
                     key={i}

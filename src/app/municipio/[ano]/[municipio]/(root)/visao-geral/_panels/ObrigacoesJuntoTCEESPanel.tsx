@@ -1,11 +1,11 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import { getCodigoMunicipio } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
-  getCodigoMunicipio,
 } from "../../../MunicipioPageProps";
 import "./visao-geral-panels.css";
 
@@ -35,7 +35,7 @@ export async function ObrigacoesJuntoTCEESPanel({
         {Object.keys(data).map((key) => (
           <li
             key={key}
-            className="municipio-obrigacao-envio-ano flex flex-col gap-2"
+            className="municipio-obrigacao-envio-ano flex flex-col gap-2 relative"
           >
             <Link href={`/municipio/${key}/${municipio}/obrigacao-envio`}>
               <FaCheckCircle

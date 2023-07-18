@@ -1,8 +1,8 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import { getCodigoMunicipio } from "@/shared/municipio";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
-  getCodigoMunicipio,
 } from "../../../MunicipioPageProps";
 import ReceitasXDespesasChart from "../../../_components/charts/ReceitasXDespesasChart";
 

@@ -1,6 +1,6 @@
 "use client";
 import DropdownLinks from "@/components/dropdowns/links/DropdownLinks";
-import MUNICIPIOS from "@/municipios.json";
+import { getMunicipios } from "@/shared/municipio";
 import { useParams, usePathname } from "next/navigation";
 
 export default function DropdownLinksMunicipios() {
@@ -12,7 +12,7 @@ export default function DropdownLinksMunicipios() {
       generateUrl={(item) =>
         `/municipio/${routeParams.ano}/${item.value}/${segments}`
       }
-      items={MUNICIPIOS.map((municipio) => ({
+      items={getMunicipios().map((municipio) => ({
         key: municipio.nome,
         value: municipio.nomeNormalizado,
       }))}

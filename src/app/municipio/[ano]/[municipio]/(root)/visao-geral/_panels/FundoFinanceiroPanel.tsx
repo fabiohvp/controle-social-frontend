@@ -1,11 +1,11 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { formatCurrency } from "@/formatters/number";
+import { getCodigoMunicipio } from "@/shared/municipio";
 import { cache } from "react";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
-  getCodigoMunicipio,
 } from "../../../MunicipioPageProps";
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {

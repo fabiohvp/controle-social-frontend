@@ -1,12 +1,12 @@
 import DoughnutChart from "@/components/charts/DoughnutChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import { getCodigoMunicipio } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import {
   MunicipioPageProps,
   MunicipioPanelProps,
-  getCodigoMunicipio,
 } from "../../../MunicipioPageProps";
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {

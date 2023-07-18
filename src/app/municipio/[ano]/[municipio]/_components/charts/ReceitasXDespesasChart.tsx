@@ -1,5 +1,5 @@
 "use client";
-import { EChart } from "@/components/charts/EChart";
+import EChart from "@/components/charts/EChart";
 import { Ipca, ipcaState } from "@/components/layout/ipca/ipca-state";
 import { formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";
@@ -110,7 +110,7 @@ export default function ReceitasXDespesasChart(props: Props) {
         BarChart,
         CanvasRenderer,
       ]}
-      option={options}
+      options={options}
     />
   );
 }

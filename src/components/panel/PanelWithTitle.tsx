@@ -31,12 +31,13 @@ export default function PanelWithTitle(props: Props) {
       </h5>
       <div
         className={twMerge(
-          "border-b border-x p-2 overflow-hidden rounded-b-md",
+          "border-b border-x p-2 overflow-hidden relative rounded-b-md",
           props.className
         )}
         style={{
           ...props.style,
           display: open ? "flex" : "none",
+          zIndex: -1,
         }}
       >
         {props.children}
