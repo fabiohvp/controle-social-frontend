@@ -9,7 +9,6 @@ import {
   useState,
 } from "react";
 import { twMerge } from "tailwind-merge";
-import "./echart.css";
 
 type EChartComponent = (registers: any) => void;
 
