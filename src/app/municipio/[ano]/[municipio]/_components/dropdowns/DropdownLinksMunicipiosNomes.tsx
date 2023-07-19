@@ -3,7 +3,7 @@ import DropdownLinks from "@/components/dropdowns/links/DropdownLinks";
 import { getMunicipios } from "@/shared/municipio";
 import { useParams, usePathname } from "next/navigation";
 
-export default function DropdownLinksMunicipios() {
+export default function DropdownLinksMunicipiosNomes() {
   const routeParams = useParams();
   const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
 

@@ -1,12 +1,19 @@
 import Image from "next/image";
 
-export default function IndicadoresIcon() {
+type Props = {
+  className?: string;
+  height?: number;
+  width?: number;
+};
+
+export default function IndicadoresIcon(props: Props) {
   return (
     <Image
       src="/icones/indicadores.png"
       alt="Obrigações"
-      height={26}
-      width={20}
+      className={props.className}
+      height={props.height ?? 26}
+      width={props.width ?? 20}
     />
   );
 }

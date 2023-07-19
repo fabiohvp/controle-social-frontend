@@ -2,23 +2,21 @@
 import DropdownLinks from "@/components/dropdowns/links/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { municipioState } from "../../municipio-state";
+import { boletinsState } from "../boletins-state";
 
 type Props = {
   minWidth: string;
 };
 
-export default function DropdownLinksAnos(props: Props) {
-  const [state] = useAtom(municipioState);
+export default function DropdownLinksBoletinsAnos(props: Props) {
+  const [state] = useAtom(boletinsState);
   const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
+  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
 
   return (
     <DropdownLinks
       className="menu-ano sm:!min-w-0"
-      generateUrl={(item) =>
-        `/municipio/${item.value}/${routeParams.municipio}/${segments}`
-      }
+      generateUrl={(item) => `/boletins/${item.value}/${segments}`}
       items={state.anos.map((ano) => ({
         key: ano.toString(),
         value: ano.toString(),

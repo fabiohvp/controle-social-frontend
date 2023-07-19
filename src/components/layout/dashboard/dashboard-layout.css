@@ -13,7 +13,7 @@
   @apply bg-menu-active;
 }
 
-.dashboard-menu.submenu > li:not(:last-child) {
+.dashboard-menu.submenu > li {
   @apply border-r;
   @apply border-r-gray-300;
 }

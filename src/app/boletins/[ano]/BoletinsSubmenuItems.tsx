@@ -1,5 +1,6 @@
 import BoletinsInformativoIcon from "@/components/images/icones/BoletinsIcon";
 import DropdownLinksBoletins from "./_components/DropdownLinksBoletins";
+import DropdownLinksBoletinsAnos from "./_components/DropdownLinksBoletinsAnos";
 
 export default function BoletinsSubmenuItems() {
   return (
@@ -11,7 +12,9 @@ export default function BoletinsSubmenuItems() {
       <li>
         <DropdownLinksBoletins />
       </li>
-      <li>{/* <DropdownLinksAnos minWidth="80px" /> */}</li>
+      <li>
+        <DropdownLinksBoletinsAnos minWidth="80px" />
+      </li>
     </>
   );
 }

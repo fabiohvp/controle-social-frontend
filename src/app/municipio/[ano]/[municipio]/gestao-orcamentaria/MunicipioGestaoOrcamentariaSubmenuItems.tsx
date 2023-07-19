@@ -1,13 +1,13 @@
-import DropdownLinksAnos from "../_components/dropdowns/DropdownLinksAnos";
 import DropdownLinksGestaoOrcamentaria from "../_components/dropdowns/DropdownLinksGestaoOrcamentaria";
-import DropdownLinksMunicipios from "../_components/dropdowns/DropdownLinksMunicipios";
+import DropdownLinksMunicipiosAnos from "../_components/dropdowns/DropdownLinksMunicipiosAnos";
+import DropdownLinksMunicipiosNomes from "../_components/dropdowns/DropdownLinksMunicipiosNomes";
 import DropdownLinksRootPages from "../_components/dropdowns/DropdownLinksRootPages";
 
 export default function MunicipioGestaoOrcamentariaSubmenuItems() {
   return (
     <>
       <li>
-        <DropdownLinksMunicipios />
+        <DropdownLinksMunicipiosNomes />
       </li>
       <li>
         <DropdownLinksRootPages />
@@ -16,7 +16,7 @@ export default function MunicipioGestaoOrcamentariaSubmenuItems() {
         <DropdownLinksGestaoOrcamentaria />
       </li>
       <li>
-        <DropdownLinksAnos minWidth="80px" />
+        <DropdownLinksMunicipiosAnos minWidth="80px" />
       </li>
     </>
   );

@@ -21,7 +21,7 @@ const PAGES: KeyValue<string, string>[] = [
 export default function DropdownLinksBoletins() {
   const routeParams = useParams();
   const segments = usePathname().split(`/${routeParams.ano}/`)[1];
-  console.log(routeParams, segments);
+
   return (
     <DropdownLinks
       generateUrl={(item) => `/boletins/${routeParams.ano}/${item.value}`}
