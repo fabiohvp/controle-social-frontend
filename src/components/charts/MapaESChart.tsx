@@ -22,7 +22,7 @@ export type Props = {
   chartGeoOptions?: Partial<GeoOption>;
   style?: CSSProperties;
 
-  getChart: Dispatch<SetStateAction<echarts.EChartsType | null>>;
+  getChart?: Dispatch<SetStateAction<echarts.EChartsType | null>>;
 };
 
 function MapaESChart(props: Props) {

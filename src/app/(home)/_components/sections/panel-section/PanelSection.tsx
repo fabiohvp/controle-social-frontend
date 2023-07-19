@@ -23,12 +23,6 @@ export default function PanelSection(props: Props) {
       </div>
       <div className="flex justify-center">
         <MapaESChart />
-        {/* <Image
-          src="/mapa.png"
-          alt="Mapa do Espírito Santo"
-          height={650}
-          width={379}
-        /> */}
       </div>
     </div>
   );
