@@ -37,7 +37,6 @@ export default function PanelWithTitle(props: Props) {
         style={{
           ...props.style,
           display: open ? "flex" : "none",
-          zIndex: -1,
         }}
       >
         {props.children}

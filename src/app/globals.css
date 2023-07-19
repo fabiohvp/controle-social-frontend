@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("./table.css");
 
 @layer base {
   h1 {
@@ -56,11 +57,22 @@
   --color-blue-dark: #556778;
   --color-blue-menu: #364b60;
   --color-link: #5486b3;
+
+  --color-primary: #204d74;
+  --color-primary-hover: #204d74;
+
+  --table-border-color: #eee;
+  --table-header-row-bg-color: #f8f9fa;
+  --table-odd-row-bg-color: #f7f7f7c7;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
   height: 100%;
+}
+
+header {
+  @apply z-10;
 }
 
 a:hover {

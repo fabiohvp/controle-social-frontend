@@ -5,9 +5,13 @@ import DropdownLinksBoletinsAnos from "./_components/DropdownLinksBoletinsAnos";
 export default function BoletinsSubmenuItems() {
   return (
     <>
-      <li className="px-2 opacity-60">
-        <BoletinsInformativoIcon />
-        <span className="ml-1">Boletins e informativos</span>
+      <li className="opacity-60">
+        <div className="flex h-full items-center overflow-hidden px-2">
+          <BoletinsInformativoIcon />
+          <span className="ml-1 overflow-hidden text-ellipsis whitespace-nowrap">
+            Boletins e informativos
+          </span>
+        </div>
       </li>
       <li>
         <DropdownLinksBoletins />

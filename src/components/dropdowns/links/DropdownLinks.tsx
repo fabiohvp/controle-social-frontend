@@ -19,14 +19,18 @@ export default function DropdownLinks<T extends Key>(props: Props<T>) {
       autoClose={false}
       buttonClassName="min-w-full"
       className={twMerge(
-        "whitespace-nowrap overflow-hidden text-ellipsis sm:overflow-initial",
+        "overflow-hidden text-ellipsis whitespace-nowrap sm:overflow-initial",
         props.className
       )}
       comparer={props.comparer}
       items={props.items.map((item) => ({
         key: item.key,
         value: item.value,
-        render: () => <Link href={props.generateUrl(item)}>{item.key}</Link>,
+        render: () => (
+          <Link href={props.generateUrl(item)} title={item.key}>
+            {item.key}
+          </Link>
+        ),
       }))}
       selectedValue={props.selectedValue}
       style={props.style}
