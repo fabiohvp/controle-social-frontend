@@ -1,19 +1,21 @@
 export function normalize(
   text: string,
-  toLowerCase: boolean,
-  replaceSpaceWithHyphen: boolean
+  options = {
+    toLowerCase: true,
+    replaceSpaceWithHyphen: true,
+  }
 ) {
   if (!text) {
     return "";
   }
 
-  if (toLowerCase !== false) {
+  if (options.toLowerCase !== false) {
     text = text.toLowerCase();
   }
 
-  text = text.normalize().replace(/[\u0300-\u036f]/g, "");
+  text = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  if (replaceSpaceWithHyphen !== false) {
+  if (options.replaceSpaceWithHyphen !== false) {
     text = text.replaceAll(" ", "-");
   }
 

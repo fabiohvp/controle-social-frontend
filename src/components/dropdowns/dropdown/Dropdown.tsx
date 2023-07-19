@@ -1,6 +1,7 @@
 "use client";
 import DropdownModal from "@/components/dropdowns/dropdown/DropdownModal";
 import Loading from "@/components/loading/Loading";
+import { normalize } from "@/formatters/string";
 import useClickOutside from "@/hooks/useClickOutside";
 import { KeyValue } from "@/types/KeyValue";
 import { CSSProperties, ReactNode, useRef, useState } from "react";
@@ -47,17 +48,11 @@ export default function Dropdown<T>(props: Props<T>) {
   }
 
   function onSearch(event: React.KeyboardEvent<HTMLInputElement>) {
-    const searchText = event.currentTarget.value
-      .normalize("NFD") //TODO: extract this?
-      .replace(/[\u0300-\u036f]/g, "");
+    const searchText = normalize(event.currentTarget.value);
 
     if (searchText) {
       const filteredItems = props.items.filter((o) =>
-        (o.key as string)
-          .toLocaleLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .includes(searchText)
+        normalize(o.key as string).includes(searchText)
       );
       setVisibleItems(filteredItems);
     } else {

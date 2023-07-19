@@ -1,30 +1,85 @@
 import ComparadorIcon from "@/components/images/icones/ComparadorIcon";
 import IndicadoresIcon from "@/components/images/icones/IndicadoresIcon";
 import RankingIcon from "@/components/images/icones/RankingIcon";
+import MapaESIcon from "@/components/images/icones/header/MapaESIcon";
+import { normalize } from "@/formatters/string";
 import { Municipio, getMunicipios } from "@/shared/municipio";
+import * as echarts from "echarts/core";
 import Link from "next/link";
+import { useState } from "react";
 import MapaESChart from "../../charts/MapaESChart";
 import DropdownMenu from "./DropdownMenu";
 
-const municipios: Municipio[][] = [[], [], [], []];
+type MunicipioFilterable = {
+  filtered: boolean;
+} & Municipio;
 
-for (const municipio of getMunicipios()) {
-  const firstLetter = municipio.nomeNormalizado[0];
+function getMunicipiosFilterable() {
+  return getMunicipios().map((municipio) => ({
+    ...municipio,
+    filtered: false,
+  }));
+}
 
-  if (firstLetter < "d") {
-    municipios[0].push(municipio);
-  } else if (firstLetter < "l") {
-    municipios[1].push(municipio);
-  } else if (firstLetter < "s") {
-    municipios[2].push(municipio);
-  } else {
-    municipios[3].push(municipio);
+function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
+  const groups: MunicipioFilterable[][] = [[], [], [], []];
+
+  for (const municipio of municipios) {
+    const firstLetter = municipio.nomeNormalizado[0];
+
+    if (firstLetter < "d") {
+      groups[0].push(municipio);
+    } else if (firstLetter < "l") {
+      groups[1].push(municipio);
+    } else if (firstLetter < "s") {
+      groups[2].push(municipio);
+    } else {
+      groups[3].push(municipio);
+    }
   }
+  return groups;
 }
 
 export default function DropdownMunicipios() {
+  const [chart, setChart] = useState<echarts.EChartsType | null>(null);
+  const [municipios, setMunicipios] = useState(getMunicipiosFilterable());
+
+  function onKeyUp(event: React.KeyboardEvent<HTMLInputElement>) {
+    const searchText = normalize(event.currentTarget.value);
+
+    if (searchText) {
+      const municipiosAfterSearch = [...municipios];
+      municipiosAfterSearch.forEach((municipio) => {
+        municipio.filtered = municipio.nomeNormalizado.includes(searchText);
+      });
+      setMunicipios(municipiosAfterSearch);
+    } else {
+      setMunicipios(getMunicipiosFilterable());
+    }
+  }
+
+  function onMouseOver(municipio: Municipio) {
+    chart!.dispatchAction({
+      type: "highlight",
+      geoIndex: 0,
+      name: municipio.nome,
+    });
+  }
+
+  function onMouseOut(municipio: Municipio) {
+    chart!.dispatchAction({
+      type: "downplay",
+      geoIndex: 0,
+      name: municipio.nome,
+    });
+  }
+
   return (
-    <DropdownMenu title="Municípios">
+    <DropdownMenu
+      icon={<MapaESIcon />}
+      modalClassName="mt-4"
+      title="Municípios"
+    >
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link href="/comparar/2023/municipios" className="flex gap-1">
           <ComparadorIcon /> Comparação entre municípios
@@ -44,16 +99,26 @@ export default function DropdownMunicipios() {
       </div>
       <input
         type="text"
+        autoFocus
         className="border font-normal m-2 px-2 py-1 rounded-md w-1/4"
         placeholder="Filtrar por município"
+        onKeyUp={onKeyUp}
       />
       <div className="body flex font-normal p-2">
         <div className="flex">
-          {municipios.map((municipios, index) => (
-            <div key={index}>{RenderMunicipioList(municipios)}</div>
+          {getMunicipiosGroups(municipios).map((municipios, index) => (
+            <div key={index}>
+              {
+                <RenderMunicipioGroups
+                  municipios={municipios}
+                  onMouseOver={onMouseOver}
+                  onMouseOut={onMouseOut}
+                />
+              }
+            </div>
           ))}
           <div className="center h-full w-[300px]">
-            <MapaESChart />
+            <MapaESChart getChart={setChart} />
           </div>
         </div>
       </div>
@@ -61,11 +126,22 @@ export default function DropdownMunicipios() {
   );
 }
 
-function RenderMunicipioList(municipios: Municipio[]) {
+function RenderMunicipioGroups(props: {
+  municipios: MunicipioFilterable[];
+  onMouseOver: (municipio: Municipio) => void;
+  onMouseOut: (municipio: Municipio) => void;
+}) {
   return (
     <ul>
-      {municipios.map((municipio) => (
-        <li key={municipio.nome} className="px-2 leading-relaxed">
+      {props.municipios.map((municipio) => (
+        <li
+          key={municipio.nome}
+          className={`px-2 leading-relaxed ${
+            municipio.filtered ? "bg-yellow-300" : ""
+          }`}
+          onMouseOver={() => props.onMouseOver(municipio)}
+          onMouseOut={() => props.onMouseOut(municipio)}
+        >
           <Link
             href={`/municipio/2023/${municipio.nomeNormalizado}/visao-geral`}
           >
