@@ -1,4 +1,3 @@
-import SidebarMunicipios from "@/app/municipio/[ano]/[municipio]/_components/SidebarMunicipios";
 import LoadingPage from "@/components/loading/LoadingPage";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { ElementType, ReactNode, Suspense } from "react";
@@ -15,6 +14,7 @@ type Props = {
   children: ReactNode;
   exibirBotaoIPCA?: boolean;
   menuItems: ElementType;
+  sidebar: ReactNode;
 };
 
 export default function DashboardLayout(props: Props) {
@@ -38,7 +38,7 @@ export default function DashboardLayout(props: Props) {
         }}
       >
         <Sidebar style={{ height: MAX_HEIGHT_CONTENT }}>
-          <SidebarMunicipios />
+          {props.sidebar}
         </Sidebar>
         <div
           className={twMerge(

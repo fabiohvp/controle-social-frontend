@@ -6,7 +6,6 @@ import BoletimIcon from "@/components/images/icones/header/BoletimIcon";
 import EstadoIcon from "@/components/images/icones/header/EstadoIcon";
 import FiscalizacaoIcon from "@/components/images/icones/header/FiscalizacaoIcon";
 import InteligenciaArtificialIcon from "@/components/images/icones/header/InteligenciaArtificialIcon";
-import MapaESIcon from "@/components/images/icones/header/MapaESIcon";
 import ObrigacoesIcon from "@/components/images/icones/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icones/header/PrestacaoContaIcon";
 import Link from "next/link";
@@ -221,10 +220,10 @@ function LinkBoletins() {
   const params = useParams();
 
   return (
-    <div className="center gap-1">
+    <Link href={`/boletins/${params.ano}/mensal`} className="center gap-1">
       <BoletimIcon />
-      <Link href={`/boletins/2023/mensal`}>Boletins</Link>
-    </div>
+      Boletins
+    </Link>
   );
 }
 
@@ -232,21 +231,10 @@ function LinkEstado() {
   const params = useParams();
 
   return (
-    <div className="center gap-1">
+    <Link href={`/estado/${params.ano}/visao-geral`} className="center gap-1">
       <EstadoIcon />
-      <Link href={`/estado/${params.ano}/visao-geral`}>Estado</Link>
-    </div>
-  );
-}
-
-function LinkMunicipios() {
-  const params = useParams();
-
-  return (
-    <div className="center gap-1">
-      <MapaESIcon />
-      <Link href={`/estado/${params.ano}/visao-geral`}>Municípios</Link>
-    </div>
+      Estado
+    </Link>
   );
 }
 
@@ -254,9 +242,12 @@ function LinkObrigacoes() {
   const params = useParams();
 
   return (
-    <div className="center gap-1">
+    <Link
+      href={`/obrigacao-envio/${params.ano}/municipio`}
+      className="center gap-1"
+    >
       <ObrigacoesIcon />
-      <Link href={`/obrigacao-envio/${params.ano}/municipio`}>Obrigações</Link>
-    </div>
+      Obrigações
+    </Link>
   );
 }
