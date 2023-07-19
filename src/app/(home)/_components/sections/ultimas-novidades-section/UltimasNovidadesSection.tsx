@@ -853,7 +853,6 @@ export default function UltimasNovidadesSection(props: Props) {
               <li>
                 Nova seção de
                 <Link
-                  ng-href="/indicadoresConsolidados/2020/antecipacaoReceitasOrcamentarias"
                   title="Indicadores Consolidados"
                   href="/indicadoresConsolidados/2020/antecipacaoReceitasOrcamentarias"
                 >
@@ -955,7 +954,6 @@ export default function UltimasNovidadesSection(props: Props) {
               <li>
                 Nova seção com informações sobre as
                 <Link
-                  ng-href="/obrigacaoEnvio/2018/municipios"
                   title="Obrigações junto ao TCE-ES"
                   href="/obrigacaoEnvio/2018/municipios"
                 >
@@ -984,7 +982,6 @@ export default function UltimasNovidadesSection(props: Props) {
               <li>
                 Inclusão do ranking do limite constitucional da despesa total do
                 <Link
-                  ng-href="/rankings/2016/municipios/despesa-despesaLegislativoArtigo29"
                   title="Poder Legislativo (artigo 29-A da Constituição Federal)"
                   href="/rankings/2016/municipios/despesa-despesaLegislativoArtigo29"
                 >
@@ -1027,49 +1024,34 @@ export default function UltimasNovidadesSection(props: Props) {
             <ul className="styled">
               <li>
                 Dados do
-                <Link
-                  ng-href="./IEGM/2015/indiceIEGM"
-                  href="./IEGM/2015/indiceIEGM"
-                >
+                <Link href="/IEGM/2015/indiceIEGM">
                   Índice de Efetividade da Gestão Municipal
                 </Link>
                 de 2015
               </li>
               <li>
                 Resultado da Fiscalização de
-                <Link
-                  ng-href="./transparencia-passiva/2016/prefeitura"
-                  href="./transparencia-passiva/2016/prefeitura"
-                >
+                <Link href="/transparencia-passiva/2016/prefeitura">
                   Transparência Passiva dos Municípios
                 </Link>
               </li>
               <li>
                 Ranking de &quot;
-                <Link
-                  ng-href="./rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
-                  href="./rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
-                >
+                <Link href="/rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada">
                   Receitas Arrecadadas x Despesas Liquidadas
                 </Link>
                 &quot;
               </li>
               <li>
                 Ranking de &quot;
-                <Link
-                  ng-href="./rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
-                  href="./rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
-                >
+                <Link href="/rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga">
                   Despesas Liquidadas x Despesas Pagas
                 </Link>
                 &quot;
               </li>
               <li>
                 Painel de Controle de
-                <Link
-                  ng-href="./boletins/2017/mensal"
-                  href="./boletins/2017/mensal"
-                >
+                <Link href="/boletins/2017/mensal">
                   Macrogestão Governamental
                 </Link>
               </li>

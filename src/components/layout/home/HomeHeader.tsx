@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeaderFixedButtons from "../HeaderFixedButtons";
 
-export default function IndexHeader() {
+export default function HomeHeader() {
   return (
     <>
       <Link href="/">

@@ -1,7 +1,7 @@
 import TCEESLogo from "@/components/images/logos/TCEESLogo";
 import Link from "next/link";
 
-export default function IndexFooter() {
+export default function HomeFooter() {
   return (
     <div className="container flex justify-around">
       <section className="flex flex-col gap-5">

@@ -223,7 +223,7 @@ function LinkBoletins() {
   return (
     <div className="center gap-1">
       <BoletimIcon />
-      <Link href={`/estado/${params.ano}/visao-geral`}>Boletins</Link>
+      <Link href={`/boletins/2023/mensal`}>Boletins</Link>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import HomeLayout from "@/components/layout/home/HomeLayout";
 import ArrecadacaoSection from "./_components/sections/arrecadacao-section/ArrecadacaoSection";
 import ComparativosSection from "./_components/sections/comparativos-section/ComparativosSection";
 import ConcessoesPPPSection from "./_components/sections/concessoes-ppp-section/ConcessoesPPPSection";
@@ -15,11 +16,11 @@ import ReceitaDespesaSection from "./_components/sections/receita-despesa-sectio
 import SaudeSection from "./_components/sections/saude-section/SaudeSection";
 import ServicosIASection from "./_components/sections/servicos-ia-section/ServicosIASection";
 import UltimasNovidadesSection from "./_components/sections/ultimas-novidades-section/UltimasNovidadesSection";
-import "./index.css";
+import "./home.css";
 
 export default function Page() {
   return (
-    <>
+    <HomeLayout>
       <PanelSection className="px-8" />
       <ConhecaFerramentaSection />
       <EducacaoSection className="px-8" />
@@ -37,6 +38,6 @@ export default function Page() {
       <LimitesPessoalSection className="px-8" />
       <LimitesSaudeSection className="px-8" />
       <UltimasNovidadesSection className="px-8" />
-    </>
+    </HomeLayout>
   );
 }
