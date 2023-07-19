@@ -10,6 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      //MUST SYNC with globals.css :root variables
       colors: {
         "gray-header": "#F8F8F8",
         "menu-active": "#E3E3E3",

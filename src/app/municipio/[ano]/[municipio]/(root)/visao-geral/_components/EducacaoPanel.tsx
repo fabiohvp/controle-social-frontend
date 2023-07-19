@@ -12,12 +12,12 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR.chartPositivo,
-      title: "15%",
-      value: 0.15,
+      color: COLOR["chart-positivo"],
+      title: "25%",
+      value: 0.25,
     },
     {
-      color: COLOR.chartNegativo,
+      color: COLOR["chart-negativo"],
       title: "",
       value: 1,
     },
@@ -29,13 +29,13 @@ const CHART_SETTINGS = {
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Saude/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Educacao/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: number };
 });
 
-export async function SaudePanel({
+export async function EducacaoPanel({
   ano,
   municipio,
   style,
@@ -46,14 +46,14 @@ export async function SaudePanel({
     <PanelWithTitle
       style={style}
       legend={
-        <LegendTooltip id="saude-tooltip">
+        <LegendTooltip id="educacao-tooltip">
           A Constituição Federal estabelece que o<br />
           município deve aplicar o limite mínimo de
           <br />
-          15% da soma dos recursos de impostos e<br />
-          transferências em ações e serviços
+          25% da receita resultante de impostos,
           <br />
-          públicos de saúde.
+          incluídas transferências de impostos, para
+          <br />a manutenção e desenvolvimento do ensino.
         </LegendTooltip>
       }
       title="Educação"

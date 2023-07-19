@@ -12,22 +12,22 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR.chartPositivo,
-      title: "54%",
+      color: COLOR["chart-positivo"],
+      title: "48,6%",
       value: 0.54,
     },
     {
-      color: COLOR.chartInfo,
-      title: "57%",
+      color: COLOR["chart-info"],
+      title: "51,3%",
       value: 0.57,
     },
     {
-      color: COLOR.chartAlerta,
-      title: "60%",
+      color: COLOR["chart-alerta"],
+      title: "54%",
       value: 0.6,
     },
     {
-      color: COLOR.chartNegativo,
+      color: COLOR["chart-negativo"],
       title: "",
       value: 1,
     },
@@ -39,13 +39,13 @@ const CHART_SETTINGS = {
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalConsolidado/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalLegislativo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: number };
 });
 
-export async function PessoalConsolidadoPanel({
+export async function PessoalLegislativoPanel({
   ano,
   municipio,
   style,
@@ -56,25 +56,25 @@ export async function PessoalConsolidadoPanel({
     <PanelWithTitle
       style={style}
       legend={
-        <LegendTooltip id="pessoal-consolidado-tooltip">
-          De acordo com a LRF (Lei de Responsabilidade
+        <LegendTooltip id="pessoal-legislativo-tooltip">
+          De acordo com a LRF (Lei de
           <br />
-          Fiscal) as despesas com pessoal nos municípios
+          Responsabilidade Fiscal) as despesas
           <br />
-          não podem ultrapassar 60% da RCL (Receita
+          com pessoal do Poder Legislativo não
+          <br />
+          podem ultrapassar 6% da RCL (Receita
           <br />
           Corrente Líquida) do Município.
           <br />
-          Caso esses gastos atinjam 57% da RCL o município
+          Caso esses gastos atinjam 5,4% da RCL o<br />
+          Tribunal de Contas emitirá parecer de alerta.
           <br />
-          entra no limite prudencial.
-          <br />
-          Caso esses gastos atinjam 54% da RCL o Tribunal
-          <br />
-          de Contas emitirá parecer de alerta.
+          Caso esses gastos atinjam 5,7% da RCL o<br />
+          município entra no limite prudencial.
         </LegendTooltip>
       }
-      title="Pessoal - Consolidado"
+      title="Pessoal - Legislativo"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

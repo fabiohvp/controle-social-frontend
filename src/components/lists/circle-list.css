@@ -1,0 +1,76 @@
+:root {
+  --circle-list-bg-color: #ccc;
+  --circle-list-color: white;
+  --circle-list-height: calc(3 * var(--circle-list-radius));
+  --circle-list-line-color: #ccc;
+  --circle-list-radius: 1.15rem;
+  --circle-list-gap: 1rem;
+}
+
+@screen lg {
+  :root {
+    --circle-list-radius: 1.5rem;
+    --circle-list-gap: 2rem;
+  }
+}
+
+@screen xl {
+  :root {
+    --circle-list-gap: 4rem;
+  }
+}
+
+@screen 2xl {
+  :root {
+    --circle-list-gap: 6em;
+  }
+}
+
+.circle-list {
+  color: var(--circle-list-color);
+  display: flex;
+  flex-basis: var(--circle-list-height);
+  flex-wrap: wrap;
+  gap: var(--circle-list-gap);
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.circle-list li {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: calc(2 * var(--circle-list-radius));
+  justify-content: center;
+  position: relative;
+  width: calc(2 * var(--circle-list-radius));
+}
+
+.circle-list li::before {
+  background-color: var(--circle-list-bg-color);
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  height: calc(2 * var(--circle-list-radius));
+  width: calc(2 * var(--circle-list-radius));
+  transition: all 0.3s ease;
+}
+
+.circle-list li > * {
+  z-index: 1;
+}
+
+.circle-list li hr {
+  border-top: 1px solid var(--circle-list-line-color);
+  left: 50%;
+  position: absolute;
+  top: var(--circle-list-radius);
+  width: calc(100% + var(--circle-list-gap));
+  z-index: -1;
+}
+
+.circle-list li:last-child hr {
+  visibility: hidden;
+}

@@ -12,22 +12,22 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR.chartPositivo,
+      color: COLOR["chart-positivo"],
       title: "5,4%",
       value: 0.54,
     },
     {
-      color: COLOR.chartInfo,
+      color: COLOR["chart-info"],
       title: "5,7%",
       value: 0.57,
     },
     {
-      color: COLOR.chartAlerta,
+      color: COLOR["chart-alerta"],
       title: "6%",
       value: 0.6,
     },
     {
-      color: COLOR.chartNegativo,
+      color: COLOR["chart-negativo"],
       title: "",
       value: 1,
     },

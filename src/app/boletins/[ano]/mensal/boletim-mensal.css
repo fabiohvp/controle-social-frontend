@@ -1,11 +1,3 @@
-.boletim-mensal:not(:last-child)::after {
-  border-top: 1px solid #ccc;
-  content: "-";
-  height: 1px;
-  left: 50px;
-  overflow-y: hidden;
-  position: absolute;
-  top: 30px;
-  width: 30px;
-  z-index: -1;
+.boletim-mensal {
+  --circle-list-bg-color: var(--color-blue-dark);
 }

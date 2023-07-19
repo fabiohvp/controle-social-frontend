@@ -12,40 +12,35 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR.chartPositivo,
-      title: "48,6%",
-      value: 0.54,
+      color: COLOR["chart-positivo"],
+      title: "0,3%",
+      value: 0.3,
     },
     {
-      color: COLOR.chartInfo,
-      title: "51,3%",
-      value: 0.57,
+      color: COLOR["chart-info"],
+      title: "0,7%",
+      value: 0.7,
     },
     {
-      color: COLOR.chartAlerta,
-      title: "54%",
-      value: 0.6,
-    },
-    {
-      color: COLOR.chartNegativo,
+      color: COLOR["chart-negativo"],
       title: "",
       value: 1,
     },
   ],
   style: { height: "200px" },
-  title: "Limite LRF",
+  title: "Solvência do RPPS",
 };
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalLegislativo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetIValorIndiceCobertura?codigoUnidadeGestora=${codigo}E0900002&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: number };
 });
 
-export async function PessoalLegislativoPanel({
+export async function FundoPrevidenciarioPanel({
   ano,
   municipio,
   style,
@@ -56,29 +51,22 @@ export async function PessoalLegislativoPanel({
     <PanelWithTitle
       style={style}
       legend={
-        <LegendTooltip id="pessoal-legislativo-tooltip">
-          De acordo com a LRF (Lei de
+        <LegendTooltip id="previdencia-fundo-previdenciario-tooltip">
+          Solvência, em finanças e contabilidade, é<br />
+          o estado do devedor que possui seu ativo
           <br />
-          Responsabilidade Fiscal) as despesas
+          maior do que o passivo, ou a sua capacidade
           <br />
-          com pessoal do Poder Legislativo não
+          de cumprir os compromissos com os recursos
           <br />
-          podem ultrapassar 6% da RCL (Receita
-          <br />
-          Corrente Líquida) do Município.
-          <br />
-          Caso esses gastos atinjam 5,4% da RCL o<br />
-          Tribunal de Contas emitirá parecer de alerta.
-          <br />
-          Caso esses gastos atinjam 5,7% da RCL o<br />
-          município entra no limite prudencial.
+          que constituem seu patrimônio ou seu ativo.
         </LegendTooltip>
       }
-      title="Pessoal - Legislativo"
+      title="Previdência - Fundo Previdenciário"
     >
       <DoughnutChart
         {...CHART_SETTINGS}
-        selectedValue={data.valorPercentual / 100}
+        selectedValue={Math.abs(data?.valor)}
       />
     </PanelWithTitle>
   );

@@ -1,6 +1,6 @@
 export const COLOR = {
-  emAtraso: "#B37476",
-  emDia: "#459D49",
+  "em-atraso": "#B37476",
+  "em-dia": "#459D49",
 
   despesa: "#EFB4A3",
   receita: "#617E8C",
@@ -8,9 +8,9 @@ export const COLOR = {
   negativo: "#c0392b",
   positivo: "#27ae60",
 
-  chartAlerta: "#F4B351",
-  chartInfo: "#EFF170",
-  chartNegativo: "#E68465",
-  chartPositivo: "#556778",
-  chartMuitoPositivo: "#8BA2AD",
+  "chart-alerta": "#F4B351",
+  "chart-info": "#EFF170",
+  "chart-negativo": "#E68465",
+  "chart-positivo": "#556778",
+  "chart-muito-positivo": "#8BA2AD",
 };

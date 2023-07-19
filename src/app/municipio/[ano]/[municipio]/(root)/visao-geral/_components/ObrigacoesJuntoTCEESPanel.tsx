@@ -41,7 +41,7 @@ export async function ObrigacoesJuntoTCEESPanel({
               <FaCheckCircle
                 className="text-6xl"
                 style={{
-                  color: data[key] ? COLOR.emDia : COLOR.emAtraso,
+                  color: data[key] ? COLOR["em-dia"] : COLOR["em-atraso"],
                 }}
               />
               <div className="text-center text-sm">{key}</div>

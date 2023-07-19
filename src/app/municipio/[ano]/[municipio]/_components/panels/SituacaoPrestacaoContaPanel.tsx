@@ -31,7 +31,7 @@ async function getData(
   );
 }
 
-export default async function SituacaoPrestacaoConta({
+export default async function SituacaoPrestacaoContaPanel({
   codigoFiltro,
   ano,
   municipio,

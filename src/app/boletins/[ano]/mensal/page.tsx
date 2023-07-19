@@ -1,7 +1,9 @@
 import BoletimMacroGestaoGovernamentalIcon from "@/components/images/icones/BoletimMacroGestaoGovernamentalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
+import CircleList from "@/components/lists/CircleList";
 import PanelAlert from "@/components/panel/PanelAlert";
 import { getMonthNames } from "@/shared/date";
+import { cache } from "react";
 import { BoletinsPageProps } from "../BoletinsPageProps";
 import BoletinsSubmenuItems from "../BoletinsSubmenuItems";
 import SidebarBoletins from "../_components/SidebarBoletins";
@@ -9,7 +11,23 @@ import "./boletim-mensal.css";
 
 const months = getMonthNames();
 
-export default function Page({ params }: { params: BoletinsPageProps }) {
+const getData = cache(
+  async ({ ano, mes }: BoletinsPageProps & { mes?: string }) => {
+    const res = await fetch(
+      `https://paineldecontrole.tcees.tc.br/api/EstadoControllers/ResumoExecutivo/GetResumoExecutivo?idEsferaAdministrativa=81&anoExercicio=${ano}&mes=${mes}&v=18-07-2023-5.2.14`
+    );
+    const data: {
+      conteudo: string;
+      mesUltimoEnvio: number;
+    } = await res.json();
+    return data;
+  }
+);
+
+export default async function Page({ params }: { params: BoletinsPageProps }) {
+  const data = await getData({ ...params });
+  //const [x, setX] = useState(data.mesUltimoEnvio);
+
   return (
     <DashboardLayout
       menuItems={BoletinsSubmenuItems}
@@ -27,20 +45,24 @@ export default function Page({ params }: { params: BoletinsPageProps }) {
         um instrumento de controle e acompanhamento das finanças públicas dos
         poderes estaduais e municipais do Espírito Santo.
       </PanelAlert>
-      <div className="center flex-col mt-8">
-        <ul className="flex justify-evenly w-full">
+      <div className="center flex-col mt-8 overflow-hidden">
+        <CircleList className="boletim-mensal">
           {months.map((key, index) => (
-            <li key={key} className="boletim-mensal center relative">
-              <div className="flex flex-col gap-2">
-                <div className="bg-blue-dark center font-bold rounded-full h-10 text-sm text-white w-10">
-                  {index + 1}
-                </div>
-                <div className="text-center text-sm">{key}</div>
+            <li key={key} className="lg:gap-2">
+              <hr />
+              <div className="lg:hidden">{index + 1}</div>
+              <div
+                className="hidden lg:block"
+                style={{ marginTop: "calc(1.5 * var(--circle-list-radius))" }}
+              >
+                {index + 1}
               </div>
+              <div className="hidden text-blue-dark lg:block">{key}</div>
             </li>
           ))}
-        </ul>
+        </CircleList>
         <BoletimMacroGestaoGovernamentalIcon className="mt-16" />
+        <div dangerouslySetInnerHTML={{ __html: data.conteudo }} />
       </div>
     </DashboardLayout>
   );

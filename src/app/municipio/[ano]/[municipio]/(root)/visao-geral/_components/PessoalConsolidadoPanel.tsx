@@ -12,35 +12,40 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR.chartPositivo,
-      title: "0,3%",
-      value: 0.3,
+      color: COLOR["chart-positivo"],
+      title: "54%",
+      value: 0.54,
     },
     {
-      color: COLOR.chartInfo,
-      title: "0,7%",
-      value: 0.7,
+      color: COLOR["chart-info"],
+      title: "57%",
+      value: 0.57,
     },
     {
-      color: COLOR.chartNegativo,
+      color: COLOR["chart-alerta"],
+      title: "60%",
+      value: 0.6,
+    },
+    {
+      color: COLOR["chart-negativo"],
       title: "",
       value: 1,
     },
   ],
   style: { height: "200px" },
-  title: "Solvência do RPPS",
+  title: "Limite LRF",
 };
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetIValorIndiceCobertura?codigoUnidadeGestora=${codigo}E0900002&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalConsolidado/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: number };
 });
 
-export async function FundoPrevidenciarioPanel({
+export async function PessoalConsolidadoPanel({
   ano,
   municipio,
   style,
@@ -51,22 +56,29 @@ export async function FundoPrevidenciarioPanel({
     <PanelWithTitle
       style={style}
       legend={
-        <LegendTooltip id="previdencia-fundo-previdenciario-tooltip">
-          Solvência, em finanças e contabilidade, é<br />
-          o estado do devedor que possui seu ativo
+        <LegendTooltip id="pessoal-consolidado-tooltip">
+          De acordo com a LRF (Lei de Responsabilidade
           <br />
-          maior do que o passivo, ou a sua capacidade
+          Fiscal) as despesas com pessoal nos municípios
           <br />
-          de cumprir os compromissos com os recursos
+          não podem ultrapassar 60% da RCL (Receita
           <br />
-          que constituem seu patrimônio ou seu ativo.
+          Corrente Líquida) do Município.
+          <br />
+          Caso esses gastos atinjam 57% da RCL o município
+          <br />
+          entra no limite prudencial.
+          <br />
+          Caso esses gastos atinjam 54% da RCL o Tribunal
+          <br />
+          de Contas emitirá parecer de alerta.
         </LegendTooltip>
       }
-      title="Previdência - Fundo Previdenciário"
+      title="Pessoal - Consolidado"
     >
       <DoughnutChart
         {...CHART_SETTINGS}
-        selectedValue={Math.abs(data?.valor)}
+        selectedValue={data.valorPercentual / 100}
       />
     </PanelWithTitle>
   );

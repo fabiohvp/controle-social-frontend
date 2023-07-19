@@ -9,33 +9,6 @@ import {
   MunicipioPanelProps,
 } from "../../../MunicipioPageProps";
 
-const CHART_SETTINGS = {
-  items: [
-    {
-      color: COLOR.chartMuitoPositivo,
-      title: "0%",
-      value: 0,
-    },
-    {
-      color: COLOR.chartPositivo,
-      title: "108%",
-      value: 1.08,
-    },
-    {
-      color: COLOR.chartAlerta,
-      title: "120%",
-      value: 1.2,
-    },
-    {
-      color: COLOR.chartNegativo,
-      title: "",
-      value: 1,
-    },
-  ],
-  style: { height: "200px" },
-  title: "Tende a obedecer ao limite de 120% da RCL", //TODO: condicional para quando o valor ultrapassar
-};
-
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const codigo = getCodigoMunicipio(municipio);
   const res = await fetch(
@@ -52,12 +25,37 @@ const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   };
 });
 
-export async function DividaConsolidadaLiquidaPanel({
+export async function DespesaReceitaCorrentesPanel({
   ano,
   municipio,
   style,
 }: MunicipioPanelProps) {
   const data = await getData({ ano, municipio });
+
+  const CHART_SETTINGS = {
+    items: [
+      {
+        color: COLOR["chart-positivo"],
+        title: `${data.valorAlerta}`,
+        value: data.valorAlerta / 100,
+      },
+      {
+        color: COLOR["chart-info"],
+        title: `${data.valorMaximo}`,
+        value: data.valorMaximo / 100,
+      },
+      {
+        color: COLOR["chart-negativo"],
+        title: "",
+        value: 1,
+      },
+    ],
+    style: { height: "200px" },
+    title:
+      data.valorApurado > data.valorAlerta
+        ? `Despesas correntes ultrapassaram ${data.valorAlerta}% das receitas correntes`
+        : `Despesas correntes não superam ${data.valorAlerta}% das receitas correntes`, //TODO: condicional para quando o valor ultrapassar
+  };
 
   return (
     <PanelWithTitle
