@@ -5,6 +5,7 @@
 .dashboard-menu > li {
   display: grid;
   grid-auto-flow: column;
+  @apply items-center;
   @apply text-sm;
 }
 

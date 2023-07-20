@@ -49,7 +49,7 @@ export default function Page() {
           <DespesaPppLogo />
         </div>
       </PanelWithTitle>
-      <div>//TODO: implementar concessões e PPP / visao-geral</div>
+      {/* <div>TODO: implementar concessões e PPP / visao-geral</div> */}
     </>
   );
 }
