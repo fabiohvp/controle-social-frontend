@@ -17,7 +17,7 @@ export default function BoletinsSubmenuItems() {
         <DropdownLinksBoletins />
       </li>
       <li>
-        <DropdownLinksBoletinsAnos minWidth="80px" />
+        <DropdownLinksBoletinsAnos />
       </li>
     </>
   );

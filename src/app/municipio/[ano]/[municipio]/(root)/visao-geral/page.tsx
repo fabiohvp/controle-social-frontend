@@ -22,10 +22,10 @@ const DOUGHNUT_STYLE = { height: WIDGET_HEIGHT };
 export default async function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      className="flex flex-col gap-2"
+      className="gap-2 p-2"
       exibirBotaoIPCA
-      menuItems={MunicipioSubmenuItems}
-      sidebar={<SidebarMunicipios />}
+      submenuItems={MunicipioSubmenuItems}
+      sidebar={SidebarMunicipios}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">

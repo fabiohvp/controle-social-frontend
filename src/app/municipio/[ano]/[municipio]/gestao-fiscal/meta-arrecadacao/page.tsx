@@ -6,10 +6,10 @@ import MunicipioGestaoFiscalSubmenuItems from "../MunicipioGestaoFiscalSubmenuIt
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-2 p-2"
       exibirBotaoIPCA
-      menuItems={MunicipioGestaoFiscalSubmenuItems}
-      sidebar={<SidebarMunicipios />}
+      submenuItems={MunicipioGestaoFiscalSubmenuItems}
+      sidebar={SidebarMunicipios}
     >
       meta arrecadação: {params.ano} {params.municipio}
     </DashboardLayout>

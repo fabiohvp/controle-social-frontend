@@ -1,56 +1,66 @@
 import LoadingPage from "@/components/loading/LoadingPage";
 import Sidebar from "@/components/sidebar/Sidebar";
+import dynamic from "next/dynamic";
 import { ElementType, ReactNode, Suspense } from "react";
 import { twMerge } from "tailwind-merge";
-import IpcaButton from "../ipca/IpcaButton";
 import DashboardFooter from "./DashboardFooter";
 import DashboardHeader from "./DashboardHeader";
 import DashboardHeaderSubmenu from "./DashboardHeaderSubmenu";
-import { MAX_HEIGHT_CONTENT } from "./dashboard-constants";
+import {
+  MAX_HEIGHT_CONTENT,
+  MAX_HEIGHT_WITH_SUBMENU_CONTENT,
+} from "./dashboard-constants";
 import "./dashboard-layout.css";
 
 type Props = {
   className?: string;
   children: ReactNode;
   exibirBotaoIPCA?: boolean;
-  menuItems: ElementType;
-  sidebar: ReactNode;
+  exibirFooter?: boolean;
+  submenuItems?: ElementType;
+  sidebar?: ElementType;
 };
 
+const IpcaButton = dynamic(() => import("../ipca/IpcaButton"), { ssr: false });
+
 export default function DashboardLayout(props: Props) {
+  const maxHeightContent = props.submenuItems
+    ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
+    : MAX_HEIGHT_CONTENT;
   return (
-    <>
+    <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">
         <DashboardHeader />
-        <DashboardHeaderSubmenu>
-          <props.menuItems />
-          {props.exibirBotaoIPCA && (
-            <li className="basis-8 ml-auto px-1 sm:basis-auto">
-              <IpcaButton />
-            </li>
-          )}
-        </DashboardHeaderSubmenu>
+        {props.submenuItems && (
+          <DashboardHeaderSubmenu exibirSidebar={!!props.sidebar}>
+            <props.submenuItems />
+            {props.exibirBotaoIPCA && (
+              <li className="ml-auto px-2">
+                <IpcaButton />
+              </li>
+            )}
+          </DashboardHeaderSubmenu>
+        )}
       </header>
-      <main
-        className="text-sky-700 md:grid overflow-hidden"
-        style={{
-          gridTemplateColumns: "auto 1fr",
-        }}
-      >
-        <Sidebar style={{ height: MAX_HEIGHT_CONTENT }}>
-          {props.sidebar}
-        </Sidebar>
-        <div
-          className={twMerge(
-            "p-2 overflow-y-auto text-gray-dark",
-            props.className
+      <main className="grid">
+        <div className="basis-full flex">
+          {props.sidebar && (
+            <Sidebar>
+              <props.sidebar />
+            </Sidebar>
           )}
-          style={{ height: MAX_HEIGHT_CONTENT }}
-        >
-          <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>
-          <DashboardFooter />
+          <div
+            className={twMerge(
+              "basis-full flex flex-col overflow-y-auto text-gray-dark",
+              props.className
+            )}
+            style={{ height: maxHeightContent }}
+          >
+            <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>
+            {props.exibirFooter !== false && <DashboardFooter />}
+          </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

@@ -27,8 +27,8 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
   }
 
   return (
-    <>
-      <div className="center flex-col mt-8 overflow-hidden">
+    <div className="mt-2">
+      <div className="center flex-col mt-2 overflow-hidden">
         <CircleList className="boletim-mensal">
           {meses.map((mesNome, index) => {
             const mes = index + 1;
@@ -74,7 +74,7 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
           </Link>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

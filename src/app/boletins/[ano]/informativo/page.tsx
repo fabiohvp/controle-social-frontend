@@ -96,7 +96,7 @@ export default async function Page({
   const data = await getData(params);
 
   return (
-    <table className="table mt-4 responsive text-sm">
+    <table className="table responsive text-sm">
       <thead>
         <tr>
           <th className="min-w-[200px]">Edição</th>
@@ -106,7 +106,7 @@ export default async function Page({
       </thead>
       <tbody>
         {data.map((row, index) => (
-          <tr className={`${index % 2 === 0 ? "even" : "odd"}`}>
+          <tr key={index} className={`${index % 2 === 0 ? "even" : "odd"}`}>
             <td>
               <Link
                 href={row.edicao.href}

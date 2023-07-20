@@ -69,10 +69,15 @@
 body {
   font-family: "Open Sans", sans-serif;
   height: 100%;
+  overflow: hidden;
 }
 
 header {
   @apply z-10;
+}
+
+a[target="_blank"] {
+  @apply text-link;
 }
 
 a:hover {

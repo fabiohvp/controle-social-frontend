@@ -6,9 +6,9 @@ import MunicipioGestaoFiscalSubmenuItems from "../MunicipioGestaoFiscalSubmenuIt
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      className="flex flex-col gap-2"
-      menuItems={MunicipioGestaoFiscalSubmenuItems}
-      sidebar={<SidebarMunicipios />}
+      className="flex flex-col gap-2 p-2"
+      submenuItems={MunicipioGestaoFiscalSubmenuItems}
+      sidebar={SidebarMunicipios}
     >
       receita correnta liquida: {params.ano} {params.municipio}
     </DashboardLayout>

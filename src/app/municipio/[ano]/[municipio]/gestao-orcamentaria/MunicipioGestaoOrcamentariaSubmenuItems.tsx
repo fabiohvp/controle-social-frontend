@@ -16,7 +16,7 @@ export default function MunicipioGestaoOrcamentariaSubmenuItems() {
         <DropdownLinksGestaoOrcamentaria />
       </li>
       <li>
-        <DropdownLinksMunicipiosAnos minWidth="80px" />
+        <DropdownLinksMunicipiosAnos />
       </li>
     </>
   );

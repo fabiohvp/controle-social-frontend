@@ -1,14 +1,10 @@
 "use client";
-import Loading from "@/components/loading/Loading";
 import { useAtom } from "jotai";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { ipcaLoading, ipcaState } from "./ipca-state";
+import { ipcaState } from "./ipca-state";
 
 export default function IpcaCheckbox({ className }: { className?: string }) {
   const [ipca, toggle] = useAtom(ipcaState);
-  const [loading] = useAtom(ipcaLoading);
-
-  if (loading) return <Loading />;
 
   return (
     <button

@@ -16,7 +16,7 @@ export default function MunicipioGestaoFiscalSubmenuItems() {
         <DropdownLinksGestaoFiscal />
       </li>
       <li>
-        <DropdownLinksMunicipiosAnos minWidth="100px" />
+        <DropdownLinksMunicipiosAnos />
       </li>
     </>
   );

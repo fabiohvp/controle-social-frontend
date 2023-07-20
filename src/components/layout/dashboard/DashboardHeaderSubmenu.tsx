@@ -3,6 +3,7 @@ import DashboardSidebarButton from "./DashboardSidebarButton";
 
 type Props = {
   children?: ReactNode;
+  exibirSidebar: boolean;
 };
 
 export default function DashboardHeaderSubmenu(props: Props) {
@@ -12,7 +13,7 @@ export default function DashboardHeaderSubmenu(props: Props) {
         className="border-t border-b flex items-center"
         style={{ height: 42 }}
       >
-        <DashboardSidebarButton />
+        {props.exibirSidebar && <DashboardSidebarButton />}
         <ul className="flex dashboard-menu submenu w-full">{props.children}</ul>
       </div>
     );

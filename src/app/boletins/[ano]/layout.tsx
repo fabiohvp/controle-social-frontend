@@ -7,8 +7,9 @@ import SidebarBoletins from "./_components/SidebarBoletins";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
-      menuItems={BoletinsSubmenuItems}
-      sidebar={<SidebarBoletins />}
+      className="p-2"
+      submenuItems={BoletinsSubmenuItems}
+      sidebar={SidebarBoletins}
     >
       {children}
     </DashboardLayout>

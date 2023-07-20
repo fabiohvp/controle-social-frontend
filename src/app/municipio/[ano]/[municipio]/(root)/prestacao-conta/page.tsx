@@ -6,8 +6,10 @@ import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      menuItems={MunicipioSubmenuItems}
-      sidebar={<SidebarMunicipios />}
+      className="gap-2 p-2"
+      exibirBotaoIPCA
+      submenuItems={MunicipioSubmenuItems}
+      sidebar={SidebarMunicipios}
     >
       Prestação conta: {params.ano} {params.municipio}
     </DashboardLayout>

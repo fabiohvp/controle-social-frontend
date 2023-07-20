@@ -99,9 +99,9 @@ export default function Dropdown<T>(props: Props<T>) {
             />
           )}
           <ul className="body">
-            {visibleItems.map((item, index) => (
+            {visibleItems.map((item) => (
               <DropdownItem
-                key={index}
+                key={item.value as string}
                 className={`${
                   comparer(item.value, props.selectedValue) ? "active" : ""
                 }`}

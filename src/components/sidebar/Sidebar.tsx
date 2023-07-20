@@ -42,7 +42,7 @@ export default function Sidebar(props: Props) {
   return (
     <SidebarList
       className={twMerge(
-        `bg-blue-menu h-screen overflow-y-auto py-1 text-white hidden md:block ${width}`,
+        `bg-blue-menu grow-0 h-screen overflow-y-auto py-1 shrink-0 text-white hidden md:block ${width}`,
         props.className
       )}
       style={{

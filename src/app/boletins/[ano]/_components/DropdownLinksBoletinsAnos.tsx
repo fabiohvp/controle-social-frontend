@@ -4,11 +4,7 @@ import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
 import { boletinsState } from "../boletins-state";
 
-type Props = {
-  minWidth: string;
-};
-
-export default function DropdownLinksBoletinsAnos(props: Props) {
+export default function DropdownLinksBoletinsAnos() {
   const [state] = useAtom(boletinsState);
   const routeParams = useParams();
   const segments = usePathname().split(`/${routeParams.ano}/`)[1];
@@ -22,7 +18,6 @@ export default function DropdownLinksBoletinsAnos(props: Props) {
         value: ano.toString(),
       }))}
       selectedValue={routeParams.ano}
-      style={{ minWidth: props.minWidth }}
     />
   );
 }

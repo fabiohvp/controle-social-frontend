@@ -12,7 +12,7 @@ export default function MunicipioSubmenuItems() {
         <DropdownLinksRootPages />
       </li>
       <li>
-        <DropdownLinksMunicipiosAnos minWidth="80px" />
+        <DropdownLinksMunicipiosAnos />
       </li>
     </>
   );

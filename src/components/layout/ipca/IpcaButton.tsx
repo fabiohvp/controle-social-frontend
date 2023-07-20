@@ -1,23 +1,27 @@
 "use client";
 import CloseButton from "@/components/buttons/close/CloseButton";
+import Loading from "@/components/loading/Loading";
 import useClickOutside from "@/hooks/useClickOutside";
-import dynamic from "next/dynamic";
+import { useAtom } from "jotai";
 import { useRef, useState } from "react";
 import { FaCog } from "react-icons/fa";
 import DropdownModal from "../../dropdowns/dropdown/DropdownModal";
-
-const IpcaCheckbox = dynamic(() => import("./IpcaCheckbox"), { ssr: false });
+import IpcaCheckbox from "./IpcaCheckbox";
+import { ipcaLoading } from "./ipca-state";
 
 export default function IpcaButton() {
   const [active, setActive] = useState(false);
+  const [loading] = useAtom(ipcaLoading);
   let element = useRef<HTMLDivElement>(null);
 
   useClickOutside({ element, toggle: setActive });
 
+  if (loading) return <Loading />;
+
   return (
     <>
       <IpcaCheckbox className="hidden md:block" />
-      <div ref={element} className="md:hidden">
+      <div ref={element} className="center min-w-[20px] md:hidden">
         <FaCog />
         {active && (
           <DropdownModal>

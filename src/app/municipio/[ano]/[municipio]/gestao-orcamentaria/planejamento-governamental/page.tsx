@@ -6,9 +6,9 @@ import MunicipioGestaoOrcamentariaSubmenuItems from "../MunicipioGestaoOrcamenta
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
-      className="flex flex-col gap-2"
-      menuItems={MunicipioGestaoOrcamentariaSubmenuItems}
-      sidebar={<SidebarMunicipios />}
+      className="flex flex-col gap-2 p-2"
+      submenuItems={MunicipioGestaoOrcamentariaSubmenuItems}
+      sidebar={SidebarMunicipios}
     >
       Planejamento governamental: {params.ano} {params.municipio}
     </DashboardLayout>

@@ -4,11 +4,21 @@ import "./dropdown-item.css";
 
 type Props = {
   children: ReactNode;
+  itemKey?: string;
 } & LiHTMLAttributes<HTMLLIElement>;
 
-export default function DropdownItem({ className, children, ...props }: Props) {
+export default function DropdownItem({
+  className,
+  children,
+  itemKey,
+  ...props
+}: Props) {
   return (
-    <li className={twMerge("dropdown-item", className)} {...props}>
+    <li
+      key={itemKey}
+      className={twMerge("dropdown-item", className)}
+      {...props}
+    >
       {children}
     </li>
   );

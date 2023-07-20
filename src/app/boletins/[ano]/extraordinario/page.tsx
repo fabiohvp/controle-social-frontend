@@ -113,7 +113,7 @@ export default async function Page({
       </thead>
       <tbody>
         {data.map((row, index) => (
-          <tr className={`${index % 2 === 0 ? "even" : "odd"}`}>
+          <tr key={index} className={`${index % 2 === 0 ? "even" : "odd"}`}>
             <td>
               <Link
                 href={row.edicao.href}
