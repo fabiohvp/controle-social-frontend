@@ -1,23 +1,15 @@
-import DropdownLinksGestaoFiscal from "../_components/dropdowns/DropdownLinksGestaoFiscal";
-import DropdownLinksMunicipiosAnos from "../_components/dropdowns/DropdownLinksMunicipiosAnos";
-import DropdownLinksMunicipiosNomes from "../_components/dropdowns/DropdownLinksMunicipiosNomes";
-import DropdownLinksRootPages from "../_components/dropdowns/DropdownLinksRootPages";
+import MenuMunicipios from "../_components/MenuMunicipios";
+import MenuMunicipiosAnos from "../_components/MenuMunicipiosAnos";
+import MenuMunicipiosGestaoFiscal from "../_components/MenuMunicipiosGestaoFiscal";
+import MenuMunicipiosPages from "../_components/MenuMunicipiosPages";
 
 export default function MunicipioGestaoFiscalSubmenuItems() {
   return (
     <>
-      <li>
-        <DropdownLinksMunicipiosNomes />
-      </li>
-      <li>
-        <DropdownLinksRootPages />
-      </li>
-      <li>
-        <DropdownLinksGestaoFiscal />
-      </li>
-      <li>
-        <DropdownLinksMunicipiosAnos />
-      </li>
+      <MenuMunicipios />
+      <MenuMunicipiosPages />
+      <MenuMunicipiosGestaoFiscal />
+      <MenuMunicipiosAnos />
     </>
   );
 }

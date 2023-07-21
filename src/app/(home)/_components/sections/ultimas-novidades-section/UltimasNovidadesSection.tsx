@@ -414,7 +414,7 @@ export default function UltimasNovidadesSection(props: Props) {
               </li>
               <li>
                 Painel sobre
-                <Link href="/folhaDePagamento/2021/municipal/null/contratacoesDemissoes/idEsferaAdministrativa/077">
+                <Link href="/folha-de-pagamento/executivo-municipal/2021/contratacoes-e-demissoes/077">
                   ingressos e desligamentos
                 </Link>
                 ocorridos na Administração Pública estadual e municipal.
@@ -558,14 +558,14 @@ export default function UltimasNovidadesSection(props: Props) {
             <hr />
             <ul className="styled">
               <li>
-                <Link href="/folhaDePagamento/2020/municipal/null/consultaDeVinculo/idEsferaAdministrativa/null/undefined">
+                <Link href="folha-de-pagamento/executivo-municipal/2020/contratacoes-e-demissoes">
                   Consulta de vínculos
                 </Link>
                 dos servidores estaduais e municipais.
               </li>
               <li>
                 Novos gráficos sobre vantagens e descontos, no painel de
-                <Link href="/folhaDePagamento/2020/estadual/executivo/visaoGeral/codigoTipoUnidadeGestora/null/1">
+                <Link href="folha-de-pagamento/executivo-estadual/2020/1/visao-geral">
                   Pessoal
                 </Link>
                 .
@@ -636,7 +636,7 @@ export default function UltimasNovidadesSection(props: Props) {
               </li>
               <li>
                 Painel com informações sobre
-                <Link href="/folhaDePagamento/2020/municipal/executivo/visaoGeral/idEsferaAdministrativa/019/1">
+                <Link href="/folha-de-pagamento/executivo-municipal/2020/1/visaoGeral/019">
                   pessoal e folha de pagamento
                 </Link>
                 no Estado e nos municípios.

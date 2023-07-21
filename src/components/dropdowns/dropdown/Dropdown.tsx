@@ -1,5 +1,6 @@
 "use client";
 import DropdownModal from "@/components/dropdowns/dropdown/DropdownModal";
+import Input from "@/components/inputs/Input";
 import Loading from "@/components/loading/Loading";
 import { normalize } from "@/formatters/string";
 import useClickOutside from "@/hooks/useClickOutside";
@@ -7,8 +8,8 @@ import { KeyValue } from "@/types/KeyValue";
 import { CSSProperties, ReactNode, useRef, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
-import { dropdownDefaultComparer } from "../dropdown-comparers";
 import DropdownItem from "./DropdownItem";
+import { dropdownDefaultComparer } from "./dropdown-comparers";
 import "./dropdown.css";
 
 type DropdownItem<T> = KeyValue<ReactNode, T> & {
@@ -18,6 +19,7 @@ type DropdownItem<T> = KeyValue<ReactNode, T> & {
 type Props<T> = {
   autoClose?: boolean;
   borderless?: boolean;
+  bodyClassName?: string;
   buttonClassName?: string;
   comparer?: (value?: T, selectedValue?: T) => boolean;
   className?: string;
@@ -60,6 +62,17 @@ export default function Dropdown<T>(props: Props<T>) {
     }
   }
 
+  function getSelected() {
+    let selected = props.items.find((item) =>
+      comparer(item.value, props.selectedValue)
+    );
+
+    if (!selected) {
+      selected = props.items.find((item) => item.value === "*");
+    }
+    return selected?.key;
+  }
+
   if (props.loading) return <Loading />;
   return (
     <div
@@ -74,15 +87,12 @@ export default function Dropdown<T>(props: Props<T>) {
       >
         <span className="flex items-center gap-1 overflow-hidden">
           <span
-            className={`overflow-hidden text-ellipsis ${
-              props.itemClassName ?? ""
-            }`}
+            className={twMerge(
+              `max-w-[200px] overflow-hidden text-ellipsis`,
+              props.itemClassName
+            )}
           >
-            {
-              props.items.find((item) =>
-                comparer(item.value, props.selectedValue)
-              )?.key
-            }
+            {getSelected()}
           </span>
           {active ? <FaCaretUp /> : <FaCaretDown />}
         </span>
@@ -90,15 +100,17 @@ export default function Dropdown<T>(props: Props<T>) {
       {active && (
         <DropdownModal onClick={onItemClick}>
           {props.hideSearch !== true && (
-            <input
-              ref={search}
-              autoFocus
-              type="text"
-              className="p-1 border rounded m-2"
-              onKeyUp={onSearch}
-            />
+            <div className="p-2">
+              <Input
+                ref={search}
+                autoFocus
+                type="text"
+                className="w-full"
+                onKeyUp={onSearch}
+              />
+            </div>
           )}
-          <ul className="body">
+          <ul className={twMerge(`body`, props.bodyClassName)}>
             {visibleItems.map((item) => (
               <DropdownItem
                 key={item.value as string}

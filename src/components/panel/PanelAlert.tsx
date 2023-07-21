@@ -42,9 +42,9 @@ export default function PanelAlert(props: Props) {
   return (
     <div
       className={twMerge(
-        `border-l-4 p-4 ${THEME[props.type].background} ${
-          THEME[props.type].border
-        } ${THEME[props.type].text}`,
+        `border-l-4 p-2 max-h-[120px] md:max-h-full overflow-y-auto md:overflow-unset ${
+          THEME[props.type].background
+        } ${THEME[props.type].border} ${THEME[props.type].text}`,
         props.className
       )}
       role="alert"

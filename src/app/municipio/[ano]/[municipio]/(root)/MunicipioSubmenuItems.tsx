@@ -1,19 +1,13 @@
-import DropdownLinksMunicipiosAnos from "../_components/dropdowns/DropdownLinksMunicipiosAnos";
-import DropdownLinksMunicipiosNomes from "../_components/dropdowns/DropdownLinksMunicipiosNomes";
-import DropdownLinksRootPages from "../_components/dropdowns/DropdownLinksRootPages";
+import MenuMunicipios from "../_components/MenuMunicipios";
+import MenuMunicipiosAnos from "../_components/MenuMunicipiosAnos";
+import MenuMunicipiosPages from "../_components/MenuMunicipiosPages";
 
 export default function MunicipioSubmenuItems() {
   return (
     <>
-      <li>
-        <DropdownLinksMunicipiosNomes />
-      </li>
-      <li>
-        <DropdownLinksRootPages />
-      </li>
-      <li>
-        <DropdownLinksMunicipiosAnos />
-      </li>
+      <MenuMunicipios />
+      <MenuMunicipiosPages />
+      <MenuMunicipiosAnos />
     </>
   );
 }

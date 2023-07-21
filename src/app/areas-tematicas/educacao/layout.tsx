@@ -1,6 +1,5 @@
-import Loading from "@/app/loading";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 import EducacaoSubmenuItems from "./EducacaoSubmenuItems";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -10,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       exibirFooter={false}
       submenuItems={EducacaoSubmenuItems}
     >
-      <Suspense fallback={<Loading />}>{children}</Suspense>
+      {children}
     </DashboardLayout>
   );
 }

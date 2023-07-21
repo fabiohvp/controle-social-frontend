@@ -1,9 +1,11 @@
 .dropdown-item {
+  padding: 0.2rem 1rem;
   text-align: left;
 }
 
 .dropdown-item > * {
   display: flex;
+  white-space: break-spaces;
   @apply p-1;
   @apply text-black;
 }

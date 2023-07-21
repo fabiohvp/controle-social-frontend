@@ -11,15 +11,13 @@ export default function Page() {
         title="Distribuição de escolas públicas, matrículas e profissionais da educação no Estado e nos municípios"
       >
         <div>
-          <p>
-            Visão inicial sobre matrículas e escolas nas redes municipais e
-            estadual: quantidade, distribuição nos municípios e localização
-            (urbana e rural).
-            <br />
-            Os dados exibidos são do Censo Escolar realizado anualmente pelo
-            Inep (Instituto Nacional de Estudos e Pesquisas Educacionais Anísio
-            Teixeira), ligado ao MEC (Ministério da Educação).
-          </p>
+          Visão inicial sobre matrículas e escolas nas redes municipais e
+          estadual: quantidade, distribuição nos municípios e localização
+          (urbana e rural).
+          <br />
+          Os dados exibidos são do Censo Escolar realizado anualmente pelo Inep
+          (Instituto Nacional de Estudos e Pesquisas Educacionais Anísio
+          Teixeira), ligado ao MEC (Ministério da Educação).
         </div>
         <div className="center w-4/12">
           <LogoInfoEducacao />

@@ -1,6 +1,5 @@
 "use client";
 import DropdownItem from "@/components/dropdowns/dropdown/DropdownItem";
-import DropdownMunicipios from "@/components/dropdowns/dropdown/DropdownMunicipios";
 import AreaTematicaIcon from "@/components/images/icones/header/AreaTematicaIcon";
 import BoletimIcon from "@/components/images/icones/header/BoletimIcon";
 import EstadoIcon from "@/components/images/icones/header/EstadoIcon";
@@ -8,15 +7,20 @@ import FiscalizacaoIcon from "@/components/images/icones/header/FiscalizacaoIcon
 import InteligenciaArtificialIcon from "@/components/images/icones/header/InteligenciaArtificialIcon";
 import ObrigacoesIcon from "@/components/images/icones/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icones/header/PrestacaoContaIcon";
+import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
+import { getCodigoMunicipio } from "@/shared/municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
+
+const ANO_DEFAULT = 2023;
+const MES_DEFAULT = 1;
 
 export default function DashboardHeaderItems() {
   return (
     <ul className="dashboard-menu font-bold hidden xl:flex">
       <li className="px-3 active">
-        <DropdownMunicipios />
+        <MegaMenuMunicipios />
       </li>
       <li className="px-3">
         <LinkEstado />
@@ -73,7 +77,11 @@ function DropdownAreasTematicas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/folha-de-pagamento/${params.ano}/municipio/${params.municipio}/todos/visao-geral`}
+            href={`/folha-de-pagamento/executivo-municipal/${
+              params.ano ?? ANO_DEFAULT
+            }/${params.mes ?? MES_DEFAULT}/visao-geral/${
+              getCodigoMunicipio(params.municipio) ?? ""
+            }`}
           >
             Pessoal
           </Link>
@@ -97,29 +105,35 @@ function DropdownFiscalizacoes() {
     >
       <ul className="font-normal">
         <DropdownItem>
-          <Link href={`/fiscalizacao/saude/acoes-pandemia/${params.ano}`}>
+          <Link href={`/fiscalizacao/2020/saude/acoes-pandemia`}>
             Ações sobre a Pandemia
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/fiscalizacao/cancer-colo-de-utero/${params.ano}`}>
+          <Link href={`/fiscalizacao/2022/saude/cancer-colo-de-utero`}>
             Câncer de colo de útero
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/fiscalizacao/controle-interno/${params.ano}/executivo`}>
+          <Link
+            href={`/fiscalizacao/controle-interno/${
+              params.ano ?? ANO_DEFAULT
+            }/executivo`}
+          >
             Controle interno dos municípios
           </Link>
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/fiscalizacao/desigualdade-educacional/${params.ano}/manifestacao-tecnica`}
+            href={`/fiscalizacao/2020/educacao/desigualdade-educacional/manifestacao-tecnica`}
           >
             Desigualdade educacional
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/fiscalizacao/saude/doencas-cronicas/${params.ano}`}>
+          <Link
+            href={`/fiscalizacao/2021/saude/doencas-cronicas-nao-transmissiveis`}
+          >
             Doenças crônicas não transmissíveis
           </Link>
         </DropdownItem>
@@ -129,23 +143,29 @@ function DropdownFiscalizacoes() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/estado/${params.ano}/iege`}>
+          <Link href={`/estado/${params.ano ?? ANO_DEFAULT}/iege`}>
             Índice de efetividade de gestão estadual (IEGE)
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/municipio/${params.ano}/iegm`}>
+          <Link href={`/municipio/${params.ano ?? ANO_DEFAULT}/iegm`}>
             Índice de efetividade de gestão municipal (IEGM)
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/fiscalizacao/mamografia-rastreamento/${params.ano}`}>
+          <Link
+            href={`/fiscalizacao/mamografia-rastreamento/${
+              params.ano ?? ANO_DEFAULT
+            }`}
+          >
             Mamografias de rastreamento
           </Link>
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/fiscalizacao/portal-transparencia/${params.ano}/executivo`}
+            href={`/fiscalizacao/portal-transparencia/${
+              params.ano ?? ANO_DEFAULT
+            }/executivo`}
           >
             Portais de transparência dos municípios
           </Link>
@@ -157,7 +177,9 @@ function DropdownFiscalizacoes() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/fiscalizacao/transparencia-passiva/${params.ano}/executivo`}
+            href={`/fiscalizacao/transparencia-passiva/${
+              params.ano ?? ANO_DEFAULT
+            }/executivo`}
           >
             Transparência passiva
           </Link>
@@ -197,12 +219,18 @@ function DropdownPrestacoesContas() {
     >
       <ul className="font-normal">
         <DropdownItem>
-          <Link href={`/prestaca-conta/${params.ano}/municipio/governo/07`}>
+          <Link
+            href={`/prestaca-conta/${
+              params.ano ?? ANO_DEFAULT
+            }/municipio/governo/07`}
+          >
             Processos
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/monitoramento/${params.ano}/municipio/todos`}>
+          <Link
+            href={`/monitoramento/${params.ano ?? ANO_DEFAULT}/municipio/todos`}
+          >
             Monitoramentos
           </Link>
         </DropdownItem>
@@ -220,7 +248,10 @@ function LinkBoletins() {
   const params = useParams();
 
   return (
-    <Link href={`/boletins/${params.ano}/mensal`} className="center gap-1">
+    <Link
+      href={`/boletins/${params.ano ?? ANO_DEFAULT}/`}
+      className="center gap-1"
+    >
       <BoletimIcon />
       Boletins
     </Link>
@@ -231,7 +262,10 @@ function LinkEstado() {
   const params = useParams();
 
   return (
-    <Link href={`/estado/${params.ano}/visao-geral`} className="center gap-1">
+    <Link
+      href={`/estado/${params.ano ?? ANO_DEFAULT}/visao-geral`}
+      className="center gap-1"
+    >
       <EstadoIcon />
       Estado
     </Link>
@@ -243,7 +277,7 @@ function LinkObrigacoes() {
 
   return (
     <Link
-      href={`/obrigacao-envio/${params.ano}/municipio`}
+      href={`/obrigacao-envio/${params.ano ?? ANO_DEFAULT}/municipio`}
       className="center gap-1"
     >
       <ObrigacoesIcon />

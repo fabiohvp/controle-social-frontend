@@ -32,6 +32,10 @@
   .overflow-initial {
     overflow: initial;
   }
+
+  .overflow-unset {
+    overflow: unset;
+  }
 }
 
 :root {
@@ -67,7 +71,6 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
   height: 100%;
   overflow: hidden;
 }
@@ -84,16 +87,28 @@ a:hover {
   @apply text-link;
 }
 
-ul.styled {
-  list-style-type: disc;
-  text-align: left;
-  @apply pl-8;
+.button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  @apply p-2;
+  @apply rounded-md;
+  @apply text-sm;
 }
 
-ul.styled li {
-  @apply py-1;
-  @apply tracking-wide;
-  @apply text-sm;
+.button.primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.button.primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -103,14 +118,10 @@ ul.styled li {
   margin-left: auto;
 }
 
-.grid-cols-responsive {
-  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
-}
-
-.center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .fa-receita svg:first-child {
@@ -121,6 +132,22 @@ ul.styled li {
 .fa-despesa svg:last-child {
   font-size: 0.6em;
   margin-left: -0.5em;
+}
+
+.grid-cols-responsive {
+  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
+}
+
+ul.styled {
+  list-style-type: disc;
+  text-align: left;
+  @apply pl-8;
+}
+
+ul.styled li {
+  @apply py-1;
+  @apply tracking-wide;
+  @apply text-sm;
 }
 
 @screen sm {

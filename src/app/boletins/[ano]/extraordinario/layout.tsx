@@ -1,6 +1,5 @@
-import Loading from "@/app/loading";
 import PanelAlert from "@/components/panel/PanelAlert";
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 
 //TODO: trocar texto do alerta de acordo com o ano
 export default function Layout({ children }: { children: ReactNode }) {
@@ -15,7 +14,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         relevantes, a exemplo do que ocorre com a pandemia do novo coronavírus -
         Covid-19.
       </PanelAlert>
-      <Suspense fallback={<Loading />}>{children}</Suspense>
+      {children}
     </>
   );
 }

@@ -1,9 +1,8 @@
-import Loading from "@/app/loading";
 import CrasLogo from "@/components/images/logos/CrasLogo";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Link from "next/link";
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 import AssistenciaSocialSubmenuItems from "./AssistenciaSocialSubmenuItems";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -63,7 +62,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <CrasLogo />
         </div>
       </PanelWithTitle>
-      <Suspense fallback={<Loading />}>{children}</Suspense>
+      {children}
     </DashboardLayout>
   );
 }

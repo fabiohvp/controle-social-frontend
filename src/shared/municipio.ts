@@ -1,21 +1,25 @@
-import MUNICIPIOS from "@/municipios.json";
+import MUNICIPIOS from "@/data/municipios.json";
 
 export type Municipio = (typeof MUNICIPIOS)[0];
 
-export function getMunicipios() {
+export function getMunicipios(): Municipio[] {
   return MUNICIPIOS;
 }
 
-export function getCodigoMunicipio(nomeNormalizado: string) {
-  const codigo = MUNICIPIOS.find(
+export function getCodigoMunicipio(nomeNormalizado: string): string | null {
+  const municipio = MUNICIPIOS.find(
     (o) => o.nomeNormalizado === nomeNormalizado
-  )!.codigo;
-  return codigo;
+  );
+  if (municipio) {
+    return municipio.codigo;
+  }
+  return null;
 }
 
-export function getNomeNormalizadoMunicipio(nome: string) {
-  const nomeNormalizado = MUNICIPIOS.find(
-    (o) => o.nome === nome
-  )!.nomeNormalizado;
-  return nomeNormalizado;
+export function getNomeNormalizadoMunicipio(nome: string): string | null {
+  const municipio = MUNICIPIOS.find((o) => o.nome === nome);
+  if (municipio) {
+    return municipio.nomeNormalizado;
+  }
+  return null;
 }
