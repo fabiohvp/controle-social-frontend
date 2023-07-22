@@ -84,7 +84,7 @@ function DropdownAreasTematicas() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/areas-tematicas/saude/visao-geral">Saúde</Link>
+          <Link href="/areas-tematicas/saude/estabelecimentos">Saúde</Link>
         </DropdownItem>
       </ul>
     </DropdownMenu>

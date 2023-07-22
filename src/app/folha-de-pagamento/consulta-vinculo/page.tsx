@@ -9,7 +9,7 @@ import ConsultaVinculoSubmenuItems from "./ConsultaVinculoSubmenuItems";
 export default function Page() {
   return (
     <DashboardLayout
-      className="p-2"
+      className="px-2 pt-2"
       exibirFooter={false}
       submenuItems={ConsultaVinculoSubmenuItems}
     >

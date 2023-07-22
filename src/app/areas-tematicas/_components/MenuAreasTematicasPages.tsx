@@ -7,42 +7,40 @@ import { usePathname } from "next/navigation";
 const PAGES: KeyValue<string, string>[] = [
   {
     key: "Assistência social",
-    value: "assistencia-social/referenciamento",
+    value: "/areas-tematicas/assistencia-social/referenciamento",
   },
   {
     key: "Concessões e PPP",
-    value: "concessao-publica/visao-geral",
+    value: "/areas-tematicas/concessao-publica/visao-geral",
   },
   {
     key: "Educação",
-    value: "educacao/visao-geral",
+    value: "/areas-tematicas/educacao/visao-geral",
   },
   {
     key: "Estrutura administrativa",
-    value: "estrutura-administrativa",
+    value: "/areas-tematicas/estrutura-administrativa",
   },
   {
     key: "Pessoal",
-    value: "folha-de-pagamento/visao-geral",
+    value: "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral",
   },
   {
     key: "Saúde",
-    value: "saude/visao-geral",
+    value: "/areas-tematicas/saude/estabelecimentos",
   },
 ];
 
 export default function MenuAreasTematicasPages() {
-  const initialSegment = usePathname()
-    .split(`/areas-tematicas/`)[1]
-    .split("/")[0];
+  const segment = usePathname().split(`/areas-tematicas/`)[1].split("/")[0];
 
   return (
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={(item) => `/areas-tematicas/${item.value}`}
+        generateUrl={(item) => item.value}
         items={PAGES}
-        selectedValue={initialSegment}
+        selectedValue={`/areas-tematicas/${segment}`}
       />
     </li>
   );

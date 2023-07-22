@@ -30,6 +30,7 @@ export default function MenuAreasTematicasAssistenciaSocial() {
   return (
     <li>
       <DropdownLinks
+        bodyClassName="!min-w-[260px]"
         generateUrl={(item) =>
           `/areas-tematicas/assistencia-social/${item.value}`
         }
