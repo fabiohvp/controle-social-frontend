@@ -1,13 +1,12 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
-import { getCodigoMunicipio } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import { EstadoPageProps, EstadoPanelProps } from "../../../EstadoPageProps";
 import "./visao-geral-panels.css";
 
-async function getData({ ano, municipio }: EstadoPageProps) {
-  const codigo = getCodigoMunicipio(municipio);
+async function getData({ ano }: EstadoPageProps) {
+  const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
@@ -17,10 +16,9 @@ async function getData({ ano, municipio }: EstadoPageProps) {
 
 export async function ObrigacoesJuntoTCEESPanel({
   ano,
-  municipio,
   style,
 }: EstadoPanelProps) {
-  const data = await getData({ ano, municipio });
+  const data = await getData({ ano });
 
   return (
     <PanelWithTitle
@@ -34,7 +32,7 @@ export async function ObrigacoesJuntoTCEESPanel({
             key={key}
             className="municipio-obrigacao-envio-ano flex flex-col gap-2 relative"
           >
-            <Link href={`/municipio/${key}/${municipio}/obrigacao-envio`}>
+            <Link href={`/municipio/${key}/obrigacao-envio`}>
               <FaCheckCircle
                 className="text-6xl"
                 style={{

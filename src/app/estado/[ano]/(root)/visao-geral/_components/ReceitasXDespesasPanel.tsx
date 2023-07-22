@@ -1,10 +1,9 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
-import { getCodigoMunicipio } from "@/shared/municipio";
 import { EstadoPageProps, EstadoPanelProps } from "../../../EstadoPageProps";
 import ReceitasXDespesasChart from "../../../_components/charts/ReceitasXDespesasChart";
 
-async function getData({ ano, municipio }: EstadoPageProps) {
-  const codigo = getCodigoMunicipio(municipio);
+async function getData({ ano }: EstadoPageProps) {
+  const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
@@ -12,16 +11,12 @@ async function getData({ ano, municipio }: EstadoPageProps) {
   return data;
 }
 
-export async function ReceitasXDespesasPanel({
-  ano,
-  municipio,
-  style,
-}: EstadoPanelProps) {
-  const data = await getData({ ano, municipio });
+export async function ReceitasXDespesasPanel({ ano, style }: EstadoPanelProps) {
+  const data = await getData({ ano });
 
   return (
     <PanelWithTitle style={style} title="Receitas X Despesas">
-      <ReceitasXDespesasChart ano={ano} municipio={municipio} {...data} />
+      <ReceitasXDespesasChart ano={ano} municipio={"001"} {...data} />
     </PanelWithTitle>
   );
 }

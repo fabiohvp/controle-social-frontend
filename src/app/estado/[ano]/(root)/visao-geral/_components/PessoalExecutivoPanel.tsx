@@ -1,7 +1,6 @@
 import DoughnutChart from "@/components/charts/DoughnutChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
-import { getCodigoMunicipio } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { EstadoPageProps, EstadoPanelProps } from "../../../EstadoPageProps";
@@ -33,8 +32,8 @@ const CHART_SETTINGS = {
   title: "Limite LRF",
 };
 
-const getData = cache(async ({ ano, municipio }: EstadoPageProps) => {
-  const codigo = getCodigoMunicipio(municipio);
+const getData = cache(async ({ ano }: EstadoPageProps) => {
+  const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalExecutivo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
@@ -42,12 +41,8 @@ const getData = cache(async ({ ano, municipio }: EstadoPageProps) => {
   return data as { [key: string]: number };
 });
 
-export async function PessoalExecutivoPanel({
-  ano,
-  municipio,
-  style,
-}: EstadoPanelProps) {
-  const data = await getData({ ano, municipio });
+export async function PessoalExecutivoPanel({ ano, style }: EstadoPanelProps) {
+  const data = await getData({ ano });
 
   return (
     <PanelWithTitle
