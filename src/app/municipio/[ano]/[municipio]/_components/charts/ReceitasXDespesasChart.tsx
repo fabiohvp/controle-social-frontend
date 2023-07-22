@@ -66,25 +66,25 @@ function getOptions(props: Props, ipca: Ipca) {
         },
         data: [
           {
-            value: props.receita.previsaoInicial,
+            value: props.receita?.previsaoInicial,
             itemStyle: {
               color: COLOR.receita,
             },
           },
           {
-            value: props.receita.arrecadada,
+            value: props.receita?.arrecadada,
             itemStyle: {
               color: COLOR.receita,
             },
           },
           {
-            value: props.despesa.previsaoInicial,
+            value: props.despesa?.previsaoInicial,
             itemStyle: {
               color: COLOR.despesa,
             },
           },
           {
-            value: props.despesa.liquidada,
+            value: props.despesa?.liquidada,
             itemStyle: {
               color: COLOR.despesa,
             },

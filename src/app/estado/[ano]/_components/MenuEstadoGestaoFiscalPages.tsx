@@ -21,7 +21,7 @@ export default function MenuEstadoGestaoFiscalPages() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) => `/municipio/${routeParams.ano}/${item.value}`}
+        generateUrl={(item) => `/estado/${routeParams.ano}/${item.value}`}
         items={PAGES}
         selectedValue={segments}
       />

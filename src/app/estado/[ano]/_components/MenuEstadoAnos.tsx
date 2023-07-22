@@ -13,7 +13,7 @@ export default function MenuEstadoAnos() {
     <li>
       <DropdownLinks
         className="min-w-[70px]"
-        generateUrl={(item) => `/municipio/${item.value}/${segments}`}
+        generateUrl={(item) => `/estado/${item.value}/${segments}`}
         items={state.anos.map((ano) => ({
           key: ano.toString(),
           value: ano.toString(),

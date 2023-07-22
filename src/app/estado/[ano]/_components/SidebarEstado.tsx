@@ -14,13 +14,13 @@ export default function SidebarEstado() {
   return (
     <>
       <SidebarItem
-        href={`/municipio/${routeParams.ano}/visao-geral`}
+        href={`/estado/${routeParams.ano}/visao-geral`}
         icon={<FaEye />}
         text="Visão geral"
         tooltip="Visão geral do município"
       />
       <SidebarItem
-        href={`/municipio/${routeParams.ano}/obrigacao-envio`}
+        href={`/estado/${routeParams.ano}/obrigacao-envio`}
         icon={<FaCheck className="text-xl" />}
         text="Obrigações"
         tooltip="Obrigações junto ao TCE-ES"
@@ -32,12 +32,12 @@ export default function SidebarEstado() {
         tooltip="Gestão orçamentária"
       >
         <SidebarItem
-          href={`/municipio/${routeParams.ano}/gestao-orcamentaria/planejamento-governamental`}
+          href={`/estado/${routeParams.ano}/gestao-orcamentaria/planejamento-governamental`}
           text="Planejamento governamental"
           tooltip="Planejamento governamental"
         />
         <SidebarItem
-          href={`/municipio/${routeParams.ano}/gestao-orcamentaria/plano-plurianual`}
+          href={`/estado/${routeParams.ano}/gestao-orcamentaria/plano-plurianual`}
           text="Plano plurianual"
           tooltip="Plano plurianual"
         />
@@ -49,19 +49,19 @@ export default function SidebarEstado() {
         tooltip="Gestão fiscal"
       >
         <SidebarItem
-          href={`/municipio/${routeParams.ano}/gestao-fiscal/meta-arrecadacao`}
+          href={`/estado/${routeParams.ano}/gestao-fiscal/meta-arrecadacao`}
           text="Metas de arrecadação"
           tooltip="Metas de arrecadação"
         />
         <SidebarItem
-          href={`/municipio/${routeParams.ano}/gestao-fiscal/receita-corrente-liquida`}
+          href={`/estado/${routeParams.ano}/gestao-fiscal/receita-corrente-liquida`}
           text="RCL"
           tooltip="Receita corrente líquida"
         />
       </SidebarItem>
 
       <SidebarItem
-        href={`/municipio/${routeParams.ano}/prestacao-conta`}
+        href={`/estado/${routeParams.ano}/prestacao-conta`}
         icon={<FaUniversity className="text-xl" />}
         text="Prestações de contas"
         tooltip="Prestações de contas"

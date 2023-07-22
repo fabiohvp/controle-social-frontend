@@ -30,7 +30,7 @@ export default function MenuEstado() {
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={(item) => `/municipio/${routeParams.ano}/${item.value}`}
+        generateUrl={(item) => `/estado/${routeParams.ano}/${item.value}`}
         items={PAGES}
         selectedValue={initialSegment}
       />
