@@ -5,24 +5,24 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Metas de arrecadação",
-    value: "gestao-fiscal/meta-arrecadacao",
+    key: "Manifestação técnica",
+    value: "manifestacao-tecnica",
   },
   {
-    key: "RCL",
-    value: "gestao-fiscal/receita-corrente-liquida",
+    key: "Relatório",
+    value: "relatorio",
   },
 ];
 
-export default function MenuMunicipiosGestaoFiscal() {
+export default function MenuFiscalizacaoDesigualdadeEducacionalPages() {
   const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
+  const segments = usePathname().split(`/`)[5];
 
   return (
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/municipio/${routeParams.ano}/${routeParams.municipio}/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/educacao/desigualdade-educacional/${item.value}`
         }
         items={PAGES}
         selectedValue={segments}

@@ -5,28 +5,24 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Câmaras",
-    value: "camaras",
+    key: "Planejamento governamental",
+    value: "gestao-orcamentaria/planejamento-governamental",
   },
   {
-    key: "Prefeituras",
-    value: "prefeituras",
-  },
-  {
-    key: "Estado",
-    value: "estado",
+    key: "Plano plurianual",
+    value: "gestao-orcamentaria/plano-plurianual",
   },
 ];
 
-export default function MenuFiscalizacaoPortalTransparencia() {
+export default function MenuMunicipiosGestaoOrcamentariaPages() {
   const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+  const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
 
   return (
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${item.value}`
+          `/municipio/${routeParams.ano}/${routeParams.municipio}/${item.value}`
         }
         items={PAGES}
         selectedValue={segments}

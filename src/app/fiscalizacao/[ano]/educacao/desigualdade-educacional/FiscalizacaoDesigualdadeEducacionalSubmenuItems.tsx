@@ -1,7 +1,7 @@
 import FiscalizacaoSubmenuLabel from "../../../_components/FiscalizacaoSubmenuLabel";
 import FiscalizacaoSubmenuLabelEducacao from "../_components/FiscalizacaoSubmenuLabelEducacao";
 import FiscalizacaoSubmenuLabelDesigualdadeEducacional from "./_components/FiscalizacaoSubmenuLabelDesigualdadeEducacional";
-import MenuFiscalizacaoDesigualdadeEducacional from "./_components/MenuFiscalizacaoDesigualdadeEducacional";
+import MenuFiscalizacaoDesigualdadeEducacionalPages from "./_components/MenuFiscalizacaoDesigualdadeEducacionalPages";
 
 export default function FiscalizacaoDesigualdadeEducacionalSubmenuItems() {
   return (
@@ -9,7 +9,7 @@ export default function FiscalizacaoDesigualdadeEducacionalSubmenuItems() {
       <FiscalizacaoSubmenuLabel />
       <FiscalizacaoSubmenuLabelEducacao />
       <FiscalizacaoSubmenuLabelDesigualdadeEducacional />
-      <MenuFiscalizacaoDesigualdadeEducacional />
+      <MenuFiscalizacaoDesigualdadeEducacionalPages />
     </>
   );
 }

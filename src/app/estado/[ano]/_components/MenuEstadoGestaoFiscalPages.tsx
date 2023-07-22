@@ -5,25 +5,23 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Câmaras",
-    value: "camaras",
+    key: "Metas de arrecadação",
+    value: "gestao-fiscal/meta-arrecadacao",
   },
   {
-    key: "Prefeituras",
-    value: "prefeituras",
+    key: "RCL",
+    value: "gestao-fiscal/receita-corrente-liquida",
   },
 ];
 
-export default function MenuFiscalizacaoControleInterno() {
+export default function MenuEstadoGestaoFiscalPages() {
   const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/controle-interno/${item.value}`
-        }
+        generateUrl={(item) => `/municipio/${routeParams.ano}/${item.value}`}
         items={PAGES}
         selectedValue={segments}
       />

@@ -18,7 +18,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuFiscalizacaoTransparenciaPassiva() {
+export default function MenuFiscalizacaoTransparenciaPassivaPages() {
   const routeParams = useParams();
   const segments = usePathname().split(`/`)[4];
 

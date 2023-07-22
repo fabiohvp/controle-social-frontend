@@ -26,7 +26,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuAreasTematicasSaude() {
+export default function MenuAreasTematicasSaudePages() {
   const segments = usePathname().split(`/`)[3];
 
   return (

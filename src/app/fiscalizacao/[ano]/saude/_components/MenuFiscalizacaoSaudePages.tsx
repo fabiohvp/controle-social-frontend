@@ -5,24 +5,28 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Planejamento governamental",
-    value: "gestao-orcamentaria/planejamento-governamental",
+    key: "Ações sobre a pandemia",
+    value: "acoes-pandemia",
   },
   {
-    key: "Plano plurianual",
-    value: "gestao-orcamentaria/plano-plurianual",
+    key: "Câncer de colo de útero",
+    value: "cancer-colo-de-utero",
+  },
+  {
+    key: "Doenças crônicas não transmissíveis",
+    value: "doencas-cronicas-nao-transmissiveis",
   },
 ];
 
-export default function MenuMunicipiosGestaoOrcamentaria() {
+export default function MenuFiscalizacaoSaudePages() {
   const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
+  const segments = usePathname().split(`/`)[4];
 
   return (
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/municipio/${routeParams.ano}/${routeParams.municipio}/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/saude/${item.value}`
         }
         items={PAGES}
         selectedValue={segments}

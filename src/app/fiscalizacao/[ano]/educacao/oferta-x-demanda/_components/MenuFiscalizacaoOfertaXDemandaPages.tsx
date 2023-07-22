@@ -38,7 +38,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuFiscalizacaoOfertaXDemanda() {
+export default function MenuFiscalizacaoOfertaXDemandaPages() {
   const routeParams = useParams();
   const segments = usePathname().split(`/`)[5];
 

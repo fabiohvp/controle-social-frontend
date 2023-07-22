@@ -1,13 +1,13 @@
 import FiscalizacaoSubmenuLabel from "@/app/fiscalizacao/_components/FiscalizacaoSubmenuLabel";
 import FiscalizacaoSubmenuLabelSaude from "./_components/FiscalizacaoSubmenuLabelSaude";
-import MenuFiscalizacaoSaude from "./_components/MenuFiscalizacaoSaude";
+import MenuFiscalizacaoSaudePages from "./_components/MenuFiscalizacaoSaudePages";
 
 export default function FiscalizacaoSaudeSubmenuItems() {
   return (
     <>
       <FiscalizacaoSubmenuLabel />
       <FiscalizacaoSubmenuLabelSaude />
-      <MenuFiscalizacaoSaude />
+      <MenuFiscalizacaoSaudePages />
     </>
   );
 }

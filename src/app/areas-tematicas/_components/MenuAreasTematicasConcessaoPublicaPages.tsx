@@ -14,7 +14,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuAreasTematicasConcessaoPublica() {
+export default function MenuAreasTematicasConcessaoPublicaPages() {
   const segments = usePathname().split(
     `/areas-tematicas/concessao-publica/`
   )[1];

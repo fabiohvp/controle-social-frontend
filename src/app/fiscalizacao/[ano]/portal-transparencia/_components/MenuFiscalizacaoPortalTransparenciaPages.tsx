@@ -5,20 +5,20 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Ações sobre a pandemia",
-    value: "acoes-pandemia",
+    key: "Câmaras",
+    value: "camaras",
   },
   {
-    key: "Câncer de colo de útero",
-    value: "cancer-colo-de-utero",
+    key: "Prefeituras",
+    value: "prefeituras",
   },
   {
-    key: "Doenças crônicas não transmissíveis",
-    value: "doencas-cronicas-nao-transmissiveis",
+    key: "Estado",
+    value: "estado",
   },
 ];
 
-export default function MenuFiscalizacaoSaude() {
+export default function MenuFiscalizacaoPortalTransparenciaPages() {
   const routeParams = useParams();
   const segments = usePathname().split(`/`)[4];
 
@@ -26,7 +26,7 @@ export default function MenuFiscalizacaoSaude() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/saude/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${item.value}`
         }
         items={PAGES}
         selectedValue={segments}

@@ -1,4 +1,4 @@
-import MenuAreasTematicasAssistenciaSocial from "../_components/MenuAreasTematicasAssistenciaSocial";
+import MenuAreasTematicasAssistenciaSocialPages from "../_components/MenuAreasTematicasAssistenciaSocialPages";
 import MenuAreasTematicasPages from "../_components/MenuAreasTematicasPages";
 import SubmenuLabelAreaTematica from "../_components/SubmenuLabelAreaTematica";
 
@@ -7,7 +7,7 @@ export default function AssistenciaSocialSubmenuItems() {
     <>
       <SubmenuLabelAreaTematica />
       <MenuAreasTematicasPages />
-      <MenuAreasTematicasAssistenciaSocial />
+      <MenuAreasTematicasAssistenciaSocialPages />
     </>
   );
 }

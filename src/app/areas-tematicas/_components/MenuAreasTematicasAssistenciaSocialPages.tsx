@@ -22,7 +22,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuAreasTematicasAssistenciaSocial() {
+export default function MenuAreasTematicasAssistenciaSocialPages() {
   const segments = usePathname().split(
     `/areas-tematicas/assistencia-social/`
   )[1];

@@ -1,7 +1,7 @@
 import FiscalizacaoSubmenuLabel from "@/app/fiscalizacao/_components/FiscalizacaoSubmenuLabel";
 import FiscalizacaoSubmenuLabelEducacao from "../_components/FiscalizacaoSubmenuLabelEducacao";
 import FiscalizacaoSubmenuLabelOfertaXDemanda from "./_components/FiscalizacaoSubmenuLabelOfertaXDemanda";
-import MenuFiscalizacaoOfertaXDemanda from "./_components/MenuFiscalizacaoOfertaXDemanda";
+import MenuFiscalizacaoOfertaXDemandaPages from "./_components/MenuFiscalizacaoOfertaXDemandaPages";
 
 export default function FiscalizacaoOfertaXDemandaSubmenuItems() {
   return (
@@ -9,7 +9,7 @@ export default function FiscalizacaoOfertaXDemandaSubmenuItems() {
       <FiscalizacaoSubmenuLabel />
       <FiscalizacaoSubmenuLabelEducacao />
       <FiscalizacaoSubmenuLabelOfertaXDemanda />
-      <MenuFiscalizacaoOfertaXDemanda />
+      <MenuFiscalizacaoOfertaXDemandaPages />
     </>
   );
 }

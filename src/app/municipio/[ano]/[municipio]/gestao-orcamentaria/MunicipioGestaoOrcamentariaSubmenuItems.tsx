@@ -1,6 +1,6 @@
 import MenuMunicipios from "../_components/MenuMunicipios";
 import MenuMunicipiosAnos from "../_components/MenuMunicipiosAnos";
-import MenuMunicipiosGestaoOrcamentaria from "../_components/MenuMunicipiosGestaoOrcamentaria";
+import MenuMunicipiosGestaoOrcamentariaPages from "../_components/MenuMunicipiosGestaoOrcamentariaPages";
 import MenuMunicipiosPages from "../_components/MenuMunicipiosPages";
 
 export default function MunicipioGestaoOrcamentariaSubmenuItems() {
@@ -8,7 +8,7 @@ export default function MunicipioGestaoOrcamentariaSubmenuItems() {
     <>
       <MenuMunicipios />
       <MenuMunicipiosPages />
-      <MenuMunicipiosGestaoOrcamentaria />
+      <MenuMunicipiosGestaoOrcamentariaPages />
       <MenuMunicipiosAnos />
     </>
   );

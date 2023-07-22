@@ -22,7 +22,7 @@ const PAGES: KeyValue<string, string>[] = [
   },
 ];
 
-export default function MenuAreasTematicasEducacao() {
+export default function MenuAreasTematicasEducacaoPages() {
   const segments = usePathname().split(`/areas-tematicas/educacao/`)[1];
 
   return (

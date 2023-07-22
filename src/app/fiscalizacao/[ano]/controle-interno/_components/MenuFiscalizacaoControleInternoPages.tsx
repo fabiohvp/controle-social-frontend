@@ -5,24 +5,24 @@ import { useParams, usePathname } from "next/navigation";
 
 const PAGES: KeyValue<string, string>[] = [
   {
-    key: "Manifestação técnica",
-    value: "manifestacao-tecnica",
+    key: "Câmaras",
+    value: "camaras",
   },
   {
-    key: "Relatório",
-    value: "relatorio",
+    key: "Prefeituras",
+    value: "prefeituras",
   },
 ];
 
-export default function MenuFiscalizacaoDesigualdadeEducacional() {
+export default function MenuFiscalizacaoControleInternoPages() {
   const routeParams = useParams();
-  const segments = usePathname().split(`/`)[5];
+  const segments = usePathname().split(`/`)[4];
 
   return (
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/educacao/desigualdade-educacional/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/controle-interno/${item.value}`
         }
         items={PAGES}
         selectedValue={segments}
