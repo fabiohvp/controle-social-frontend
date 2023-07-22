@@ -9,8 +9,10 @@ type Props = {
 export default function PanelSection(props: Props) {
   return (
     <div
-      className={twMerge("grid", props.className)}
-      style={{ gridTemplateColumns: "70% 30%" }}
+      className={twMerge(
+        "grid grid-cols-[77%_auto] xl:grid-cols-[70%_auto]",
+        props.className
+      )}
     >
       <div className="overflow-auto">
         <h2>A sua ferramenta de fiscalização dos órgãos públicos capixabas</h2>

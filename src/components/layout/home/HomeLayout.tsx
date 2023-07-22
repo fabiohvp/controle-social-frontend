@@ -1,10 +1,17 @@
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 import HomeFooter from "./HomeFooter";
 import HomeHeader from "./HomeHeader";
 
-export default function HomeLayout({ children }: { children: ReactNode }) {
+export default function HomeLayout({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <div className="h-screen overflow-y-auto">
+    <div className={twMerge("h-screen overflow-y-auto", className)}>
       <header className="flex items-center justify-between pt-3 pb-5 px-8 bg-gradient-to-b from-[#E9E6E2]">
         <HomeHeader />
       </header>

@@ -1,4 +1,10 @@
+import LogoComVersao from "@/components/layout/LogoComVersao";
+import {
+  HEADER_HEIGHT,
+  MAX_HEIGHT_CONTENT,
+} from "@/components/layout/dashboard/dashboard-constants";
 import HomeLayout from "@/components/layout/home/HomeLayout";
+import MenuMobile from "@/components/menu/MenuMobile";
 import ArrecadacaoSection from "./_components/sections/arrecadacao-section/ArrecadacaoSection";
 import ComparativosSection from "./_components/sections/comparativos-section/ComparativosSection";
 import ConcessoesPPPSection from "./_components/sections/concessoes-ppp-section/ConcessoesPPPSection";
@@ -20,24 +26,32 @@ import "./home.css";
 
 export default function Page() {
   return (
-    <HomeLayout>
-      <PanelSection className="px-8" />
-      <ConhecaFerramentaSection />
-      <EducacaoSection className="px-8" />
-      <ServicosIASection className="px-8" />
-      <EstruturaAdministrativaSection className="px-8" />
-      <SaudeSection className="px-8" />
-      <ArrecadacaoSection className="px-8" />
-      <DestinoDinheiroSection className="px-8" />
-      <ComparativosSection className="px-8" />
-      <PrevidenciaSection className="px-8" />
-      <ConcessoesPPPSection className="px-8" />
-      <FiscalizacaoSection className="px-8" />
-      <ReceitaDespesaSection className="px-8" />
-      <Educacao2Section className="px-8" />
-      <LimitesPessoalSection className="px-8" />
-      <LimitesSaudeSection className="px-8" />
-      <UltimasNovidadesSection className="px-8" />
-    </HomeLayout>
+    <>
+      <div className="bg-gray-header h-screen lg:hidden">
+        <div className="flex" style={{ height: HEADER_HEIGHT }}>
+          <LogoComVersao />
+        </div>
+        <MenuMobile style={{ maxHeight: MAX_HEIGHT_CONTENT }} />
+      </div>
+      <HomeLayout className="hidden lg:block">
+        <PanelSection className="px-8" />
+        <ConhecaFerramentaSection />
+        <EducacaoSection className="px-8" />
+        <ServicosIASection className="px-8" />
+        <EstruturaAdministrativaSection className="px-8" />
+        <SaudeSection className="px-8" />
+        <ArrecadacaoSection className="px-8" />
+        <DestinoDinheiroSection className="px-8" />
+        <ComparativosSection className="px-8" />
+        <PrevidenciaSection className="px-8" />
+        <ConcessoesPPPSection className="px-8" />
+        <FiscalizacaoSection className="px-8" />
+        <ReceitaDespesaSection className="px-8" />
+        <Educacao2Section className="px-8" />
+        <LimitesPessoalSection className="px-8" />
+        <LimitesSaudeSection className="px-8" />
+        <UltimasNovidadesSection className="px-8" />
+      </HomeLayout>
+    </>
   );
 }
