@@ -7,6 +7,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
       className="pt-2 px-2"
+      exibirFooter={false}
       submenuItems={FiscalizacaoDesigualdadeEducacionalSubmenuItems}
     >
       <PanelAlert type="info">

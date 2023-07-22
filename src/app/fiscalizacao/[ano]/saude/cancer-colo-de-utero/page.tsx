@@ -1,9 +1,14 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelAlert from "@/components/panel/PanelAlert";
+import FiscalizacaoSaudeSubmenuItems from "../FiscalizacaoSaudeSubmenuItems";
 
 export default function Page() {
   return (
-    <DashboardLayout className="pt-2 px-2">
+    <DashboardLayout
+      className="pt-2 px-2"
+      exibirFooter={false}
+      submenuItems={FiscalizacaoSaudeSubmenuItems}
+    >
       <PanelAlert type="info">
         O objetivo da auditoria foi identificar e avaliar as causas da baixa
         eficácia da cobertura vacinal contra o HPV, da baixa eficácia do

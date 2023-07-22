@@ -108,11 +108,7 @@ function DropdownFiscalizacoes() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link
-            href={`/fiscalizacao/controle-interno/${
-              params.ano ?? ANO_DEFAULT
-            }/executivo`}
-          >
+          <Link href={`/fiscalizacao/2020/controle-interno/prefeituras`}>
             Controle interno dos municípios
           </Link>
         </DropdownItem>
@@ -131,7 +127,7 @@ function DropdownFiscalizacoes() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/fiscalizacao/educacao/escolas">
+          <Link href="/fiscalizacao/2019/educacao/oferta-x-demanda/escolas">
             Educação - Levantamento Oferta x Demanda
           </Link>
         </DropdownItem>
@@ -146,34 +142,22 @@ function DropdownFiscalizacoes() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link
-            href={`/fiscalizacao/mamografia-rastreamento/${
-              params.ano ?? ANO_DEFAULT
-            }`}
-          >
+          <Link href={`/fiscalizacao/2021/saude/mamografia-de-rastreamento`}>
             Mamografias de rastreamento
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link
-            href={`/fiscalizacao/portal-transparencia/${
-              params.ano ?? ANO_DEFAULT
-            }/executivo`}
-          >
+          <Link href={`/fiscalizacao/2020/portal-transparencia/prefeituras`}>
             Portais de transparência dos municípios
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/fiscalizacao/receitas-municipais`}>
+          <Link href={`/fiscalizacao/receita-municipal`}>
             Receita pública municipal
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link
-            href={`/fiscalizacao/transparencia-passiva/${
-              params.ano ?? ANO_DEFAULT
-            }/executivo`}
-          >
+          <Link href={`/fiscalizacao/2018/transparencia-passiva/prefeituras`}>
             Transparência passiva
           </Link>
         </DropdownItem>

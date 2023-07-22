@@ -1,9 +1,14 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelAlert from "@/components/panel/PanelAlert";
+import FiscalizacaoSaudeSubmenuItems from "../FiscalizacaoSaudeSubmenuItems";
 
 export default function Page() {
   return (
-    <DashboardLayout className="pt-2 px-2">
+    <DashboardLayout
+      className="pt-2 px-2"
+      exibirFooter={false}
+      submenuItems={FiscalizacaoSaudeSubmenuItems}
+    >
       <PanelAlert type="info">
         Levantamento que teve por objetivo obter informações sobre as ações
         realizadas pelos municípios capixabas para o enfrentamento da crise

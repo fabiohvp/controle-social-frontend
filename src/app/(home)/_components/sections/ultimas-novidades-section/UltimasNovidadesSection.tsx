@@ -165,7 +165,7 @@ export default function UltimasNovidadesSection(props: Props) {
               </li>
               <li>
                 Resultado da Fiscalização de
-                <Link href="/mamografiaRastreamento/2021">
+                <Link href="/fiscalizacao/2021/saude/mamografia-de-rastreamento">
                   Mamografias de Rastreamento
                 </Link>
                 no ano de 2021.
@@ -826,7 +826,7 @@ export default function UltimasNovidadesSection(props: Props) {
               </li>
               <li>
                 Nova seção
-                <Link href="/fiscalizacoes/receitasMunicipais">
+                <Link href="/fiscalizacoes/receita-municipal">
                   &quot;Receita Pública Municipal&quot;
                 </Link>
                 , onde são apresentados resultados das auditorias temáticas de
@@ -1031,7 +1031,7 @@ export default function UltimasNovidadesSection(props: Props) {
               </li>
               <li>
                 Resultado da Fiscalização de
-                <Link href="/transparencia-passiva/2016/prefeitura">
+                <Link href="/fiscalizacao/2018/transparencia-passiva/prefeituras">
                   Transparência Passiva dos Municípios
                 </Link>
               </li>
