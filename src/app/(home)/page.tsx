@@ -31,7 +31,9 @@ export default function Page() {
         <div className="flex" style={{ height: HEADER_HEIGHT }}>
           <LogoComVersao />
         </div>
-        <MenuMobile style={{ maxHeight: MAX_HEIGHT_CONTENT }} />
+        <div className="px-2">
+          <MenuMobile style={{ maxHeight: MAX_HEIGHT_CONTENT }} />
+        </div>
       </div>
       <HomeLayout className="hidden lg:block">
         <PanelSection className="px-8" />

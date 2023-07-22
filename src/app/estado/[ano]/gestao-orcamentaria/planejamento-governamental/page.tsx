@@ -1,16 +1,16 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import { EstadoPageProps } from "../../EstadoPageProps";
 import SidebarEstado from "../../_components/SidebarEstado";
-import MunicipioGestaoOrcamentariaSubmenuItems from "../MunicipioGestaoOrcamentariaSubmenuItems";
+import EstadoGestaoOrcamentariaSubmenuItems from "../EstadoGestaoOrcamentariaSubmenuItems";
 
 export default function Page({ params }: { params: EstadoPageProps }) {
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
-      submenuItems={MunicipioGestaoOrcamentariaSubmenuItems}
+      submenuItems={EstadoGestaoOrcamentariaSubmenuItems}
       sidebar={SidebarEstado}
     >
-      Planejamento governamental: {params.ano} {params.municipio}
+      Planejamento governamental: {params.ano}
     </DashboardLayout>
   );
 }

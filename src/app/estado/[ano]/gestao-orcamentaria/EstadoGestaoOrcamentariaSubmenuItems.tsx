@@ -1,15 +1,11 @@
 import MenuEstadoAnos from "../_components/MenuEstadoAnos";
 import MenuEstadoGestaoOrcamentariaPages from "../_components/MenuEstadoGestaoOrcamentariaPages";
-import {
-  default as MenuEstado,
-  default as MenuMunicipiosPages,
-} from "../_components/MenuEstadoPages";
+import MenuEstado from "../_components/MenuEstadoPages";
 
-export default function MunicipioGestaoOrcamentariaSubmenuItems() {
+export default function EstadoGestaoOrcamentariaSubmenuItems() {
   return (
     <>
       <MenuEstado />
-      <MenuMunicipiosPages />
       <MenuEstadoGestaoOrcamentariaPages />
       <MenuEstadoAnos />
     </>

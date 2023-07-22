@@ -11,7 +11,7 @@ export default function Page({ params }: { params: EstadoPageProps }) {
       submenuItems={EstadoSubmenuItems}
       sidebar={SidebarEstado}
     >
-      Obrigação Envio: {params.ano} {params.municipio}
+      Obrigação Envio: {params.ano}
     </DashboardLayout>
   );
 }

@@ -1,3 +1,20 @@
 .menu-mobile li {
+  align-items: center;
   background-color: white;
+  display: grid;
+  grid-template-columns: auto 30px;
+  width: calc(100% - 0.25rem);
+  @apply p-2;
+  @apply rounded-sm;
+}
+
+/* icon */
+.menu-mobile li > :last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-mobile section > div {
+  @apply text-xs;
+  @apply text-gray-medium;
 }

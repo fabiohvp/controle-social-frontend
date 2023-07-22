@@ -11,7 +11,7 @@ export default function Page({ params }: { params: EstadoPageProps }) {
       submenuItems={EstadoSubmenuItems}
       sidebar={SidebarEstado}
     >
-      Prestação conta: {params.ano} {params.municipio}
+      Prestação conta: {params.ano}
     </DashboardLayout>
   );
 }
