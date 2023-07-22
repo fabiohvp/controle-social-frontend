@@ -76,11 +76,7 @@ export default function MegaMenuMunicipios() {
   }
 
   return (
-    <DropdownMenu
-      icon={<MapaESIcon />}
-      modalClassName="mt-4"
-      title="Municípios"
-    >
+    <DropdownMenu icon={<MapaESIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link href="/comparar/2023/municipios" className="flex gap-1">
           <ComparadorIcon /> Comparação entre municípios

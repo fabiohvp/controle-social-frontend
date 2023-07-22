@@ -79,10 +79,11 @@ header {
   @apply z-10;
 }
 
-a[target="_blank"] {
-  @apply text-link;
+header a {
+  height: 100%;
 }
 
+a[target="_blank"],
 a:hover {
   @apply text-link;
 }

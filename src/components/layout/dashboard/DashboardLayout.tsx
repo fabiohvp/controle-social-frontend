@@ -27,6 +27,7 @@ export default function DashboardLayout(props: Props) {
   const maxHeightContent = props.submenuItems
     ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
     : MAX_HEIGHT_CONTENT;
+
   return (
     <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">

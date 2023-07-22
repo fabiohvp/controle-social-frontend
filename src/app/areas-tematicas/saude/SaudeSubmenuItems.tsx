@@ -1,5 +1,5 @@
-import MenuAreasTematicasEducacao from "../_components/MenuAreasTematicasEducacao";
 import MenuAreasTematicasPages from "../_components/MenuAreasTematicasPages";
+import MenuAreasTematicasSaude from "../_components/MenuAreasTematicasSaude";
 import SubmenuLabelAreaTematica from "../_components/SubmenuLabelAreaTematica";
 
 export default function SaudeSubmenuItems() {
@@ -7,7 +7,7 @@ export default function SaudeSubmenuItems() {
     <>
       <SubmenuLabelAreaTematica />
       <MenuAreasTematicasPages />
-      <MenuAreasTematicasEducacao />
+      <MenuAreasTematicasSaude />
     </>
   );
 }

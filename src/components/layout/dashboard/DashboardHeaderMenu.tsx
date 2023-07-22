@@ -51,11 +51,7 @@ function DropdownAreasTematicas() {
   const params = useParams();
 
   return (
-    <DropdownMenu
-      icon={<AreaTematicaIcon />}
-      modalClassName="mt-4"
-      title="Áreas temáticas"
-    >
+    <DropdownMenu icon={<AreaTematicaIcon />} title="Áreas temáticas">
       <ul className="font-normal">
         <DropdownItem>
           <Link href="/areas-tematicas/assistencia-social/referenciamento">
@@ -76,6 +72,7 @@ function DropdownAreasTematicas() {
           </Link>
         </DropdownItem>
         <DropdownItem>
+          {/* TODO: fix this link */}
           <Link
             href={`/folha-de-pagamento/executivo-municipal/${
               params.ano ?? ANO_DEFAULT
@@ -98,11 +95,7 @@ function DropdownFiscalizacoes() {
   const params = useParams();
 
   return (
-    <DropdownMenu
-      icon={<FiscalizacaoIcon />}
-      modalClassName="mt-4"
-      title="Fiscalizações"
-    >
+    <DropdownMenu icon={<FiscalizacaoIcon />} title="Fiscalizações">
       <ul className="font-normal">
         <DropdownItem>
           <Link href={`/fiscalizacao/2020/saude/acoes-pandemia`}>
@@ -193,7 +186,6 @@ function DropdownInteligenciaArtificial() {
   return (
     <DropdownMenu
       icon={<InteligenciaArtificialIcon />}
-      modalClassName="mt-4"
       title="Inteligência artificial"
     >
       <ul className="font-normal">
@@ -212,11 +204,7 @@ function DropdownPrestacoesContas() {
   const params = useParams();
 
   return (
-    <DropdownMenu
-      icon={<PrestacaoContaIcon />}
-      modalClassName="mt-4"
-      title="Prestações de contas"
-    >
+    <DropdownMenu icon={<PrestacaoContaIcon />} title="Prestações de contas">
       <ul className="font-normal">
         <DropdownItem>
           <Link
