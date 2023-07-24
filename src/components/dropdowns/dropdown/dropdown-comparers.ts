@@ -3,8 +3,8 @@ export function dropdownDefaultComparer<T>(value?: T, selectedValue?: T) {
 }
 
 export function dropdownStartsWithComparer(
-  value?: string,
-  selectedValue?: string
+  value: string | undefined,
+  selectedValue: string | undefined
 ) {
   if (!value) return false;
   if (!selectedValue) return false;

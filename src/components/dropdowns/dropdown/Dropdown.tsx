@@ -21,7 +21,7 @@ export type DropdownProps<T> = {
   borderless?: boolean;
   bodyClassName?: string;
   buttonClassName?: string;
-  comparer?: (value?: T, selectedValue?: T) => boolean;
+  comparer?: (value: T | undefined, selectedValue: T | undefined) => boolean;
   fit?: boolean;
   hideSearch?: boolean;
   itemClassName?: string;

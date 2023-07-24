@@ -3,10 +3,10 @@ import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import Dropdown, { DropdownProps } from "./Dropdown";
 
-type Props<T> = {
+interface Props<T> extends Omit<DropdownProps<T>, "items"> {
   items: KeyValue<string, T>[];
   generateUrl: (item: KeyValue<string, T>, index: number) => string;
-} & DropdownProps<T>;
+}
 
 export default function DropdownLinks<T>({
   buttonClassName,
