@@ -1,7 +1,7 @@
-import ComparadorIcon from "@/components/images/icones/ComparadorIcon";
-import IndicadoresIcon from "@/components/images/icones/IndicadoresIcon";
-import RankingIcon from "@/components/images/icones/RankingIcon";
-import MapaESIcon from "@/components/images/icones/header/MapaESIcon";
+import ComparadorIcon from "@/components/images/icons/ComparadorIcon";
+import IndicadoresIcon from "@/components/images/icons/IndicadoresIcon";
+import RankingIcon from "@/components/images/icons/RankingIcon";
+import MapaESIcon from "@/components/images/icons/header/MapaESIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { Municipio, getMunicipios } from "@/shared/municipio";
@@ -79,19 +79,19 @@ export default function MegaMenuMunicipios() {
     <DropdownMenu icon={<MapaESIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link href="/comparar/2023/municipios" className="flex gap-1">
-          <ComparadorIcon /> Comparação entre municípios
+          <ComparadorIcon small /> Comparação entre municípios
         </Link>
         <Link
           href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao"
           className="flex gap-1"
         >
-          <IndicadoresIcon /> Indicadores consolidados
+          <IndicadoresIcon height={20} width={20} /> Indicadores consolidados
         </Link>
         <Link
           href="/rankings/2023/municipios/receita-receita-arrecadada"
           className="flex gap-1"
         >
-          <RankingIcon /> Rankings
+          <RankingIcon height={20} width={20} /> Rankings
         </Link>
       </div>
       <Input

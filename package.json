@@ -16,6 +16,7 @@
     "echarts": "^5.4.2",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
+    "hamburger-react": "^2.5.0",
     "jotai": "^2.2.2",
     "next": "13.4.9",
     "postcss": "8.4.25",

@@ -1,14 +1,12 @@
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
-import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitle
-        className="flex gap-10"
-        collapsible
-        headerClassName="font-bold text-xl"
-        title="Concessões comuns e Parcerias Público-Privadas"
+      <PanelWithTitleCollapsible
+        header="Concessões comuns e Parcerias Público-Privadas"
+        headerProps={{ className: "font-bold text-xl" }}
       >
         <div>
           <p>
@@ -48,7 +46,7 @@ export default function Page() {
         <div className="center w-4/12">
           <DespesaPppLogo />
         </div>
-      </PanelWithTitle>
+      </PanelWithTitleCollapsible>
       {/* <div>TODO: implementar concessões e PPP / visao-geral</div> */}
     </>
   );

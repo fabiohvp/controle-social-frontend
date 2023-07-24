@@ -1,11 +1,11 @@
-import { LiHTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import "./dropdown-item.css";
 
 type Props = {
   children: ReactNode;
   itemKey?: string;
-} & LiHTMLAttributes<HTMLLIElement>;
+} & HTMLAttributes<HTMLLIElement>;
 
 export default function DropdownItem({
   className,

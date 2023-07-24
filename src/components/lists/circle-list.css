@@ -70,7 +70,7 @@
   position: absolute;
   top: var(--circle-list-radius);
   width: calc(50% + var(--circle-list-gap));
-  z-index: -1;
+  z-index: -10;
 }
 
 .circle-list li:last-child hr {

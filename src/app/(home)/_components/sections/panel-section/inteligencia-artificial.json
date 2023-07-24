@@ -6,7 +6,7 @@
       "href": "/projecao",
       "image": {
         "height": 50,
-        "src": "/icones/projecao.png",
+        "src": "/icons/projecao.png",
         "width": 50
       },
       "title": "Projeções"
@@ -16,7 +16,7 @@
       "href": "/obras",
       "image": {
         "height": 50,
-        "src": "/icones/obras-publicas.svg",
+        "src": "/icons/obras-publicas.svg",
         "width": 50
       },
       "title": "Obras públicas"

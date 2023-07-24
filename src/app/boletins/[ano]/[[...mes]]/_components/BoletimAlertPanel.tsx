@@ -1,5 +1,5 @@
 "use client";
-import BoletimMacroGestaoGovernamentalIcon from "@/components/images/icones/BoletimMacroGestaoGovernamentalIcon";
+import BoletimMacroGestaoGovernamentalImage from "@/components/images/images/BoletimMacroGestaoGovernamentalImage";
 import CircleList from "@/components/lists/CircleList";
 import { getMonthNames } from "@/shared/date";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
             );
           })}
         </CircleList>
-        <BoletimMacroGestaoGovernamentalIcon className="mt-16" />
+        <BoletimMacroGestaoGovernamentalImage className="mt-16" />
         <section className="center flex-col gap-2 mt-2">
           <h2 className="font-normal">
             {meses[(props.mesSelecionado ?? props.mesUltimoEnvio) - 1]} /{" "}

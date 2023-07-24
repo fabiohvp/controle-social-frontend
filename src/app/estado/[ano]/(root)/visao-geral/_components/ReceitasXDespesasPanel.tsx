@@ -15,7 +15,7 @@ export async function ReceitasXDespesasPanel({ ano, style }: EstadoPanelProps) {
   const data = await getData({ ano });
 
   return (
-    <PanelWithTitle style={style} title="Receitas X Despesas">
+    <PanelWithTitle bodyProps={{ style }} header="Receitas X Despesas">
       <ReceitasXDespesasChart ano={ano} municipio={"001"} {...data} />
     </PanelWithTitle>
   );

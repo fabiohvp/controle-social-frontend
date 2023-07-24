@@ -6,7 +6,7 @@
       "href": "/municipio/2023/colatina/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/municipio-geolocalizado.png",
+        "src": "/icons/municipio-geolocalizado.png",
         "width": 39
       },
       "title": "Colatina"
@@ -16,7 +16,7 @@
       "href": "/municipio/2023/colatina/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/mapa-es.png",
+        "src": "/icons/mapa-es.png",
         "width": 32
       },
       "title": "Todos os municípios"
@@ -26,7 +26,7 @@
       "href": "/municipio/2023/colatina/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/indicadores.png",
+        "src": "/icons/indicadores.png",
         "width": 50
       },
       "title": "Indicadores consolidados"
@@ -36,7 +36,7 @@
       "href": "/municipio/2023/colatina/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/comparador.png",
+        "src": "/icons/comparador.png",
         "width": 59
       },
       "title": "Comparador"
@@ -46,7 +46,7 @@
       "href": "/municipio/2023/colatina/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/ranking.png",
+        "src": "/icons/ranking.png",
         "width": 50
       },
       "title": "Ranking"

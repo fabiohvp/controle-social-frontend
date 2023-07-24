@@ -1,14 +1,12 @@
 import LogoInfoEducacao from "@/components/images/logos/LogoInfoEducacao";
-import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitle
-        className="flex gap-10"
-        collapsible
-        headerClassName="font-bold text-xl"
-        title="Distribuição de escolas públicas, matrículas e profissionais da educação no Estado e nos municípios"
+      <PanelWithTitleCollapsible
+        header="Distribuição de escolas públicas, matrículas e profissionais da educação no Estado e nos municípios"
+        headerProps={{ className: "font-bold text-xl" }}
       >
         <div>
           A primeira parte do painel apresenta informações sobre os professores.
@@ -22,7 +20,7 @@ export default function Page() {
         <div className="center w-4/12">
           <LogoInfoEducacao />
         </div>
-      </PanelWithTitle>
+      </PanelWithTitleCollapsible>
       {/* <div>TODO: implementar areas tematicas / profissionais</div> */}
     </>
   );

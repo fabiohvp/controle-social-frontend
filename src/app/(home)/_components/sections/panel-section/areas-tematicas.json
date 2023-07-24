@@ -6,7 +6,7 @@
       "href": "/areas-tematicas/concessao-publica/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/concessoes-ppp.png",
+        "src": "/icons/concessoes-ppp.png",
         "width": 50
       },
       "title": "Concessões comuns e PPP"
@@ -16,7 +16,7 @@
       "href": "/areas-tematicas/educacao/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/educacao.png",
+        "src": "/icons/educacao.png",
         "width": 50
       },
       "title": "Educação"
@@ -26,7 +26,7 @@
       "href": "/areas-tematicas/estrutura-administrativa",
       "image": {
         "height": 50,
-        "src": "/icones/estrutura-administrativa.png",
+        "src": "/icons/estrutura-administrativa.png",
         "width": 64
       },
       "title": "Estrutura administrativa"
@@ -36,7 +36,7 @@
       "href": "/areas-tematicas/pessoal/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/pessoal.png",
+        "src": "/icons/pessoal.png",
         "width": 59.39
       },
       "title": "Pessoal"
@@ -46,7 +46,7 @@
       "href": "/areas-tematicas/saude/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/saude.png",
+        "src": "/icons/saude.png",
         "width": 67
       },
       "title": "Saúde"

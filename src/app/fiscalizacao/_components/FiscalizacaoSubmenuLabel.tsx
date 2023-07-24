@@ -1,5 +1,5 @@
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
-import FiscalizacaoIcon from "@/components/images/icones/header/FiscalizacaoIcon";
+import FiscalizacaoIcon from "@/components/images/icons/header/FiscalizacaoIcon";
 
 export default function FiscalizacaoSubmenuLabel() {
   return (

@@ -1,5 +1,4 @@
-"use client";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 type ThemeKey = "danger" | "info" | "success" | "warning";
@@ -7,12 +6,6 @@ type ThemeValue = {
   background: string;
   border: string;
   text: string;
-};
-
-type Props = {
-  children: ReactNode;
-  className?: string;
-  type: ThemeKey;
 };
 
 const THEME: { [key in ThemeKey]: ThemeValue } = {
@@ -38,18 +31,27 @@ const THEME: { [key in ThemeKey]: ThemeValue } = {
   },
 };
 
-export default function PanelAlert(props: Props) {
+type Props = {
+  children: ReactNode;
+  type: ThemeKey;
+} & HTMLAttributes<HTMLDivElement>;
+
+export default function PanelAlert({
+  children,
+  className,
+  type,
+  ...props
+}: Props) {
   return (
     <div
       className={twMerge(
-        `border-l-4 p-2 max-h-[120px] md:max-h-full overflow-y-auto md:overflow-unset ${
-          THEME[props.type].background
-        } ${THEME[props.type].border} ${THEME[props.type].text}`,
-        props.className
+        `border-l-4 p-2 min-h-[120px] md:max-h-full overflow-y-auto md:min-h-unset md:overflow-unset ${THEME[type].background} ${THEME[type].border} ${THEME[type].text}`,
+        className
       )}
       role="alert"
+      {...props}
     >
-      {props.children}
+      {children}
     </div>
   );
 }

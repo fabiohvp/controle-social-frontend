@@ -1,12 +1,16 @@
 import Image from "next/image";
+import { LogoProps } from "../types";
 
-export default function LogoInfoEducacao() {
+type Props = LogoProps;
+
+export default function LogoInfoEducacao(props: Props) {
   return (
     <Image
       src="/logos/info-educacao.png"
       alt="Informações sobre educação"
       height={106}
       width={179}
+      {...props}
     />
   );
 }

@@ -1,20 +1,28 @@
 .menu-mobile li {
-  align-items: center;
   background-color: white;
-  display: grid;
-  grid-template-columns: auto 30px;
   width: calc(100% - 0.25rem);
-  @apply p-2;
   @apply rounded-sm;
 }
 
-/* icon */
-.menu-mobile li > :last-child {
-  display: flex;
-  justify-content: center;
+.menu-mobile li > a,
+.menu-mobile li > button {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto 30px;
+  width: 100%;
+  @apply p-2;
+}
+
+.menu-mobile section {
+  text-align: start;
 }
 
 .menu-mobile section > div {
   @apply text-xs;
   @apply text-gray-medium;
+}
+
+.menu-mobile .icon {
+  display: flex;
+  justify-content: center;
 }

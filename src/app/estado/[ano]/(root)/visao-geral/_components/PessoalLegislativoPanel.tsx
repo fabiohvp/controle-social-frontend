@@ -49,7 +49,7 @@ export async function PessoalLegislativoPanel({
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="pessoal-legislativo-tooltip">
           De acordo com a LRF (Lei de
@@ -69,7 +69,7 @@ export async function PessoalLegislativoPanel({
           município entra no limite prudencial.
         </LegendTooltip>
       }
-      title="Pessoal - Legislativo"
+      header="Pessoal - Legislativo"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

@@ -1,5 +1,5 @@
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
-import PessoalIcon from "@/components/images/icones/header/PessoalIcon";
+import PessoalIcon from "@/components/images/icons/header/PessoalIcon";
 
 export default function SubmenuLabelPessoal() {
   return (

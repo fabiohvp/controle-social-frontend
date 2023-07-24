@@ -1,7 +1,7 @@
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folha-de-pagamento-constants";
-import PessoalIcon from "@/components/images/icones/PessoalIcon";
+import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import FolhaDePagamentoSubmenuItems from "../../FolhaDePagamentoSubmenuItems";
 
 export default function Page() {
@@ -11,11 +11,9 @@ export default function Page() {
       exibirFooter={false}
       submenuItems={FolhaDePagamentoSubmenuItems}
     >
-      <PanelWithTitle
-        className="flex gap-10"
-        collapsible
-        headerClassName="font-bold text-xl"
-        title={FOLHA_DE_PAGAMENTO_PANEL_TITLE}
+      <PanelWithTitleCollapsible
+        header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}
+        headerProps={{ className: "font-bold text-xl" }}
       >
         <div>
           Os dados exibidos neste painel são declaratórios, tendo como fonte as
@@ -26,7 +24,7 @@ export default function Page() {
         <div className="center w-4/12">
           <PessoalIcon />
         </div>
-      </PanelWithTitle>
+      </PanelWithTitleCollapsible>
       <div className="mt-2">
         <h3>Agentes públicos inativos e pensionistas</h3>
         <hr />

@@ -26,8 +26,7 @@ export async function FundoFinanceiroPanel({
 
   return (
     <PanelWithTitle
-      className="center flex-col gap-4"
-      style={style}
+      bodyProps={{ className: "center flex-col gap-4", style }}
       legend={
         <LegendTooltip id="previdencia-fundo-financeiro-tooltip">
           Diferença negativa entre receitas e despesas
@@ -39,7 +38,7 @@ export async function FundoFinanceiroPanel({
           meio de aporte financeiro do ente federativo.
         </LegendTooltip>
       }
-      title="Previdência - Fundo Financeiro"
+      header="Previdência - Fundo Financeiro"
     >
       <div className="font-bold text-3xl">{formatCurrency(data?.valor)}</div>
       <div className="text-sm">

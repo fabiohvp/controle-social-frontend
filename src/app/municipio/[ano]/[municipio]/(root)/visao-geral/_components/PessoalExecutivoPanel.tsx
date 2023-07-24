@@ -54,7 +54,7 @@ export async function PessoalExecutivoPanel({
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="pessoal-executivo-tooltip">
           De acordo com a LRF (Lei de Responsabilidade
@@ -74,7 +74,7 @@ export async function PessoalExecutivoPanel({
           parecer de alerta.
         </LegendTooltip>
       }
-      title="Pessoal - Executivo"
+      header="Pessoal - Executivo"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

@@ -44,7 +44,7 @@ export async function SaudePanel({
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="saude-tooltip">
           A Constituição Federal estabelece que o<br />
@@ -56,7 +56,7 @@ export async function SaudePanel({
           públicos de saúde.
         </LegendTooltip>
       }
-      title="Educação"
+      header="Educação"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

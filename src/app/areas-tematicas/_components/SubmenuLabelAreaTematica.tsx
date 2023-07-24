@@ -1,5 +1,5 @@
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
-import AreaTematicaIcon from "@/components/images/icones/header/AreaTematicaIcon";
+import AreaTematicaIcon from "@/components/images/icons/header/AreaTematicaIcon";
 
 export default function SubmenuLabelAreaTematica() {
   return (

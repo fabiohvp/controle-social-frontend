@@ -29,6 +29,10 @@
     @apply text-xs;
   }
 
+  .min-h-unset {
+    min-height: unset;
+  }
+
   .overflow-initial {
     overflow: initial;
   }

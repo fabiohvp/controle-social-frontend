@@ -61,7 +61,7 @@ export async function DividaConsolidadaLiquidaPanel({
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="despesa-receita-correntes-tooltip">
           As despesas correntes não devem superar 95%
@@ -78,7 +78,7 @@ export async function DividaConsolidadaLiquidaPanel({
           de 1988).
         </LegendTooltip>
       }
-      title="Desp. x receitas correntes"
+      header="Desp. x receitas correntes"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

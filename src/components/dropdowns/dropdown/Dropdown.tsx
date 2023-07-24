@@ -5,7 +5,7 @@ import Loading from "@/components/loading/Loading";
 import { normalize } from "@/formatters/string";
 import useClickOutside from "@/hooks/useClickOutside";
 import { KeyValue } from "@/types/KeyValue";
-import { CSSProperties, ReactNode, useRef, useState } from "react";
+import { HTMLAttributes, ReactNode, useRef, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 import DropdownItem from "./DropdownItem";
@@ -16,26 +16,38 @@ type DropdownItem<T> = KeyValue<ReactNode, T> & {
   render: (item: KeyValue<ReactNode, T>) => ReactNode;
 };
 
-type Props<T> = {
+export type DropdownProps<T> = {
   autoClose?: boolean;
   borderless?: boolean;
   bodyClassName?: string;
   buttonClassName?: string;
   comparer?: (value?: T, selectedValue?: T) => boolean;
-  className?: string;
   fit?: boolean;
   hideSearch?: boolean;
   itemClassName?: string;
   items: DropdownItem<T>[];
   loading?: boolean;
   selectedValue?: T;
-  style?: CSSProperties;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
-export default function Dropdown<T>(props: Props<T>) {
+export default function Dropdown<T>({
+  autoClose,
+  borderless,
+  bodyClassName,
+  buttonClassName,
+  comparer,
+  fit,
+  hideSearch,
+  itemClassName,
+  items,
+  loading,
+  selectedValue,
+  className,
+  ...props
+}: DropdownProps<T>) {
   const [active, setActive] = useState(false);
-  const [visibleItems, setVisibleItems] = useState(props.items);
-  const comparer = props.comparer ?? dropdownDefaultComparer;
+  const [visibleItems, setVisibleItems] = useState(items);
+  const valuesComparer = comparer ?? dropdownDefaultComparer;
 
   let element = useRef<HTMLDivElement>(null);
   let search = useRef<HTMLInputElement>(null);
@@ -53,43 +65,43 @@ export default function Dropdown<T>(props: Props<T>) {
     const searchText = normalize(event.currentTarget.value);
 
     if (searchText) {
-      const filteredItems = props.items.filter((o) =>
+      const filteredItems = items.filter((o) =>
         normalize(o.key as string).includes(searchText)
       );
       setVisibleItems(filteredItems);
     } else {
-      setVisibleItems(props.items);
+      setVisibleItems(items);
     }
   }
 
   function getSelected() {
-    let selected = props.items.find((item) =>
-      comparer(item.value, props.selectedValue)
+    let selected = items.find((item) =>
+      valuesComparer(item.value, selectedValue)
     );
 
     if (!selected) {
-      selected = props.items.find((item) => item.value === "*");
+      selected = items.find((item) => item.value === "*");
     }
     return selected?.key;
   }
 
-  if (props.loading) return <Loading />;
+  if (loading) return <Loading />;
   return (
     <div
       ref={element}
-      className={twMerge("dropdown relative", props.className)}
-      style={props.style}
+      className={twMerge("dropdown relative", className)}
+      {...props}
     >
       <button
         className={`button flex h-full items-center px-2 w-full ${
-          props.borderless ? "border-none" : ""
-        } ${props.buttonClassName ?? ""}`}
+          borderless ? "border-none" : ""
+        } ${buttonClassName ?? ""}`}
       >
         <span className="flex items-center gap-1 overflow-hidden">
           <span
             className={twMerge(
               `max-w-[200px] overflow-hidden text-ellipsis`,
-              props.itemClassName
+              itemClassName
             )}
           >
             {getSelected()}
@@ -99,7 +111,7 @@ export default function Dropdown<T>(props: Props<T>) {
       </button>
       {active && (
         <DropdownModal onClick={onItemClick}>
-          {props.hideSearch !== true && (
+          {hideSearch !== true && (
             <div className="p-2">
               <Input
                 ref={search}
@@ -110,12 +122,12 @@ export default function Dropdown<T>(props: Props<T>) {
               />
             </div>
           )}
-          <ul className={twMerge(`body`, props.bodyClassName)}>
+          <ul className={twMerge(`body`, bodyClassName)}>
             {visibleItems.map((item) => (
               <DropdownItem
                 key={item.value as string}
                 className={`${
-                  comparer(item.value, props.selectedValue) ? "active" : ""
+                  valuesComparer(item.value, selectedValue) ? "active" : ""
                 }`}
               >
                 {item.render(item)}

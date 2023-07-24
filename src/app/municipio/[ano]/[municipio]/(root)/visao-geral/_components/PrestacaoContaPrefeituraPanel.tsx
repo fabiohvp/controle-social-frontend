@@ -11,9 +11,8 @@ export async function PrestacaoContaPrefeituraPanel({
 }: MunicipioPanelProps) {
   return (
     <PanelWithTitle
-      className="flex items-center"
-      style={style}
-      title="Prefeitura Municipal"
+      bodyProps={{ className: "flex items-center", style }}
+      header="Prefeitura Municipal"
     >
       <Link
         href={`/municipio/${ano}/${municipio}/prestacao-conta`}

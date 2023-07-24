@@ -1,10 +1,5 @@
-import LogoComVersao from "@/components/layout/LogoComVersao";
-import {
-  HEADER_HEIGHT,
-  MAX_HEIGHT_CONTENT,
-} from "@/components/layout/dashboard/dashboard-constants";
 import HomeLayout from "@/components/layout/home/HomeLayout";
-import MenuMobile from "@/components/menu/MenuMobile";
+import MenuMobileLayout from "@/components/menu/MenuMobileLayout";
 import ArrecadacaoSection from "./_components/sections/arrecadacao-section/ArrecadacaoSection";
 import ComparativosSection from "./_components/sections/comparativos-section/ComparativosSection";
 import ConcessoesPPPSection from "./_components/sections/concessoes-ppp-section/ConcessoesPPPSection";
@@ -27,14 +22,7 @@ import "./home.css";
 export default function Page() {
   return (
     <>
-      <div className="bg-gray-header h-screen lg:hidden">
-        <div className="flex" style={{ height: HEADER_HEIGHT }}>
-          <LogoComVersao />
-        </div>
-        <div className="px-2">
-          <MenuMobile style={{ maxHeight: MAX_HEIGHT_CONTENT }} />
-        </div>
-      </div>
+      <MenuMobileLayout />
       <HomeLayout className="hidden lg:block">
         <PanelSection className="px-8" />
         <ConhecaFerramentaSection />

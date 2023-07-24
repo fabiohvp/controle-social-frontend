@@ -36,7 +36,7 @@ export async function EducacaoPanel({ ano, style }: EstadoPanelProps) {
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="educacao-tooltip">
           A Constituição Federal estabelece que o<br />
@@ -48,7 +48,7 @@ export async function EducacaoPanel({ ano, style }: EstadoPanelProps) {
           <br />a manutenção e desenvolvimento do ensino.
         </LegendTooltip>
       }
-      title="Educação"
+      header="Educação"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

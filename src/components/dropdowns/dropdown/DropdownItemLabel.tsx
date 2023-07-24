@@ -1,13 +1,15 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+
+type Props = {
+  children: ReactNode;
+} & HTMLAttributes<HTMLDivElement>;
 
 export default function DropdownItemLabel({
   children,
   className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+  ...props
+}: Props) {
   return (
     <li>
       <div
@@ -15,6 +17,7 @@ export default function DropdownItemLabel({
           "flex h-full items-center overflow-hidden px-2",
           className
         )}
+        {...props}
       >
         {children}
       </div>

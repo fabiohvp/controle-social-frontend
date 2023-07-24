@@ -49,7 +49,7 @@ export async function FundoPrevidenciarioPanel({
 
   return (
     <PanelWithTitle
-      style={style}
+      bodyProps={{ style }}
       legend={
         <LegendTooltip id="previdencia-fundo-previdenciario-tooltip">
           Solvência, em finanças e contabilidade, é<br />
@@ -62,7 +62,7 @@ export async function FundoPrevidenciarioPanel({
           que constituem seu patrimônio ou seu ativo.
         </LegendTooltip>
       }
-      title="Previdência - Fundo Previdenciário"
+      header="Previdência - Fundo Previdenciário"
     >
       <DoughnutChart
         {...CHART_SETTINGS}

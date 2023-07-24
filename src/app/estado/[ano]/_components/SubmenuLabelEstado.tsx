@@ -1,5 +1,5 @@
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
-import EstadoIcon from "@/components/images/icones/header/EstadoIcon";
+import EstadoIcon from "@/components/images/icons/header/EstadoIcon";
 
 export default function SubmenuLabelEstado() {
   return (

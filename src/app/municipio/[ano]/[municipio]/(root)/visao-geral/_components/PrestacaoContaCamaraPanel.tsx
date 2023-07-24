@@ -11,16 +11,15 @@ export async function PrestacaoContaCamaraPanel({
 }: MunicipioPanelProps) {
   return (
     <PanelWithTitle
-      className="flex items-center"
-      style={style}
-      title=" Câmara Municipal de Vereadores"
+      bodyProps={{ className: "flex items-center", style }}
+      header=" Câmara Municipal de Vereadores"
     >
       <Link
         href={`/municipio/${ano}/${municipio}/prestacao-conta`}
         className="center flex-col gap-2 text-center w-full"
       >
         <Image
-          src="/icones/vereadores.png"
+          src="/icons/vereadores.png"
           alt="Câmara dos vereadores"
           height={44}
           width={46}

@@ -1,14 +1,12 @@
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
-import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitle
-        className="flex gap-10"
-        collapsible
-        headerClassName="font-bold text-xl"
-        title="Despesas com Parcerias Público-Privadas"
+      <PanelWithTitleCollapsible
+        header="Despesas com Parcerias Público-Privadas"
+        headerProps={{ className: "font-bold text-xl" }}
       >
         <div>
           <p>
@@ -51,7 +49,7 @@ export default function Page() {
         <div className="center w-4/12">
           <DespesaPppLogo />
         </div>
-      </PanelWithTitle>
+      </PanelWithTitleCollapsible>
       <iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiNDhkZThiODgtNmJiZS00ZWVlLWE0MjQtNDY1NjgxMTMzNmI0IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"

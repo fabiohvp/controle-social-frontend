@@ -23,7 +23,7 @@ export async function ReceitasXDespesasPanel({
   const data = await getData({ ano, municipio });
 
   return (
-    <PanelWithTitle style={style} title="Receitas X Despesas">
+    <PanelWithTitle bodyProps={{ style }} header="Receitas X Despesas">
       <ReceitasXDespesasChart ano={ano} municipio={municipio} {...data} />
     </PanelWithTitle>
   );

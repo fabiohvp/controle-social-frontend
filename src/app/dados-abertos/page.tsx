@@ -122,7 +122,7 @@ export default function Page() {
           >
             <div className="icon">
               <Image
-                src="/icones/fiscalizacoes.png"
+                src="/icons/fiscalizacoes.png"
                 alt="Fiscalizações"
                 height={36}
                 width={28}
@@ -160,7 +160,7 @@ export default function Page() {
           >
             <div className="icon">
               <Image
-                src="/icones/obrigacoes.png"
+                src="/icons/obrigacoes.png"
                 alt="Fiscalizações"
                 height={36}
                 width={28}

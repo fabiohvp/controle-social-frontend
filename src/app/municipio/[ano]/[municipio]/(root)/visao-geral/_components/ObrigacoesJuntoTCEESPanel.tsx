@@ -27,9 +27,8 @@ export async function ObrigacoesJuntoTCEESPanel({
 
   return (
     <PanelWithTitle
-      className="center gap-4"
-      style={style}
-      title="Obrigações junto ao TCE-ES"
+      bodyProps={{ className: "center gap-4", style }}
+      header="Obrigações junto ao TCE-ES"
     >
       <ul className="flex justify-center gap-4">
         {Object.keys(data).map((key) => (

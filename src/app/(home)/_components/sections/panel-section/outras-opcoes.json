@@ -6,7 +6,7 @@
       "href": "/estado/2023/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/boletins-informativos.png",
+        "src": "/icons/boletins-informativos.png",
         "width": 50
       },
       "title": "Boletins e informativos"
@@ -16,7 +16,7 @@
       "href": "/estado/2023/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/obrigacoes.png",
+        "src": "/icons/obrigacoes.png",
         "width": 37
       },
       "title": "Obrigações"
@@ -26,7 +26,7 @@
       "href": "/estado/2023/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/prestacao-contas.png",
+        "src": "/icons/prestacao-contas.png",
         "width": 53
       },
       "title": "Prestações de contas"
@@ -36,7 +36,7 @@
       "href": "/estado/2023/visao-geral",
       "image": {
         "height": 50,
-        "src": "/icones/fiscalizacoes.png",
+        "src": "/icons/fiscalizacoes.png",
         "width": 45
       },
       "title": "Fsicalizações"

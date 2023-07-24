@@ -1,6 +1,6 @@
 import CrasLogo from "@/components/images/logos/CrasLogo";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import Link from "next/link";
 import { ReactNode } from "react";
 import AssistenciaSocialSubmenuItems from "./AssistenciaSocialSubmenuItems";
@@ -12,11 +12,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       exibirFooter={false}
       submenuItems={AssistenciaSocialSubmenuItems}
     >
-      <PanelWithTitle
-        className="flex gap-10"
-        collapsible
-        headerClassName="font-bold text-xl"
-        title="Centros de Referência da Assistência Social (CRAS)."
+      <PanelWithTitleCollapsible
+        header="Centros de Referência da Assistência Social (CRAS)."
+        headerProps={{ className: "font-bold text-xl" }}
       >
         <div>
           <p>
@@ -62,7 +60,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="center w-4/12">
           <CrasLogo />
         </div>
-      </PanelWithTitle>
+      </PanelWithTitleCollapsible>
       {children}
     </DashboardLayout>
   );
