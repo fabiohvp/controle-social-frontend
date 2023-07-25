@@ -11,7 +11,7 @@ export default function HomeLayout({
   className?: string;
 }) {
   return (
-    <div className={twMerge("h-screen overflow-y-auto", className)}>
+    <div className={twMerge("home h-screen overflow-y-auto", className)}>
       <header className="flex items-center justify-between pt-3 pb-5 px-8 bg-gradient-to-b from-[#E9E6E2]">
         <HomeHeader />
       </header>

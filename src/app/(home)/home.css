@@ -1,10 +1,10 @@
-.carousel-title {
+.home .carousel-title {
   @apply font-bold;
   @apply mb-3;
   @apply text-2xl;
 }
 
-section .panel {
+.home section .panel {
   height: 180px;
   @apply flex;
   @apply flex-col;
@@ -13,15 +13,15 @@ section .panel {
   @apply items-center;
 }
 
-section .panel img {
+.home section .panel img {
   margin-top: 11px;
 }
 
-section a {
+.home section a {
   @apply text-sm;
 }
 
-section .title-with-vertical-bar {
+.home section .title-with-vertical-bar {
   font-size: 2vw;
   @apply h-12;
   @apply border-l-4;
@@ -30,6 +30,6 @@ section .title-with-vertical-bar {
   @apply pt-1;
 }
 
-footer a {
+.home footer a {
   color: white;
 }
