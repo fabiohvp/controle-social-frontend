@@ -141,6 +141,7 @@ function RenderMunicipioGroups(props: {
         >
           <Link
             href={`/municipio/2023/${municipio.nomeNormalizado}/visao-geral`}
+            prefetch={false}
           >
             {municipio.nome}
           </Link>
