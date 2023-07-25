@@ -1,7 +1,7 @@
 import DashboardFooter from "@/components/layout/dashboard/DashboardFooter";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
-import { MAX_HEIGHT_CONTENT } from "@/components/layout/dashboard/dashboard-constants";
-import "@/components/layout/dashboard/dashboard-layout.css";
+import { MAX_HEIGHT_CONTENT } from "@/components/layout/dashboard/dashboardConstants";
+import "@/components/layout/dashboard/dashboardLayout.css";
 import { ReactNode } from "react";
 
 export default function WikiLayout({

@@ -1,6 +1,6 @@
 "use client";
 import EChart from "@/components/charts/EChart";
-import { Ipca, ipcaState } from "@/components/layout/ipca/ipca-state";
+import { Ipca, ipcaState } from "@/components/layout/ipca/ipcaState";
 import { formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";
 import { COLOR } from "@/theme/colors";

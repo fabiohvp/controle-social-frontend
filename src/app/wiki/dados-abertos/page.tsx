@@ -11,7 +11,7 @@ import {
   FaPerson,
   FaSignal,
 } from "react-icons/fa6";
-import "./dados-abertos.css";
+import "./dadosAbertos.css";
 
 export default function Page() {
   return (

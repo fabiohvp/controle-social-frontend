@@ -1,5 +1,5 @@
 import { SVGProps } from "react";
-import "./tcees-logo.css";
+import "./tceesLogo.css";
 
 type Props = {
   fill?: string;

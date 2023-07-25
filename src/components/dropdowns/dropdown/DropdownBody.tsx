@@ -5,8 +5,8 @@ import { normalize } from "@/formatters/string";
 import { HTMLAttributes, useRef, useState } from "react";
 import { DropdownValue } from "./Dropdown";
 import DropdownItem, { DropdownItemRender } from "./DropdownItem";
-import { dropdownDefaultComparer } from "./dropdown-comparers";
 import "./dropdown.css";
+import { dropdownDefaultComparer } from "./dropdownComparers";
 
 export type DropdownBodyProps<T> = {
   comparer?: (

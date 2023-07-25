@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import {
   HEADER_HEIGHT,
   MAX_HEIGHT_CONTENT,
-} from "../layout/dashboard/dashboard-constants";
+} from "../layout/dashboard/dashboardConstants";
 
 type Props = HTMLAttributes<HTMLDivElement>;
 

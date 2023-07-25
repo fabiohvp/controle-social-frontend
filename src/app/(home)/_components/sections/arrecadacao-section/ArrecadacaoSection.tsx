@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import "./arrecadacao-section.css";
+import "./arrecadacaoSection.css";
 
 type Props = {
   className?: string;

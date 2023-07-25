@@ -1,7 +1,7 @@
 "use client";
 import { useAtom } from "jotai";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { ipcaState } from "./ipca-state";
+import { ipcaState } from "./ipcaState";
 
 export default function IpcaCheckbox({ className }: { className?: string }) {
   const [ipca, toggle] = useAtom(ipcaState);

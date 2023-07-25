@@ -9,8 +9,8 @@ import DashboardHeaderSubmenu from "./DashboardHeaderSubmenu";
 import {
   MAX_HEIGHT_CONTENT,
   MAX_HEIGHT_WITH_SUBMENU_CONTENT,
-} from "./dashboard-constants";
-import "./dashboard-layout.css";
+} from "./dashboardConstants";
+import "./dashboardLayout.css";
 
 type Props = {
   className?: string;

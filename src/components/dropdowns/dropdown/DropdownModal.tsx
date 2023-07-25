@@ -1,6 +1,6 @@
 import { ForwardedRef, HTMLAttributes, ReactNode, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
-import "./dropdown-modal.css";
+import "./dropdownModal.css";
 
 type Props = {
   children: ReactNode;

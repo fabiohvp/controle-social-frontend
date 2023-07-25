@@ -7,7 +7,7 @@ import {
   MunicipioPageProps,
   MunicipioPanelProps,
 } from "../../../MunicipioPageProps";
-import "./visao-geral-panels.css";
+import "./visaoGeralPanel.css";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {
   const codigo = getCodigoMunicipio(municipio);

@@ -4,13 +4,13 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 import {
   generateFolhaDePagamentoUrl,
   getFolhaDePagamentoSegment,
-} from "../folha-de-pagamento-state";
+} from "../folhaDePagamentoState";
 
 const PODERES: KeyValue<string, DropdownValue<string>>[] = [
   {

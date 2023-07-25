@@ -1,13 +1,13 @@
 "use client";
 import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { useParams, usePathname } from "next/navigation";
 import {
   MUNICIPIO_PAGES,
   generateMunicipioUrl,
   getMunicipioSegment,
-} from "../municipio-state";
+} from "../municipioState";
 
 export default function MenuMunicipiosPages() {
   const routeParams = useParams();

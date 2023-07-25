@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { SidebarList } from "./SidebarHelper";
-import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebar-constants";
-import { sidebarOpen } from "./sidebar-state";
+import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebarConstants";
+import { sidebarOpen } from "./sidebarState";
 
 //TODO: fix, obrigatorio href OU children
 type Props = {

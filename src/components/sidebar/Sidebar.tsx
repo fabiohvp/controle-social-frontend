@@ -7,8 +7,8 @@ import {
   ANIMATION_SPEED,
   CLASS_CLOSED_WIDTH,
   CLASS_OPENED_WIDTH,
-} from "./sidebar-constants";
-import { sidebarOpen } from "./sidebar-state";
+} from "./sidebarConstants";
+import { sidebarOpen } from "./sidebarState";
 
 type Props = {
   children: ReactNode;

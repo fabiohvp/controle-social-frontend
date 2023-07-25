@@ -2,7 +2,7 @@
 import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { normalize } from "@/formatters/string";
 import {
   UnidadeGestora,
@@ -14,7 +14,7 @@ import { useParams, usePathname } from "next/navigation";
 import {
   generateFolhaDePagamentoUrl,
   getFolhaDePagamentoSegment,
-} from "../folha-de-pagamento-state";
+} from "../folhaDePagamentoState";
 
 type Option = {
   nome: string;

@@ -3,7 +3,7 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { municipioState } from "../municipio-state";
+import { municipioState } from "../municipioState";
 
 export default function MenuMunicipiosAnos() {
   const [state] = useAtom(municipioState);

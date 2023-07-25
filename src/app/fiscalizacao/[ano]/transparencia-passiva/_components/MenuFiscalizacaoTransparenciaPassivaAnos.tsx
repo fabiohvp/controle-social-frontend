@@ -3,7 +3,7 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { transparenciaPassivaState } from "../transparencia-passiva-state";
+import { transparenciaPassivaState } from "../transparenciaPassivaState";
 
 export default function MenuFiscalizacaoTransparenciaPassivaAnos() {
   const [state] = useAtom(transparenciaPassivaState);

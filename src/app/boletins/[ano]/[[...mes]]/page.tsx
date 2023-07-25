@@ -3,7 +3,7 @@ import { BoletinsPageProps } from "../BoletinsPageProps";
 import BoletimAlertPanel, {
   BoletimAlertPanelProps,
 } from "./_components/BoletimAlertPanel";
-import "./boletim-mensal.css";
+import "./boletimMensal.css";
 
 function getUrl(ano: string, mes: string | undefined) {
   return `https://paineldecontrole.tcees.tc.br/api/EstadoControllers/ResumoExecutivo/GetResumoExecutivo?idEsferaAdministrativa=81&anoExercicio=${ano}&mes=${mes}&v=18-07-2023-5.2.14`;

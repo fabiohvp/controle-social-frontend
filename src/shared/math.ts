@@ -1,4 +1,4 @@
-import { IpcaValues } from "@/components/layout/ipca/ipca-state";
+import { IpcaValues } from "@/components/layout/ipca/ipcaState";
 
 export function mdc(values: number[]) {
   if (!values.length) return 0;

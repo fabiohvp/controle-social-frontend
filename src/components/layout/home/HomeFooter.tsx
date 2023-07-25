@@ -1,4 +1,4 @@
-import TCEESLogo from "@/components/images/logos/TCEESLogo";
+import TCEESLogo from "@/components/images/logos/TceesLogo";
 import Link from "next/link";
 
 export default function HomeFooter() {

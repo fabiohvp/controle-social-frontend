@@ -3,7 +3,7 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { estadoState } from "../estado-state";
+import { estadoState } from "../estadoState";
 
 export default function MenuEstadoAnos() {
   const [state] = useAtom(estadoState);

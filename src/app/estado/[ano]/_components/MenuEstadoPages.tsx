@@ -3,7 +3,7 @@ import {
   createDropdownValue,
   DropdownValue,
 } from "@/components/dropdowns/dropdown/Dropdown";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";

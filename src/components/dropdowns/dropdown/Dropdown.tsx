@@ -6,8 +6,8 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 import DropdownBody from "./DropdownBody";
 import { DropdownItemRender } from "./DropdownItem";
-import { dropdownDefaultComparer } from "./dropdown-comparers";
 import "./dropdown.css";
+import { dropdownDefaultComparer } from "./dropdownComparers";
 
 export type DropdownValue<T> = T & {
   value: string;

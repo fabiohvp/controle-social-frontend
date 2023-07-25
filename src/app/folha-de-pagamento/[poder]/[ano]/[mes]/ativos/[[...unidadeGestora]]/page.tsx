@@ -1,4 +1,4 @@
-import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folha-de-pagamento-constants";
+import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDePagamentoConstants";
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";

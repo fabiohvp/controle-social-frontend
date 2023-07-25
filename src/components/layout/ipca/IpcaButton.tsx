@@ -7,7 +7,7 @@ import { useRef, useState } from "react";
 import { FaCog } from "react-icons/fa";
 import DropdownModal from "../../dropdowns/dropdown/DropdownModal";
 import IpcaCheckbox from "./IpcaCheckbox";
-import { ipcaLoading } from "./ipca-state";
+import { ipcaLoading } from "./ipcaState";
 
 export default function IpcaButton() {
   const [active, setActive] = useState(false);

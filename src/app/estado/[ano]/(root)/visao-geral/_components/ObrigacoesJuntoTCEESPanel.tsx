@@ -3,7 +3,7 @@ import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import { EstadoPageProps, EstadoPanelProps } from "../../../EstadoPageProps";
-import "./visao-geral-panels.css";
+import "./visaoGeralPanel.css";
 
 async function getData({ ano }: EstadoPageProps) {
   const codigo = "001";

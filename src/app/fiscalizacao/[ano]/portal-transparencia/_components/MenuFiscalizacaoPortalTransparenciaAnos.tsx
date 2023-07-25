@@ -3,7 +3,7 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { portalTransparenciaState } from "../portal-transparencia-state";
+import { portalTransparenciaState } from "../portalTransparenciaState";
 
 export default function MenuFiscalizacaoPortalTransparenciaAnos() {
   const [state] = useAtom(portalTransparenciaState);

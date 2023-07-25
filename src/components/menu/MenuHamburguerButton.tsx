@@ -3,7 +3,7 @@ import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import HamburgerButton from "../buttons/hamburguer/HamburguerButton";
 import MenuMobileLayout from "./MenuMobileLayout";
-import { HAMBURGUER_MENU_SIZE } from "./menu-constants";
+import { HAMBURGUER_MENU_SIZE } from "./menuConstants";
 
 type Props = HTMLAttributes<HTMLButtonElement>;
 

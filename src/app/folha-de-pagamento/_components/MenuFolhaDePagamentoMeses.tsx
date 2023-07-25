@@ -6,7 +6,7 @@ import { useParams, usePathname } from "next/navigation";
 import {
   generateFolhaDePagamentoUrl,
   getFolhaDePagamentoSegment,
-} from "../folha-de-pagamento-state";
+} from "../folhaDePagamentoState";
 
 const meses = getMonthNames({ format: "long" });
 

@@ -7,7 +7,7 @@ import {
   folhaDePagamentoState,
   generateFolhaDePagamentoUrl,
   getFolhaDePagamentoSegment,
-} from "../folha-de-pagamento-state";
+} from "../folhaDePagamentoState";
 
 export default function MenuFolhaDePagamentoAnos() {
   const [state] = useAtom(folhaDePagamentoState);

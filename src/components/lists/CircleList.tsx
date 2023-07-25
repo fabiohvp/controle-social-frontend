@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
-import "./circle-list.css";
+import "./circleList.css";
 
 type Props = {
   children: ReactNode;

@@ -3,7 +3,7 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
-import { controleInternoState } from "../controle-interno-state";
+import { controleInternoState } from "../controleInternoState";
 
 export default function MenuFiscalizacaoControleInternoAnos() {
   const [state] = useAtom(controleInternoState);
