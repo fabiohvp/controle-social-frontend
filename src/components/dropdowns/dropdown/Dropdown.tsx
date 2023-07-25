@@ -36,7 +36,7 @@ export type DropdownProps<T> = {
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function Dropdown<T>({
-  active: isActive,
+  active,
   autoClose,
   borderless,
   bodyProps,
@@ -51,12 +51,12 @@ export default function Dropdown<T>({
   selected,
   ...props
 }: DropdownProps<T>) {
-  const [active, setActive] = useState(isActive ?? false);
+  const [open, setOpen] = useState(active ?? false);
   const valuesComparer = comparer ?? dropdownDefaultComparer;
 
   let element = useRef<HTMLDivElement>(null);
 
-  useClickOutside({ element, toggle: setActive });
+  useClickOutside({ element, toggle: setOpen });
 
   function getSelected() {
     let selectedItem = items.find((item) =>
@@ -94,10 +94,10 @@ export default function Dropdown<T>({
           >
             {getSelected()}
           </span>
-          {active ? <FaCaretUp /> : <FaCaretDown />}
+          {open ? <FaCaretUp /> : <FaCaretDown />}
         </span>
       </button>
-      {active && (
+      {open && (
         <DropdownBody
           comparer={comparer}
           hideSearch={hideSearch}

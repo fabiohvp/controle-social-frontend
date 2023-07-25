@@ -24,19 +24,19 @@ function DropdownMenu(
   { children, className, icon, modalClassName, title, ...props }: Props,
   ref: ForwardedRef<HTMLDivElement>
 ) {
-  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
   const element = useForwardedRef(ref);
 
-  useClickOutside({ element, toggle: setActive });
+  useClickOutside({ element, toggle: setOpen });
 
   return (
     <div ref={element} className={twMerge("h-full", className)} {...props}>
       <button className="center gap-1 h-full">
         <span>{icon}</span>
         <span className="hover:text-link">{title}</span>
-        {active ? <FaCaretUp /> : <FaCaretDown />}
+        {open ? <FaCaretUp /> : <FaCaretDown />}
       </button>
-      {active && (
+      {open && (
         <DropdownModal className={modalClassName}>{children}</DropdownModal>
       )}
     </div>

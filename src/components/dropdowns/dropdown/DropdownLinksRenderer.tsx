@@ -2,7 +2,7 @@ import { KeyValue } from "@/types/KeyValue";
 import Link from "next/link";
 import { DropdownValue } from "./Dropdown";
 
-function DropdownLinkRenderer<T>(
+export default function DropdownLinkRenderer<T>(
   generateUrl: (
     item: KeyValue<string, DropdownValue<T>>,
     index: number
@@ -16,7 +16,3 @@ function DropdownLinkRenderer<T>(
     );
   };
 }
-
-//not sure why this is needed (only component that is complaining about this)
-DropdownLinkRenderer.displayName = "DropdownLinkRenderer";
-export default DropdownLinkRenderer;
