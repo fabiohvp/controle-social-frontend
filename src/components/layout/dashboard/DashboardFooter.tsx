@@ -40,7 +40,7 @@ export default function DashboardFooter() {
                   show={showModalAtualizacaoDados}
                 />
               </>
-              |<Link href="/dados-abertos">Dados abertos</Link>
+              |<Link href="/wiki/dados-abertos">Dados abertos</Link>
             </div>
             <div className="flex justify-center gap-2 mt-1">
               <>

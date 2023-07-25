@@ -76,7 +76,7 @@ export default function HomeFooter() {
                 </Link>
               </li>
               <li className="">
-                <Link href="/dados-abertos" className="">
+                <Link href="/wiki/dados-abertos" className="">
                   Dados Abertos
                 </Link>
               </li>

@@ -12,7 +12,7 @@ import {
   createDropdownValue,
 } from "../dropdowns/dropdown/Dropdown";
 import DropdownBody from "../dropdowns/dropdown/DropdownBody";
-import { dropdownLinkRenderer } from "../dropdowns/dropdown/DropdownLinks";
+import DropdownLinksRenderer from "../dropdowns/dropdown/DropdownLinksRenderer";
 import ComparadorIcon from "../images/icons/ComparadorIcon";
 import ConcessoesIcon from "../images/icons/ConcessoesIcon";
 import CrasIcon from "../images/icons/CrasIcon";
@@ -71,7 +71,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           items={getMunicipios().map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: dropdownLinkRenderer(generateUrl(routeParams)),
+            render: DropdownLinksRenderer(generateUrl(routeParams)),
           }))}
         />
       )}
@@ -81,7 +81,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           items={getMunicipios().map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: dropdownLinkRenderer(generateUrl(routeParams)),
+            render: DropdownLinksRenderer(generateUrl(routeParams)),
           }))}
         />
       )}
@@ -284,7 +284,7 @@ export default function MenuMobile({ className, ...props }: Props) {
             </div>
           </Link>
         </li>
-        <li className="text-link text-center text-sm">
+        <li className="py-2 text-link text-center text-sm">
           <Link href="/wiki/sobre" className="!inline">
             Sobre
           </Link>{" "}
@@ -293,7 +293,7 @@ export default function MenuMobile({ className, ...props }: Props) {
             Novidades
           </Link>{" "}
           |{" "}
-          <Link href="/dados-abertos" className="!inline">
+          <Link href="/wiki/dados-abertos" className="!inline">
             Dados abertos
           </Link>
         </li>
