@@ -11,7 +11,7 @@ export default function useClickOutside(props: Props) {
     return () => {
       window.removeEventListener("click", onWindowClick);
     };
-  }, []);
+  }, [onWindowClick]);
 
   function onWindowClick(event: MouseEvent) {
     if (!props.element.current) return;
