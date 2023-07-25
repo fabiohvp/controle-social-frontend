@@ -85,13 +85,13 @@ export default function MegaMenuMunicipios() {
           href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao"
           className="flex gap-1"
         >
-          <IndicadoresIcon height={20} width={20} /> Indicadores consolidados
+          <IndicadoresIcon small /> Indicadores consolidados
         </Link>
         <Link
           href="/rankings/2023/municipios/receita-receita-arrecadada"
           className="flex gap-1"
         >
-          <RankingIcon height={20} width={20} /> Rankings
+          <RankingIcon small /> Rankings
         </Link>
       </div>
       <Input
