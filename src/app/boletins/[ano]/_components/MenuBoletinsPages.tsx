@@ -1,20 +1,24 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Boletim de macrogestão",
-    value: "*",
+    value: createDropdownValue("*"),
   },
   {
     key: "Boletim extraordinário",
-    value: "extraordinario",
+    value: createDropdownValue("extraordinario"),
   },
   {
     key: "Informativos",
-    value: "informativo",
+    value: createDropdownValue("informativo"),
   },
 ];
 
@@ -25,9 +29,11 @@ export default function MenuBoletinsPages() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) => `/boletins/${routeParams.ano}/${item.value}`}
+        generateUrl={(item) =>
+          `/boletins/${routeParams.ano}/${item.value.value}`
+        }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

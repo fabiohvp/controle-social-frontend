@@ -1,16 +1,20 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Metas de arrecadação",
-    value: "gestao-fiscal/meta-arrecadacao",
+    value: createDropdownValue("gestao-fiscal/meta-arrecadacao"),
   },
   {
     key: "RCL",
-    value: "gestao-fiscal/receita-corrente-liquida",
+    value: createDropdownValue("gestao-fiscal/receita-corrente-liquida"),
   },
 ];
 
@@ -21,9 +25,9 @@ export default function MenuEstadoGestaoFiscalPages() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) => `/estado/${routeParams.ano}/${item.value}`}
+        generateUrl={(item) => `/estado/${routeParams.ano}/${item.value.value}`}
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

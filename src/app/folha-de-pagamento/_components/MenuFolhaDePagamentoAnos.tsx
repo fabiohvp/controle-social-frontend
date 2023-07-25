@@ -1,4 +1,5 @@
 "use client";
+import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
@@ -19,15 +20,15 @@ export default function MenuFolhaDePagamentoAnos() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            ano: item.value,
+            ano: item.value.value,
             segment,
           })
         }
         items={state.anos.map((ano) => ({
           key: ano.toString(),
-          value: ano.toString(),
+          value: createDropdownValue(ano.toString()),
         }))}
-        selectedValue={routeParams.ano}
+        selected={createDropdownValue(routeParams.ano)}
       />
     </li>
   );

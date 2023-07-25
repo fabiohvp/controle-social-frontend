@@ -1,40 +1,44 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Distribuição das escolas",
-    value: "escolas",
+    value: createDropdownValue("escolas"),
   },
   {
     key: "Distribuição das matrículas",
-    value: "matriculas",
+    value: createDropdownValue("matriculas"),
   },
   {
     key: "Geolocalização das escolas",
-    value: "geolocalizacao",
+    value: createDropdownValue("geolocalizacao"),
   },
   {
     key: "Indicadores de desempenho",
-    value: "desempenho",
+    value: createDropdownValue("desempenho"),
   },
   {
     key: "Índice da educação básica por municípios",
-    value: "ideb",
+    value: createDropdownValue("ideb"),
   },
   {
     key: "Percentual de ocupação",
-    value: "ocupacao",
+    value: createDropdownValue("ocupacao"),
   },
   {
     key: "Relatório",
-    value: "relatorio",
+    value: createDropdownValue("relatorio"),
   },
   {
     key: "Sistema informatizado de gestão da educação",
-    value: "sistema-informatizado",
+    value: createDropdownValue("sistema-informatizado"),
   },
 ];
 
@@ -45,12 +49,12 @@ export default function MenuFiscalizacaoOfertaXDemandaPages() {
   return (
     <li>
       <DropdownLinks
-        bodyClassName="!min-w-[350px]"
+        bodyProps={{ className: "!min-w-[350px]" }}
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/educacao/oferta-x-demanda/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/educacao/oferta-x-demanda/${item.value.value}`
         }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

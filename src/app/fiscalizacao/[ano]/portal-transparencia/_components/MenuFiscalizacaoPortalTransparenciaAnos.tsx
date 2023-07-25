@@ -1,4 +1,5 @@
 "use client";
+import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
@@ -13,13 +14,13 @@ export default function MenuFiscalizacaoPortalTransparenciaAnos() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${item.value}/portal-transparencia/${segments}`
+          `/fiscalizacao/${item.value.value}/portal-transparencia/${segments}`
         }
         items={state.anos.map((ano) => ({
           key: ano.toString(),
-          value: ano.toString(),
+          value: createDropdownValue(ano.toString()),
         }))}
-        selectedValue={routeParams.ano}
+        selected={createDropdownValue(routeParams.ano)}
       />
     </li>
   );

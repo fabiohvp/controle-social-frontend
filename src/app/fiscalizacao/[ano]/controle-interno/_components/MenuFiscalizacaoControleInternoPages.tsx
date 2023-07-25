@@ -1,16 +1,20 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Câmaras",
-    value: "camaras",
+    value: createDropdownValue("camaras"),
   },
   {
     key: "Prefeituras",
-    value: "prefeituras",
+    value: createDropdownValue("prefeituras"),
   },
 ];
 
@@ -22,10 +26,10 @@ export default function MenuFiscalizacaoControleInternoPages() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/controle-interno/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/controle-interno/${item.value.value}`
         }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

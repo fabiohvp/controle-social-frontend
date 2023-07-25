@@ -1,20 +1,24 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Ações sobre a pandemia",
-    value: "acoes-pandemia",
+    value: createDropdownValue("acoes-pandemia"),
   },
   {
     key: "Câncer de colo de útero",
-    value: "cancer-colo-de-utero",
+    value: createDropdownValue("cancer-colo-de-utero"),
   },
   {
     key: "Doenças crônicas não transmissíveis",
-    value: "doencas-cronicas-nao-transmissiveis",
+    value: createDropdownValue("doencas-cronicas-nao-transmissiveis"),
   },
 ];
 
@@ -26,10 +30,10 @@ export default function MenuFiscalizacaoSaudePages() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/saude/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/saude/${item.value.value}`
         }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

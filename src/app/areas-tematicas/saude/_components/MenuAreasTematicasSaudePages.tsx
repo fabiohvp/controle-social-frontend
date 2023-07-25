@@ -1,28 +1,32 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Estabelecimentos de saúde",
-    value: "estabelecimentos",
+    value: createDropdownValue("estabelecimentos"),
   },
   {
     key: "Distribuição de equipamentos",
-    value: "distribuicao-de-equipamentos",
+    value: createDropdownValue("distribuicao-de-equipamentos"),
   },
   {
     key: "Distribuição de leitos",
-    value: "distribuicao-de-leitos",
+    value: createDropdownValue("distribuicao-de-leitos"),
   },
   {
     key: "Gestão com a função saúde",
-    value: "gastos-com-saude",
+    value: createDropdownValue("gastos-com-saude"),
   },
   {
     key: "População com plano de saúde",
-    value: "acesso-a-saude",
+    value: createDropdownValue("acesso-a-saude"),
   },
 ];
 
@@ -32,10 +36,10 @@ export default function MenuAreasTematicasSaudePages() {
   return (
     <li>
       <DropdownLinks
-        bodyClassName="!min-w-[250px]"
-        generateUrl={(item) => `/areas-tematicas/saude/${item.value}`}
+        bodyProps={{ className: "!min-w-[250px]" }}
+        generateUrl={(item) => `/areas-tematicas/saude/${item.value.value}`}
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

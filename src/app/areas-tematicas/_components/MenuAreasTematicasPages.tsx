@@ -1,33 +1,43 @@
 "use client";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
 import { KeyValue } from "@/types/KeyValue";
 import { usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Assistência social",
-    value: "/areas-tematicas/assistencia-social/referenciamento",
+    value: createDropdownValue(
+      "/areas-tematicas/assistencia-social/referenciamento"
+    ),
   },
   {
     key: "Concessões e PPP",
-    value: "/areas-tematicas/concessao-publica/visao-geral",
+    value: createDropdownValue(
+      "/areas-tematicas/concessao-publica/visao-geral"
+    ),
   },
   {
     key: "Educação",
-    value: "/areas-tematicas/educacao/visao-geral",
+    value: createDropdownValue("/areas-tematicas/educacao/visao-geral"),
   },
   {
     key: "Estrutura administrativa",
-    value: "/areas-tematicas/estrutura-administrativa",
+    value: createDropdownValue("/areas-tematicas/estrutura-administrativa"),
   },
   {
     key: "Pessoal",
-    value: "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral",
+    value: createDropdownValue(
+      "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral"
+    ),
   },
   {
     key: "Saúde",
-    value: "/areas-tematicas/saude/estabelecimentos",
+    value: createDropdownValue("/areas-tematicas/saude/estabelecimentos"),
   },
 ];
 
@@ -38,9 +48,9 @@ export default function MenuAreasTematicasPages() {
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={(item) => item.value}
+        generateUrl={(item) => item.value.value}
         items={PAGES}
-        selectedValue={`/areas-tematicas/${segment}`}
+        selected={createDropdownValue(`/areas-tematicas/${segment}`)}
       />
     </li>
   );

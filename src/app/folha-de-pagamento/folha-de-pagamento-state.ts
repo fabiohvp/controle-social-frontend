@@ -1,5 +1,9 @@
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
+import { KeyValue } from "@/types/KeyValue";
 import { atom } from "jotai";
-import { FOLHA_DE_PAGAMENTO_PAGES } from "./folha-de-pagamento-constants";
 
 export const folhaDePagamentoState = atom({
   anos: Array(8)
@@ -7,6 +11,36 @@ export const folhaDePagamentoState = atom({
     .map((_, i) => i + 2016)
     .reverse(),
 });
+
+export const FOLHA_DE_PAGAMENTO_PAGES: KeyValue<
+  string,
+  DropdownValue<string>
+>[] = [
+  {
+    key: "Visão geral",
+    value: createDropdownValue("visao-geral"),
+  },
+  {
+    key: "Ativos",
+    value: createDropdownValue("ativos"),
+  },
+  {
+    key: "Beneficiários",
+    value: createDropdownValue("beneficiarios"),
+  },
+  {
+    key: "Estagiários",
+    value: createDropdownValue("estagiarios"),
+  },
+  {
+    key: "Ingressos e desligamentos",
+    value: createDropdownValue("contratacoes-e-demissoes"),
+  },
+  {
+    key: "Consulta de vínculo",
+    value: createDropdownValue("consulta-vinculo"),
+  },
+];
 
 export function generateFolhaDePagamentoUrl({
   ano,
@@ -34,8 +68,8 @@ export function generateFolhaDePagamentoUrl({
 
 export function getFolhaDePagamentoSegment(pathname: string) {
   for (const page of FOLHA_DE_PAGAMENTO_PAGES) {
-    if (pathname.includes(`/${page.value}`)) {
-      return page.value;
+    if (pathname.includes(`/${page.value.value}`)) {
+      return page.value.value;
     }
   }
   return null;

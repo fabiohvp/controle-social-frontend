@@ -1,4 +1,5 @@
 "use client";
+import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownItemLabel from "@/components/dropdowns/dropdown/DropdownItemLabel";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
@@ -56,7 +57,7 @@ export default function MenuFolhaDePagamentoTipoUnidadesGestoras() {
       ) : (
         <li>
           <DropdownLinks
-            bodyClassName="!min-w-[400px]"
+            bodyProps={{ className: "!min-w-[400px]" }}
             comparer={dropdownStartsWithComparer}
             generateUrl={(item) =>
               generateFolhaDePagamentoUrl({
@@ -64,15 +65,15 @@ export default function MenuFolhaDePagamentoTipoUnidadesGestoras() {
                 unidadeGestora:
                   routeParams.poder === "assembleia-legislativa"
                     ? undefined
-                    : item.value,
+                    : item.value.value,
                 segment,
               })
             }
             items={options.map((option) => ({
               key: option.nome,
-              value: option.codigo,
+              value: createDropdownValue(option.codigo),
             }))}
-            selectedValue={selectedUnidadeGestora.codigo}
+            selected={createDropdownValue(selectedUnidadeGestora.codigo)}
           />
         </li>
       )}
@@ -115,19 +116,19 @@ function MenuFolhaDePagamentoUnidadesGestoras({
   return (
     <li>
       <DropdownLinks
-        bodyClassName="!min-w-[400px]"
+        bodyProps={{ className: "!min-w-[400px]" }}
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
             segment,
-            unidadeGestora: item.value,
+            unidadeGestora: item.value.value,
           })
         }
         items={options.map((option) => ({
           key: option.nome,
-          value: option.codigo,
+          value: createDropdownValue(option.codigo),
         }))}
-        selectedValue={selectedValue}
+        selected={createDropdownValue(selectedValue)}
       />
     </li>
   );

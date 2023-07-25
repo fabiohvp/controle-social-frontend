@@ -1,24 +1,28 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Visão geral",
-    value: "visao-geral",
+    value: createDropdownValue("visao-geral"),
   },
   {
     key: "Escolas",
-    value: "escolas",
+    value: createDropdownValue("escolas"),
   },
   {
     key: "Profissionais",
-    value: "profissionais",
+    value: createDropdownValue("profissionais"),
   },
   {
     key: "Inativos",
-    value: "inativos",
+    value: createDropdownValue("inativos"),
   },
 ];
 
@@ -28,9 +32,9 @@ export default function MenuAreasTematicasEducacaoPages() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) => `/areas-tematicas/educacao/${item.value}`}
+        generateUrl={(item) => `/areas-tematicas/educacao/${item.value.value}`}
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

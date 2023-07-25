@@ -1,7 +1,18 @@
 "use client";
+import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/municipio-state";
+import { getMunicipios } from "@/shared/municipio";
+import { KeyValue } from "@/types/KeyValue";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
-import { HTMLAttributes } from "react";
+import { useParams } from "next/navigation";
+import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "../dropdowns/dropdown/Dropdown";
+import DropdownBody from "../dropdowns/dropdown/DropdownBody";
+import { dropdownLinkRenderer } from "../dropdowns/dropdown/DropdownLinks";
 import ComparadorIcon from "../images/icons/ComparadorIcon";
 import ConcessoesIcon from "../images/icons/ConcessoesIcon";
 import CrasIcon from "../images/icons/CrasIcon";
@@ -24,23 +35,56 @@ import "./menu-mobile.css";
 
 type Props = HTMLAttributes<HTMLDivElement>;
 
+function generateUrl(routeParams: Params) {
+  return function <T>(item: KeyValue<string, DropdownValue<T>>, _: number) {
+    return generateMunicipioUrl({
+      ...routeParams,
+      municipio: item.value.value,
+    });
+  };
+}
+
 export default function MenuMobile({ className, ...props }: Props) {
+  const [municipiosOpen, setMunicipiosOpen] = useState(false);
+  const [prestacoesDeContasOpen, setPestacoesDeContasOpen] = useState(false);
+  const routeParams = useParams();
+
   function openDropdownMunicipios() {
-    console.log("click");
+    setMunicipiosOpen(true);
   }
 
   function openDropdownPrestacoesDeContas() {
-    console.log("click");
+    setPestacoesDeContasOpen(true);
   }
 
   return (
     <div
       className={twMerge(
-        "bg-gray-200 center h-screen menu-mobile overflow-y-auto p-2",
+        "bg-gray-200 center h-screen menu-mobile overflow-y-auto p-2 relative",
         className
       )}
       {...props}
     >
+      {municipiosOpen && (
+        <DropdownBody
+          className="!top-auto"
+          items={getMunicipios().map((municipio) => ({
+            key: municipio.nome,
+            value: createDropdownValue(municipio.nomeNormalizado),
+            render: dropdownLinkRenderer(generateUrl(routeParams)),
+          }))}
+        />
+      )}
+      {prestacoesDeContasOpen && (
+        <DropdownBody
+          className="!top-auto"
+          items={getMunicipios().map((municipio) => ({
+            key: municipio.nome,
+            value: createDropdownValue(municipio.nomeNormalizado),
+            render: dropdownLinkRenderer(generateUrl(routeParams)),
+          }))}
+        />
+      )}
       <ul className="flex flex-col gap-1 self-start w-full md:w-1/2 lg:w-3/5">
         <li>
           <Link href="/municipio/2023/serra/visao-geral">

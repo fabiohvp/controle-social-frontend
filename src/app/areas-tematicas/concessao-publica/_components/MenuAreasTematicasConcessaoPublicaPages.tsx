@@ -1,16 +1,20 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Visão geral",
-    value: "visao-geral",
+    value: createDropdownValue("visao-geral"),
   },
   {
     key: "Despesas com PPP",
-    value: "despesas-ppp",
+    value: createDropdownValue("despesas-ppp"),
   },
 ];
 
@@ -23,10 +27,10 @@ export default function MenuAreasTematicasConcessaoPublicaPages() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/areas-tematicas/concessao-publica/${item.value}`
+          `/areas-tematicas/concessao-publica/${item.value.value}`
         }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

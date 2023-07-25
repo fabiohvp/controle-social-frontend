@@ -1,16 +1,20 @@
 "use client";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { KeyValue } from "@/types/KeyValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, string>[] = [
+const PAGES: KeyValue<string, DropdownValue<string>>[] = [
   {
     key: "Manifestação técnica",
-    value: "manifestacao-tecnica",
+    value: createDropdownValue("manifestacao-tecnica"),
   },
   {
     key: "Relatório",
-    value: "relatorio",
+    value: createDropdownValue("relatorio"),
   },
 ];
 
@@ -22,10 +26,10 @@ export default function MenuFiscalizacaoDesigualdadeEducacionalPages() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/educacao/desigualdade-educacional/${item.value}`
+          `/fiscalizacao/${routeParams.ano}/educacao/desigualdade-educacional/${item.value.value}`
         }
         items={PAGES}
-        selectedValue={segments}
+        selected={createDropdownValue(segments)}
       />
     </li>
   );

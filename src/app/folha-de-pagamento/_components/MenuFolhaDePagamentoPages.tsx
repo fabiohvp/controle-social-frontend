@@ -1,9 +1,10 @@
 "use client";
+import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdown-comparers";
 import { useParams, usePathname } from "next/navigation";
-import { FOLHA_DE_PAGAMENTO_PAGES } from "../folha-de-pagamento-constants";
 import {
+  FOLHA_DE_PAGAMENTO_PAGES,
   generateFolhaDePagamentoUrl,
   getFolhaDePagamentoSegment,
 } from "../folha-de-pagamento-state";
@@ -17,10 +18,13 @@ export default function MenuFolhaDePagamento() {
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
         generateUrl={(item) =>
-          generateFolhaDePagamentoUrl({ ...routeParams, segment: item.value })
+          generateFolhaDePagamentoUrl({
+            ...routeParams,
+            segment: item.value.value,
+          })
         }
         items={FOLHA_DE_PAGAMENTO_PAGES}
-        selectedValue={segment!}
+        selected={createDropdownValue(segment!)}
       />
     </li>
   );

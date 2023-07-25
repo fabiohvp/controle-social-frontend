@@ -1,4 +1,5 @@
 "use client";
+import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { getMonthNames } from "@/shared/date";
 import { useParams, usePathname } from "next/navigation";
@@ -19,15 +20,15 @@ export default function MenuFolhaDePagamentoMeses() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            mes: item.value,
+            mes: item.value.value,
             segment,
           })
         }
         items={meses.map((mes, index) => ({
           key: mes,
-          value: (index + 1).toString(),
+          value: createDropdownValue((index + 1).toString()),
         }))}
-        selectedValue={routeParams.mes}
+        selected={createDropdownValue(routeParams.mes)}
       />
     </li>
   );
