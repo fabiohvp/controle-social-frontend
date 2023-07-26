@@ -1,4 +1,5 @@
 import MapaESChart from "@/components/charts/MapaESChart";
+import { getMunicipios } from "@/shared/municipio";
 import { twMerge } from "tailwind-merge";
 import Panels from "./Panels";
 
@@ -6,7 +7,9 @@ type Props = {
   className?: string;
 };
 
-export default function PanelSection(props: Props) {
+export default async function PanelSection(props: Props) {
+  const municipios = await getMunicipios();
+
   return (
     <div
       className={twMerge(
@@ -24,7 +27,7 @@ export default function PanelSection(props: Props) {
         </p>
       </div>
       <div className="flex justify-center">
-        <MapaESChart />
+        <MapaESChart municipios={municipios} />
       </div>
     </div>
   );
