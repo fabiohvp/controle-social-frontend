@@ -1,13 +1,13 @@
-import MenuBoletinsAnos from "./_components/MenuBoletinsAnos";
-import MenuBoletinsPages from "./_components/MenuBoletinsPages";
-import SubmenuLabelBoletins from "./_components/SubmenuLabelBoletins";
+// import MenuBoletinsAnos from "./_components/MenuBoletinsAnos";
+// import MenuBoletinsPages from "./_components/MenuBoletinsPages";
+// import SubmenuLabelBoletins from "./_components/SubmenuLabelBoletins";
 
 export default function BoletinsSubmenuItems() {
   return (
     <>
-      <SubmenuLabelBoletins />
+      {/* <SubmenuLabelBoletins />
       <MenuBoletinsPages />
-      <MenuBoletinsAnos />
+      <MenuBoletinsAnos /> */}
     </>
   );
 }
