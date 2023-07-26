@@ -14,6 +14,7 @@ export default function FiscalizacaoSection(props: Props) {
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className
       )}
+      prefetch={false}
     >
       <Image
         src="/banners/fiscalizacao.png"

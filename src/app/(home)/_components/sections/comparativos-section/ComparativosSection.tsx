@@ -14,7 +14,11 @@ export default function ComparativosSection(props: Props) {
     <div className={twMerge("center flex-col p-12", props.className)}>
       <div className="border border-gray-400 rounded h-[380px]">
         <Carousel width={840} showThumbs={false}>
-          <Link href="/projecao" className="h-full w-full block">
+          <Link
+            href="/projecao"
+            className="h-full w-full block"
+            prefetch={false}
+          >
             <p className="carousel-title">Compare municípios</p>
             <Image
               src="/banners/comparativo-municipios.png"
@@ -23,7 +27,7 @@ export default function ComparativosSection(props: Props) {
               width={840}
             />
           </Link>
-          <Link href="/obras">
+          <Link href="/obras" prefetch={false}>
             <p className="carousel-title">Visualize indicadores consolidados</p>
             <Image
               src="/banners/comparativo-indicadores-consolidados.png"
@@ -32,7 +36,10 @@ export default function ComparativosSection(props: Props) {
               width={840}
             />
           </Link>
-          <Link href="rankings/2023/municipios/receita-receita-arrecadada">
+          <Link
+            href="rankings/2023/municipios/receita-receita-arrecadada"
+            prefetch={false}
+          >
             <p className="carousel-title">Também temos rankings temáticos</p>
             <Image
               src="/banners/comparativo-ranking-tematicos.png"

@@ -45,6 +45,7 @@ export default function Panels() {
                     key={i}
                     className="group flex flex-1 text-center"
                     title={article.title}
+                    prefetch={false}
                   >
                     <div className="relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                       <Panel className="absolute flex flex-col justify-around bg-gray-50 panel">

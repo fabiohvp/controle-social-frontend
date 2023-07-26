@@ -11,6 +11,7 @@ export default function ArrecadacaoSection(props: Props) {
     <Link
       href="/areas-tematicas/educacao/visao-geral"
       className={props.className}
+      prefetch={false}
     >
       <div className="flex justify-center gap-20 p-12 relative">
         <Image

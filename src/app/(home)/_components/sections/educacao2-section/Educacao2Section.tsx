@@ -14,6 +14,7 @@ export default function Educacao2Section(props: Props) {
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className
       )}
+      prefetch={false}
     >
       <Image
         src="/banners/educacao2.png"

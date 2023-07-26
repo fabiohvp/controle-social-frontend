@@ -25,7 +25,7 @@ export default function Page() {
       <MenuMobileLayout />
       <HomeLayout className="hidden lg:block">
         <PanelSection className="px-8" />
-        <ConhecaFerramentaSection />
+        <ConhecaFerramentaSection className="px-8" />
         <EducacaoSection className="px-8" />
         <ServicosIASection className="px-8" />
         <EstruturaAdministrativaSection className="px-8" />

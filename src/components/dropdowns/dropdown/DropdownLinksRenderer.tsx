@@ -10,7 +10,11 @@ export default function DropdownLinkRenderer<T>(
 ) {
   return (item: KeyValue<string, DropdownValue<T>>, index: number) => {
     return (
-      <Link href={generateUrl(item, index).replace("*", "")} title={item.key}>
+      <Link
+        href={generateUrl(item, index).replace("*", "")}
+        prefetch={false}
+        title={item.key}
+      >
         {item.key}
       </Link>
     );

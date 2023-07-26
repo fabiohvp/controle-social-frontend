@@ -17,11 +17,17 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Informações de 2023 sobre
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-saude">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-saude"
+              prefetch={false}
+            >
               limites com saúde
             </Link>
             e
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-receitaCorrenteLiquida">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-receitaCorrenteLiquida"
+              prefetch={false}
+            >
               Receita Corrente Líquida (RCL)
             </Link>
             nos municípios.
@@ -34,13 +40,19 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel sobre o
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-endividamento">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-endividamento"
+              prefetch={false}
+            >
               endividamento
             </Link>
             nos municípios, considerando a sua Dívida Consolidada Líquida.
           </li>
           <li>
-            <Link href="/municipio/2022/vitoria/previdencia-situacaoPrevidenciaria/077E0900001">
+            <Link
+              href="/municipio/2022/vitoria/previdencia-situacaoPrevidenciaria/077E0900001"
+              prefetch={false}
+            >
               Índice de Situação Previdenciária
             </Link>
             dos institutos de previdência do estado e dos municípios no ano de
@@ -48,22 +60,34 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Informações sobre
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-pessoal">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-pessoal"
+              prefetch={false}
+            >
               limites com pessoal
             </Link>
             ,
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-limiteDespesaReceita">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-limiteDespesaReceita"
+              prefetch={false}
+            >
               relação despesas correntes x receitas correntes
             </Link>
             e
-            <Link href="/municipio/2023/vitoria/gestaoFiscal-alertaLRF">
+            <Link
+              href="/municipio/2023/vitoria/gestaoFiscal-alertaLRF"
+              prefetch={false}
+            >
               alertas
             </Link>
             nos municípios.
           </li>
           <li>
             Valor necessário a ser
-            <Link href="/municipio/2022/conceicao-da-barra/visaoGeral">
+            <Link
+              href="/municipio/2022/conceicao-da-barra/visaoGeral"
+              prefetch={false}
+            >
               complementado na aplicação em educação
             </Link>
             até o final de 2023. Cinco municípios ainda necessitam realizar a
@@ -79,16 +103,24 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Resultado da Fiscalização sobre
-            <Link href="/cancerColoDeUtero/2022">Câncer de colo de útero</Link>,
-            ano de 2022.
+            <Link href="/cancerColoDeUtero/2022">
+              Câncer de colo de útero
+            </Link>{" "}
+            prefetch={false}, ano de 2022.
           </li>
           <li>
             Painéis sobre a Previdência (2023) do
-            <Link href="/estado/2023/previdencia-receita/500E0900001">
+            <Link
+              href="/estado/2023/previdencia-receita/500E0900001"
+              prefetch={false}
+            >
               Estado
             </Link>
             e dos
-            <Link href="/municipio/202/vitoria/previdencia-receita/077E0900001">
+            <Link
+              href="/municipio/202/vitoria/previdencia-receita/077E0900001"
+              prefetch={false}
+            >
               municípios
             </Link>
             .
@@ -102,33 +134,41 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Situação das remessas de
-            <Link href="/obrigacaoEnvio/2022/municipios">concessão</Link>,
-            exigidas dos institutos de previdência do estado e dos municípios, a
-            partir de julho/2022.
+            <Link href="/obrigacaoEnvio/2022/municipios" prefetch={false}>
+              concessão
+            </Link>
+            , exigidas dos institutos de previdência do estado e dos municípios,
+            a partir de julho/2022.
           </li>
           <li>
             Painel para
-            <Link href="/monitoramento/2019/municipios/Todos">
+            <Link href="/monitoramento/2019/municipios/Todos" prefetch={false}>
               monitoramento de providências
             </Link>
             a serem tomadas pelos órgãos, a partir das deliberações do TCEES.
           </li>
           <li>
             Painel sobre
-            <Link href="/julgamentoContas/2020/visaoGeral">
+            <Link href="/julgamentoContas/2020/visaoGeral" prefetch={false}>
               julgamento das contas
             </Link>
             dos chefes do poder executivo.
           </li>
           <li>
-            O painel de <Link href="/obras">obras públicas</Link> passa a exibir
-            todas as obras do estado e dos municípios, e não apenas as
-            paralisadas ou em andamento, mas com necessidade de atenção
-            especial.
+            O painel de{" "}
+            <Link href="/obras" prefetch={false}>
+              obras públicas
+            </Link>{" "}
+            passa a exibir todas as obras do estado e dos municípios, e não
+            apenas as paralisadas ou em andamento, mas com necessidade de
+            atenção especial.
           </li>
           <li>
             Novas informações sobre os programas do
-            <Link href="/municipio/2022/vitoria/gestaoOrcamentaria-planoPlurianual">
+            <Link
+              href="/municipio/2022/vitoria/gestaoOrcamentaria-planoPlurianual"
+              prefetch={false}
+            >
               Plano Plurianual (PPA)
             </Link>
             : indicador, situação problema e objetivo do desenvolvimento
@@ -137,7 +177,10 @@ export default function Novidades({ className, ...props }: Props) {
 
           <li>
             Incluídos dados de 2021 no painel sobre
-            <Link href="/municipio/2021/vitoria/gestaoOrcamentaria-enfrentamentoCovid">
+            <Link
+              href="/municipio/2021/vitoria/gestaoOrcamentaria-enfrentamentoCovid"
+              prefetch={false}
+            >
               enfrentamento da calamidade pública de Covid-19
             </Link>
             .
@@ -150,12 +193,18 @@ export default function Novidades({ className, ...props }: Props) {
         <hr />
         <ul className="styled">
           <li>
-            Painel sobre <Link href="/projecao">projeções</Link> dos gastos com
-            pessoal do Estado e dos municípios.
+            Painel sobre{" "}
+            <Link href="/projecao" prefetch={false}>
+              projeções
+            </Link>{" "}
+            dos gastos com pessoal do Estado e dos municípios.
           </li>
           <li>
             Resultado da Fiscalização de
-            <Link href="/fiscalizacao/2021/saude/mamografia-de-rastreamento">
+            <Link
+              href="/fiscalizacao/2021/saude/mamografia-de-rastreamento"
+              prefetch={false}
+            >
               Mamografias de Rastreamento
             </Link>
             no ano de 2021.
@@ -168,29 +217,45 @@ export default function Novidades({ className, ...props }: Props) {
         <hr />
         <ul className="styled">
           <li>
-            Painel sobre <Link href="/obras">obras</Link> paralisadas ou em
-            andamento, mas com necessidade de atenção especial.
+            Painel sobre{" "}
+            <Link href="/obras" prefetch={false}>
+              obras
+            </Link>{" "}
+            paralisadas ou em andamento, mas com necessidade de atenção
+            especial.
           </li>
           <li>
             Informações sobre
-            <Link href="/municipio/2022/vitoria/gestaoFiscal-educacao">
+            <Link
+              href="/municipio/2022/vitoria/gestaoFiscal-educacao"
+              prefetch={false}
+            >
               educação
             </Link>
             e
-            <Link href="/municipio/2022/vitoria/gestaoFiscal-educacaoFundeb">
+            <Link
+              href="/municipio/2022/vitoria/gestaoFiscal-educacaoFundeb"
+              prefetch={false}
+            >
               Fundeb
             </Link>
             no estado e nos municípios.
           </li>
           <li>
             Informações sobre
-            <Link href="/municipio/2022/vitoria/gestaoFiscal-saude">
+            <Link
+              href="/municipio/2022/vitoria/gestaoFiscal-saude"
+              prefetch={false}
+            >
               limites com saúde
             </Link>
             nos municípios.
           </li>
           <li>
-            <Link href="/municipio/2021/vitoria/previdencia-situacaoPrevidenciaria/077E0900001">
+            <Link
+              href="/municipio/2021/vitoria/previdencia-situacaoPrevidenciaria/077E0900001"
+              prefetch={false}
+            >
               Índice de Situação Previdenciária
             </Link>
             dos institutos de previdência do estado e dos municípios no ano de
@@ -198,26 +263,34 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com valores da
-            <Link href="/municipio/2022/vitoria/gestaoFiscal-receitaCorrenteLiquida">
+            <Link
+              href="/municipio/2022/vitoria/gestaoFiscal-receitaCorrenteLiquida"
+              prefetch={false}
+            >
               Receita Corrente Líquida municipal.
             </Link>
           </li>
           <li>
             Situação das
-            <Link href="/obrigacaoEnvio/2022/municipios">
+            <Link href="/obrigacaoEnvio/2022/municipios" prefetch={false}>
               obrigações relacionadas ao envio das remessas de contratação
             </Link>
             , a partir de abril de 2022.
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/areasTematicas/Educacao-VisaoGeral">Educação</Link>,
-            como distribuição de escolas públicas, matrículas e profissionais da
-            educação.
+            <Link href="/areas-tematicas/educacao/visao-geral" prefetch={false}>
+              Educação
+            </Link>
+            , como distribuição de escolas públicas, matrículas e profissionais
+            da educação.
           </li>
           <li>
             Resultado da Fiscalização sobre
-            <Link href="/educacao/desigualdadeEducacional/2020/manifestacaoTecnica">
+            <Link
+              href="/fiscalizacao/2020/educacao/desigualdade-educacional/manifestacao-tecnica"
+              prefetch={false}
+            >
               Desigualdade Educacional
             </Link>
             , ano de 2020.
@@ -231,21 +304,30 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Informações sobre planejamento e execução do
-            <Link href="/municipio/2022/vitoria/gestaoOrcamentaria-planoPlurianual">
+            <Link
+              href="/municipio/2022/vitoria/gestao-orcamentaria/plano-plurianual"
+              prefetch={false}
+            >
               Plano Plurianual (PPA) 2022-2025
             </Link>
             e de seus programas.
           </li>
           <li>
             Informações sobre planejamento e execução da
-            <Link href="/municipio/2022/vitoria/gestao-orcamentaria/diretrizes-orcamentarias">
+            <Link
+              href="/municipio/2022/vitoria/gestao-orcamentaria/diretrizes-orcamentarias"
+              prefetch={false}
+            >
               Lei de Diretrizes Orçamentárias (LDO) 2022
             </Link>
             e de seus programas.
           </li>
           <li>
             Informações sobre a execução de
-            <Link href="/municipio/2022/vitoria/gestaoOrcamentaria-acoes">
+            <Link
+              href="/municipio/2022/vitoria/gestao-orcamentaria/acoes"
+              prefetch={false}
+            >
               Funções, Programas e Ações
             </Link>
             municipais para o ano de 2022.
@@ -259,31 +341,43 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Informações sobre o envio das remessas de
-            <Link href="/estado/2022/obrigacaoEnvio">
+            <Link href="/estado/2022/obrigacaoEnvio" prefetch={false}>
               PCM (Prestação de Contas Mensal) pelos órgãos estaduais
             </Link>
             .
           </li>
           <li>
             Painéis sobre o
-            <Link href="/estado/2022/visaoGeral"> Estado (2022)</Link>, contendo
-            informações como receitas, despesas, metas e limites previstos na
-            Lei de Responsabilidade Fiscal.
+            <Link href="/estado/2022/visao-geral" prefetch={false}>
+              {" "}
+              Estado (2022)
+            </Link>
+            , contendo informações como receitas, despesas, metas e limites
+            previstos na Lei de Responsabilidade Fiscal.
           </li>
           <li>
             Painéis sobre a Previdência (2022) do
-            <Link href="/estado/2022/previdencia-receita/500E0900001">
+            <Link
+              href="/estado/2022/previdencia-receita/500E0900001"
+              prefetch={false}
+            >
               Estado
             </Link>
             e dos
-            <Link href="/municipio/2022/vitoria/previdencia-receita/077E0900001">
+            <Link
+              href="/municipio/2022/vitoria/previdencia-receita/077E0900001"
+              prefetch={false}
+            >
               municípios
             </Link>
             .
           </li>
           <li>
             Informações sobre
-            <Link href="/municipio/2022/vitoria/gestao-fiscal/pessoal">
+            <Link
+              href="/municipio/2022/vitoria/gestao-fiscal/pessoal"
+              prefetch={false}
+            >
               limites com pessoal
             </Link>
             nos municípios.
@@ -297,21 +391,27 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel sobre os contratos de
-            <Link href="/areas-tematicas/concessao-publica/visao-geral">
+            <Link
+              href="/areas-tematicas/concessao-publica/visao-geral"
+              prefetch={false}
+            >
               Concessão Comum e Parceria Público-Privada
             </Link>
             no Espírito Santo.
           </li>
           <li>
             Resultado da Fiscalização de
-            <Link href="/saude/doencasCronicas/2021">
+            <Link href="/saude/doencasCronicas/2021" prefetch={false}>
               Doenças Crônicas Não Transmissíveis
             </Link>
             no ano de 2021.
           </li>
           <li>
             Painel sobre a
-            <Link href="/areas-tematicas/estrutura-administrativa">
+            <Link
+              href="/areas-tematicas/estrutura-administrativa"
+              prefetch={false}
+            >
               Estrutura Administrativa
             </Link>
             , com informações referentes aos cargos, empregos e funções públicas
@@ -326,7 +426,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Resultado da Fiscalização de
-            <Link href="/transparencia-portal/2020/executivo">
+            <Link href="/transparencia-portal/2020/executivo" prefetch={false}>
               Portais de Transparência
             </Link>
             no ano de 2020.
@@ -341,18 +441,27 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Painéis que disponibilizam a relação entre despesas correntes e
             receitas correntes no
-            <Link href="/estado/2021/gestaoFiscal-limiteDespesaReceita">
+            <Link
+              href="/estado/2021/gestaoFiscal-limiteDespesaReceita"
+              prefetch={false}
+            >
               Estado
             </Link>
             e nos
-            <Link href="/municipio/2021/vitoria/gestaoFiscal-limiteDespesaReceita">
+            <Link
+              href="/municipio/2021/vitoria/gestaoFiscal-limiteDespesaReceita"
+              prefetch={false}
+            >
               municípios
             </Link>
             .
           </li>
           <li>
             Ranking que permite comparar a
-            <Link href="/rankings/2021/municipios/resultado-despesasCorrentesReceitasCorrentes">
+            <Link
+              href="/rankings/2021/municipios/resultado-despesasCorrentesReceitasCorrentes"
+              prefetch={false}
+            >
               relação de despesas correntes e receitas correntes
             </Link>
             entre os municípios.
@@ -365,25 +474,35 @@ export default function Novidades({ className, ...props }: Props) {
         <hr />
         <ul className="styled">
           <li>
-            <Link href="#dobra-slide-videos">Vídeos</Link> da série que explica
-            o funcionamento do Painel de Controle.
+            <Link href="#dobra-slide-videos" prefetch={false}>
+              Vídeos
+            </Link>{" "}
+            da série que explica o funcionamento do Painel de Controle.
           </li>
           <li>
             Painéis sobre a
-            <Link href="/estado/2020/previdencia-receita/500E0900001">
+            <Link
+              href="/estado/2020/previdencia-receita/500E0900001"
+              prefetch={false}
+            >
               Previdência dos Poderes Estaduais
             </Link>
             , com informações sobre receitas, despesas, patrimônio, resultado
             atuarial, projeções atuariais e situação previdenciária.
           </li>
           <li>
-            <Link href="/municipio/2020/vitoria/previdencia-projecaoAtuarial/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-projecaoAtuarial/077E0900001"
+              prefetch={false}
+            >
               Projeções atuariais
             </Link>
             dos institutos de previdência municipais.
           </li>
           <li>
-            <Link href="/boletins/2021/informativo">Informativos</Link>
+            <Link href="/boletins/2021/informativo" prefetch={false}>
+              Informativos
+            </Link>
             produzidos pelo TCEES, contendo análises econômicas e fiscais da
             situação dos municípios.
           </li>
@@ -396,35 +515,44 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel sobre
-            <Link href="/municipio/2020/vitoria/gestaoOrcamentaria-enfrentamentoCovid">
+            <Link
+              href="/municipio/2020/vitoria/gestaoOrcamentaria-enfrentamentoCovid"
+              prefetch={false}
+            >
               enfrentamento da calamidade pública de Covid-19
             </Link>
             .
           </li>
           <li>
             Painel sobre
-            <Link href="/folha-de-pagamento/executivo-municipal/2021/contratacoes-e-demissoes/077">
+            <Link
+              href="/folha-de-pagamento/executivo-municipal/2021/contratacoes-e-demissoes/077"
+              prefetch={false}
+            >
               ingressos e desligamentos
             </Link>
             ocorridos na Administração Pública estadual e municipal.
           </li>
           <li>
             Painel sobre o
-            <Link href="/IEGM/2018/iIEGM">
+            <Link href="/IEGM/2018/iIEGM" prefetch={false}>
               Índice de Efetividade da Gestão Municipal (IEGM) 2018
             </Link>
             .
           </li>
           <li>
             Painel sobre o
-            <Link href="/controle-interno/2020/executivo">
+            <Link href="/controle-interno/2020/executivo" prefetch={false}>
               Levantamento de Controle Interno dos municípios
             </Link>
             para o ano de 2020.
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/municipio/2021/vitoria/previdencia-patrimonio/077E0900001">
+            <Link
+              href="/municipio/2021/vitoria/previdencia-patrimonio/077E0900001"
+              prefetch={false}
+            >
               Patrimônio
             </Link>
             dos Regimes Próprios de Previdência Social municipais, referentes ao
@@ -432,7 +560,10 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/municipio/2021/vitoria/previdencia-resultadoAtuarial/077E0900001">
+            <Link
+              href="/municipio/2021/vitoria/previdencia-resultadoAtuarial/077E0900001"
+              prefetch={false}
+            >
               Resultado atuarial
             </Link>
             dos Regimes Próprios de Previdência Social municipais, referentes ao
@@ -447,7 +578,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Relatório de Levantamento sobre as
-            <Link href="/saude/acoedivdemia/2020">
+            <Link href="/saude/acoedivdemia/2020" prefetch={false}>
               ações realizadas pelos municípios capixabas para o enfrentamento
               da crise causada pela pandemia da Covid-19
             </Link>
@@ -462,7 +593,10 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Novos
-            <Link href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao">
+            <Link
+              href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao"
+              prefetch={false}
+            >
               indicadores consolidados, sobre Alertas da Lei de Responsabilidade
               Fiscal (LRF)
             </Link>
@@ -470,21 +604,30 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre planejamento e execução do
-            <Link href="/municipio/2018/vitoria/gestao-orcamentaria/plano-plurianual">
+            <Link
+              href="/municipio/2018/vitoria/gestao-orcamentaria/plano-plurianual"
+              prefetch={false}
+            >
               Plano Plurianual (PPA)
             </Link>
             e de seus programas.
           </li>
           <li>
             Painel com informações sobre planejamento e execução da
-            <Link href="/municipio/2018/vitoria/gestao-orcamentaria/diretrizes-orcamentarias">
+            <Link
+              href="/municipio/2018/vitoria/gestao-orcamentaria/diretrizes-orcamentarias"
+              prefetch={false}
+            >
               Lei de Diretrizes Orçamentárias (LDO)
             </Link>
             e de seus programas.
           </li>
           <li>
             Painel com informações sobre a execução de
-            <Link href="/municipio/2018/vitoria/gestao-orcamentaria/acoes">
+            <Link
+              href="/municipio/2018/vitoria/gestao-orcamentaria/acoes"
+              prefetch={false}
+            >
               Funções, Programas e Ações
             </Link>
             municipais.
@@ -498,11 +641,16 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Atualização do painel com informações sobre
-            <Link href="/areas-tematicas/saude/visao-geral">saúde.</Link>
+            <Link href="/areas-tematicas/saude/visao-geral" prefetch={false}>
+              saúde.
+            </Link>
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/municipio/2020/vitoria/previdencia-patrimonio/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-patrimonio/077E0900001"
+              prefetch={false}
+            >
               Patrimônio
             </Link>
             dos Regimes Próprios de Previdência Social municipais, referentes ao
@@ -510,7 +658,10 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/municipio/2020/vitoria/previdencia-resultadoAtuarial/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-resultadoAtuarial/077E0900001"
+              prefetch={false}
+            >
               Resultado atuarial
             </Link>
             dos Regimes Próprios de Previdência Social municipais, referentes ao
@@ -525,7 +676,10 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Comparação entre o
-            <Link href="/municipio/2020/vitoria/previdencia-situacaoPrevidenciaria/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-situacaoPrevidenciaria/077E0900001"
+              prefetch={false}
+            >
               Índice de Situação Previdenciária
             </Link>
             , obtido pelos institutos de previdência municipais nos anos de 2019
@@ -533,7 +687,10 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Melhoria na exibição das informações sobre
-            <Link href="/municipio/2020/vitoria/previdencia-segurados/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-segurados/077E0900001"
+              prefetch={false}
+            >
               Segurados do RPPS
             </Link>
             .
@@ -547,14 +704,20 @@ export default function Novidades({ className, ...props }: Props) {
         <hr />
         <ul className="styled">
           <li>
-            <Link href="folha-de-pagamento/executivo-municipal/2020/contratacoes-e-demissoes">
+            <Link
+              href="folha-de-pagamento/executivo-municipal/2020/contratacoes-e-demissoes"
+              prefetch={false}
+            >
               Consulta de vínculos
             </Link>
             dos servidores estaduais e municipais.
           </li>
           <li>
             Novos gráficos sobre vantagens e descontos, no painel de
-            <Link href="folha-de-pagamento/executivo-estadual/2020/1/visao-geral">
+            <Link
+              href="folha-de-pagamento/executivo-estadual/2020/1/visao-geral"
+              prefetch={false}
+            >
               Pessoal
             </Link>
             .
@@ -568,7 +731,9 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel com informações sobre
-            <Link href="/areasTematicas/Saude-VisaoGeral">saúde.</Link>
+            <Link href="/areasTematicas/Saude-VisaoGeral" prefetch={false}>
+              saúde.
+            </Link>
           </li>
         </ul>
       </div>
@@ -579,21 +744,27 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel com informações sobre
-            <Link href="/municipio/2020/vitoria/previdencia-segurados/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-segurados/077E0900001"
+              prefetch={false}
+            >
               Segurados dos institutos de previdência municipais
             </Link>
             , referentes ao ano de 2020.
           </li>
           <li>
             Painel com informações sobre o
-            <Link href="/estado/2019/iege">
+            <Link href="/estado/2019/iege" prefetch={false}>
               Índice de Efetividade da Gestão Estadual (IEGE)
             </Link>
             , referente ao exercício de 2019
           </li>
           <li>
             Painel com informações sobre o
-            <Link href="/municipio/2020/vitoria/previdencia-situacaoPrevidenciaria/077E0900001">
+            <Link
+              href="/municipio/2020/vitoria/previdencia-situacaoPrevidenciaria/077E0900001"
+              prefetch={false}
+            >
               Índice de Situação Previdenciária
             </Link>
             , referentes ao ano de 2020.
@@ -607,7 +778,10 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel com informações sobre o
-            <Link href="/municipio/2019/vitoria/previdencia-situacaoPrevidenciaria/077E0900001">
+            <Link
+              href="/municipio/2019/vitoria/previdencia-situacaoPrevidenciaria/077E0900001"
+              prefetch={false}
+            >
               Índice de Situação Previdenciária
             </Link>
             , referentes ao ano de 2019.
@@ -625,35 +799,53 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/folha-de-pagamento/executivo-municipal/2020/1/visaoGeral/019">
+            <Link
+              href="/folha-de-pagamento/executivo-municipal/2020/1/visaoGeral/019"
+              prefetch={false}
+            >
               pessoal e folha de pagamento
             </Link>
             no Estado e nos municípios.
           </li>
           <li>
-            Painel <Link href="/estado/2020/visaoGeral">visão geral</Link> do
-            Estado.
+            Painel{" "}
+            <Link href="/estado/2020/visaoGeral" prefetch={false}>
+              visão geral
+            </Link>{" "}
+            do Estado.
           </li>
           <li>
-            <Link href="/estado/2020/gestaoFiscal-metaDeArrecadacao">
+            <Link
+              href="/estado/2020/gestaoFiscal-metaDeArrecadacao"
+              prefetch={false}
+            >
               Desempenho da receita total
             </Link>
             do Estado.
           </li>
           <li>
-            <Link href="/estado/2020/gestaoFiscal-educacaoFundeb">
+            <Link
+              href="/estado/2020/gestaoFiscal-educacaoFundeb"
+              prefetch={false}
+            >
               Evolução anual da aplicação no Magistério
             </Link>
             do Estado.
           </li>
           <li>
-            <Link href="/estado/2020/gestaoFiscal-receitaCorrenteLiquida">
+            <Link
+              href="/estado/2020/gestaoFiscal-receitaCorrenteLiquida"
+              prefetch={false}
+            >
               Evolução anual RCL (Receita Corrente Líquida) e RCL Ajustada
             </Link>
             do Estado.
           </li>
           <li>
-            <Link href="/estado/2020/gestaoFiscal-resultadoNominal">
+            <Link
+              href="/estado/2020/gestaoFiscal-resultadoNominal"
+              prefetch={false}
+            >
               Evolução mensal do Resultado Nominal
             </Link>
             do Estado.
@@ -671,20 +863,29 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel com
-            <Link href="/estado/2020/gestaoOrcamentaria-despesaPorPoder">
+            <Link
+              href="/estado/2020/gestaoOrcamentaria-despesaPorPoder"
+              prefetch={false}
+            >
               despesas dos poderes estaduais
             </Link>
             , classificadas por fonte e natureza.
           </li>
           <li>
-            <Link href="/estado/2020/gestaoFiscal-resultadoNominal">
+            <Link
+              href="/estado/2020/gestaoFiscal-resultadoNominal"
+              prefetch={false}
+            >
               Resultado nominal estadual
             </Link>
             do mês, bem como de sua evolução anual.
           </li>
           <li>
             Evolução anual do
-            <Link href="/estado/2020/gestaoFiscal-resultadoPrimario">
+            <Link
+              href="/estado/2020/gestaoFiscal-resultadoPrimario"
+              prefetch={false}
+            >
               resultado primário estadual
             </Link>
             .
@@ -692,7 +893,10 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Evolução anual da dívida consolidada líquida, operações de créditos
             e garantias concedidas no
-            <Link href="/estado/2020/gestaoFiscal-endividamento">
+            <Link
+              href="/estado/2020/gestaoFiscal-endividamento"
+              prefetch={false}
+            >
               painel sobre limites de envidividamento estaduais
             </Link>
             .
@@ -719,15 +923,23 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Novos gráficos sobre
-            <Link href="/estado/2020/gestaoOrcamentaria-despesa">
+            <Link
+              href="/estado/2020/gestaoOrcamentaria-despesa"
+              prefetch={false}
+            >
               despesas liquidadas por função
             </Link>
             , referentes ao Estado
           </li>
           <li>
             Novos seção com dados do
-            <Link href="/estado/2020/gestaoFiscal-educacaoFundeb">Fundeb</Link>,
-            referentes ao Estado
+            <Link
+              href="/estado/2020/gestaoFiscal-educacaoFundeb"
+              prefetch={false}
+            >
+              Fundeb
+            </Link>
+            , referentes ao Estado
           </li>
           <li>
             Disponibilização de dados históricos de Fundeb municipal, referentes
@@ -746,7 +958,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Nova seção
-            <Link href="/estado/2020/boletimExtraordinario">
+            <Link href="/estado/2020/boletimExtraordinario" prefetch={false}>
               boletins extraordinários
             </Link>
             , com projeções para o Estado e os municípios, referentes a temas
@@ -761,21 +973,27 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Novos gráficos para comparação entre comportamento da
-            <Link href="/estado/2020/gestaoOrcamentaria-receita">
+            <Link
+              href="/estado/2020/gestaoOrcamentaria-receita"
+              prefetch={false}
+            >
               receita
             </Link>{" "}
             no ano corrente e no ano anterior
           </li>
           <li>
             Novos gráficos para comparação entre comportamento do
-            <Link href="/estado/2020/gestaoOrcamentaria-despesa">
+            <Link
+              href="/estado/2020/gestaoOrcamentaria-despesa"
+              prefetch={false}
+            >
               resultado orçamentário
             </Link>
             no ano corrente e no ano anterior
           </li>
           <li>
             Novos gráficos sobre a evolução da
-            <Link href="/estado/2020/gestaoFiscal-pessoal">
+            <Link href="/estado/2020/gestaoFiscal-pessoal" prefetch={false}>
               despesa com pessoal
             </Link>
             e da Receita Corrente Líquida Ajustada
@@ -791,7 +1009,10 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Disponibilizados dados de
-            <Link href="/estado/2019/gestaoFiscal-resultadoPrimario">
+            <Link
+              href="/estado/2019/gestaoFiscal-resultadoPrimario"
+              prefetch={false}
+            >
               Resultado Primário do Estado
             </Link>
             para o ano de 2019
@@ -804,7 +1025,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Nova seção
-            <Link href="/fiscalizacoes/2019/escolas">
+            <Link href="/fiscalizacoes/2019/escolas" prefetch={false}>
               &quot;Educação - Levantamento Oferta x Demanda&quot;
             </Link>
             , que apresenta a oferta e demanda por vagas nas redes públicas
@@ -812,7 +1033,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Nova seção
-            <Link href="/fiscalizacoes/receita-municipal">
+            <Link href="/fiscalizacoes/receita-municipal" prefetch={false}>
               &quot;Receita Pública Municipal&quot;
             </Link>
             , onde são apresentados resultados das auditorias temáticas de
@@ -841,6 +1062,7 @@ export default function Novidades({ className, ...props }: Props) {
             <Link
               title="Indicadores Consolidados"
               href="/indicadoresConsolidados/2020/antecipacaoReceitasOrcamentarias"
+              prefetch={false}
             >
               &quot;Indicadores Consolidados/&quot;
             </Link>
@@ -871,13 +1093,14 @@ export default function Novidades({ className, ...props }: Props) {
             <Link
               href="/compararMunicipio/2021"
               title="Comparação de Municípios"
+              prefetch={false}
             >
               &quot;Comparação entre municípios&quot;
             </Link>
           </li>
           <li>
             Dados de envio de remessa de &quot;
-            <Link href="/obrigacaoEnvio/2020/municipios">
+            <Link href="/obrigacaoEnvio/2020/municipios" prefetch={false}>
               Folha de pagamento
             </Link>
             &quot;
@@ -894,13 +1117,17 @@ export default function Novidades({ className, ...props }: Props) {
             <Link
               href="/prestacaoConta/2017/municipios/Governo/07"
               title="Prestações de Contas Anuais"
+              prefetch={false}
             >
               &quot;Prestações de Contas Anuais&quot;
             </Link>
           </li>
           <li>
             Ranking de &quot;
-            <Link href="/rankings/2020/municipios/educacao-educacaoPorAplicacaoFUNDEB">
+            <Link
+              href="/rankings/2020/municipios/educacao-educacaoPorAplicacaoFUNDEB"
+              prefetch={false}
+            >
               Aplicação do FUNDEB
             </Link>
             &quot;
@@ -942,6 +1169,7 @@ export default function Novidades({ className, ...props }: Props) {
             <Link
               title="Obrigações junto ao TCE-ES"
               href="/obrigacaoEnvio/2018/municipios"
+              prefetch={false}
             >
               &quot;Obrigações junto ao TCEES&quot;
             </Link>
@@ -967,6 +1195,7 @@ export default function Novidades({ className, ...props }: Props) {
             <Link
               title="Poder Legislativo (artigo 29-A da Constituição Federal)"
               href="/rankings/2016/municipios/despesa-despesaLegislativoArtigo29"
+              prefetch={false}
             >
               Poder Legislativo (artigo 29-A da Constituição Federal)
             </Link>
@@ -1002,34 +1231,45 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Dados do
-            <Link href="/IEGM/2015/indiceIEGM">
+            <Link href="/IEGM/2015/indiceIEGM" prefetch={false}>
               Índice de Efetividade da Gestão Municipal
             </Link>
             de 2015
           </li>
           <li>
             Resultado da Fiscalização de
-            <Link href="/fiscalizacao/2018/transparencia-passiva/prefeituras">
+            <Link
+              href="/fiscalizacao/2018/transparencia-passiva/prefeituras"
+              prefetch={false}
+            >
               Transparência Passiva dos Municípios
             </Link>
           </li>
           <li>
             Ranking de &quot;
-            <Link href="/rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada">
+            <Link
+              href="/rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
+              prefetch={false}
+            >
               Receitas Arrecadadas x Despesas Liquidadas
             </Link>
             &quot;
           </li>
           <li>
             Ranking de &quot;
-            <Link href="/rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga">
+            <Link
+              href="/rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
+              prefetch={false}
+            >
               Despesas Liquidadas x Despesas Pagas
             </Link>
             &quot;
           </li>
           <li>
             Painel de Controle de
-            <Link href="/boletins/2017/mensal">Macrogestão Governamental</Link>
+            <Link href="/boletins/2017/mensal" prefetch={false}>
+              Macrogestão Governamental
+            </Link>
           </li>
         </ul>
       </div>

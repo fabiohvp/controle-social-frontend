@@ -11,6 +11,7 @@ export default function EstruturaAdministrativaSection(props: Props) {
     <Link
       href="/areas-tematicas/educacao/visao-geral"
       className={twMerge("flex justify-center gap-20 p-12", props.className)}
+      prefetch={false}
     >
       <Image
         src="/banners/estrutura-administrativa.png"

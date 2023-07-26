@@ -87,7 +87,7 @@ export default function MenuMobile({ className, ...props }: Props) {
       )}
       <ul className="flex flex-col gap-1 self-start w-full md:w-1/2 lg:w-3/5">
         <li>
-          <Link href="/municipio/2023/serra/visao-geral">
+          <Link href="/municipio/2023/serra/visao-geral" prefetch={false}>
             <section>
               <h5>SERRA</h5>
               <div>Dados da cidade geolocalizada</div>
@@ -109,7 +109,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </button>
         </li>
         <li>
-          <Link href="/estado/2023/visao-geral">
+          <Link href="/estado/2023/visao-geral" prefetch={false}>
             <section>
               <h5>ESTADO - PAINEL DE CONTROLE</h5>
               <div>Macrogestão governamental do ES</div>
@@ -120,7 +120,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/boletins/2023/">
+          <Link href="/boletins/2023/" prefetch={false}>
             <section>
               <h5>BOLETINS E INFORMATIVOS</h5>
               <div>Avaliação sobre a gestão dos recursos públicos</div>
@@ -131,7 +131,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/obrigacao-envio/2023/municipios">
+          <Link href="/obrigacao-envio/2023/municipios" prefetch={false}>
             <section>
               <h5>OBRIGAÇÕES</h5>
               <div>...dos jurisdicionados junto ao TCE-ES</div>
@@ -164,7 +164,10 @@ export default function MenuMobile({ className, ...props }: Props) {
           </button>
         </li>
         <li>
-          <Link href="/areas-tematicas/assistencia-social/referenciamento">
+          <Link
+            href="/areas-tematicas/assistencia-social/referenciamento"
+            prefetch={false}
+          >
             <section>
               <h5>ASSISTÊNCIA SOCIAL</h5>
               <div>Estrutura dos centros de referência</div>
@@ -175,7 +178,10 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/concessao-publica/visao-geral">
+          <Link
+            href="/areas-tematicas/concessao-publica/visao-geral"
+            prefetch={false}
+          >
             <section>
               <h5>CONCESSÕES COMUNS E PPP</h5>
               <div>...existentes no Estado e nos municípios</div>
@@ -186,7 +192,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/educacao/visao-geral">
+          <Link href="/areas-tematicas/educacao/visao-geral" prefetch={false}>
             <section>
               <h5>EDUCAÇÃO</h5>
               <div>Dados sobre escolas, alunos e profissionais</div>
@@ -197,7 +203,10 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/estrutura-administrativa">
+          <Link
+            href="/areas-tematicas/estrutura-administrativa"
+            prefetch={false}
+          >
             <section>
               <h5>ESTRUTURA ADMINISTRATIVA</h5>
               <div>...no estado e nos municípios</div>
@@ -208,7 +217,10 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/folha-de-pagamento/municipal/2023/1/visao-geral">
+          <Link
+            href="/folha-de-pagamento/municipal/2023/1/visao-geral"
+            prefetch={false}
+          >
             <section>
               <h5>PESSOAL</h5>
               <div>Dados sobre pessoal na administração pública</div>
@@ -219,7 +231,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/saude/estabelecimentos">
+          <Link href="/areas-tematicas/saude/estabelecimentos" prefetch={false}>
             <section>
               <h5>SAÚDE</h5>
               <div>Dados sobre leitos e estabelecimentos de saúde</div>
@@ -230,7 +242,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/municipio/2023/comparador">
+          <Link href="/municipio/2023/comparador" prefetch={false}>
             <section>
               <h5>COMPARAÇÃO DE MUNICÍPIOS</h5>
               <div>Compare dados entre municípios</div>
@@ -241,7 +253,10 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/indicadores-consolidados/2023/receita/orcamentaria">
+          <Link
+            href="/indicadores-consolidados/2023/receita/orcamentaria"
+            prefetch={false}
+          >
             <section>
               <h5>INDICADORES CONSOLIDADOS</h5>
               <div>Situação geral por área temática</div>
@@ -252,7 +267,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/rankings/2023/receita/arrecadada">
+          <Link href="/rankings/2023/receita/arrecadada" prefetch={false}>
             <section>
               <h5>RANKINGS</h5>
               <div>Classificação por indicador</div>
@@ -263,7 +278,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/projecao">
+          <Link href="/projecao" prefetch={false}>
             <section>
               <h5>PROJEÇÕES</h5>
               <div>Previsões sobre gastos com pessoal</div>
@@ -274,7 +289,7 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/obras">
+          <Link href="/obras" prefetch={false}>
             <section>
               <h5>OBRAS PÚBLICAS</h5>
               <div>...em andamento e paralisadas</div>
@@ -285,15 +300,15 @@ export default function MenuMobile({ className, ...props }: Props) {
           </Link>
         </li>
         <li className="py-2 text-link text-center text-sm">
-          <Link href="/wiki/sobre" className="!inline">
+          <Link href="/wiki/sobre" className="!inline" prefetch={false}>
             Sobre
           </Link>{" "}
           |{" "}
-          <Link href="/wiki/novidades" className="!inline">
+          <Link href="/wiki/novidades" className="!inline" prefetch={false}>
             Novidades
           </Link>{" "}
           |{" "}
-          <Link href="/wiki/dados-abertos" className="!inline">
+          <Link href="/wiki/dados-abertos" className="!inline" prefetch={false}>
             Dados abertos
           </Link>
         </li>

@@ -14,6 +14,7 @@ export default function SaudeSection(props: Props) {
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className
       )}
+      prefetch={false}
     >
       <section className="max-w-xl">
         <h2 className="title-with-vertical-bar">Saúde</h2>
