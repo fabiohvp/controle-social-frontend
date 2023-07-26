@@ -1,4 +1,4 @@
-import { getCodigoMunicipio } from "@/shared/municipio";
+import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { FaHand } from "react-icons/fa6";
 import { MunicipioPageProps } from "../../MunicipioPageProps";
@@ -21,7 +21,8 @@ async function getData(
   codigoFiltro: string,
   { ano, municipio }: MunicipioPageProps
 ) {
-  const codigo = getCodigoMunicipio(municipio);
+  const municipios = await getMunicipios();
+  const codigo = await getCodigoMunicipio(municipios, municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );

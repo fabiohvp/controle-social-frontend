@@ -1,6 +1,9 @@
 "use client";
 import { deepMerge } from "@/shared/merge";
-import { getMunicipios, getNomeNormalizadoMunicipio } from "@/shared/municipio";
+import {
+  MunicipiosProps,
+  getNomeNormalizadoMunicipio,
+} from "@/shared/municipio";
 import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
 import {
@@ -12,7 +15,7 @@ import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { GeoOption } from "echarts/types/dist/shared";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { CSSProperties, Dispatch, SetStateAction, memo, useState } from "react";
+import { CSSProperties, Dispatch, SetStateAction, memo } from "react";
 import EChart from "./EChart";
 import MAP_DATA from "./mapa-es.json";
 
@@ -23,7 +26,7 @@ export type Props = {
   style?: CSSProperties;
 
   getChart?: Dispatch<SetStateAction<echarts.EChartsType | null>>;
-};
+} & MunicipiosProps;
 
 function MapaESChart(props: Props) {
   const { push } = useRouter();
@@ -31,7 +34,7 @@ function MapaESChart(props: Props) {
   const segments =
     usePathname().split(`/${routeParams.municipio}/`)[1] ?? "visao-geral";
 
-  const municipio = getMunicipios().find(
+  const municipio = props.municipios.find(
     (o) => o.nomeNormalizado === routeParams.municipio
   );
   const regions = [];
@@ -46,46 +49,44 @@ function MapaESChart(props: Props) {
     });
   }
 
-  const [options] = useState(
-    deepMerge(
-      {
-        title: { show: false },
-        tooltip: {
-          showDelay: 0,
-          transitionDuration: 0.2,
-          trigger: "item",
-        },
-        geo: deepMerge(
-          {
-            emphasis: {
-              label: { show: false },
-              borderColor: "red",
-            },
-            itemStyle: {
-              color: "#015699",
-              borderColor: "#6090a6",
-            },
+  const options = deepMerge(
+    {
+      title: { show: false },
+      tooltip: {
+        showDelay: 0,
+        transitionDuration: 0.2,
+        trigger: "item",
+      },
+      geo: deepMerge(
+        {
+          emphasis: {
+            label: { show: false },
+            borderColor: "red",
+          },
+          itemStyle: {
+            color: "#015699",
+            borderColor: "#6090a6",
+          },
+          label: {
+            show: false,
+          },
+          map: "ES",
+          regions,
+          select: {
             label: {
               show: false,
             },
-            map: "ES",
-            regions,
-            select: {
-              label: {
-                show: false,
-              },
-              itemStyle: {
-                color: "red",
-              },
+            itemStyle: {
+              color: "red",
             },
-            selectedMode: "multiple",
-            type: "map",
           },
-          props.chartGeoOptions
-        ),
-      },
-      props.chartOptions
-    )
+          selectedMode: "multiple",
+          type: "map",
+        },
+        props.chartGeoOptions
+      ),
+    },
+    props.chartOptions
   );
 
   function onInit(chart: echarts.EChartsType) {
@@ -93,7 +94,10 @@ function MapaESChart(props: Props) {
     props.getChart && props.getChart(chart);
 
     chart.on("click", function (params) {
-      const nomeNormalizado = getNomeNormalizadoMunicipio(params.name);
+      const nomeNormalizado = getNomeNormalizadoMunicipio(
+        props.municipios,
+        params.name
+      );
       //TODO: fix ano inicial
       push(
         `/municipio/${routeParams.ano ?? 2023}/${nomeNormalizado}/${segments}`

@@ -4,7 +4,7 @@ import RankingIcon from "@/components/images/icons/RankingIcon";
 import MapaESIcon from "@/components/images/icons/header/MapaESIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
-import { Municipio, getMunicipios } from "@/shared/municipio";
+import { Municipio, MunicipiosProps } from "@/shared/municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,8 +15,8 @@ type MunicipioFilterable = {
   filtered: boolean;
 } & Municipio;
 
-function getMunicipiosFilterable() {
-  return getMunicipios().map((municipio) => ({
+function getMunicipiosFilterable(municipios: Municipio[]) {
+  return municipios.map((municipio) => ({
     ...municipio,
     filtered: false,
   }));
@@ -41,21 +41,23 @@ function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
   return groups;
 }
 
-export default function MegaMenuMunicipios() {
+export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
   const [chart, setChart] = useState<echarts.EChartsType | null>(null);
-  const [municipios, setMunicipios] = useState(getMunicipiosFilterable());
+  const [municipiosFilterable, setMunicipiosFilterable] = useState(
+    getMunicipiosFilterable(municipios)
+  );
 
   function onKeyUp(event: React.KeyboardEvent<HTMLInputElement>) {
     const searchText = normalize(event.currentTarget.value);
 
     if (searchText) {
-      const municipiosAfterSearch = [...municipios];
+      const municipiosAfterSearch = [...municipiosFilterable];
       municipiosAfterSearch.forEach((municipio) => {
         municipio.filtered = municipio.nomeNormalizado.includes(searchText);
       });
-      setMunicipios(municipiosAfterSearch);
+      setMunicipiosFilterable(municipiosAfterSearch);
     } else {
-      setMunicipios(getMunicipiosFilterable());
+      setMunicipiosFilterable(getMunicipiosFilterable(municipios));
     }
   }
 
@@ -103,19 +105,21 @@ export default function MegaMenuMunicipios() {
       />
       <div className="body flex font-normal p-2">
         <div className="flex">
-          {getMunicipiosGroups(municipios).map((municipios, index) => (
-            <div key={index}>
-              {
-                <RenderMunicipioGroups
-                  municipios={municipios}
-                  onMouseOver={onMouseOver}
-                  onMouseOut={onMouseOut}
-                />
-              }
-            </div>
-          ))}
+          {getMunicipiosGroups(municipiosFilterable).map(
+            (municipios, index) => (
+              <div key={index}>
+                {
+                  <RenderMunicipioGroups
+                    municipios={municipios}
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                  />
+                }
+              </div>
+            )
+          )}
           <div className="center h-full w-[300px]">
-            <MapaESChart getChart={setChart} />
+            <MapaESChart getChart={setChart} municipios={municipios} />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
-import { getCodigoMunicipio } from "@/shared/municipio";
+import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import {
@@ -13,22 +13,22 @@ const CHART_SETTINGS = {
   items: [
     {
       color: COLOR["chart-positivo"],
-      title: "54%",
+      name: "54%",
       value: 0.54,
     },
     {
       color: COLOR["chart-info"],
-      title: "57%",
+      name: "57%",
       value: 0.57,
     },
     {
       color: COLOR["chart-alerta"],
-      title: "60%",
+      name: "60%",
       value: 0.6,
     },
     {
       color: COLOR["chart-negativo"],
-      title: "",
+      name: "",
       value: 1,
     },
   ],
@@ -37,7 +37,8 @@ const CHART_SETTINGS = {
 };
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  const codigo = getCodigoMunicipio(municipio);
+  const municipios = await getMunicipios();
+  const codigo = await getCodigoMunicipio(municipios, municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalConsolidado/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );

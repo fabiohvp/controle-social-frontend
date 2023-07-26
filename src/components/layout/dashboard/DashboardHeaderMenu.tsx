@@ -8,7 +8,11 @@ import InteligenciaArtificialIcon from "@/components/images/icons/header/Intelig
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
-import { getCodigoMunicipio } from "@/shared/municipio";
+import {
+  Municipio,
+  MunicipiosProps,
+  getCodigoMunicipio,
+} from "@/shared/municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
@@ -16,11 +20,11 @@ import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 const ANO_DEFAULT = 2023;
 const MES_DEFAULT = 1;
 
-export default function DashboardHeaderItems() {
+export default function DashboardHeaderItems({ municipios }: MunicipiosProps) {
   return (
     <ul className="dashboard-menu font-bold hidden xl:flex">
       <li className="px-3 active">
-        <MegaMenuMunicipios />
+        <MegaMenuMunicipios municipios={municipios} />
       </li>
       <li className="px-3">
         <LinkEstado />
@@ -35,7 +39,7 @@ export default function DashboardHeaderItems() {
         <DropdownFiscalizacoes />
       </li>
       <li className="px-3">
-        <DropdownAreasTematicas />
+        <DropdownAreasTematicas municipios={municipios} />
       </li>
       <li className="px-3">
         <DropdownInteligenciaArtificial />
@@ -47,7 +51,7 @@ export default function DashboardHeaderItems() {
   );
 }
 
-function DropdownAreasTematicas() {
+function DropdownAreasTematicas({ municipios }: { municipios: Municipio[] }) {
   const params = useParams();
 
   return (
@@ -77,7 +81,7 @@ function DropdownAreasTematicas() {
             href={`/folha-de-pagamento/executivo-municipal/${
               params.ano ?? ANO_DEFAULT
             }/${params.mes ?? MES_DEFAULT}/visao-geral/${
-              getCodigoMunicipio(params.municipio) ?? ""
+              getCodigoMunicipio(municipios, params.municipio) ?? ""
             }`}
           >
             Pessoal

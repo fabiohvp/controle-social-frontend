@@ -2,6 +2,10 @@
 import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import HamburgerButton from "../buttons/hamburguer/HamburguerButton";
+import {
+  HEADER_HEIGHT,
+  MAX_HEIGHT_CONTENT,
+} from "../layout/dashboard/dashboardConstants";
 import MenuMobileLayout from "./MenuMobileLayout";
 import { HAMBURGUER_MENU_SIZE } from "./menuConstants";
 
@@ -29,7 +33,9 @@ export default function MenuHamburguerButton({ className, ...props }: Props) {
         />
       </button>
 
-      {menuActive && <MenuMobileLayout />}
+      {menuActive && (
+        <MenuMobileLayout maxHeight={MAX_HEIGHT_CONTENT} top={HEADER_HEIGHT} />
+      )}
     </>
   );
 }

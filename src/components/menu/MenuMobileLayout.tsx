@@ -1,28 +1,31 @@
 import MenuMobile from "@/components/menu/MenuMobile";
+import { getMunicipios } from "@/shared/municipio";
 import { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
-import {
-  HEADER_HEIGHT,
-  MAX_HEIGHT_CONTENT,
-} from "../layout/dashboard/dashboardConstants";
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = {
+  maxHeight?: string;
+  top?: string;
+} & HTMLAttributes<HTMLDivElement>;
 
-export default function MenuMobileLayout({
+export default async function MenuMobileLayout({
   className,
-  style,
+  maxHeight,
+  top,
   ...props
 }: Props) {
+  const municipios = await getMunicipios();
+
   return (
     <div
       className={twMerge(
         "bg-gray-header fixed h-screen left-0 w-screen z-40 xl:hidden",
         className
       )}
-      style={{ top: HEADER_HEIGHT, ...style }}
+      style={{ top }}
       {...props}
     >
-      <MenuMobile style={{ maxHeight: MAX_HEIGHT_CONTENT }} />
+      <MenuMobile municipios={municipios} style={{ maxHeight }} />
     </div>
   );
 }

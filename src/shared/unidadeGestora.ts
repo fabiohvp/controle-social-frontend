@@ -28,21 +28,3 @@ export function getUnidadesGestorasMunicipais(): UnidadeGestora[] {
       !ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_CONSORCIO)
   );
 }
-
-// export function getCodigoMunicipio(nomeNormalizado: string) {
-//   const municipio = UNIDADES_GESTORAS.find(
-//     (o) => o.nomeNormalizado === nomeNormalizado
-//   );
-//   if (municipio) {
-//     return municipio.codigo;
-//   }
-//   return null;
-// }
-
-// export function getNomeNormalizadoMunicipio(nome: string) {
-//   const municipio = UNIDADES_GESTORAS.find((o) => o.nome === nome);
-//   if (municipio) {
-//     return municipio.nomeNormalizado;
-//   }
-//   return null;
-// }

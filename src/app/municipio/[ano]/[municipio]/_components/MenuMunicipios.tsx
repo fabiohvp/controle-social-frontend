@@ -1,25 +1,25 @@
 "use client";
 import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { getMunicipios } from "@/shared/municipio";
+import { MunicipiosProps } from "@/shared/municipio";
 import { useParams, usePathname } from "next/navigation";
 
 type Props = {
   active?: boolean;
-};
+} & MunicipiosProps;
 
-export default function MenuMunicipios(props: Props) {
+export default function MenuMunicipios({ active, municipios }: Props) {
   const routeParams = useParams();
   const segments = usePathname().split(`/${routeParams.municipio}/`)[1];
 
   return (
     <li>
       <DropdownLinks
-        active={props.active}
+        active={active}
         generateUrl={(item) =>
-          `/municipio/${routeParams.ano}/${item.value}/${segments}`
+          `/municipio/${routeParams.ano}/${item.value.value}/${segments}`
         }
-        items={getMunicipios().map((municipio) => ({
+        items={municipios.map((municipio) => ({
           key: municipio.nome,
           value: createDropdownValue(municipio.nomeNormalizado),
         }))}

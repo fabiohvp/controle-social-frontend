@@ -14,7 +14,7 @@ import { CSSProperties } from "react";
 export type GaugeChartProps = {
   items: {
     color: string;
-    title: string;
+    name: string;
     value: number;
   }[];
   selectedValue: number;
@@ -78,7 +78,7 @@ export default function GaugeChart(props: GaugeChartProps) {
               rotate: "tangential",
               formatter: function (value) {
                 for (const item of props.items) {
-                  if (item.value === value) return item.title;
+                  if (item.value === value) return item.name;
                 }
                 return "";
               },

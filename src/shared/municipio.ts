@@ -1,13 +1,20 @@
 import MUNICIPIOS from "@/data/municipios.json";
 
 export type Municipio = (typeof MUNICIPIOS)[0];
+export type MunicipiosProps = {
+  municipios: Municipio[];
+};
 
-export function getMunicipios(): Municipio[] {
-  return MUNICIPIOS;
+export async function getMunicipios(): Promise<Municipio[]> {
+  const res = await fetch(`http://localhost:3000/api/municipio`);
+  return res.json();
 }
 
-export function getCodigoMunicipio(nomeNormalizado: string): string | null {
-  const municipio = MUNICIPIOS.find(
+export function getCodigoMunicipio(
+  municipios: Municipio[],
+  nomeNormalizado: string
+) {
+  const municipio = municipios.find(
     (o) => o.nomeNormalizado === nomeNormalizado
   );
   if (municipio) {
@@ -16,8 +23,11 @@ export function getCodigoMunicipio(nomeNormalizado: string): string | null {
   return null;
 }
 
-export function getNomeNormalizadoMunicipio(nome: string): string | null {
-  const municipio = MUNICIPIOS.find((o) => o.nome === nome);
+export function getNomeNormalizadoMunicipio(
+  municipios: Municipio[],
+  nome: string
+) {
+  const municipio = municipios.find((o) => o.nome === nome);
   if (municipio) {
     return municipio.nomeNormalizado;
   }

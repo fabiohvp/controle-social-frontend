@@ -1,7 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
-import { getCodigoMunicipio } from "@/shared/municipio";
+import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import {
@@ -10,7 +10,8 @@ import {
 } from "../../../MunicipioPageProps";
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  const codigo = getCodigoMunicipio(municipio);
+  const municipios = await getMunicipios();
+  const codigo = await getCodigoMunicipio(municipios, municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/LimiteDespesaReceita/GetLimiteDespesaReceita?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
@@ -36,17 +37,17 @@ export async function DespesaReceitaCorrentesPanel({
     items: [
       {
         color: COLOR["chart-positivo"],
-        title: `${data.valorAlerta}`,
+        name: `${data.valorAlerta}`,
         value: data.valorAlerta / 100,
       },
       {
         color: COLOR["chart-info"],
-        title: `${data.valorMaximo}`,
+        name: `${data.valorMaximo}`,
         value: data.valorMaximo / 100,
       },
       {
         color: COLOR["chart-negativo"],
-        title: "",
+        name: "",
         value: 1,
       },
     ],

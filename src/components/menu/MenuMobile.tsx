@@ -1,6 +1,6 @@
 "use client";
 import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/municipioState";
-import { getMunicipios } from "@/shared/municipio";
+import { MunicipiosProps } from "@/shared/municipio";
 import { KeyValue } from "@/types/KeyValue";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
@@ -33,7 +33,7 @@ import ObrigacoesIcon from "../images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "../images/icons/header/PrestacaoContaIcon";
 import "./menuMobile.css";
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = MunicipiosProps & HTMLAttributes<HTMLDivElement>;
 
 function generateUrl(routeParams: Params) {
   return function <T>(item: KeyValue<string, DropdownValue<T>>, _: number) {
@@ -44,7 +44,7 @@ function generateUrl(routeParams: Params) {
   };
 }
 
-export default function MenuMobile({ className, ...props }: Props) {
+export default function MenuMobile({ className, municipios, ...props }: Props) {
   const [municipiosOpen, setMunicipiosOpen] = useState(false);
   const [prestacoesDeContasOpen, setPestacoesDeContasOpen] = useState(false);
   const routeParams = useParams();
@@ -68,7 +68,7 @@ export default function MenuMobile({ className, ...props }: Props) {
       {municipiosOpen && (
         <DropdownBody
           className="!top-auto"
-          items={getMunicipios().map((municipio) => ({
+          items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
             render: DropdownLinksRenderer(generateUrl(routeParams)),
@@ -78,7 +78,7 @@ export default function MenuMobile({ className, ...props }: Props) {
       {prestacoesDeContasOpen && (
         <DropdownBody
           className="!top-auto"
-          items={getMunicipios().map((municipio) => ({
+          items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
             render: DropdownLinksRenderer(generateUrl(routeParams)),

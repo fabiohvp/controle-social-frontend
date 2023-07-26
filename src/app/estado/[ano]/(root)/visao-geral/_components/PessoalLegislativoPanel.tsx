@@ -9,22 +9,22 @@ const CHART_SETTINGS = {
   items: [
     {
       color: COLOR["chart-positivo"],
-      title: "48,6%",
+      name: "48,6%",
       value: 0.54,
     },
     {
       color: COLOR["chart-info"],
-      title: "51,3%",
+      name: "51,3%",
       value: 0.57,
     },
     {
       color: COLOR["chart-alerta"],
-      title: "54%",
+      name: "54%",
       value: 0.6,
     },
     {
       color: COLOR["chart-negativo"],
-      title: "",
+      name: "",
       value: 1,
     },
   ],

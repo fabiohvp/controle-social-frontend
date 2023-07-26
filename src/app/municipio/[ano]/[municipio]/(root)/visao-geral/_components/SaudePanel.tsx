@@ -1,7 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
-import { getCodigoMunicipio } from "@/shared/municipio";
+import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import {
@@ -12,13 +12,13 @@ import {
 const CHART_SETTINGS = {
   items: [
     {
-      color: COLOR["chart-positivo"],
-      title: "15%",
+      color: COLOR["chart-negativo"],
+      name: "15%",
       value: 0.15,
     },
     {
-      color: COLOR["chart-negativo"],
-      title: "",
+      color: COLOR["chart-positivo"],
+      name: "",
       value: 1,
     },
   ],
@@ -27,7 +27,8 @@ const CHART_SETTINGS = {
 };
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  const codigo = getCodigoMunicipio(municipio);
+  const municipios = await getMunicipios();
+  const codigo = await getCodigoMunicipio(municipios, municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Saude/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
@@ -56,7 +57,7 @@ export async function SaudePanel({
           públicos de saúde.
         </LegendTooltip>
       }
-      header="Educação"
+      header="Saúde"
     >
       <GaugeChart
         {...CHART_SETTINGS}

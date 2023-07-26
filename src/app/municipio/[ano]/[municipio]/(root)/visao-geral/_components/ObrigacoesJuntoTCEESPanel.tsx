@@ -1,5 +1,5 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
-import { getCodigoMunicipio } from "@/shared/municipio";
+import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
@@ -10,7 +10,8 @@ import {
 import "./visaoGeralPanel.css";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {
-  const codigo = getCodigoMunicipio(municipio);
+  const municipios = await getMunicipios();
+  const codigo = await getCodigoMunicipio(municipios, municipio);
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );

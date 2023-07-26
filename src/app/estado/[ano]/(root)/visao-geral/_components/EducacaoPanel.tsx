@@ -9,12 +9,12 @@ const CHART_SETTINGS = {
   items: [
     {
       color: COLOR["chart-positivo"],
-      title: "25%",
+      name: "25%",
       value: 0.25,
     },
     {
       color: COLOR["chart-negativo"],
-      title: "",
+      name: "",
       value: 1,
     },
   ],

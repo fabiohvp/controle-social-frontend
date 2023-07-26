@@ -14,16 +14,14 @@ export type PanelWithTitleProps = {
 export default function PanelWithTitle({
   bodyProps: { className: bodyClassName, ...bodyProps } = {},
   children,
-  className,
   collapsed = true,
   header,
   headerProps: { className: headerClassName, ...headerProps } = {},
   legend,
-  style,
   ...props
 }: PanelWithTitleProps) {
   return (
-    <section className={twMerge("flex flex-col", className)} {...props}>
+    <section {...props}>
       <h5
         className={twMerge(
           "bg-gray-header border flex justify-between font-normal px-2 py-1 rounded-t-md",
