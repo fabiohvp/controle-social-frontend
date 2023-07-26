@@ -2,15 +2,17 @@ import DashboardFooter from "@/components/layout/dashboard/DashboardFooter";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
 import { MAX_HEIGHT_CONTENT } from "@/components/layout/dashboard/dashboardConstants";
 import "@/components/layout/dashboard/dashboardLayout.css";
-import { MunicipiosProps } from "@/shared/municipio";
+import { getMunicipios } from "@/shared/municipio";
 import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
   title: string;
-} & MunicipiosProps;
+};
 
-export default function WikiLayout({ children, municipios, title }: Props) {
+export default async function WikiLayout({ children, title }: Props) {
+  const municipios = await getMunicipios();
+
   return (
     <>
       <DashboardHeader municipios={municipios} />
