@@ -1,3 +1,5 @@
+import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
+
 export default function Page({ params }: { params: any }) {
-  return <div>municipio</div>;
+  return <ObrigacaoEnvioLayout mapData={[]}>municipio</ObrigacaoEnvioLayout>;
 }

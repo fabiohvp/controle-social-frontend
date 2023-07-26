@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { COLOR } from "@/theme/colors";
@@ -75,10 +75,7 @@ export async function DividaConsolidadaLiquidaPanel({
       }
       header="Desp. x receitas correntes"
     >
-      <DoughnutChart
-        {...CHART_SETTINGS}
-        selectedValue={data.valorApurado / 100}
-      />
+      <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
     </PanelWithTitle>
   );
 }

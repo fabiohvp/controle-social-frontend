@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { getCodigoMunicipio } from "@/shared/municipio";
@@ -64,10 +64,7 @@ export async function FundoPrevidenciarioPanel({
       }
       header="Previdência - Fundo Previdenciário"
     >
-      <DoughnutChart
-        {...CHART_SETTINGS}
-        selectedValue={Math.abs(data?.valor)}
-      />
+      <GaugeChart {...CHART_SETTINGS} selectedValue={Math.abs(data?.valor)} />
     </PanelWithTitle>
   );
 }

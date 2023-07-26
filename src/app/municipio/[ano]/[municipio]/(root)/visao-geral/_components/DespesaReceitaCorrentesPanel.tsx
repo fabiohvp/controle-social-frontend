@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { getCodigoMunicipio } from "@/shared/municipio";
@@ -78,10 +78,7 @@ export async function DespesaReceitaCorrentesPanel({
       }
       header="Desp. x receitas correntes"
     >
-      <DoughnutChart
-        {...CHART_SETTINGS}
-        selectedValue={data.valorApurado / 100}
-      />
+      <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
     </PanelWithTitle>
   );
 }

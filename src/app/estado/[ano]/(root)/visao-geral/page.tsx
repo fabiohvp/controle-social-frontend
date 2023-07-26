@@ -12,7 +12,7 @@ import { SaudePanel } from "./_components/SaudePanel";
 
 const WIDGET_HEIGHT = "155px";
 const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
-const DOUGHNUT_STYLE = { height: WIDGET_HEIGHT };
+const GAUGE_STYLE = { height: WIDGET_HEIGHT };
 
 export default async function Page({ params }: { params: EstadoPageProps }) {
   return (
@@ -26,15 +26,15 @@ export default async function Page({ params }: { params: EstadoPageProps }) {
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
         <ReceitasXDespesasPanel style={PANEL_STYLE} {...params} />
         <ObrigacoesJuntoTCEESPanel style={PANEL_STYLE} {...params} />
-        <SaudePanel style={DOUGHNUT_STYLE} {...params} />
-        <EducacaoPanel style={DOUGHNUT_STYLE} {...params} />
+        <SaudePanel style={GAUGE_STYLE} {...params} />
+        <EducacaoPanel style={GAUGE_STYLE} {...params} />
       </div>
 
       {/* TODO: adicionar mãos com valor em cima dos gráficos */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-5 gap-2">
-        <PessoalConsolidadoPanel style={DOUGHNUT_STYLE} {...params} />
-        <PessoalExecutivoPanel style={DOUGHNUT_STYLE} {...params} />
-        <PessoalLegislativoPanel style={DOUGHNUT_STYLE} {...params} />
+        <PessoalConsolidadoPanel style={GAUGE_STYLE} {...params} />
+        <PessoalExecutivoPanel style={GAUGE_STYLE} {...params} />
+        <PessoalLegislativoPanel style={GAUGE_STYLE} {...params} />
       </div>
     </DashboardLayout>
   );

@@ -17,7 +17,7 @@ import { SaudePanel } from "./_components/SaudePanel";
 
 const WIDGET_HEIGHT = "155px";
 const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
-const DOUGHNUT_STYLE = { height: WIDGET_HEIGHT };
+const GAUGE_STYLE = { height: WIDGET_HEIGHT };
 
 export default async function Page({ params }: { params: MunicipioPageProps }) {
   return (
@@ -37,17 +37,17 @@ export default async function Page({ params }: { params: MunicipioPageProps }) {
 
       {/* TODO: adicionar mãos com valor em cima dos gráficos */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-5 gap-2">
-        <SaudePanel style={DOUGHNUT_STYLE} {...params} />
-        <EducacaoPanel style={DOUGHNUT_STYLE} {...params} />
-        <PessoalConsolidadoPanel style={DOUGHNUT_STYLE} {...params} />
-        <PessoalExecutivoPanel style={DOUGHNUT_STYLE} {...params} />
-        <PessoalLegislativoPanel style={DOUGHNUT_STYLE} {...params} />
+        <SaudePanel style={GAUGE_STYLE} {...params} />
+        <EducacaoPanel style={GAUGE_STYLE} {...params} />
+        <PessoalConsolidadoPanel style={GAUGE_STYLE} {...params} />
+        <PessoalExecutivoPanel style={GAUGE_STYLE} {...params} />
+        <PessoalLegislativoPanel style={GAUGE_STYLE} {...params} />
       </div>
 
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
-        <FundoPrevidenciarioPanel style={DOUGHNUT_STYLE} {...params} />
-        <FundoFinanceiroPanel style={DOUGHNUT_STYLE} {...params} />
-        <DespesaReceitaCorrentesPanel style={DOUGHNUT_STYLE} {...params} />
+        <FundoPrevidenciarioPanel style={GAUGE_STYLE} {...params} />
+        <FundoFinanceiroPanel style={GAUGE_STYLE} {...params} />
+        <DespesaReceitaCorrentesPanel style={GAUGE_STYLE} {...params} />
       </div>
     </DashboardLayout>
   );

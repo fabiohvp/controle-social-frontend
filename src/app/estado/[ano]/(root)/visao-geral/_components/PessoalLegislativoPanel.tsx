@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { COLOR } from "@/theme/colors";
@@ -71,7 +71,7 @@ export async function PessoalLegislativoPanel({
       }
       header="Pessoal - Legislativo"
     >
-      <DoughnutChart
+      <GaugeChart
         {...CHART_SETTINGS}
         selectedValue={data.valorPercentual / 100}
       />

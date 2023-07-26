@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { COLOR } from "@/theme/colors";
@@ -50,7 +50,7 @@ export async function SaudePanel({ ano, style }: EstadoPanelProps) {
       }
       header="Educação"
     >
-      <DoughnutChart
+      <GaugeChart
         {...CHART_SETTINGS}
         selectedValue={data.aplicacaoPercentual / 100}
       />

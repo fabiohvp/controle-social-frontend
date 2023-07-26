@@ -1,4 +1,4 @@
-import DoughnutChart from "@/components/charts/DoughnutChart";
+import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendTooltip from "@/components/tooltip/LegendTooltip";
 import { getCodigoMunicipio } from "@/shared/municipio";
@@ -76,7 +76,7 @@ export async function PessoalExecutivoPanel({
       }
       header="Pessoal - Executivo"
     >
-      <DoughnutChart
+      <GaugeChart
         {...CHART_SETTINGS}
         selectedValue={data.valorPercentual / 100}
       />
