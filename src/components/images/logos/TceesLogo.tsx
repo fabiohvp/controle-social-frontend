@@ -5,7 +5,7 @@ type Props = {
   fill?: string;
 } & SVGProps<SVGSVGElement>;
 
-export default function TCEESLogo({ fill, ...props }: Props) {
+export default function TceesLogo({ fill, ...props }: Props) {
   return (
     <svg
       className="tcees-logo"

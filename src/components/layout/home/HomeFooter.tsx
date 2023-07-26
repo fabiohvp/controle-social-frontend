@@ -1,4 +1,4 @@
-import TCEESLogo from "@/components/images/logos/TceesLogo";
+import TceesLogo from "@/components/images/logos/TceesLogo";
 import Link from "next/link";
 
 export default function HomeFooter() {
@@ -6,7 +6,7 @@ export default function HomeFooter() {
     <div className="container flex justify-around">
       <section className="flex flex-col gap-5">
         <Link href="https://www.tcees.tc.br" target="_blank">
-          <TCEESLogo fill="white" />
+          <TceesLogo fill="white" />
         </Link>
         <h3>
           Telefone geral: &nbsp;
