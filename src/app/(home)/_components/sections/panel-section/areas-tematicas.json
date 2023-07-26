@@ -33,7 +33,7 @@
     },
     {
       "description": "Equipamentos, leitos e estabelecimentos de saúde",
-      "href": "/areas-tematicas/pessoal/visao-geral",
+      "href": "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/pessoal.png",
@@ -43,7 +43,7 @@
     },
     {
       "description": "Equipamentos, leitos e estabelecimentos de saúde",
-      "href": "/areas-tematicas/saude/visao-geral",
+      "href": "/areas-tematicas/saude/estabelecimentos",
       "image": {
         "height": 50,
         "src": "/icons/saude.png",

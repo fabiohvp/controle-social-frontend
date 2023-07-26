@@ -3,7 +3,7 @@
   "articles": [
     {
       "description": "Avaliações sobre a gestão dos recursos públicos",
-      "href": "/estado/2023/visao-geral",
+      "href": "/boletins/2023",
       "image": {
         "height": 50,
         "src": "/icons/boletins-informativos.png",
@@ -13,7 +13,7 @@
     },
     {
       "description": "Órgãos que cumpriram a obrigação de enviar dados ao TCE-ES",
-      "href": "/estado/2023/visao-geral",
+      "href": "/obrigacao-envio/2023/municipios",
       "image": {
         "height": 50,
         "src": "/icons/obrigacoes.png",
@@ -23,7 +23,7 @@
     },
     {
       "description": "Resultados de prestações dos órgãos públicos",
-      "href": "/estado/2023/visao-geral",
+      "href": "/prestacao-de-contas/2023/municipios/governo/07",
       "image": {
         "height": 50,
         "src": "/icons/prestacao-contas.png",
