@@ -33,7 +33,7 @@ export default function ModalFonteDados({ setShow, show }: ModalProps) {
           </li>
           <li>
             <a
-              href="http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais"
+              href="https://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais"
               target="_blank"
             >
               TSE
@@ -69,7 +69,7 @@ export default function ModalFonteDados({ setShow, show }: ModalProps) {
             : dados de segurados (atualizado em 27/08/2019);
           </li>
           <li>
-            <Link href="http://cnes.datasus.gov.br/" target="_blank">
+            <Link href="https://cnes.datasus.gov.br/" target="_blank">
               CNES
             </Link>
             : informações sobre equipamentos, leitos e estabelecimentos de
@@ -77,7 +77,7 @@ export default function ModalFonteDados({ setShow, show }: ModalProps) {
           </li>
           <li>
             <a
-              href="http://sisaps.saude.gov.br/notatecnica/frmListaMunic.php"
+              href="https://sisaps.saude.gov.br/notatecnica/frmListaMunic.php"
               target="_blank"
             >
               Ministério da Saúde

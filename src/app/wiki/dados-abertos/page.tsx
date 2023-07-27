@@ -19,7 +19,7 @@ export default function Page() {
       <div>
         <p>
           <Link
-            href="http://opendatahandbook.org/guide/pt_BR/what-is-open-data/"
+            href="https://opendatahandbook.org/guide/pt_BR/what-is-open-data/"
             target="_blank"
           >
             Dados abertos
@@ -82,7 +82,7 @@ export default function Page() {
           <p>
             Para gerar comodidade aos cidadãos o TCEES publica seus dados
             abertos na plataforma
-            <Link href="http://dados.es.gov.br/" target="_blank">
+            <Link href="https://dados.es.gov.br/" target="_blank">
               &quot;Dados ES&quot;
             </Link>
             . Trata-se de uma iniciativa do Governo do Estado com o objetivo de
