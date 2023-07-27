@@ -7,7 +7,7 @@ export type MunicipiosProps = {
 
 export async function getMunicipios(): Promise<Municipio[]> {
   const res = await fetch(
-    `${process.env.VERCEL_PROTOCOL}${process.env.VERCEL_URL}/api/municipio`
+    `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
   );
   return res.json();
 }
