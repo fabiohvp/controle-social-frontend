@@ -9,14 +9,14 @@ type Props = {
   ano: string;
 };
 
-export default async function Page({ ano }: Props) {
+export default async function Page({ params }: { params: Props }) {
   const [obrigacoesDeEnvio, datasLimites, municipios] = await Promise.all([
-    getObrigacaoesDeEnvios({ ano: ano, municipios: true }),
-    getDatasLimites(parseInt(ano)),
+    getObrigacaoesDeEnvios({ ano: params.ano, municipios: true }),
+    getDatasLimites(parseInt(params.ano)),
     getMunicipios(),
   ]);
   const dataAtual = getDataAtual();
-  const anoParameter = parseInt(ano);
+  const anoParameter = parseInt(params.ano);
 
   const doughnuts = [
     getDoughnut(
@@ -91,7 +91,7 @@ export default async function Page({ ano }: Props) {
 function getDoughnut(
   datasLimites: DataLimite[],
   remessas: { codigo: string; envio: Remessa }[],
-  title: string
+  titulo: string
 ) {
   const dataAtual = getDataAtual();
   let remessasObrigatorias = remessas;
@@ -135,6 +135,6 @@ function getDoughnut(
         },
       ],
     },
-    title,
+    title: titulo,
   };
 }

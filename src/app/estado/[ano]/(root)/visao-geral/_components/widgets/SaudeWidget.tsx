@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
@@ -38,7 +38,7 @@ export async function SaudeWidget({ ano, style }: EstadoPanelProps) {
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="saude-tooltip">
+        <LegendaTooltip id="saude-tooltip">
           A Constituição Federal estabelece que o<br />
           município deve aplicar o limite mínimo de
           <br />
@@ -46,7 +46,7 @@ export async function SaudeWidget({ ano, style }: EstadoPanelProps) {
           transferências em ações e serviços
           <br />
           públicos de saúde.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Educação"
     >

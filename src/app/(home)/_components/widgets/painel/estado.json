@@ -1,0 +1,15 @@
+{
+  "titulo": "ESTADO",
+  "artigos": [
+    {
+      "description": "Executivo, Legislativo, Judiciário e órgãos do Estado",
+      "href": "/estado/2023/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/poderes-e-orgaos.png",
+        "width": 47
+      },
+      "titulo": "Poderes e órgãos"
+    }
+  ]
+}

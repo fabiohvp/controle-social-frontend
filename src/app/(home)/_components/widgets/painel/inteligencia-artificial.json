@@ -1,0 +1,25 @@
+{
+  "titulo": "INTELIGÊNCIA ARTIFICIAL",
+  "artigos": [
+    {
+      "description": "Previsões sobre gastos com pessoal",
+      "href": "/projecao",
+      "image": {
+        "height": 50,
+        "src": "/icons/projecao.png",
+        "width": 50
+      },
+      "titulo": "Projeções"
+    },
+    {
+      "description": "Acompanhe o andamento e as eventuais paralisações",
+      "href": "/obras",
+      "image": {
+        "height": 50,
+        "src": "/icons/obras-publicas.svg",
+        "width": 50
+      },
+      "titulo": "Obras públicas"
+    }
+  ]
+}

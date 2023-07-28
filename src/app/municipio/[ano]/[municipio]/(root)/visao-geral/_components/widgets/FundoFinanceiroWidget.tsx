@@ -1,5 +1,5 @@
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { formatCurrency } from "@/formatters/number";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { cache } from "react";
@@ -29,7 +29,7 @@ export async function FundoFinanceiroWidget({
     <PainelComTitulo
       bodyProps={{ className: "center flex-col gap-4", style }}
       legend={
-        <LegendTooltip id="previdencia-fundo-financeiro-tooltip">
+        <LegendaTooltip id="previdencia-fundo-financeiro-tooltip">
           Diferença negativa entre receitas e despesas
           <br />
           previdenciárias, revelando a necessidade de
@@ -37,7 +37,7 @@ export async function FundoFinanceiroWidget({
           cobertura de insuficiência financeira por
           <br />
           meio de aporte financeiro do ente federativo.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Previdência - Fundo Financeiro"
     >

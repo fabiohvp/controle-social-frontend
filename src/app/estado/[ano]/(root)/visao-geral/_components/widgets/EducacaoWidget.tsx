@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
@@ -38,7 +38,7 @@ export async function EducacaoWidget({ ano, style }: EstadoPanelProps) {
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="educacao-tooltip">
+        <LegendaTooltip id="educacao-tooltip">
           A Constituição Federal estabelece que o<br />
           município deve aplicar o limite mínimo de
           <br />
@@ -46,7 +46,7 @@ export async function EducacaoWidget({ ano, style }: EstadoPanelProps) {
           <br />
           incluídas transferências de impostos, para
           <br />a manutenção e desenvolvimento do ensino.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Educação"
     >

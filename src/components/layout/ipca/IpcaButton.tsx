@@ -1,5 +1,5 @@
 "use client";
-import CloseButton from "@/components/buttons/close/CloseButton";
+import BotaoDeFechar from "@/components/botoes/BotaoDeFechar";
 import Loading from "@/components/loading/Loading";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useAtom } from "jotai";
@@ -27,7 +27,7 @@ export default function IpcaButton() {
           <DropdownModal>
             <div className="center h-10 p-2 border-b">
               <span className="font-bold">Opções </span>
-              <CloseButton onClick={() => setActive(false)} />
+              <BotaoDeFechar onClick={() => setActive(false)} />
             </div>
             <IpcaCheckbox className="px-2 py-4 w-full" />
           </DropdownModal>

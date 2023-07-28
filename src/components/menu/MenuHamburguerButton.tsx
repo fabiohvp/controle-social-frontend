@@ -1,7 +1,7 @@
 "use client";
 import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import HamburgerButton from "../buttons/hamburguer/HamburguerButton";
+import BotaoHamburguer from "../botoes/BotaoHamburguer";
 import {
   HEADER_HEIGHT,
   MAX_HEIGHT_CONTENT,
@@ -24,7 +24,7 @@ export default function MenuHamburguerButton({ className, ...props }: Props) {
         onClick={() => setMenuActive(!menuActive)}
         {...props}
       >
-        <HamburgerButton
+        <BotaoHamburguer
           hamburguer={{
             toggled: menuActive,
             color: "var(--color-blue-menu)",

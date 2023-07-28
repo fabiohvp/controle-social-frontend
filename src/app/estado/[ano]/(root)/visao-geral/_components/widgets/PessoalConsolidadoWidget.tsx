@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
@@ -51,7 +51,7 @@ export async function PessoalConsolidadoWidget({
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="pessoal-consolidado-tooltip">
+        <LegendaTooltip id="pessoal-consolidado-tooltip">
           De acordo com a LRF (Lei de Responsabilidade
           <br />
           Fiscal) as despesas com pessoal nos municípios
@@ -67,7 +67,7 @@ export async function PessoalConsolidadoWidget({
           Caso esses gastos atinjam 54% da RCL o Tribunal
           <br />
           de Contas emitirá parecer de alerta.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Pessoal - Consolidado"
     >

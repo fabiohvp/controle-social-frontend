@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
@@ -57,7 +57,7 @@ export async function PessoalExecutivoWidget({
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="pessoal-executivo-tooltip">
+        <LegendaTooltip id="pessoal-executivo-tooltip">
           De acordo com a LRF (Lei de Responsabilidade
           <br />
           Fiscal) as despesas com pessoal no Poder
@@ -73,7 +73,7 @@ export async function PessoalExecutivoWidget({
           <br />o Tribunal de Contas emitirá
           <br />
           parecer de alerta.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Pessoal - Executivo"
     >

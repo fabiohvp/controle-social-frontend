@@ -1,6 +1,6 @@
 "use client";
 import BoletimMacroGestaoGovernamentalImage from "@/components/images/images/BoletimMacroGestaoGovernamentalImage";
-import CircleList from "@/components/lists/CircleList";
+import ListaCircular from "@/components/listas/ListaCircular";
 import { getMonthNames } from "@/shared/date";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -29,7 +29,7 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
   return (
     <div className="mt-2">
       <div className="center flex-col mt-2 overflow-hidden">
-        <CircleList className="boletim-mensal">
+        <ListaCircular className="boletim-mensal">
           {meses.map((mesNome, index) => {
             const mes = index + 1;
             return (
@@ -54,7 +54,7 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
               </li>
             );
           })}
-        </CircleList>
+        </ListaCircular>
         <BoletimMacroGestaoGovernamentalImage className="mt-16" />
         <section className="center flex-col gap-2 mt-2">
           <h2 className="font-normal">

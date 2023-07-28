@@ -1,0 +1,55 @@
+{
+  "titulo": "ÁREAS TEMÁTICAS",
+  "artigos": [
+    {
+      "description": "Serviços públicos transferidos ao particular",
+      "href": "/areas-tematicas/concessao-publica/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/concessoes-ppp.png",
+        "width": 50
+      },
+      "titulo": "Concessões comuns e PPP"
+    },
+    {
+      "description": "Distribuição de escolas, matrículas e profissionais",
+      "href": "/areas-tematicas/educacao/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/educacao.png",
+        "width": 50
+      },
+      "titulo": "Educação"
+    },
+    {
+      "description": "Cargos, empregos e funções públicas",
+      "href": "/areas-tematicas/estrutura-administrativa",
+      "image": {
+        "height": 50,
+        "src": "/icons/estrutura-administrativa.png",
+        "width": 64
+      },
+      "titulo": "Estrutura administrativa"
+    },
+    {
+      "description": "Equipamentos, leitos e estabelecimentos de saúde",
+      "href": "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/pessoal.png",
+        "width": 59.39
+      },
+      "titulo": "Pessoal"
+    },
+    {
+      "description": "Equipamentos, leitos e estabelecimentos de saúde",
+      "href": "/areas-tematicas/saude/estabelecimentos",
+      "image": {
+        "height": 50,
+        "src": "/icons/saude.png",
+        "width": 67
+      },
+      "titulo": "Saúde"
+    }
+  ]
+}

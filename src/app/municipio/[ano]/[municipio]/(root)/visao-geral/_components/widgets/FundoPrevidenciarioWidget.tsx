@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
@@ -52,7 +52,7 @@ export async function FundoPrevidenciarioWidget({
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="previdencia-fundo-previdenciario-tooltip">
+        <LegendaTooltip id="previdencia-fundo-previdenciario-tooltip">
           Solvência, em finanças e contabilidade, é<br />
           o estado do devedor que possui seu ativo
           <br />
@@ -61,7 +61,7 @@ export async function FundoPrevidenciarioWidget({
           de cumprir os compromissos com os recursos
           <br />
           que constituem seu patrimônio ou seu ativo.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Previdência - Fundo Previdenciário"
     >

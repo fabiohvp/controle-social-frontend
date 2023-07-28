@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
@@ -51,7 +51,7 @@ export async function PessoalLegislativoWidget({
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="pessoal-legislativo-tooltip">
+        <LegendaTooltip id="pessoal-legislativo-tooltip">
           De acordo com a LRF (Lei de
           <br />
           Responsabilidade Fiscal) as despesas
@@ -67,7 +67,7 @@ export async function PessoalLegislativoWidget({
           <br />
           Caso esses gastos atinjam 5,7% da RCL o<br />
           município entra no limite prudencial.
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Pessoal - Legislativo"
     >

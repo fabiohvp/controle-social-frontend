@@ -1,22 +1,22 @@
 import HomeLayout from "@/components/layout/home/HomeLayout";
 import MenuMobileLayout from "@/components/menu/MenuMobileLayout";
-import ArrecadacaoSection from "./_components/sections/arrecadacao-section/ArrecadacaoSection";
-import ComparativosSection from "./_components/sections/comparativos-section/ComparativosSection";
-import ConcessoesPPPSection from "./_components/sections/concessoes-ppp-section/ConcessoesPPPSection";
-import ConhecaFerramentaSection from "./_components/sections/conheca-ferramenta-section/ConhecaFerramentaSection";
-import DestinoDinheiroSection from "./_components/sections/destino-dinheiro-section/DestinoDinheiroSection";
-import EducacaoSection from "./_components/sections/educacao-section/EducacaoSection";
-import Educacao2Section from "./_components/sections/educacao2-section/Educacao2Section";
-import EstruturaAdministrativaSection from "./_components/sections/estrutura-administrativa-section/EstruturaAdministrativaSection";
-import FiscalizacaoSection from "./_components/sections/fiscalizacao-section/FiscalizacaoSection";
-import LimitesPessoalSection from "./_components/sections/limites-pessoal-section/LimitesPessoalSection";
-import LimitesSaudeSection from "./_components/sections/limites-saude-section/LimitesSaudeSection";
-import PanelSection from "./_components/sections/panel-section/PanelSection";
-import PrevidenciaSection from "./_components/sections/previdencia-section/PrevidenciaSection";
-import ReceitaDespesaSection from "./_components/sections/receita-despesa-section/ReceitaDespesaSection";
-import SaudeSection from "./_components/sections/saude-section/SaudeSection";
-import ServicosIASection from "./_components/sections/servicos-ia-section/ServicosIASection";
-import UltimasNovidadesSection from "./_components/sections/ultimas-novidades-section/UltimasNovidadesSection";
+import ArrecadacaoWidget from "./_components/widgets/ArrecadacaoWidget";
+import ComparativosWidget from "./_components/widgets/ComparativosWidget";
+import ConcessoesPppWidget from "./_components/widgets/ConcessoesPppWidget";
+import ConhecaFerramentaWidget from "./_components/widgets/ConhecaFerramentaWidget";
+import DestinoDinheiroWidget from "./_components/widgets/DestinoDinheiroWidget";
+import Educacao2Widget from "./_components/widgets/Educacao2Widget";
+import EducacaoWidget from "./_components/widgets/EducacaoWidget";
+import EstruturaAdministrativaWidget from "./_components/widgets/EstruturaAdministrativaWidget";
+import FiscalizacaoWidget from "./_components/widgets/FiscalizacaoWidget";
+import LimitesPessoalWidget from "./_components/widgets/LimitesPessoalWidget";
+import LimitesSaudeWidget from "./_components/widgets/LimitesSaudeWidget";
+import PrevidenciaWidget from "./_components/widgets/PrevidenciaWidget";
+import ReceitaDespesaWidget from "./_components/widgets/ReceitaDespesaWidget";
+import SaudeWidget from "./_components/widgets/SaudeWidget";
+import ServicosIaWidget from "./_components/widgets/ServicosIaWidget";
+import UltimasNovidadesWidget from "./_components/widgets/UltimasNovidadesWidget";
+import PainelWidget from "./_components/widgets/painel/PainelWidget";
 import "./home.css";
 
 export default function Page() {
@@ -24,23 +24,23 @@ export default function Page() {
     <>
       <MenuMobileLayout />
       <HomeLayout className="hidden lg:block">
-        <PanelSection className="px-8" />
-        <ConhecaFerramentaSection className="px-8" />
-        <EducacaoSection className="px-8" />
-        <ServicosIASection className="px-8" />
-        <EstruturaAdministrativaSection className="px-8" />
-        <SaudeSection className="px-8" />
-        <ArrecadacaoSection className="px-8" />
-        <DestinoDinheiroSection className="px-8" />
-        <ComparativosSection className="px-8" />
-        <PrevidenciaSection className="px-8" />
-        <ConcessoesPPPSection className="px-8" />
-        <FiscalizacaoSection className="px-8" />
-        <ReceitaDespesaSection className="px-8" />
-        <Educacao2Section className="px-8" />
-        <LimitesPessoalSection className="px-8" />
-        <LimitesSaudeSection className="px-8" />
-        <UltimasNovidadesSection className="px-8" />
+        <PainelWidget className="px-8" />
+        <ConhecaFerramentaWidget className="px-8" />
+        <EducacaoWidget className="px-8" />
+        <ServicosIaWidget className="px-8" />
+        <EstruturaAdministrativaWidget className="px-8" />
+        <SaudeWidget className="px-8" />
+        <ArrecadacaoWidget className="px-8" />
+        <DestinoDinheiroWidget className="px-8" />
+        <ComparativosWidget className="px-8" />
+        <PrevidenciaWidget className="px-8" />
+        <ConcessoesPppWidget className="px-8" />
+        <FiscalizacaoWidget className="px-8" />
+        <ReceitaDespesaWidget className="px-8" />
+        <Educacao2Widget className="px-8" />
+        <LimitesPessoalWidget className="px-8" />
+        <LimitesSaudeWidget className="px-8" />
+        <UltimasNovidadesWidget className="px-8" />
       </HomeLayout>
     </>
   );

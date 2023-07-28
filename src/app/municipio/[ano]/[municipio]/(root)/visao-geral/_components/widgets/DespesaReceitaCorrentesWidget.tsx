@@ -1,6 +1,6 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import LegendTooltip from "@/components/tooltip/LegendTooltip";
+import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
@@ -62,7 +62,7 @@ export async function DespesaReceitaCorrentesWidget({
     <PainelComTitulo
       bodyProps={{ style }}
       legend={
-        <LegendTooltip id="despesa-receita-correntes-tooltip">
+        <LegendaTooltip id="despesa-receita-correntes-tooltip">
           As despesas correntes não devem superar 95%
           <br />
           das receitas correntes. Mesmo não atingindo
@@ -75,7 +75,7 @@ export async function DespesaReceitaCorrentesWidget({
           adotado (art. 167-A da Constituição Federal
           <br />
           de 1988).
-        </LegendTooltip>
+        </LegendaTooltip>
       }
       header="Desp. x receitas correntes"
     >

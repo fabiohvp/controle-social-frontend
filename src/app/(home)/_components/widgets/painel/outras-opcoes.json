@@ -1,0 +1,45 @@
+{
+  "titulo": "OUTRAS OPÇÕES",
+  "artigos": [
+    {
+      "description": "Avaliações sobre a gestão dos recursos públicos",
+      "href": "/boletins/2023",
+      "image": {
+        "height": 50,
+        "src": "/icons/boletins-informativos.png",
+        "width": 50
+      },
+      "titulo": "Boletins e informativos"
+    },
+    {
+      "description": "Órgãos que cumpriram a obrigação de enviar dados ao TCE-ES",
+      "href": "/obrigacao-envio/2023/municipios",
+      "image": {
+        "height": 50,
+        "src": "/icons/obrigacoes.png",
+        "width": 37
+      },
+      "titulo": "Obrigações"
+    },
+    {
+      "description": "Resultados de prestações dos órgãos públicos",
+      "href": "/prestacao-de-contas/2023/municipios/governo/07",
+      "image": {
+        "height": 50,
+        "src": "/icons/prestacao-contas.png",
+        "width": 53
+      },
+      "titulo": "Prestações de contas"
+    },
+    {
+      "description": "Acompanhe alguns trabalhos de fiscalização do TCE-ES",
+      "href": "/estado/2023/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/fiscalizacoes.png",
+        "width": 45
+      },
+      "titulo": "Fsicalizações"
+    }
+  ]
+}
