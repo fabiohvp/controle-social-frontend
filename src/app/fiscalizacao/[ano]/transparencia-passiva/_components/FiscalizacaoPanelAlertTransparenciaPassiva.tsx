@@ -1,6 +1,6 @@
 "use client";
 
-import PanelAlert from "@/components/panel/PanelAlert";
+import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
@@ -13,7 +13,7 @@ export default function FiscalizacaoPanelAlertTransparenciaPassiva() {
   const routeParams = useParams();
 
   return (
-    <PanelAlert type="info">
+    <PainelDeAlerta type="info">
       Em {routeParams.ano} o Tribunal de Contas do ES realizou auditoria para
       avaliar os Portais de Transparência das Prefeituras e Câmaras municipais.
       Foram verificados mais de 200 itens, sob a ótica do conteúdo e da
@@ -31,6 +31,6 @@ export default function FiscalizacaoPanelAlertTransparenciaPassiva() {
       >
         Acesse na íntegra o relatório de auditoria.
       </Link>
-    </PanelAlert>
+    </PainelDeAlerta>
   );
 }

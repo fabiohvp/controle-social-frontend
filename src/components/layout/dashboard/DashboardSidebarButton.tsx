@@ -1,12 +1,12 @@
 "use client";
+import { CLASS_CLOSED_WIDTH } from "@/components/barraLateral/barraLateralConstants";
 import HamburgerButton from "@/components/buttons/hamburguer/HamburguerButton";
 import { HAMBURGUER_MENU_SIZE } from "@/components/menu/menuConstants";
-import { CLASS_CLOSED_WIDTH } from "@/components/sidebar/sidebarConstants";
 import { useAtom } from "jotai";
-import { sidebarOpen } from "../../sidebar/sidebarState";
+import { barraLateralOpen } from "../../barraLateral/barraLateralState";
 
 export default function DashboardSidebarButton() {
-  const [open, setSidebarOpen] = useAtom(sidebarOpen);
+  const [open, setSidebarOpen] = useAtom(barraLateralOpen);
 
   return (
     <div

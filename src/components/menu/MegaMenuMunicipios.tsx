@@ -4,7 +4,7 @@ import RankingIcon from "@/components/images/icons/RankingIcon";
 import MapaESIcon from "@/components/images/icons/header/MapaESIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
-import { Municipio, MunicipiosProps } from "@/shared/municipio";
+import { Municipio, MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
 import { useState } from "react";

@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <DashboardLayout
       className="px-2 pt-2"
       exibirFooter={false}
-      submenuItems={EducacaoSubmenuItems}
+      itensSubmenu={EducacaoSubmenuItems}
     >
       {children}
     </DashboardLayout>

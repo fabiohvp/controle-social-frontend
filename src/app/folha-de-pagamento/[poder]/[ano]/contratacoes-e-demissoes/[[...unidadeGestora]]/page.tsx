@@ -1,17 +1,17 @@
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDePagamentoConstants";
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
-import ContratacoesEDemissoesSubmenuItems from "../ContratacoesEDemissoesSubmenuItems";
+import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import ContratacoesEDemissoesSubmenuItems from "../ContratacoesEDemissoesItensSubmenu";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="px-2 pt-2"
       exibirFooter={false}
-      submenuItems={ContratacoesEDemissoesSubmenuItems}
+      itensSubmenu={ContratacoesEDemissoesSubmenuItems}
     >
-      <PanelWithTitleCollapsible
+      <PainelComTituloMinimizavel
         header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -29,7 +29,7 @@ export default function Page() {
         <div className="center w-4/12">
           <PessoalIcon />
         </div>
-      </PanelWithTitleCollapsible>
+      </PainelComTituloMinimizavel>
       <div className="mt-2">
         <h3>Agentes públicos ativos</h3>
         <hr />

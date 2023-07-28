@@ -1,19 +1,19 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import { MunicipioPageProps } from "../../MunicipioPageProps";
-import SidebarMunicipios from "../../_components/SidebarMunicipios";
+import MunicipiosBarraLateral from "../../_components/MunicipiosBarraLateral";
 import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
-import { DespesaReceitaCorrentesPanel } from "./_components/DespesaReceitaCorrentesPanel";
-import { EducacaoPanel } from "./_components/EducacaoPanel";
-import { FundoFinanceiroPanel } from "./_components/FundoFinanceiroPanel";
-import { FundoPrevidenciarioPanel } from "./_components/FundoPrevidenciarioPanel";
-import { ObrigacoesJuntoTCEESPanel } from "./_components/ObrigacoesJuntoTCEESPanel";
-import { PessoalConsolidadoPanel } from "./_components/PessoalConsolidadoPanel";
-import { PessoalExecutivoPanel } from "./_components/PessoalExecutivoPanel";
-import { PessoalLegislativoPanel } from "./_components/PessoalLegislativoPanel";
-import { PrestacaoContaCamaraPanel } from "./_components/PrestacaoContaCamaraPanel";
-import { PrestacaoContaPrefeituraPanel } from "./_components/PrestacaoContaPrefeituraPanel";
-import { ReceitasXDespesasPanel } from "./_components/ReceitasXDespesasPanel";
-import { SaudePanel } from "./_components/SaudePanel";
+import { DespesaReceitaCorrentesWidget } from "./_components/widgets/DespesaReceitaCorrentesWidget";
+import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
+import { FundoFinanceiroWidget } from "./_components/widgets/FundoFinanceiroWidget";
+import { FundoPrevidenciarioWidget } from "./_components/widgets/FundoPrevidenciarioWidget";
+import { ObrigacoesJuntoTceesWidget } from "./_components/widgets/ObrigacoesJuntoTceesWidget";
+import { PessoalConsolidadoWidget } from "./_components/widgets/PessoalConsolidadoWidget";
+import { PessoalExecutivoWidget } from "./_components/widgets/PessoalExecutivoWidget";
+import { PessoalLegislativoWidget } from "./_components/widgets/PessoalLegislativoWidget";
+import { PrestacaoContaCamaraWidget } from "./_components/widgets/PrestacaoContaCamaraWidget";
+import { PrestacaoContaPrefeituraWidget } from "./_components/widgets/PrestacaoContaPrefeituraWidget";
+import { ReceitasXDespesasWidget } from "./_components/widgets/ReceitasXDespesasWidget";
+import { SaudeWidget } from "./_components/widgets/SaudeWidget";
 
 const WIDGET_HEIGHT = "155px";
 const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
@@ -24,30 +24,30 @@ export default async function Page({ params }: { params: MunicipioPageProps }) {
     <DashboardLayout
       className="gap-2 p-2"
       exibirBotaoIPCA
-      submenuItems={MunicipioSubmenuItems}
-      sidebar={SidebarMunicipios}
+      itensSubmenu={MunicipioSubmenuItems}
+      barraLateral={MunicipiosBarraLateral}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
-        <ReceitasXDespesasPanel style={PANEL_STYLE} {...params} />
-        <ObrigacoesJuntoTCEESPanel style={PANEL_STYLE} {...params} />
-        <PrestacaoContaPrefeituraPanel style={PANEL_STYLE} {...params} />
-        <PrestacaoContaCamaraPanel style={PANEL_STYLE} {...params} />
+        <ReceitasXDespesasWidget style={PANEL_STYLE} {...params} />
+        <ObrigacoesJuntoTceesWidget style={PANEL_STYLE} {...params} />
+        <PrestacaoContaPrefeituraWidget style={PANEL_STYLE} {...params} />
+        <PrestacaoContaCamaraWidget style={PANEL_STYLE} {...params} />
       </div>
 
       {/* TODO: adicionar mãos com valor em cima dos gráficos */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-5 gap-2">
-        <SaudePanel style={GAUGE_STYLE} {...params} />
-        <EducacaoPanel style={GAUGE_STYLE} {...params} />
-        <PessoalConsolidadoPanel style={GAUGE_STYLE} {...params} />
-        <PessoalExecutivoPanel style={GAUGE_STYLE} {...params} />
-        <PessoalLegislativoPanel style={GAUGE_STYLE} {...params} />
+        <SaudeWidget style={GAUGE_STYLE} {...params} />
+        <EducacaoWidget style={GAUGE_STYLE} {...params} />
+        <PessoalConsolidadoWidget style={GAUGE_STYLE} {...params} />
+        <PessoalExecutivoWidget style={GAUGE_STYLE} {...params} />
+        <PessoalLegislativoWidget style={GAUGE_STYLE} {...params} />
       </div>
 
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
-        <FundoPrevidenciarioPanel style={GAUGE_STYLE} {...params} />
-        <FundoFinanceiroPanel style={GAUGE_STYLE} {...params} />
-        <DespesaReceitaCorrentesPanel style={GAUGE_STYLE} {...params} />
+        <FundoPrevidenciarioWidget style={GAUGE_STYLE} {...params} />
+        <FundoFinanceiroWidget style={GAUGE_STYLE} {...params} />
+        <DespesaReceitaCorrentesWidget style={GAUGE_STYLE} {...params} />
       </div>
     </DashboardLayout>
   );

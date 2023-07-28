@@ -1,10 +1,10 @@
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
-import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitleCollapsible
+      <PainelComTituloMinimizavel
         header="Concessões comuns e Parcerias Público-Privadas"
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -46,7 +46,7 @@ export default function Page() {
         <div className="center w-4/12">
           <DespesaPppLogo />
         </div>
-      </PanelWithTitleCollapsible>
+      </PainelComTituloMinimizavel>
       {/* <div>TODO: implementar concessões e PPP / visao-geral</div> */}
     </>
   );

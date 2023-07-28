@@ -1,5 +1,5 @@
 import MenuHamburguerButton from "@/components/menu/MenuHamburguerButton";
-import { MunicipiosProps } from "@/shared/municipio";
+import { MunicipiosProps } from "@/types/Municipio";
 import HeaderFixedButtons from "../HeaderFixedButtons";
 import LogoComVersao from "../LogoComVersao";
 import DashboardHeaderItems from "./DashboardHeaderMenu";

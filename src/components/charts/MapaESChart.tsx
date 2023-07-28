@@ -1,9 +1,7 @@
 "use client";
 import { deepMerge } from "@/shared/merge";
-import {
-  MunicipiosProps,
-  getNomeNormalizadoMunicipio,
-} from "@/shared/municipio";
+import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
+import { MunicipiosProps } from "@/types/Municipio";
 import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
 import {

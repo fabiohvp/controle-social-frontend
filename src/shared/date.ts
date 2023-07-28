@@ -1,3 +1,11 @@
+export function getDataAtual() {
+  return new Date();
+}
+
+export function getAnoAtual() {
+  return new Date().getFullYear();
+}
+
 export function getMonthNames(
   options?: Partial<{
     locale: string;

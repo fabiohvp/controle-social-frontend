@@ -1,6 +1,6 @@
 import CrasLogo from "@/components/images/logos/CrasLogo";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 import Link from "next/link";
 import { ReactNode } from "react";
 import AssistenciaSocialSubmenuItems from "./AssistenciaSocialSubmenuItems";
@@ -10,9 +10,9 @@ export default function Layout({ children }: { children: ReactNode }) {
     <DashboardLayout
       className="px-2 pt-2"
       exibirFooter={false}
-      submenuItems={AssistenciaSocialSubmenuItems}
+      itensSubmenu={AssistenciaSocialSubmenuItems}
     >
-      <PanelWithTitleCollapsible
+      <PainelComTituloMinimizavel
         header="Centros de Referência da Assistência Social (CRAS)."
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -60,7 +60,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="center w-4/12">
           <CrasLogo />
         </div>
-      </PanelWithTitleCollapsible>
+      </PainelComTituloMinimizavel>
       {children}
     </DashboardLayout>
   );

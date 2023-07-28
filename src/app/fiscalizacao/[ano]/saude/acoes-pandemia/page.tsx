@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PanelAlert from "@/components/panel/PanelAlert";
+import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import FiscalizacaoSaudeSubmenuItems from "../FiscalizacaoSaudeSubmenuItems";
 
 export default function Page() {
@@ -7,15 +7,15 @@ export default function Page() {
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      submenuItems={FiscalizacaoSaudeSubmenuItems}
+      itensSubmenu={FiscalizacaoSaudeSubmenuItems}
     >
-      <PanelAlert type="info">
+      <PainelDeAlerta type="info">
         Levantamento que teve por objetivo obter informações sobre as ações
         realizadas pelos municípios capixabas para o enfrentamento da crise
         causada pela pandemia da Covid-19, especialmente nas áreas de saúde,
         educação e assistência social, mas também ligadas a outros temas
         relevantes, como transparência, receitas, despesas e controle interno.
-      </PanelAlert>
+      </PainelDeAlerta>
       <iframe
         src="/api/saude/acoes-pandemia"
         className="h-full mt-2 w-full"

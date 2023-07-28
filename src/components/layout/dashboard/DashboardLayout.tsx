@@ -1,5 +1,5 @@
+import BarraLateral from "@/components/barraLateral/BarraLateral";
 import LoadingPage from "@/components/loading/LoadingPage";
-import Sidebar from "@/components/sidebar/Sidebar";
 import { getMunicipios } from "@/shared/municipio";
 import dynamic from "next/dynamic";
 import { ElementType, ReactNode, Suspense } from "react";
@@ -16,16 +16,16 @@ import "./dashboardLayout.css";
 const IpcaButton = dynamic(() => import("../ipca/IpcaButton"), { ssr: false });
 
 type Props = {
+  barraLateral?: ElementType;
   className?: string;
   children: ReactNode;
   exibirBotaoIPCA?: boolean;
   exibirFooter?: boolean;
-  submenuItems?: ElementType;
-  sidebar?: ElementType;
+  itensSubmenu?: ElementType;
 };
 
 export default async function DashboardLayout(props: Props) {
-  const maxHeightContent = props.submenuItems
+  const maxHeightContent = props.itensSubmenu
     ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
     : MAX_HEIGHT_CONTENT;
 
@@ -35,9 +35,9 @@ export default async function DashboardLayout(props: Props) {
     <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">
         <DashboardHeader municipios={municipios} />
-        {props.submenuItems && (
-          <DashboardHeaderSubmenu exibirSidebar={!!props.sidebar}>
-            <props.submenuItems municipios={municipios} />
+        {props.itensSubmenu && (
+          <DashboardHeaderSubmenu exibirSidebar={!!props.barraLateral}>
+            <props.itensSubmenu municipios={municipios} />
             {props.exibirBotaoIPCA && (
               <li className="ml-auto px-2">
                 <IpcaButton />
@@ -48,10 +48,10 @@ export default async function DashboardLayout(props: Props) {
       </header>
       <main className="grid">
         <div className="basis-full flex">
-          {props.sidebar && (
-            <Sidebar>
-              <props.sidebar />
-            </Sidebar>
+          {props.barraLateral && (
+            <BarraLateral>
+              <props.barraLateral />
+            </BarraLateral>
           )}
           <div
             className={twMerge(

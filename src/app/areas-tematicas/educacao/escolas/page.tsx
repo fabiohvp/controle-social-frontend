@@ -1,10 +1,10 @@
 import LogoInfoEducacao from "@/components/images/logos/LogoInfoEducacao";
-import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitleCollapsible
+      <PainelComTituloMinimizavel
         header="Distribuição de escolas públicas, matrículas e profissionais da educação no Estado e nos municípios"
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -20,7 +20,7 @@ export default function Page() {
         <div className="center w-4/12">
           <LogoInfoEducacao />
         </div>
-      </PanelWithTitleCollapsible>
+      </PainelComTituloMinimizavel>
       <iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiZmVjMzBjYzctZWFjNi00Nzk1LThkZDQtMjk3MGVmNDU2MzRiIiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9&pageName=ReportSectiona411778c4d849418b6cb"
         className="h-full mt-2 w-full"

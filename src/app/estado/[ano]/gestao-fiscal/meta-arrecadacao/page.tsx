@@ -1,15 +1,15 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import { EstadoPageProps } from "../../EstadoPageProps";
-import SidebarEstado from "../../_components/SidebarEstado";
-import EstadoGestaoFiscalSubmenuItems from "../EstadoGestaoFiscalSubmenuItems";
+import BarraLateralEstado from "../../_components/EstadoBarraLateral";
+import EstadoGestaoFiscalItensSubmenu from "../EstadoGestaoFiscalItensSubmenu";
 
 export default function Page({ params }: { params: EstadoPageProps }) {
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
       exibirBotaoIPCA
-      submenuItems={EstadoGestaoFiscalSubmenuItems}
-      sidebar={SidebarEstado}
+      itensSubmenu={EstadoGestaoFiscalItensSubmenu}
+      barraLateral={BarraLateralEstado}
     >
       meta arrecadação: {params.ano}
     </DashboardLayout>

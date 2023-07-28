@@ -1,5 +1,5 @@
 "use client";
-import EChart from "@/components/charts/EChart";
+import EChart, { LabelFormatter } from "@/components/charts/EChart";
 import { PieChart } from "echarts/charts";
 import {
   LegendComponent,
@@ -8,23 +8,34 @@ import {
 } from "echarts/components";
 import { LabelLayout } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
+import { TooltipFormatterCallback } from "echarts/types/dist/shared";
 import { CSSProperties } from "react";
+
+export type DoughnutChartItem = {
+  name: string;
+  value: number;
+  extra?: any;
+};
 
 export type DoughnutChartProps = {
   colors: string[];
+  label?: LabelFormatter;
   legend?: LegendComponentOption;
-  items: {
-    name: string;
-    value: number;
-  }[];
+  items: DoughnutChartItem[];
   position?: {
     left: string;
     top: string;
   };
+  tooltip?: {
+    formatter: string | TooltipFormatterCallback<any>;
+  };
   style?: CSSProperties;
 };
 
-export default function DoughnutChart(props: DoughnutChartProps) {
+export default function DoughnutChart({
+  tooltip,
+  ...props
+}: DoughnutChartProps) {
   return (
     <EChart
       style={props.style}
@@ -39,6 +50,7 @@ export default function DoughnutChart(props: DoughnutChartProps) {
         color: props.colors,
         tooltip: {
           trigger: "item",
+          formatter: tooltip?.formatter ?? "{b0}: <b>{c0}%</b>",
         },
         legend: {
           bottom: 0,
@@ -53,14 +65,14 @@ export default function DoughnutChart(props: DoughnutChartProps) {
               : ["50%", "50%"],
             data: props.items,
             emphasis: {
-              label: {
-                show: true,
-                fontSize: 40,
-                fontWeight: "bold",
-              },
+              disabled: true,
             },
             label: {
-              show: false,
+              fontSize: 24,
+              fontWeight: "bold",
+              formatter: "{c}%",
+              position: "center",
+              ...props.label,
             },
             labelLine: {
               show: false,

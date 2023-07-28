@@ -1,4 +1,4 @@
-import Panel from "@/components/panel/Panel";
+import Painel from "@/components/paineis/Painel";
 import Image from "next/image";
 import Link from "next/link";
 import AREAS_TEMATICAS from "./areas-tematicas.json";
@@ -48,14 +48,14 @@ export default function Panels() {
                     prefetch={false}
                   >
                     <div className="relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                      <Panel className="absolute flex flex-col justify-around bg-gray-50 panel">
+                      <Painel className="absolute flex flex-col justify-around bg-gray-50 panel">
                         <Image alt={article.title} {...article.image} />
                         <h3 className="font-normal">{article.title}</h3>
-                      </Panel>
-                      <Panel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden] panel">
+                      </Painel>
+                      <Painel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden] panel">
                         <h3 className="mt-2">{article.title}</h3>
                         <p>{article.description}</p>
-                      </Panel>
+                      </Painel>
                     </div>
                   </Link>
                 ))}

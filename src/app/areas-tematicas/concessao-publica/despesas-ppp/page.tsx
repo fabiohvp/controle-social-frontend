@@ -1,10 +1,10 @@
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
-import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 
 export default function Page() {
   return (
     <>
-      <PanelWithTitleCollapsible
+      <PainelComTituloMinimizavel
         header="Despesas com Parcerias Público-Privadas"
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -49,7 +49,7 @@ export default function Page() {
         <div className="center w-4/12">
           <DespesaPppLogo />
         </div>
-      </PanelWithTitleCollapsible>
+      </PainelComTituloMinimizavel>
       <iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiNDhkZThiODgtNmJiZS00ZWVlLWE0MjQtNDY1NjgxMTMzNmI0IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"

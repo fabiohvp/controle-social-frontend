@@ -10,6 +10,13 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
+export type LabelFormatter = {
+  fontSize: number | string;
+  fontWeight: "normal" | "bold" | "bolder" | "lighter" | number;
+  formatter: string;
+  position: "outer" | "inner" | "center" | "outside";
+};
+
 type EChartComponent = (registers: any) => void;
 
 type Props = {

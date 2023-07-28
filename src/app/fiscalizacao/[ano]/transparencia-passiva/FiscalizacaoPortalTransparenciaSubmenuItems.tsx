@@ -1,4 +1,4 @@
-import FiscalizacaoSubmenuLabel from "../../_components/FiscalizacaoSubmenuLabel";
+import FiscalizacaoLabelItemSubmenu from "../../_components/FiscalizacaoLabelItemSubmenu";
 import FiscalizacaoSubmenuLabelTransparenciaPassiva from "./_components/FiscalizacaoSubmenuLabelTransparenciaPassiva";
 import MenuFiscalizacaoPortalTransparenciaAnos from "./_components/MenuFiscalizacaoTransparenciaPassivaAnos";
 import MenuFiscalizacaoTransparenciaPassivaPages from "./_components/MenuFiscalizacaoTransparenciaPassivaPages";
@@ -6,7 +6,7 @@ import MenuFiscalizacaoTransparenciaPassivaPages from "./_components/MenuFiscali
 export default function FiscalizacaoPortalTransparenciaSubmenuItems() {
   return (
     <>
-      <FiscalizacaoSubmenuLabel />
+      <FiscalizacaoLabelItemSubmenu />
       <FiscalizacaoSubmenuLabelTransparenciaPassiva />
       <MenuFiscalizacaoTransparenciaPassivaPages />
       <MenuFiscalizacaoPortalTransparenciaAnos />

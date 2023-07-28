@@ -33,6 +33,10 @@
     min-height: unset;
   }
 
+  .mirror {
+    transform: scale(-1, 1);
+  }
+
   .overflow-initial {
     overflow: initial;
   }

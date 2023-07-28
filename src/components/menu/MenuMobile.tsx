@@ -1,7 +1,7 @@
 "use client";
 import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/municipioState";
-import { MunicipiosProps } from "@/shared/municipio";
 import { KeyValue } from "@/types/KeyValue";
+import { MunicipiosProps } from "@/types/Municipio";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
 import { useParams } from "next/navigation";

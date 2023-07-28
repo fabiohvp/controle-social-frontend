@@ -8,11 +8,8 @@ import InteligenciaArtificialIcon from "@/components/images/icons/header/Intelig
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
-import {
-  Municipio,
-  MunicipiosProps,
-  getCodigoMunicipio,
-} from "@/shared/municipio";
+import { getCodigoMunicipio } from "@/shared/municipio";
+import { Municipio, MunicipiosProps } from "@/types/Municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
