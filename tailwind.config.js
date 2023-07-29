@@ -25,7 +25,7 @@ module.exports = {
         link: "#5486b3",
 
         primary: "#204d74",
-        "primary-hover": "#3276af",
+        "primary-hover": "#296191",
 
         ...COLORS,
       },

@@ -46,6 +46,7 @@ export async function EducacaoWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Educação"
       legend={
         <LegendaTooltip id="educacao-tooltip">
           A Constituição Federal estabelece que o<br />
@@ -57,7 +58,6 @@ export async function EducacaoWidget({
           <br />a manutenção e desenvolvimento do ensino.
         </LegendaTooltip>
       }
-      header="Educação"
     >
       <GaugeChart
         {...CHART_SETTINGS}

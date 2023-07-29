@@ -46,6 +46,7 @@ export async function SaudeWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Saúde"
       legend={
         <LegendaTooltip id="saude-tooltip">
           A Constituição Federal estabelece que o<br />
@@ -57,7 +58,6 @@ export async function SaudeWidget({
           públicos de saúde.
         </LegendaTooltip>
       }
-      header="Saúde"
     >
       <GaugeChart
         {...CHART_SETTINGS}

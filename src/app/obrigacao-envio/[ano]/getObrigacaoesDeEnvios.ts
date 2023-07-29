@@ -1,19 +1,4 @@
-export type Remessa = {
-  quantidadeObrigacaoEnvio: number;
-  quantidadePendente: number;
-};
-
-export type ObrigacaoEnvio = {
-  ano: number;
-  codigoEsferaAdministrativa: string;
-  codigo: string;
-  situacaoRemessasUnidadeGestoraPCA: Remessa;
-  situacaoRemessasUnidadeGestoraPCM: Remessa;
-  situacaoRemessasUnidadeGestoraAtos: Remessa;
-  situacaoRemessasUnidadeGestoraPCF: Remessa;
-  situacaoRemessasUnidadeGestoraRCO: Remessa;
-  situacaoRemessasUnidadeGestoraRCB: Remessa;
-};
+import { ObrigacaoEnvio } from "./types";
 
 export async function getObrigacaoesDeEnvios({
   ano,

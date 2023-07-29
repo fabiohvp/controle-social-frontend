@@ -56,6 +56,7 @@ export async function PessoalExecutivoWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Pessoal - Executivo"
       legend={
         <LegendaTooltip id="pessoal-executivo-tooltip">
           De acordo com a LRF (Lei de Responsabilidade
@@ -75,7 +76,6 @@ export async function PessoalExecutivoWidget({
           parecer de alerta.
         </LegendaTooltip>
       }
-      header="Pessoal - Executivo"
     >
       <GaugeChart
         {...CHART_SETTINGS}

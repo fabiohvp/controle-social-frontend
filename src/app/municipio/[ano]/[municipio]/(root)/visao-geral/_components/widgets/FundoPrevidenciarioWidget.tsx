@@ -51,6 +51,7 @@ export async function FundoPrevidenciarioWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Previdência - Fundo Previdenciário"
       legend={
         <LegendaTooltip id="previdencia-fundo-previdenciario-tooltip">
           Solvência, em finanças e contabilidade, é<br />
@@ -63,7 +64,6 @@ export async function FundoPrevidenciarioWidget({
           que constituem seu patrimônio ou seu ativo.
         </LegendaTooltip>
       }
-      header="Previdência - Fundo Previdenciário"
     >
       <GaugeChart {...CHART_SETTINGS} selectedValue={Math.abs(data?.valor)} />
     </PainelComTitulo>

@@ -50,6 +50,7 @@ export async function PessoalLegislativoWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Pessoal - Legislativo"
       legend={
         <LegendaTooltip id="pessoal-legislativo-tooltip">
           De acordo com a LRF (Lei de
@@ -69,7 +70,6 @@ export async function PessoalLegislativoWidget({
           município entra no limite prudencial.
         </LegendaTooltip>
       }
-      header="Pessoal - Legislativo"
     >
       <GaugeChart
         {...CHART_SETTINGS}

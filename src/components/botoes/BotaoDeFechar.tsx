@@ -1,6 +1,6 @@
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, HTMLAttributes, forwardRef } from "react";
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement>;
+type Props = HTMLAttributes<HTMLButtonElement>;
 
 function BotaoDeFechar(
   { ...props }: Props,

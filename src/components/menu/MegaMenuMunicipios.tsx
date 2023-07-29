@@ -1,14 +1,17 @@
+"use client";
 import ComparadorIcon from "@/components/images/icons/ComparadorIcon";
 import IndicadoresIcon from "@/components/images/icons/IndicadoresIcon";
 import RankingIcon from "@/components/images/icons/RankingIcon";
-import MapaESIcon from "@/components/images/icons/header/MapaESIcon";
+import MapaEsIcon from "@/components/images/icons/header/MapaEsIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
+import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
 import { Municipio, MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import MapaESChart from "../charts/MapaESChart";
+import MapaEsChart from "../charts/MapaEsChart";
 import DropdownMenu from "../dropdowns/dropdown/DropdownMenu";
 
 type MunicipioFilterable = {
@@ -46,6 +49,10 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
   const [municipiosFilterable, setMunicipiosFilterable] = useState(
     getMunicipiosFilterable(municipios)
   );
+  const { push } = useRouter();
+  const routeParams = useParams();
+  const segments =
+    usePathname().split(`/${routeParams.municipio}/`)[1] ?? "visao-geral";
 
   function onKeyUp(event: React.KeyboardEvent<HTMLInputElement>) {
     const searchText = normalize(event.currentTarget.value);
@@ -59,6 +66,19 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
     } else {
       setMunicipiosFilterable(getMunicipiosFilterable(municipios));
     }
+  }
+
+  function onMapaInit(chart: echarts.EChartsType) {
+    chart.on("click", function (params) {
+      const nomeNormalizado = getNomeNormalizadoMunicipio(
+        municipios,
+        params.name
+      );
+      //TODO: fix ano inicial
+      push(
+        `/municipio/${routeParams.ano ?? 2023}/${nomeNormalizado}/${segments}`
+      );
+    });
   }
 
   function onMouseOver(municipio: Municipio) {
@@ -78,7 +98,7 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
   }
 
   return (
-    <DropdownMenu icon={<MapaESIcon />} title="Municípios">
+    <DropdownMenu icon={<MapaEsIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link href="/comparar/2023/municipios" className="flex gap-1">
           <ComparadorIcon small /> Comparação entre municípios
@@ -119,7 +139,11 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
             )
           )}
           <div className="center h-full w-[300px]">
-            <MapaESChart getChart={setChart} municipios={municipios} />
+            <MapaEsChart
+              getChart={setChart}
+              onInit={onMapaInit}
+              municipios={municipios}
+            />
           </div>
         </div>
       </div>

@@ -50,6 +50,7 @@ export async function PessoalConsolidadoWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Pessoal - Consolidado"
       legend={
         <LegendaTooltip id="pessoal-consolidado-tooltip">
           De acordo com a LRF (Lei de Responsabilidade
@@ -69,7 +70,6 @@ export async function PessoalConsolidadoWidget({
           de Contas emitirá parecer de alerta.
         </LegendaTooltip>
       }
-      header="Pessoal - Consolidado"
     >
       <GaugeChart
         {...CHART_SETTINGS}

@@ -57,6 +57,7 @@ export async function DividaConsolidadaLiquidaWidget({
   return (
     <PainelComTitulo
       bodyProps={{ style }}
+      header="Desp. x receitas correntes"
       legend={
         <LegendaTooltip id="despesa-receita-correntes-tooltip">
           As despesas correntes não devem superar 95%
@@ -73,7 +74,6 @@ export async function DividaConsolidadaLiquidaWidget({
           de 1988).
         </LegendaTooltip>
       }
-      header="Desp. x receitas correntes"
     >
       <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
     </PainelComTitulo>

@@ -1,6 +1,5 @@
 "use client";
 import { deepMerge } from "@/shared/merge";
-import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
 import { MunicipiosProps } from "@/types/Municipio";
 import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
@@ -12,39 +11,65 @@ import {
 import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { GeoOption } from "echarts/types/dist/shared";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import { CSSProperties, Dispatch, SetStateAction, memo } from "react";
+import { useParams } from "next/navigation";
+import {
+  CSSProperties,
+  Dispatch,
+  HTMLAttributes,
+  SetStateAction,
+  memo,
+} from "react";
 import EChart from "./EChart";
 import MAP_DATA from "./mapa-es.json";
 
-export type Props = {
+export type SelectedRegion = {
+  name: string;
+  itemStyle: { color: string };
+  silent: boolean;
+};
+
+export type MapaEsProps = {
   chartOptions?: Partial<EChartsOption>;
   className?: string;
   chartGeoOptions?: Partial<GeoOption>;
-  style?: CSSProperties;
-
   getChart?: Dispatch<SetStateAction<echarts.EChartsType | null>>;
-} & MunicipiosProps;
+  onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
+  selectedRegions?: SelectedRegion[];
+  style?: CSSProperties;
+} & MunicipiosProps &
+  HTMLAttributes<HTMLDivElement>;
 
-function MapaESChart(props: Props) {
-  const { push } = useRouter();
+function MapaEsChart({
+  chartOptions,
+  className,
+  chartGeoOptions,
+  municipios,
+  getChart,
+  selectedRegions,
+  style,
+  onInit,
+  ...props
+}: MapaEsProps) {
   const routeParams = useParams();
-  const segments =
-    usePathname().split(`/${routeParams.municipio}/`)[1] ?? "visao-geral";
 
-  const municipio = props.municipios.find(
-    (o) => o.nomeNormalizado === routeParams.municipio
-  );
-  const regions = [];
+  let regions: SelectedRegion[] = [];
 
-  if (municipio) {
-    regions.push({
-      name: municipio.nome,
-      itemStyle: {
-        color: "#C5D7E0",
-      },
-      silent: true,
-    });
+  if (selectedRegions) {
+    regions = [...selectedRegions];
+  } else {
+    const municipio = municipios.find(
+      (o) => o.nomeNormalizado === routeParams.municipio
+    );
+
+    if (municipio) {
+      regions.push({
+        name: municipio.nome,
+        itemStyle: {
+          color: "#C5D7E0",
+        },
+        silent: true,
+      });
+    }
   }
 
   const options = deepMerge(
@@ -74,38 +99,24 @@ function MapaESChart(props: Props) {
             label: {
               show: false,
             },
-            itemStyle: {
-              color: "red",
-            },
           },
           selectedMode: "multiple",
           type: "map",
         },
-        props.chartGeoOptions
+        chartGeoOptions
       ),
     },
-    props.chartOptions
+    chartOptions
   );
 
-  function onInit(chart: echarts.EChartsType) {
+  function onChartInit(chart: echarts.EChartsType, ref: HTMLDivElement) {
     echarts.registerMap("ES", MAP_DATA as any);
-    props.getChart && props.getChart(chart);
-
-    chart.on("click", function (params) {
-      const nomeNormalizado = getNomeNormalizadoMunicipio(
-        props.municipios,
-        params.name
-      );
-      //TODO: fix ano inicial
-      push(
-        `/municipio/${routeParams.ano ?? 2023}/${nomeNormalizado}/${segments}`
-      );
-    });
+    getChart && getChart(chart);
+    onInit && onInit(chart, ref);
   }
 
   return (
     <EChart
-      className={props.className}
       components={[
         TitleComponent,
         TooltipComponent,
@@ -113,11 +124,11 @@ function MapaESChart(props: Props) {
         MapChart,
         CanvasRenderer,
       ]}
-      onInit={onInit}
+      onInit={onChartInit}
       options={options}
-      style={props.style}
+      {...props}
     />
   );
 }
 
-export default memo(MapaESChart);
+export default memo(MapaEsChart);

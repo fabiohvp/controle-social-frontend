@@ -1,4 +1,4 @@
-import MapaESChart from "@/components/charts/MapaESChart";
+import MapaEsChart from "@/components/charts/MapaEsChart";
 import { getMunicipios } from "@/shared/municipio";
 import { twMerge } from "tailwind-merge";
 import LinksWidgets from "./LinksWidgets";
@@ -27,7 +27,7 @@ export default async function PainelWidget(props: Props) {
         </p>
       </div>
       <div className="flex justify-center">
-        <MapaESChart municipios={municipios} />
+        <MapaEsChart municipios={municipios} />
       </div>
     </div>
   );

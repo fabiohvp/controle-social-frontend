@@ -28,7 +28,7 @@ import SaudeIcon from "../images/icons/SaudeIcon";
 import BoletimIcon from "../images/icons/header/BoletimIcon";
 import EstadoIcon from "../images/icons/header/EstadoIcon";
 import FiscalizacaoIcon from "../images/icons/header/FiscalizacaoIcon";
-import MapaESIcon from "../images/icons/header/MapaESIcon";
+import MapaEsIcon from "../images/icons/header/MapaEsIcon";
 import ObrigacoesIcon from "../images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "../images/icons/header/PrestacaoContaIcon";
 import "./menuMobile.css";
@@ -104,7 +104,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
               <div>Navegue pelas cidades do ES</div>
             </section>
             <div className="icon">
-              <MapaESIcon />
+              <MapaEsIcon />
             </div>
           </button>
         </li>
