@@ -12,6 +12,18 @@ export type ObrigacaoEnvio = {
   situacaoRemessasUnidadeGestoraRCB: Remessa;
 };
 
+export type ObrigacaoEnvioDoughnutKey =
+  | "PCM"
+  | "PCA"
+  | "Admissão de pessoal"
+  | "Folha de pagamento"
+  | "Contratação"
+  | "Concessão";
+
+export type ObrigacaoEnvioDoughnuts = Partial<{
+  [key in ObrigacaoEnvioDoughnutKey]: ObrigacaoEnvioDoughnut;
+}>;
+
 export type ObrigacaoEnvioDoughnut = {
   abreviacao: string;
   data?: DoughnutChartProps;

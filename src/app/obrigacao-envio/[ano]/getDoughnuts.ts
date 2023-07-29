@@ -1,7 +1,11 @@
 import { getDataAtual } from "@/shared/date";
 import { COLOR } from "@/theme/colors";
 import { DataLimite } from "@/types/Municipio";
-import { ObrigacaoEnvioDoughnut, Remessas } from "./types";
+import {
+  ObrigacaoEnvioDoughnutKey,
+  ObrigacaoEnvioDoughnuts,
+  Remessas,
+} from "./types";
 
 export function getDoughnut({
   abreviacao,
@@ -9,18 +13,20 @@ export function getDoughnut({
   remessas,
   titulo,
 }: {
-  abreviacao: string;
+  abreviacao: ObrigacaoEnvioDoughnutKey;
   datasLimites?: DataLimite[];
   remessas: Remessas;
   titulo: string;
-}): ObrigacaoEnvioDoughnut {
+}): ObrigacaoEnvioDoughnuts {
   if (!datasLimites) {
     return {
-      abreviacao,
-      comAtraso: [],
-      data: undefined,
-      naoObrigatorias: [],
-      title: titulo,
+      [abreviacao]: {
+        abreviacao,
+        comAtraso: [],
+        data: undefined,
+        naoObrigatorias: [],
+        title: titulo,
+      },
     };
   }
 
@@ -46,28 +52,30 @@ export function getDoughnut({
   );
 
   return {
-    abreviacao,
-    comAtraso,
-    data: {
-      colors: [COLOR["chart-positivo"], COLOR["chart-negativo"]],
-      items: [
-        {
-          name: "Remessas em dia",
-          value: 100 - comAtrasoPercent,
-          extra: {
-            quantidade: remessasObrigatorias.length - comAtraso.length,
+    [abreviacao]: {
+      abreviacao,
+      comAtraso,
+      data: {
+        colors: [COLOR["chart-positivo"], COLOR["chart-negativo"]],
+        items: [
+          {
+            name: "Remessas em dia",
+            value: 100 - comAtrasoPercent,
+            extra: {
+              quantidade: remessasObrigatorias.length - comAtraso.length,
+            },
           },
-        },
-        {
-          name: "Remessas em atraso",
-          value: comAtrasoPercent,
-          extra: {
-            quantidade: comAtraso.length,
+          {
+            name: "Remessas em atraso",
+            value: comAtrasoPercent,
+            extra: {
+              quantidade: comAtraso.length,
+            },
           },
-        },
-      ],
+        ],
+      },
+      naoObrigatorias,
+      title: titulo,
     },
-    naoObrigatorias,
-    title: titulo,
   };
 }

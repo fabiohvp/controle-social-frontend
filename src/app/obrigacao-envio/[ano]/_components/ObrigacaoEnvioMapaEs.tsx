@@ -5,15 +5,22 @@ import { COLOR } from "@/theme/colors";
 import { Municipio, MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import { useParams, useRouter } from "next/navigation";
-import { ObrigacaoEnvioDoughnut } from "../types";
+import { useState } from "react";
+import {
+  ObrigacaoEnvioDoughnut,
+  ObrigacaoEnvioDoughnutKey,
+  ObrigacaoEnvioDoughnuts,
+} from "../types";
 
 type Props = {
-  doughnuts: ObrigacaoEnvioDoughnut[];
+  doughnuts: ObrigacaoEnvioDoughnuts;
 } & MunicipiosProps;
 
 export default function ObrigacaoEnvioMapaEs({ doughnuts, municipios }: Props) {
   const { push } = useRouter();
   const routeParams = useParams();
+  const [selectedMode, setSelectedMode] =
+    useState<ObrigacaoEnvioDoughnutKey>("PCM");
 
   function onMapaInit(chart: echarts.EChartsType) {
     chart.on("click", function (params) {
@@ -30,20 +37,35 @@ export default function ObrigacaoEnvioMapaEs({ doughnuts, municipios }: Props) {
     });
   }
 
-  const selectedRegions = getMapaItems(doughnuts[5], municipios);
+  const selectedRegions = getMapaItems(doughnuts[selectedMode]!, municipios);
 
   return (
-    <MapaEsChart
-      chartGeoOptions={{
-        itemStyle: {
-          borderColor: "#ccc",
-          color: COLOR["chart-positivo"],
-        },
-      }}
-      onInit={onMapaInit}
-      municipios={municipios}
-      selectedRegions={selectedRegions}
-    />
+    <>
+      <div className="center flex-wrap gap-1">
+        {Object.keys(doughnuts).map((key: string) => (
+          <button
+            key={key}
+            className={`button text-xs ${key === selectedMode ? "active" : ""}`}
+            onClick={() => setSelectedMode(key as ObrigacaoEnvioDoughnutKey)}
+          >
+            {key}
+          </button>
+        ))}
+      </div>
+      <div className="h-[460px] md:h-[700px] lg:h-full lg:min-h-[530px] xl:min-h-[700px]">
+        <MapaEsChart
+          chartGeoOptions={{
+            itemStyle: {
+              borderColor: "#ccc",
+              color: COLOR["chart-positivo"],
+            },
+          }}
+          onInit={onMapaInit}
+          municipios={municipios}
+          selectedRegions={selectedRegions}
+        />
+      </div>
+    </>
   );
 }
 

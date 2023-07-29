@@ -67,7 +67,7 @@ export default function BoletimAlertPanel(props: BoletimAlertPanelProps) {
           </div>
           <Link
             href={data.urlPDF ?? "#"}
-            className="button primary"
+            className="button primary text-sm"
             target="_blank"
           >
             <FaRegFilePdf className="mr-1" /> Versão em PDF

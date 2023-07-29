@@ -4,22 +4,23 @@ const DOUGHNUT_STYLE = { height: DOUGHNUT__HEIGHT };
 
 import DoughnutChart, {
   DoughnutChartItem,
-  DoughnutChartProps,
 } from "@/components/charts/DoughnutChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import useScreenSizeResponsive from "@/hooks/useScreenSizeResponsive";
+import { isScreenBiggerThan } from "@/types/Screen";
 import { HTMLAttributes } from "react";
 import { FaHistory } from "react-icons/fa";
+import { ObrigacaoEnvioDoughnuts } from "../types";
 
-export function RenderDoughnuts({
+export function RenderWidgets({
   doughnuts,
 }: {
-  doughnuts: {
-    title: string;
-    data?: DoughnutChartProps;
-  }[];
+  doughnuts: ObrigacaoEnvioDoughnuts;
 }) {
   {
-    return doughnuts.map((item) => {
+    const screenSize = useScreenSizeResponsive();
+
+    return Object.values(doughnuts).map((item) => {
       if (!item.data) {
         return (
           <RenderWidget
@@ -37,12 +38,17 @@ export function RenderDoughnuts({
       return (
         <RenderWidget key={item.title} title={item.title}>
           <DoughnutChart
-            {...doughnutOptions}
+            position={
+              isScreenBiggerThan("xl", screenSize)
+                ? { left: "50%", top: "40%" }
+                : undefined
+            }
             tooltip={{
               formatter: function ({ data }: { data: DoughnutChartItem }) {
                 return `${data.name}<br>--------------------<br>${data.value}% (${data.extra?.quantidade} municípios)`;
               },
             }}
+            {...doughnutOptions}
           />
         </RenderWidget>
       );

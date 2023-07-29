@@ -17,8 +17,8 @@ export default async function Page({ params }: { params: Props }) {
   const dataAtual = getDataAtual();
   const anoParameter = parseInt(params.ano);
 
-  const doughnuts = [
-    getDoughnut({
+  const doughnuts = {
+    ...getDoughnut({
       abreviacao: "PCM",
       datasLimites: datasLimites.limiteDespesaReceita,
       remessas: obrigacoesDeEnvio.map((d) => ({
@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Props }) {
       })),
       titulo: "Prestação de Contas Mensal (PCM)",
     }),
-    getDoughnut({
+    ...getDoughnut({
       abreviacao: "PCA",
       datasLimites: undefined,
       remessas:
@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: Props }) {
             })),
       titulo: "Prestação de Contas Anual (PCA)",
     }),
-    getDoughnut({
+    ...getDoughnut({
       abreviacao: "Admissão de pessoal",
       datasLimites: datasLimites.municipioAtosPessoal,
       remessas: obrigacoesDeEnvio.map((d) => ({
@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: Props }) {
       })),
       titulo: "Admissão de pessoal - Concursos do Exerc. Anterior",
     }),
-    getDoughnut({
+    ...getDoughnut({
       abreviacao: "Folha de pagamento",
       datasLimites: datasLimites.folhaDePagamento,
       remessas: obrigacoesDeEnvio.map((d) => ({
@@ -57,10 +57,11 @@ export default async function Page({ params }: { params: Props }) {
       })),
       titulo: "Folha de Pagamento",
     }),
-  ];
+  };
 
   if (anoParameter > 2021) {
-    doughnuts.push(
+    Object.assign(
+      doughnuts,
       getDoughnut({
         abreviacao: "Contratação",
         datasLimites: datasLimites.contratacao,

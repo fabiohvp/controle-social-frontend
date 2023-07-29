@@ -70,7 +70,7 @@
   --color-blue-menu: #364b60;
   --color-link: #5486b3;
 
-  --color-primary: #204d74;
+  --color-primary: #3276af;
   --color-primary-hover: #296191;
 
   --table-border-color: #eee;
@@ -98,18 +98,24 @@ a:hover {
 
 .button {
   align-items: center;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   @apply p-2;
   @apply rounded-md;
-  @apply text-sm;
 }
 
+.button:hover {
+  background-color: #e0e0e0;
+}
+
+.button.active,
 .button.primary {
   background-color: var(--color-primary);
   color: white;
 }
 
+.button.active:hover,
 .button.primary:hover {
   background-color: var(--color-primary-hover);
 }

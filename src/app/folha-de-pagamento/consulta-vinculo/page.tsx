@@ -39,7 +39,7 @@ export default function Page() {
             <label htmlFor="nome">Nome</label>
             <Input type="text" className="block" id="nome" disabled />
           </div>
-          <button className="button mt-2 primary">
+          <button className="button mt-2 primary text-sm">
             <FaSearch className="mr-1" /> Consultar
           </button>
         </form>
