@@ -78,7 +78,7 @@ export default function Dropdown<T>({
     >
       <button
         className={twMerge(
-          "button flex h-full items-center px-2 w-full",
+          "button h-full w-full hover:rounded-none",
           borderless ? "border-none" : "",
           buttonClassName
         )}
