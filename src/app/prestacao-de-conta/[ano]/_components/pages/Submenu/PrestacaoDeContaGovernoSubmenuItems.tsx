@@ -1,12 +1,15 @@
-import { MunicipiosProps } from "@/types/Municipio";
 import PrestacaoDeContaLabelItemSubmenu from "./PrestacaoDeContaLabelItemSubmenu";
+import PrestacaoDeContaMenuAnos from "./PrestacaoDeContaMenuAnos";
+import PrestacaoDeContaMenuPaginas from "./PrestacaoDeContaMenuPaginas";
+import PrestacaoDeContaMenuTipoUnidadeGestora from "./PrestacaoDeContaMenuTipoUnidadeGestora";
 
-export default function PrestacaoDeContaGovernoSubmenuItems({
-  municipios,
-}: MunicipiosProps) {
+export default function PrestacaoDeContaGovernoSubmenuItems() {
   return (
     <>
       <PrestacaoDeContaLabelItemSubmenu />
+      <PrestacaoDeContaMenuPaginas />
+      <PrestacaoDeContaMenuAnos />
+      <PrestacaoDeContaMenuTipoUnidadeGestora />
     </>
   );
 }
