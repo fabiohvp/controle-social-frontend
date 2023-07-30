@@ -48,7 +48,7 @@ export default async function PrestacaoDeContaGovernoPage({
       <h4 className="font-normal">
         Prestações de contas anuais submetidas ao TCE-ES <hr />
       </h4>
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         <RenderResumoProcesso resumoProcessos={resumoProcessos} />
         <RenderInformacoes />
       </div>
@@ -169,7 +169,7 @@ export function RenderTable({
             </td>
             <td data-label="Órgão público">
               {row.processo.unidadesGestoras.map((ug) => (
-                <div>
+                <div key={ug.codigo}>
                   <Link
                     href={`/unidade-gestora/${ug.codigo}`}
                     className="justify-end sm:justify-normal"
@@ -181,7 +181,7 @@ export function RenderTable({
             </td>
             <td data-label="Responsáveis">
               {row.processo.responsaveis.map((responsavel) => (
-                <div className="capitalize">
+                <div key={responsavel.nome} className="capitalize">
                   {responsavel.nome.toLocaleLowerCase()}
                 </div>
               ))}
@@ -190,12 +190,14 @@ export function RenderTable({
             <td data-label="Acórdão/Parecer">
               {row.processo.responsaveis.map((responsavel) =>
                 responsavel.deliberacao ? (
-                  <ExternalLink
-                    href={`https://servicos.tcees.tc.br/DocumentoDisponibilizado/BaixarDocumentoDisponibilizado?idDocumento=${responsavel.idDocumentoDeliberacao}&key=${responsavel.chaveSegurancaDeliberacao}`}
-                    className="justify-end sm:justify-normal"
-                  >
-                    {responsavel.deliberacao}
-                  </ExternalLink>
+                  <div key={responsavel.deliberacao}>
+                    <ExternalLink
+                      href={`https://servicos.tcees.tc.br/DocumentoDisponibilizado/BaixarDocumentoDisponibilizado?idDocumento=${responsavel.idDocumentoDeliberacao}&key=${responsavel.chaveSegurancaDeliberacao}`}
+                      className="justify-end sm:justify-normal"
+                    >
+                      {responsavel.deliberacao}
+                    </ExternalLink>
+                  </div>
                 ) : (
                   <span>&nbsp;</span>
                 )
@@ -204,12 +206,14 @@ export function RenderTable({
             <td data-label="Recurso">
               {row.processo.responsaveis.map((responsavel) =>
                 responsavel.numeroCompletoRecurso ? (
-                  <ExternalLink
-                    href={`https://www.tcees.tc.br/consultas/processo/detalhar-processo-id?idProcesso=${responsavel.idProcessoEtceesRecurso}&key=${responsavel.chaveSegurancaRecurso}`}
-                    className="justify-end sm:justify-normal"
-                  >
-                    {responsavel.numeroCompletoRecurso}
-                  </ExternalLink>
+                  <div key={responsavel.numeroCompletoRecurso}>
+                    <ExternalLink
+                      href={`https://www.tcees.tc.br/consultas/processo/detalhar-processo-id?idProcesso=${responsavel.idProcessoEtceesRecurso}&key=${responsavel.chaveSegurancaRecurso}`}
+                      className="justify-end sm:justify-normal"
+                    >
+                      {responsavel.numeroCompletoRecurso}
+                    </ExternalLink>
+                  </div>
                 ) : (
                   <span>&nbsp;</span>
                 )
