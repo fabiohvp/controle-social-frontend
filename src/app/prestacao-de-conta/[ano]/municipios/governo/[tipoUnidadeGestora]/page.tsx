@@ -1,13 +1,14 @@
 import PrestacaoDeContaGovernoPage, {
   PrestacaoDeContaGovernoPageProps,
-} from "../../_components/pages/PrestacaoDeContaGovernoPage";
-import { ResumoProcessos, SituacaoProcesso } from "../../type";
+} from "../../../_components/pages/PrestacaoDeContaGovernoPage";
+import { ResumoProcessos, SituacaoProcesso } from "../../../type";
 
 async function getResumoProcessos({
   ano,
+  tipoUnidadeGestora,
 }: PrestacaoDeContaGovernoPageProps): Promise<ResumoProcessos> {
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetResumoProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=07&dadosMunicipios=true&v=29-07-2023-5.2.19`
+    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetResumoProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=${tipoUnidadeGestora}&dadosMunicipios=true&v=29-07-2023-5.2.19`
   );
   return res.json().then((o) =>
     o.reduce((acc: any, p: any) => {
@@ -19,9 +20,10 @@ async function getResumoProcessos({
 
 async function getSituacaoProcessos({
   ano,
+  tipoUnidadeGestora,
 }: PrestacaoDeContaGovernoPageProps): Promise<SituacaoProcesso[]> {
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=07&dadosMunicipios=true&v=29-07-2023-5.2.19`
+    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=${tipoUnidadeGestora}&dadosMunicipios=true&v=29-07-2023-5.2.19`
   );
   return res.json();
 }

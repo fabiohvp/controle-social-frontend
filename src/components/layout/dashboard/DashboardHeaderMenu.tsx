@@ -194,7 +194,10 @@ function DropdownPrestacoesContas() {
   const params = useParams();
 
   return (
-    <DropdownMenu icon={<PrestacaoContaIcon />} title="Prestações de contas">
+    <DropdownMenu
+      icon={<PrestacaoContaIcon small />}
+      title="Prestações de contas"
+    >
       <ul className="font-normal">
         <DropdownItem>
           <Link

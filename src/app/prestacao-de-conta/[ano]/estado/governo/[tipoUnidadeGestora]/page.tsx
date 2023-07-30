@@ -1,7 +1,7 @@
 import PrestacaoDeContaGovernoPage, {
   PrestacaoDeContaGovernoPageProps,
-} from "../../_components/pages/PrestacaoDeContaGovernoPage";
-import { ResumoProcessos } from "../../type";
+} from "../../../_components/pages/PrestacaoDeContaGovernoPage";
+import { ResumoProcessos } from "../../../type";
 
 export default function Page(props: {
   params: PrestacaoDeContaGovernoPageProps;

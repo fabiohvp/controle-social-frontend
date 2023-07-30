@@ -32,9 +32,11 @@ export function generatePrestacaoDeContaUrl({
   unidadeGestora?: string;
   segment: string;
 }) {
-  return `/prestacao-de-conta/${ano ?? 2023}/${
-    unidadeGestora ?? "municipios"
-  }/${segment ?? "governo"}`;
+  const selectedUnidadeGestora = unidadeGestora ?? "municipios";
+  return `/prestacao-de-conta/${ano ?? 2023}/${selectedUnidadeGestora}/${
+    segment ??
+    `governo/${selectedUnidadeGestora === "municipios" ? "07" : "10"}`
+  }`;
 }
 
 export function getPrestacaoDeContaSegment(pathname: string) {

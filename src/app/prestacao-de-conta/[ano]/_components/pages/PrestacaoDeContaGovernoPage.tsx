@@ -17,6 +17,7 @@ import PrestacaoDeContaGovernoSubmenuItems from "./Submenu/PrestacaoDeContaGover
 
 export type PrestacaoDeContaGovernoPageProps = {
   ano: string;
+  tipoUnidadeGestora: string;
 };
 
 export default async function PrestacaoDeContaGovernoPage({

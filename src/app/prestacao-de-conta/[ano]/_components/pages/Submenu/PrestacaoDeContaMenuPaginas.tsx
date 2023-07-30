@@ -20,7 +20,8 @@ export default function PrestacaoDeContaMenuPaginas() {
         generateUrl={(item) =>
           generatePrestacaoDeContaUrl({
             ...routeParams,
-            tipoUnidadeGestora: item.value.value,
+            unidadeGestora: item.value.value,
+            segment: initialSegment,
           })
         }
         items={PRESTACAO_DE_CONTA_PAGES}
