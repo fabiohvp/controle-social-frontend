@@ -190,7 +190,7 @@ export function RenderTable({
             <td data-label="Acórdão/Parecer">
               {row.processo.responsaveis.map((responsavel) =>
                 responsavel.deliberacao ? (
-                  <div key={responsavel.deliberacao}>
+                  <div key={responsavel.nome}>
                     <ExternalLink
                       href={`https://servicos.tcees.tc.br/DocumentoDisponibilizado/BaixarDocumentoDisponibilizado?idDocumento=${responsavel.idDocumentoDeliberacao}&key=${responsavel.chaveSegurancaDeliberacao}`}
                       className="justify-end sm:justify-normal"
@@ -199,14 +199,14 @@ export function RenderTable({
                     </ExternalLink>
                   </div>
                 ) : (
-                  <span>&nbsp;</span>
+                  <span key={responsavel.nome}>&nbsp;</span>
                 )
               )}
             </td>
             <td data-label="Recurso">
               {row.processo.responsaveis.map((responsavel) =>
                 responsavel.numeroCompletoRecurso ? (
-                  <div key={responsavel.numeroCompletoRecurso}>
+                  <div key={responsavel.nome}>
                     <ExternalLink
                       href={`https://www.tcees.tc.br/consultas/processo/detalhar-processo-id?idProcesso=${responsavel.idProcessoEtceesRecurso}&key=${responsavel.chaveSegurancaRecurso}`}
                       className="justify-end sm:justify-normal"
@@ -215,7 +215,7 @@ export function RenderTable({
                     </ExternalLink>
                   </div>
                 ) : (
-                  <span>&nbsp;</span>
+                  <span key={responsavel.nome}>&nbsp;</span>
                 )
               )}
             </td>
