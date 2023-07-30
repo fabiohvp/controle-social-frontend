@@ -117,7 +117,7 @@
         "modulo": "municipioReceita",
         "ano": 2014,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2015-02-09T00:00:00-02:00"
       },
       {
@@ -2139,7 +2139,7 @@
         "modulo": "municipioDespesa",
         "ano": 2014,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2015-02-09T00:00:00-02:00"
       },
       {
@@ -3039,7 +3039,7 @@
         "modulo": "municipioSaude",
         "ano": 2014,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2015-02-19T00:00:00-02:00"
       },
       {
@@ -3657,7 +3657,7 @@
         "modulo": "municipioEducacao",
         "ano": 2014,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2015-02-19T00:00:00-02:00"
       },
       {
@@ -4102,7 +4102,7 @@
         "modulo": "municipioDespesa",
         "ano": 2015,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2016-02-11T00:00:00-02:00"
       },
       {
@@ -5844,7 +5844,7 @@
         "modulo": "municipioSaude",
         "ano": 2015,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2016-02-17T00:00:00-02:00"
       },
       {
@@ -6245,7 +6245,7 @@
         "modulo": "municipioReceita",
         "ano": 2015,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2016-02-11T00:00:00-02:00"
       },
       {
@@ -7278,7 +7278,7 @@
         "modulo": "municipioEducacao",
         "ano": 2015,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2016-02-17T00:00:00-02:00"
       },
       {
@@ -8768,7 +8768,7 @@
         "modulo": "municipioEducacao",
         "ano": 2018,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2019-02-05T00:00:00-02:00"
       },
       {
@@ -9351,7 +9351,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2018,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2019-01-31T23:59:59-02:00"
       },
       {
@@ -10069,7 +10069,7 @@
         "modulo": "municipioDespesa",
         "ano": 2018,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2019-02-20T00:00:00-03:00"
       },
       {
@@ -11389,7 +11389,7 @@
         "modulo": "municipioReceita",
         "ano": 2018,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2019-02-20T00:00:00-03:00"
       },
       {
@@ -12133,7 +12133,7 @@
         "modulo": "municipioSaude",
         "ano": 2018,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2019-02-05T00:00:00-02:00"
       },
       {
@@ -13849,7 +13849,7 @@
         "modulo": "municipioDespesa",
         "ano": 2016,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2017-02-06T00:00:00-02:00"
       },
       {
@@ -14882,7 +14882,7 @@
         "modulo": "municipioReceita",
         "ano": 2016,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2017-02-06T00:00:00-02:00"
       },
       {
@@ -15045,7 +15045,7 @@
         "modulo": "municipioSaude",
         "ano": 2016,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2017-02-15T00:00:00-02:00"
       },
       {
@@ -15929,7 +15929,7 @@
         "modulo": "municipioEducacao",
         "ano": 2016,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2017-02-15T00:00:00-02:00"
       },
       {
@@ -16577,7 +16577,7 @@
         "modulo": "municipioEducacao",
         "ano": 2013,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2014-02-17T00:00:00-03:00"
       },
       {
@@ -17680,7 +17680,7 @@
         "modulo": "municipioReceita",
         "ano": 2013,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2014-02-05T00:00:00-02:00"
       },
       {
@@ -18354,7 +18354,7 @@
         "modulo": "municipioSaude",
         "ano": 2013,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2014-02-17T00:00:00-03:00"
       }
     ],
@@ -19529,7 +19529,7 @@
         "modulo": "municipioDespesa",
         "ano": 2013,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2014-02-05T00:00:00-02:00"
       },
       {
@@ -20464,7 +20464,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2017,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2018-01-31T23:59:59-02:00"
       },
       {
@@ -20669,7 +20669,7 @@
         "modulo": "municipioEducacao",
         "ano": 2017,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2018-02-15T00:00:00-02:00"
       },
       {
@@ -21399,7 +21399,7 @@
         "modulo": "municipioDespesa",
         "ano": 2017,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2018-04-02T00:00:00-03:00"
       },
       {
@@ -23064,7 +23064,7 @@
         "modulo": "municipioReceita",
         "ano": 2017,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2018-04-02T00:00:00-03:00"
       },
       {
@@ -24251,7 +24251,7 @@
         "modulo": "municipioSaude",
         "ano": 2017,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2018-02-15T00:00:00-02:00"
       },
       {
@@ -24563,7 +24563,7 @@
         "modulo": "municipioSaude",
         "ano": 2011,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2012-02-15T00:00:00-02:00"
       },
       {
@@ -25516,7 +25516,7 @@
         "modulo": "municipioEducacao",
         "ano": 2011,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2012-02-15T00:00:00-02:00"
       },
       {
@@ -27641,7 +27641,7 @@
         "modulo": "municipioEducacao",
         "ano": 2009,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2010-02-18T00:00:00-02:00"
       },
       {
@@ -27845,7 +27845,7 @@
         "modulo": "municipioSaude",
         "ano": 2009,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2010-02-18T00:00:00-02:00"
       },
       {
@@ -30138,7 +30138,7 @@
         "modulo": "municipioReceita",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-06-15T00:00:00-03:00"
       },
       {
@@ -30854,7 +30854,7 @@
         "modulo": "municipioEducacao",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-02-04T00:00:00-03:00"
       },
       {
@@ -31409,7 +31409,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-06-15T00:00:00-03:00"
       },
       {
@@ -31768,7 +31768,7 @@
         "modulo": "folhaDePagamento",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-06-15T00:00:00-03:00"
       },
       {
@@ -33769,7 +33769,7 @@
         "modulo": "municipioDespesa",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-06-15T00:00:00-03:00"
       },
       {
@@ -34156,7 +34156,7 @@
         "modulo": "municipioSaude",
         "ano": 2019,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2020-02-04T00:00:00-03:00"
       },
       {
@@ -35513,7 +35513,7 @@
         "modulo": "municipioSaude",
         "ano": 2010,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2011-02-17T00:00:00-02:00"
       },
       {
@@ -35710,7 +35710,7 @@
         "modulo": "municipioEducacao",
         "ano": 2010,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2011-02-17T00:00:00-02:00"
       },
       {
@@ -39555,7 +39555,7 @@
         "modulo": "municipioSaude",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -40383,7 +40383,7 @@
         "modulo": "limiteEndividamento",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -40959,7 +40959,7 @@
         "modulo": "limiteDespesaReceita",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -41745,7 +41745,7 @@
         "modulo": "municipioPessoalLegislativo",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -41901,7 +41901,7 @@
         "modulo": "folhaDePagamento",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-01-10T00:00:00-03:00"
       },
       {
@@ -42589,7 +42589,7 @@
         "modulo": "municipioPessoalConsolidado",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -43249,7 +43249,7 @@
         "modulo": "municipioEducacao",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -43937,7 +43937,7 @@
         "modulo": "municipioDespesa",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -44072,7 +44072,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-01-31T00:00:00-03:00"
       },
       {
@@ -44683,7 +44683,7 @@
         "modulo": "municipioPessoalExecutivo",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -45588,7 +45588,7 @@
         "modulo": "municipioReceita",
         "ano": 2021,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2022-02-05T00:00:00-03:00"
       },
       {
@@ -45788,7 +45788,7 @@
         "modulo": "concessao",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-20T00:00:00-03:00"
       },
       {
@@ -46805,7 +46805,7 @@
         "modulo": "municipioDespesa",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -47367,7 +47367,7 @@
         "modulo": "municipioReceita",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -47460,7 +47460,7 @@
         "modulo": "municipioPessoalExecutivo",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -48127,7 +48127,7 @@
         "modulo": "municipioPessoalConsolidado",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -48654,7 +48654,7 @@
         "modulo": "municipioSaude",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -49622,7 +49622,7 @@
         "modulo": "folhaDePagamento",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-17T00:00:00-03:00"
       },
       {
@@ -50163,7 +50163,7 @@
         "modulo": "contratacao",
         "ano": 2023,
         "mes": 3,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-04-12T00:00:00-03:00"
       },
       {
@@ -50760,7 +50760,7 @@
         "modulo": "limiteEndividamento",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -51252,7 +51252,7 @@
         "modulo": "municipioPessoalLegislativo",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -51716,7 +51716,7 @@
         "modulo": "municipioEducacao",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -51991,7 +51991,7 @@
         "modulo": "limiteDespesaReceita",
         "ano": 2023,
         "mes": 6,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-07-10T00:00:00-03:00"
       },
       {
@@ -52548,7 +52548,7 @@
         "modulo": "municipioEducacao",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -53306,7 +53306,7 @@
         "modulo": "municipioPessoalLegislativo",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -53770,7 +53770,7 @@
         "modulo": "folhaDePagamento",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-01-16T00:00:00-03:00"
       },
       {
@@ -54556,7 +54556,7 @@
         "modulo": "municipioPessoalExecutivo",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -54992,7 +54992,7 @@
         "modulo": "limiteDespesaReceita",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -55540,7 +55540,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-01-31T00:00:00-03:00"
       },
       {
@@ -56333,7 +56333,7 @@
         "modulo": "municipioPessoalConsolidado",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -56685,7 +56685,7 @@
         "modulo": "concessao",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-01-20T00:00:00-03:00"
       },
       {
@@ -57002,7 +57002,7 @@
         "modulo": "limiteEndividamento",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -57704,7 +57704,7 @@
         "modulo": "municipioReceita",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -58455,7 +58455,7 @@
         "modulo": "municipioSaude",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -58849,7 +58849,7 @@
         "modulo": "contratacao",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-01-12T00:00:00-03:00"
       },
       {
@@ -59425,7 +59425,7 @@
         "modulo": "municipioDespesa",
         "ano": 2022,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2023-02-10T00:00:00-03:00"
       },
       {
@@ -60059,7 +60059,7 @@
         "modulo": "municipioPessoalConsolidado",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -60845,7 +60845,7 @@
         "modulo": "municipioEducacao",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -61435,7 +61435,7 @@
         "modulo": "limiteDespesaReceita",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -61990,7 +61990,7 @@
         "modulo": "municipioSaude",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -62111,7 +62111,7 @@
         "modulo": "municipioDespesa",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -62960,7 +62960,7 @@
         "modulo": "municipioReceita",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -63340,7 +63340,7 @@
         "modulo": "municipioPessoalExecutivo",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -63832,7 +63832,7 @@
         "modulo": "limiteEndividamento",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -64324,7 +64324,7 @@
         "modulo": "municipioPessoalLegislativo",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-05T00:00:00-03:00"
       },
       {
@@ -65208,7 +65208,7 @@
         "modulo": "folhaDePagamento",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-01-10T00:00:00-03:00"
       },
       {
@@ -65910,7 +65910,7 @@
         "modulo": "municipioAtosPessoal",
         "ano": 2020,
         "mes": 12,
-        "codigo": "081",
+        "codigo": "500",
         "data": "2021-02-01T00:00:00-03:00"
       },
       {

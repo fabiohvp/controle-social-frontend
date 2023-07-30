@@ -1,7 +1,7 @@
 "use client";
 
+import ExternalLink from "@/components/links/ExternalLink";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const RELATORIOS: { [key: string]: string } = {
@@ -26,13 +26,12 @@ export default function OfertaXDemandaAlerta() {
       atingido por cada município, utilizando a seguinte fórmula: (nota do
       Município * 100) / 84.
       <br />
-      <Link
+      <ExternalLink
         href={RELATORIOS[routeParams.ano]}
-        target="_blank"
         title="Relatório de auditoria"
       >
         Acesse na íntegra o relatório de auditoria.
-      </Link>
+      </ExternalLink>
     </PainelDeAlerta>
   );
 }

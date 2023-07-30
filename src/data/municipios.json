@@ -1,547 +1,391 @@
 [
   {
     "codigo": "001",
-    "codigoIBGE": 3200102,
-    "habilitado": true,
     "nome": "Afonso Cláudio",
     "nomeNormalizado": "afonso-claudio"
   },
   {
     "codigo": "002",
-    "codigoIBGE": 3200169,
-    "habilitado": true,
     "nome": "Água Doce do Norte",
     "nomeNormalizado": "agua-doce-do-norte"
   },
   {
     "codigo": "003",
-    "codigoIBGE": 3200136,
-    "habilitado": true,
     "nome": "Águia Branca",
     "nomeNormalizado": "aguia-branca"
   },
   {
     "codigo": "004",
-    "codigoIBGE": 3200201,
-    "habilitado": true,
     "nome": "Alegre",
     "nomeNormalizado": "alegre"
   },
   {
     "codigo": "005",
-    "codigoIBGE": 3200300,
-    "habilitado": true,
     "nome": "Alfredo Chaves",
     "nomeNormalizado": "alfredo-chaves"
   },
   {
     "codigo": "006",
-    "codigoIBGE": 3200359,
-    "habilitado": true,
     "nome": "Alto Rio Novo",
     "nomeNormalizado": "alto-rio-novo"
   },
   {
     "codigo": "007",
-    "codigoIBGE": 3200409,
-    "habilitado": true,
     "nome": "Anchieta",
     "nomeNormalizado": "anchieta"
   },
   {
     "codigo": "008",
-    "codigoIBGE": 3200508,
-    "habilitado": true,
     "nome": "Apiacá",
     "nomeNormalizado": "apiaca"
   },
   {
     "codigo": "009",
-    "codigoIBGE": 3200607,
-    "habilitado": true,
     "nome": "Aracruz",
     "nomeNormalizado": "aracruz"
   },
   {
     "codigo": "010",
-    "codigoIBGE": 3200706,
-    "habilitado": true,
     "nome": "Atílio Vivácqua",
     "nomeNormalizado": "atilio-vivacqua"
   },
   {
     "codigo": "011",
-    "codigoIBGE": 3200805,
-    "habilitado": true,
     "nome": "Baixo Guandu",
     "nomeNormalizado": "baixo-guandu"
   },
   {
     "codigo": "012",
-    "codigoIBGE": 3200904,
-    "habilitado": true,
     "nome": "Barra de São Francisco",
     "nomeNormalizado": "barra-de-sao-francisco"
   },
   {
     "codigo": "013",
-    "codigoIBGE": 3201001,
-    "habilitado": true,
     "nome": "Boa Esperança",
     "nomeNormalizado": "boa-esperanca"
   },
   {
     "codigo": "014",
-    "codigoIBGE": 3201100,
-    "habilitado": true,
     "nome": "Bom Jesus do Norte",
     "nomeNormalizado": "bom-jesus-do-norte"
   },
   {
     "codigo": "015",
-    "codigoIBGE": 3201159,
-    "habilitado": true,
     "nome": "Brejetuba",
     "nomeNormalizado": "brejetuba"
   },
   {
     "codigo": "016",
-    "codigoIBGE": 3201209,
-    "habilitado": true,
     "nome": "Cachoeiro de Itapemirim",
     "nomeNormalizado": "cachoeiro-de-itapemirim"
   },
   {
     "codigo": "017",
-    "codigoIBGE": 3201308,
-    "habilitado": true,
     "nome": "Cariacica",
     "nomeNormalizado": "cariacica"
   },
   {
     "codigo": "018",
-    "codigoIBGE": 3201407,
-    "habilitado": true,
     "nome": "Castelo",
     "nomeNormalizado": "castelo"
   },
   {
     "codigo": "019",
-    "codigoIBGE": 3201506,
-    "habilitado": true,
     "nome": "Colatina",
     "nomeNormalizado": "colatina"
   },
   {
     "codigo": "020",
-    "codigoIBGE": 3201605,
-    "habilitado": true,
     "nome": "Conceição da Barra",
     "nomeNormalizado": "conceicao-da-barra"
   },
   {
     "codigo": "021",
-    "codigoIBGE": 3201704,
-    "habilitado": true,
     "nome": "Conceição do Castelo",
     "nomeNormalizado": "conceicao-do-castelo"
   },
   {
     "codigo": "022",
-    "codigoIBGE": 3201803,
-    "habilitado": true,
     "nome": "Divino de São Lourenço",
     "nomeNormalizado": "divino-de-sao-lourenco"
   },
   {
     "codigo": "023",
-    "codigoIBGE": 3201902,
-    "habilitado": true,
     "nome": "Domingos Martins",
     "nomeNormalizado": "domingos-martins"
   },
   {
     "codigo": "024",
-    "codigoIBGE": 3202009,
-    "habilitado": true,
     "nome": "Dores do Rio Preto",
     "nomeNormalizado": "dores-do-rio-preto"
   },
   {
     "codigo": "025",
-    "codigoIBGE": 3202108,
-    "habilitado": true,
     "nome": "Ecoporanga",
     "nomeNormalizado": "ecoporanga"
   },
   {
     "codigo": "026",
-    "codigoIBGE": 3202207,
-    "habilitado": true,
     "nome": "Fundão",
     "nomeNormalizado": "fundao"
   },
   {
     "codigo": "027",
-    "codigoIBGE": 3202306,
-    "habilitado": true,
     "nome": "Guaçuí",
     "nomeNormalizado": "guacui"
   },
   {
     "codigo": "028",
-    "codigoIBGE": 3202405,
-    "habilitado": true,
     "nome": "Guarapari",
     "nomeNormalizado": "guarapari"
   },
   {
     "codigo": "078",
-    "codigoIBGE": 3202256,
-    "habilitado": true,
     "nome": "Governador Lindenberg",
     "nomeNormalizado": "governador-lindenberg"
   },
   {
     "codigo": "029",
-    "codigoIBGE": 3202454,
-    "habilitado": true,
     "nome": "Ibatiba",
     "nomeNormalizado": "ibatiba"
   },
   {
     "codigo": "030",
-    "codigoIBGE": 3202504,
-    "habilitado": true,
     "nome": "Ibiraçu",
     "nomeNormalizado": "ibiracu"
   },
   {
     "codigo": "031",
-    "codigoIBGE": 3202553,
-    "habilitado": true,
     "nome": "Ibitirama",
     "nomeNormalizado": "ibitirama"
   },
   {
     "codigo": "032",
-    "codigoIBGE": 3202603,
-    "habilitado": true,
     "nome": "Iconha",
     "nomeNormalizado": "iconha"
   },
   {
     "codigo": "033",
-    "codigoIBGE": 3202652,
-    "habilitado": true,
     "nome": "Irupi",
     "nomeNormalizado": "irupi"
   },
   {
     "codigo": "034",
-    "codigoIBGE": 3202702,
-    "habilitado": true,
     "nome": "Itaguaçu",
     "nomeNormalizado": "itaguacu"
   },
   {
     "codigo": "035",
-    "codigoIBGE": 3202801,
-    "habilitado": true,
     "nome": "Itapemirim",
     "nomeNormalizado": "itapemirim"
   },
   {
     "codigo": "036",
-    "codigoIBGE": 3202900,
-    "habilitado": true,
     "nome": "Itarana",
     "nomeNormalizado": "itarana"
   },
   {
     "codigo": "037",
-    "codigoIBGE": 3203007,
-    "habilitado": true,
     "nome": "Iúna",
     "nomeNormalizado": "iuna"
   },
   {
     "codigo": "038",
-    "codigoIBGE": 3203056,
-    "habilitado": true,
     "nome": "Jaguaré",
     "nomeNormalizado": "jaguare"
   },
   {
     "codigo": "039",
-    "codigoIBGE": 3203106,
-    "habilitado": true,
     "nome": "Jerônimo Monteiro",
     "nomeNormalizado": "jeronimo-monteiro"
   },
   {
     "codigo": "040",
-    "codigoIBGE": 3203130,
-    "habilitado": true,
     "nome": "João Neiva",
     "nomeNormalizado": "joao-neiva"
   },
   {
     "codigo": "041",
-    "codigoIBGE": 3203163,
-    "habilitado": true,
     "nome": "Laranja da Terra",
     "nomeNormalizado": "laranja-da-terra"
   },
   {
     "codigo": "042",
-    "codigoIBGE": 3203205,
-    "habilitado": true,
     "nome": "Linhares",
     "nomeNormalizado": "linhares"
   },
   {
     "codigo": "043",
-    "codigoIBGE": 3203304,
-    "habilitado": true,
     "nome": "Mantenópolis",
     "nomeNormalizado": "mantenopolis"
   },
   {
     "codigo": "044",
-    "codigoIBGE": 3203320,
-    "habilitado": true,
     "nome": "Marataízes",
     "nomeNormalizado": "marataizes"
   },
   {
     "codigo": "045",
-    "codigoIBGE": 3203346,
-    "habilitado": true,
     "nome": "Marechal Floriano",
     "nomeNormalizado": "marechal-floriano"
   },
   {
     "codigo": "046",
-    "codigoIBGE": 3203353,
-    "habilitado": true,
     "nome": "Marilândia",
     "nomeNormalizado": "marilandia"
   },
   {
     "codigo": "047",
-    "codigoIBGE": 3203403,
-    "habilitado": true,
     "nome": "Mimoso do Sul",
     "nomeNormalizado": "mimoso-do-sul"
   },
   {
     "codigo": "048",
-    "codigoIBGE": 3203502,
-    "habilitado": true,
     "nome": "Montanha",
     "nomeNormalizado": "montanha"
   },
   {
     "codigo": "049",
-    "codigoIBGE": 3203601,
-    "habilitado": true,
     "nome": "Mucurici",
     "nomeNormalizado": "mucurici"
   },
   {
     "codigo": "050",
-    "codigoIBGE": 3203700,
-    "habilitado": true,
     "nome": "Muniz Freire",
     "nomeNormalizado": "muniz-freire"
   },
   {
     "codigo": "051",
-    "codigoIBGE": 3203809,
-    "habilitado": true,
     "nome": "Muqui",
     "nomeNormalizado": "muqui"
   },
   {
     "codigo": "052",
-    "codigoIBGE": 3203908,
-    "habilitado": true,
     "nome": "Nova Venécia",
     "nomeNormalizado": "nova-venecia"
   },
   {
     "codigo": "053",
-    "codigoIBGE": 3204005,
-    "habilitado": true,
     "nome": "Pancas",
     "nomeNormalizado": "pancas"
   },
   {
     "codigo": "054",
-    "codigoIBGE": 3204054,
-    "habilitado": true,
     "nome": "Pedro Canário",
     "nomeNormalizado": "pedro-canario"
   },
   {
     "codigo": "055",
-    "codigoIBGE": 3204104,
-    "habilitado": true,
     "nome": "Pinheiros",
     "nomeNormalizado": "pinheiros"
   },
   {
     "codigo": "056",
-    "codigoIBGE": 3204203,
-    "habilitado": true,
     "nome": "Piúma",
     "nomeNormalizado": "piuma"
   },
   {
     "codigo": "057",
-    "codigoIBGE": 3204252,
-    "habilitado": true,
     "nome": "Ponto Belo",
     "nomeNormalizado": "ponto-belo"
   },
   {
     "codigo": "058",
-    "codigoIBGE": 3204302,
-    "habilitado": true,
     "nome": "Presidente Kennedy",
     "nomeNormalizado": "presidente-kennedy"
   },
   {
     "codigo": "059",
-    "codigoIBGE": 3204351,
-    "habilitado": true,
     "nome": "Rio Bananal",
     "nomeNormalizado": "rio-bananal"
   },
   {
     "codigo": "060",
-    "codigoIBGE": 3204401,
-    "habilitado": true,
     "nome": "Rio Novo do Sul",
     "nomeNormalizado": "rio-novo-do-sul"
   },
   {
     "codigo": "061",
-    "codigoIBGE": 3204500,
-    "habilitado": true,
     "nome": "Santa Leopoldina",
     "nomeNormalizado": "santa-leopoldina"
   },
   {
     "codigo": "062",
-    "codigoIBGE": 3204559,
-    "habilitado": true,
     "nome": "Santa Maria de Jetibá",
     "nomeNormalizado": "santa-maria-de-jetiba"
   },
   {
     "codigo": "063",
-    "codigoIBGE": 3204609,
-    "habilitado": true,
     "nome": "Santa Teresa",
     "nomeNormalizado": "santa-teresa"
   },
   {
     "codigo": "064",
-    "codigoIBGE": 3204658,
-    "habilitado": true,
     "nome": "São Domingos do Norte",
     "nomeNormalizado": "sao-domingos-do-norte"
   },
   {
     "codigo": "065",
-    "codigoIBGE": 3204708,
-    "habilitado": true,
     "nome": "São Gabriel da Palha",
     "nomeNormalizado": "sao-gabriel-da-palha"
   },
   {
     "codigo": "066",
-    "codigoIBGE": 3204807,
-    "habilitado": true,
     "nome": "São José do Calçado",
     "nomeNormalizado": "sao-jose-do-calcado"
   },
   {
     "codigo": "067",
-    "codigoIBGE": 3204906,
-    "habilitado": true,
     "nome": "São Mateus",
     "nomeNormalizado": "sao-mateus"
   },
   {
     "codigo": "068",
-    "codigoIBGE": 3204955,
-    "habilitado": true,
     "nome": "São Roque do Canaã",
     "nomeNormalizado": "sao-roque-do-canaa"
   },
   {
     "codigo": "069",
-    "codigoIBGE": 3205002,
-    "habilitado": true,
     "nome": "Serra",
     "nomeNormalizado": "serra"
   },
   {
     "codigo": "070",
-    "codigoIBGE": 3205010,
-    "habilitado": true,
     "nome": "Sooretama",
     "nomeNormalizado": "sooretama"
   },
   {
     "codigo": "071",
-    "codigoIBGE": 3205036,
-    "habilitado": true,
     "nome": "Vargem Alta",
     "nomeNormalizado": "vargem-alta"
   },
   {
     "codigo": "072",
-    "codigoIBGE": 3205069,
-    "habilitado": true,
     "nome": "Venda Nova do Imigrante",
     "nomeNormalizado": "venda-nova-do-imigrante"
   },
   {
     "codigo": "073",
-    "codigoIBGE": 3205101,
-    "habilitado": true,
     "nome": "Viana",
     "nomeNormalizado": "viana"
   },
   {
     "codigo": "074",
-    "codigoIBGE": 3205150,
-    "habilitado": true,
     "nome": "Vila Pavão",
     "nomeNormalizado": "vila-pavao"
   },
   {
     "codigo": "075",
-    "codigoIBGE": 3205176,
-    "habilitado": true,
     "nome": "Vila Valério",
     "nomeNormalizado": "vila-valerio"
   },
   {
     "codigo": "076",
-    "codigoIBGE": 3205200,
-    "habilitado": true,
     "nome": "Vila Velha",
     "nomeNormalizado": "vila-velha"
   },
   {
     "codigo": "077",
-    "codigoIBGE": 3205309,
-    "habilitado": true,
     "nome": "Vitória",
     "nomeNormalizado": "vitoria"
   }

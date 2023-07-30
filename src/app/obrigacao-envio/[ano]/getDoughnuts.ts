@@ -1,6 +1,6 @@
 import { getDataAtual } from "@/shared/date";
 import { COLOR } from "@/theme/colors";
-import { DataLimite } from "@/types/Municipio";
+import { DataLimite } from "@/types/DataLimite";
 import {
   ObrigacaoEnvioDoughnutKey,
   ObrigacaoEnvioDoughnuts,
@@ -24,7 +24,7 @@ export function getDoughnut({
         abreviacao,
         comAtraso: [],
         data: undefined,
-        naoObrigatorias: [],
+        naoObrigatorias: remessas,
         title: titulo,
       },
     };

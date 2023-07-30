@@ -5,6 +5,7 @@ export default function Page() {
   return (
     <>
       <PainelComTituloMinimizavel
+        collapsed={false}
         header="Concessões comuns e Parcerias Público-Privadas"
         headerProps={{ className: "font-bold text-xl" }}
       >

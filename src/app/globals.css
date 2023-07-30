@@ -3,6 +3,38 @@
 @tailwind utilities;
 @import url("./table.css");
 
+:root {
+  --dashboard-header-height: 98px;
+
+  /* COLORS - MUST SYNC with tailwind.config.js*/
+  --color-em-atraso: #b37476;
+  --color-em-dia: #459d49;
+  --color-despesa: #efb4a3;
+  --color-receita: #617e8c;
+  --color-negativo: #c0392b;
+  --color-positivo: #27ae60;
+  --color-chart-alerta: #f4b351;
+  --color-chart-info: #eff170;
+  --color-chart-negativo: #e68465;
+  --color-chart-positivo: #556778;
+  --color-chart-muito-positivo: #8ba2ad;
+  --color-gray-header: #f8f8f8;
+  --color-menu-active: #e3e3e3;
+  --color-gray-light: #d1d5db;
+  --color-gray-medium: #6b7280;
+  --color-gray-dark: #4b5563;
+  --color-blue-dark: #556778;
+  --color-blue-menu: #364b60;
+  --color-link: #5486b3;
+
+  --color-primary: #3276af;
+  --color-primary-hover: #296191;
+
+  --table-border-color: #eee;
+  --table-header-row-bg-color: #f8f9fa;
+  --table-odd-row-bg-color: #f7f7f7c7;
+}
+
 @layer base {
   h1 {
     @apply font-semibold;
@@ -44,38 +76,6 @@
   .overflow-unset {
     overflow: unset;
   }
-}
-
-:root {
-  --dashboard-header-height: 98px;
-
-  /* COLORS - MUST SYNC with tailwind.config.js*/
-  --color-em-atraso: #b37476;
-  --color-em-dia: #459d49;
-  --color-despesa: #efb4a3;
-  --color-receita: #617e8c;
-  --color-negativo: #c0392b;
-  --color-positivo: #27ae60;
-  --color-chart-alerta: #f4b351;
-  --color-chart-info: #eff170;
-  --color-chart-negativo: #e68465;
-  --color-chart-positivo: #556778;
-  --color-chart-muito-positivo: #8ba2ad;
-  --color-gray-header: #f8f8f8;
-  --color-menu-active: #e3e3e3;
-  --color-gray-light: #d1d5db;
-  --color-gray-medium: #6b7280;
-  --color-gray-dark: #4b5563;
-  --color-blue-dark: #556778;
-  --color-blue-menu: #364b60;
-  --color-link: #5486b3;
-
-  --color-primary: #3276af;
-  --color-primary-hover: #296191;
-
-  --table-border-color: #eee;
-  --table-header-row-bg-color: #f8f9fa;
-  --table-odd-row-bg-color: #f7f7f7c7;
 }
 
 body {

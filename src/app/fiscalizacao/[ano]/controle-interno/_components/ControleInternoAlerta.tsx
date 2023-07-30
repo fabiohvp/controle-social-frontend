@@ -1,7 +1,7 @@
 "use client";
 
+import ExternalLink from "@/components/links/ExternalLink";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const RELATORIOS: { [key: string]: { texto: string; href: string } } = {
@@ -26,13 +26,12 @@ export default function ControleInternoAlerta() {
       <div
         dangerouslySetInnerHTML={{ __html: RELATORIOS[routeParams.ano].texto }}
       ></div>
-      <Link
+      <ExternalLink
         href={RELATORIOS[routeParams.ano].href}
-        target="_blank"
         title="Relatório de auditoria"
       >
         Acesse na íntegra o relatório de auditoria.
-      </Link>
+      </ExternalLink>
     </PainelDeAlerta>
   );
 }

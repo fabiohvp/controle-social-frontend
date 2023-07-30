@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 export type PainelComTituloProps = {
   bodyProps?: HTMLAttributes<HTMLDivElement>;
+  button?: ReactNode;
   children: ReactNode;
   collapsed?: boolean;
   header: string;
@@ -13,6 +14,7 @@ export type PainelComTituloProps = {
 
 export default function PainelComTitulo({
   bodyProps: { className: bodyClassName, ...bodyProps } = {},
+  button,
   children,
   collapsed = true,
   header,
@@ -24,13 +26,15 @@ export default function PainelComTitulo({
     <section {...props}>
       <h5
         className={twMerge(
-          "bg-gray-header border flex justify-between font-normal px-2 py-1 rounded-t-md",
+          "bg-gray-header border flex items-center justify-between font-normal px-2 py-1 rounded-t-md",
+          collapsed ? "" : "rounded-md",
           headerClassName
         )}
         {...headerProps}
       >
-        <span {...headerProps}>{header}</span>
+        <span>{header}</span>
         {legend && <span>{legend}</span>}
+        {button && <span>{button}</span>}
       </h5>
       {collapsed && (
         <div

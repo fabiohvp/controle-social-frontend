@@ -7,6 +7,7 @@ import {
   GeoComponent,
   TitleComponent,
   TooltipComponent,
+  VisualMapComponent,
 } from "echarts/components";
 import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
@@ -33,6 +34,7 @@ export type MapaEsProps = {
   className?: string;
   chartGeoOptions?: Partial<GeoOption>;
   getChart?: Dispatch<SetStateAction<echarts.EChartsType | null>>;
+  legends?: { color: string; name: string; value: number }[];
   onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
   selectedRegions?: SelectedRegion[];
   style?: CSSProperties;
@@ -43,11 +45,12 @@ function MapaEsChart({
   chartOptions,
   className,
   chartGeoOptions,
-  municipios,
   getChart,
+  legends,
+  municipios,
+  onInit,
   selectedRegions,
   style,
-  onInit,
   ...props
 }: MapaEsProps) {
   const routeParams = useParams();
@@ -74,12 +77,6 @@ function MapaEsChart({
 
   const options = deepMerge(
     {
-      title: { show: false },
-      tooltip: {
-        showDelay: 0,
-        transitionDuration: 0.2,
-        trigger: "item",
-      },
       geo: deepMerge(
         {
           emphasis: {
@@ -105,6 +102,27 @@ function MapaEsChart({
         },
         chartGeoOptions
       ),
+      title: { show: false },
+      tooltip: {
+        showDelay: 0,
+        transitionDuration: 0.2,
+        trigger: "item",
+      },
+      visualMap: {
+        bottom: "0",
+        formatter: function (value: number) {
+          if (!legends?.length) return "";
+          return legends![value].name;
+        },
+        left: "center",
+        max: 1,
+        min: 0,
+        orient: "horizontal",
+        pieces: legends!,
+        type: "piecewise",
+        selectedMode: false,
+        show: !!legends?.length,
+      },
     },
     chartOptions
   );
@@ -118,11 +136,12 @@ function MapaEsChart({
   return (
     <EChart
       components={[
-        TitleComponent,
-        TooltipComponent,
+        CanvasRenderer,
         GeoComponent,
         MapChart,
-        CanvasRenderer,
+        TitleComponent,
+        TooltipComponent,
+        VisualMapComponent,
       ]}
       onInit={onChartInit}
       options={options}
@@ -132,3 +151,7 @@ function MapaEsChart({
 }
 
 export default memo(MapaEsChart);
+
+function round(value: number) {
+  return Math.round(value * 100) / 100;
+}

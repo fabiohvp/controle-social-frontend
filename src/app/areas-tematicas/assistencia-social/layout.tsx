@@ -1,7 +1,7 @@
 import CrasLogo from "@/components/images/logos/CrasLogo";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
+import ExternalLink from "@/components/links/ExternalLink";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
-import Link from "next/link";
 import { ReactNode } from "react";
 import AssistenciaSocialSubmenuItems from "./AssistenciaSocialSubmenuItems";
 
@@ -28,12 +28,9 @@ export default function Layout({ children }: { children: ReactNode }) {
             doméstica e concedem benefícios eventuais.{" "}
             <span className="font-bold">
               Saiba mais sobre os CRAS{" "}
-              <Link
-                href="https://www.gov.br/mds/pt-br/acoes-e-programas/assistencia-social/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras"
-                target="_blank"
-              >
+              <ExternalLink href="https://www.gov.br/mds/pt-br/acoes-e-programas/assistencia-social/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras">
                 clicando aqui
-              </Link>
+              </ExternalLink>
             </span>
             .
           </p>
@@ -47,12 +44,9 @@ export default function Layout({ children }: { children: ReactNode }) {
             informações apresentadas neste painel são provenientes desse censo.{" "}
             <span className="font-bold">
               Saiba mais sobre o Censo SUAS{" "}
-              <Link
-                href="https://www.gov.br/mds/pt-br/pt-br/acoes-e-programas/assistencia-social/gestao-do-suas/vigilancia-socioassistencial-1/censo-suas"
-                target="_blank"
-              >
+              <ExternalLink href="https://www.gov.br/mds/pt-br/pt-br/acoes-e-programas/assistencia-social/gestao-do-suas/vigilancia-socioassistencial-1/censo-suas">
                 clicando aqui
-              </Link>
+              </ExternalLink>
             </span>
             .
           </p>

@@ -6,7 +6,8 @@ import MapaEsIcon from "@/components/images/icons/header/MapaEsIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
-import { Municipio, MunicipiosProps } from "@/types/Municipio";
+import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
+import { MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -16,9 +17,9 @@ import DropdownMenu from "../dropdowns/dropdown/DropdownMenu";
 
 type MunicipioFilterable = {
   filtered: boolean;
-} & Municipio;
+} & EsferaAdministrativa;
 
-function getMunicipiosFilterable(municipios: Municipio[]) {
+function getMunicipiosFilterable(municipios: EsferaAdministrativa[]) {
   return municipios.map((municipio) => ({
     ...municipio,
     filtered: false,
@@ -81,7 +82,7 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
     });
   }
 
-  function onMouseOver(municipio: Municipio) {
+  function onMouseOver(municipio: EsferaAdministrativa) {
     chart!.dispatchAction({
       type: "highlight",
       geoIndex: 0,
@@ -89,7 +90,7 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
     });
   }
 
-  function onMouseOut(municipio: Municipio) {
+  function onMouseOut(municipio: EsferaAdministrativa) {
     chart!.dispatchAction({
       type: "downplay",
       geoIndex: 0,
@@ -153,8 +154,8 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
 
 function RenderMunicipioGroups(props: {
   municipios: MunicipioFilterable[];
-  onMouseOver: (municipio: Municipio) => void;
-  onMouseOut: (municipio: Municipio) => void;
+  onMouseOver: (municipio: EsferaAdministrativa) => void;
+  onMouseOut: (municipio: EsferaAdministrativa) => void;
 }) {
   return (
     <ul>

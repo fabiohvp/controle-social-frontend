@@ -1,4 +1,5 @@
 import Modal, { ModalProps } from "@/components/layout/modal/Modal";
+import ExternalLink from "@/components/links/ExternalLink";
 import Link from "next/link";
 
 export default function ModalFonteDados({ setShow, show }: ModalProps) {
@@ -25,63 +26,45 @@ export default function ModalFonteDados({ setShow, show }: ModalProps) {
         <p>Fontes auxiliares de dados:</p>
         <ul className="styled">
           <li>
-            <Link href="http://www.cidades.ibge.gov.br/" target="_blank">
+            <ExternalLink href="http://www.cidades.ibge.gov.br/">
               IBGE
-            </Link>
+            </ExternalLink>
             : mapas dos municípios, dados geográficos e estimativas
             populacionais;
           </li>
           <li>
-            <a
-              href="https://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais"
-              target="_blank"
-            >
+            <ExternalLink href="https://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais">
               TSE
-            </a>
+            </ExternalLink>
             : número de vereadores por município;
           </li>
           <li>
-            <a
-              href="http://www.atlasbrasil.org.br/2013/pt/download/"
-              target="_blank"
-            >
+            <ExternalLink href="http://www.atlasbrasil.org.br/2013/pt/download/">
               PNUD
-            </a>
+            </ExternalLink>
             : Índice de Desenvolvimento Humano Municipal (IDHM) 2010 (publicado
             em 2013);
           </li>
           <li>
-            <a
-              href="http://portal.inep.gov.br/web/guest/microdados"
-              target="_blank"
-            >
+            <ExternalLink href="http://portal.inep.gov.br/web/guest/microdados">
               INEP
-            </a>
+            </ExternalLink>
             : número de alunos da rede municipal;
           </li>
           <li>
-            <a
-              href="http://sa.previdencia.gov.br/site/2019/08/DRAA-Estatistica-da-Populacao-Coberta.zip"
-              target="_blank"
-            >
+            <ExternalLink href="http://sa.previdencia.gov.br/site/2019/08/DRAA-Estatistica-da-Populacao-Coberta.zip">
               Site da previdência
-            </a>
+            </ExternalLink>
             : dados de segurados (atualizado em 27/08/2019);
           </li>
           <li>
-            <Link href="https://cnes.datasus.gov.br/" target="_blank">
-              CNES
-            </Link>
-            : informações sobre equipamentos, leitos e estabelecimentos de
-            saúde.
+            <Link href="https://cnes.datasus.gov.br/">CNES</Link>: informações
+            sobre equipamentos, leitos e estabelecimentos de saúde.
           </li>
           <li>
-            <a
-              href="https://sisaps.saude.gov.br/notatecnica/frmListaMunic.php"
-              target="_blank"
-            >
+            <ExternalLink href="https://sisaps.saude.gov.br/notatecnica/frmListaMunic.php">
               Ministério da Saúde
-            </a>
+            </ExternalLink>
             : Percentual da população com plano de saúde.
           </li>
         </ul>

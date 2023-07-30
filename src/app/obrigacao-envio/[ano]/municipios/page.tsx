@@ -1,19 +1,22 @@
 import { getDataAtual } from "@/shared/date";
-import { getDatasLimites, getMunicipios } from "@/shared/municipio";
+import { getEsferasAdministrativas } from "@/shared/esferaAdministrativa";
+import { getDatasLimites } from "@/shared/municipio";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
 import { getDoughnut } from "../getDoughnuts";
 import { getObrigacaoesDeEnvios } from "../getObrigacaoesDeEnvios";
+import { getRemessas } from "../getRemessas";
 
 type Props = {
   ano: string;
 };
 
 export default async function Page({ params }: { params: Props }) {
-  const [obrigacoesDeEnvio, datasLimites, municipios] = await Promise.all([
-    getObrigacaoesDeEnvios({ ano: params.ano, municipios: true }),
-    getDatasLimites(parseInt(params.ano)),
-    getMunicipios(),
-  ]);
+  const [obrigacoesDeEnvio, datasLimites, esferasAdministrativas] =
+    await Promise.all([
+      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: true }),
+      getDatasLimites(parseInt(params.ano)),
+      getEsferasAdministrativas(),
+    ]);
   const dataAtual = getDataAtual();
   const anoParameter = parseInt(params.ano);
 
@@ -21,10 +24,11 @@ export default async function Page({ params }: { params: Props }) {
     ...getDoughnut({
       abreviacao: "PCM",
       datasLimites: datasLimites.limiteDespesaReceita,
-      remessas: obrigacoesDeEnvio.map((d) => ({
-        codigo: d.codigo,
-        envio: d.situacaoRemessasUnidadeGestoraPCM,
-      })),
+      remessas: getRemessas(
+        esferasAdministrativas,
+        obrigacoesDeEnvio,
+        (d) => d.situacaoRemessasUnidadeGestoraPCM
+      ),
       titulo: "Prestação de Contas Mensal (PCM)",
     }),
     ...getDoughnut({
@@ -33,28 +37,31 @@ export default async function Page({ params }: { params: Props }) {
       remessas:
         anoParameter < dataAtual.getFullYear()
           ? []
-          : obrigacoesDeEnvio.map((d) => ({
-              codigo: d.codigo,
-              envio: d.situacaoRemessasUnidadeGestoraPCA,
-            })),
+          : getRemessas(
+              esferasAdministrativas,
+              obrigacoesDeEnvio,
+              (d) => d.situacaoRemessasUnidadeGestoraPCA
+            ),
       titulo: "Prestação de Contas Anual (PCA)",
     }),
     ...getDoughnut({
       abreviacao: "Admissão de pessoal",
       datasLimites: datasLimites.municipioAtosPessoal,
-      remessas: obrigacoesDeEnvio.map((d) => ({
-        codigo: d.codigo,
-        envio: d.situacaoRemessasUnidadeGestoraAtos,
-      })),
+      remessas: getRemessas(
+        esferasAdministrativas,
+        obrigacoesDeEnvio,
+        (d) => d.situacaoRemessasUnidadeGestoraAtos
+      ),
       titulo: "Admissão de pessoal - Concursos do Exerc. Anterior",
     }),
     ...getDoughnut({
       abreviacao: "Folha de pagamento",
       datasLimites: datasLimites.folhaDePagamento,
-      remessas: obrigacoesDeEnvio.map((d) => ({
-        codigo: d.codigo,
-        envio: d.situacaoRemessasUnidadeGestoraPCF,
-      })),
+      remessas: getRemessas(
+        esferasAdministrativas,
+        obrigacoesDeEnvio,
+        (d) => d.situacaoRemessasUnidadeGestoraPCF
+      ),
       titulo: "Folha de Pagamento",
     }),
   };
@@ -65,23 +72,32 @@ export default async function Page({ params }: { params: Props }) {
       getDoughnut({
         abreviacao: "Contratação",
         datasLimites: datasLimites.contratacao,
-        remessas: obrigacoesDeEnvio.map((d) => ({
-          codigo: d.codigo,
-          envio: d.situacaoRemessasUnidadeGestoraRCO,
-        })),
+        remessas: getRemessas(
+          esferasAdministrativas,
+          obrigacoesDeEnvio,
+          (d) => d.situacaoRemessasUnidadeGestoraRCO
+        ),
         titulo: "Contratação",
       }),
       getDoughnut({
         abreviacao: "Concessão",
         datasLimites: datasLimites.concessao,
-        remessas: obrigacoesDeEnvio.map((d) => ({
-          codigo: d.codigo,
-          envio: d.situacaoRemessasUnidadeGestoraRCB,
-        })),
+        remessas: getRemessas(
+          esferasAdministrativas,
+          obrigacoesDeEnvio,
+          (d) => d.situacaoRemessasUnidadeGestoraRCB
+        ),
         titulo: "Concessão",
       })
     );
   }
 
-  return <ObrigacaoEnvioLayout doughnuts={doughnuts} municipios={municipios} />;
+  return (
+    <ObrigacaoEnvioLayout
+      doughnuts={doughnuts}
+      esferasAdministrativas={esferasAdministrativas}
+      exibirMapa={true}
+      isMunicipio={true}
+    />
+  );
 }

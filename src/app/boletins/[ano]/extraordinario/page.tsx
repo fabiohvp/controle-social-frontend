@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ExternalLink from "@/components/links/ExternalLink";
 import { ExtraordinarioPageProps } from "./ExtraordinarioPageProps";
 
 type Data = {
@@ -115,13 +115,9 @@ export default async function Page({
         {data.map((row, index) => (
           <tr key={index} className={`${index % 2 === 0 ? "even" : "odd"}`}>
             <td>
-              <Link
-                href={row.edicao.href}
-                className="text-link"
-                target="_blank"
-              >
+              <ExternalLink href={row.edicao.href}>
                 {row.edicao.titulo}
-              </Link>
+              </ExternalLink>
             </td>
             <td>{row.resumo}</td>
             <td className="text-center">{row.publicacao}</td>

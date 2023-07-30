@@ -1,8 +1,6 @@
 import { DoughnutChartProps } from "@/components/charts/DoughnutChart";
 
 export type ObrigacaoEnvio = {
-  ano: number;
-  codigoEsferaAdministrativa: string;
   codigo: string;
   situacaoRemessasUnidadeGestoraPCA: Remessa;
   situacaoRemessasUnidadeGestoraPCM: Remessa;
@@ -37,6 +35,7 @@ export type Remessa = {
 
 export type Remessas = {
   codigo: string;
+  nome: string;
   envio: Remessa;
 }[];
 

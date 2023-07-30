@@ -9,7 +9,8 @@ import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
 import { getCodigoMunicipio } from "@/shared/municipio";
-import { Municipio, MunicipiosProps } from "@/types/Municipio";
+import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
+import { MunicipiosProps } from "@/types/Municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
@@ -48,7 +49,11 @@ export default function DashboardHeaderItems({ municipios }: MunicipiosProps) {
   );
 }
 
-function DropdownAreasTematicas({ municipios }: { municipios: Municipio[] }) {
+function DropdownAreasTematicas({
+  municipios,
+}: {
+  municipios: EsferaAdministrativa[];
+}) {
   const params = useParams();
 
   return (
@@ -193,22 +198,29 @@ function DropdownPrestacoesContas() {
       <ul className="font-normal">
         <DropdownItem>
           <Link
-            href={`/prestaca-conta/${
+            href={`/prestaca-de-conta/${
               params.ano ?? ANO_DEFAULT
-            }/municipio/governo/07`}
+            }/municipios/governo/07`}
           >
             Processos
           </Link>
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/monitoramento/${params.ano ?? ANO_DEFAULT}/municipio/todos`}
+            href={`/prestaca-de-conta/monitoramento/${
+              params.ano ?? ANO_DEFAULT
+            }/municipios/todos`}
           >
             Monitoramentos
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/julgamento-de-contas/visao-geral">
+          <Link href={`/prestaca-de-conta/2023/parecer-previo`}>
+            Parecer prévio
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link href="/prestaca-de-conta/julgamento-de-contas/visao-geral">
             Julgamento de contas
           </Link>
         </DropdownItem>
