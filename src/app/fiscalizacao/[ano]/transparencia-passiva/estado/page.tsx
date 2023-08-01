@@ -7,7 +7,7 @@ export default function Page() {
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={FiscalizacaoPortalTransparenciaSubmenuItems}
+      itensBreadcrumb={FiscalizacaoPortalTransparenciaSubmenuItems}
     >
       <FiscalizacaoPanelAlertTransparenciaPassiva />
       Estado{/* TODO: adicionar gráficos */}

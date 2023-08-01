@@ -1,6 +1,6 @@
 "use client";
+import { Ipca, ipcaState } from "@/components/botoes/ipca/ipcaState";
 import EChart from "@/components/charts/EChart";
-import { Ipca, ipcaState } from "@/components/layout/ipca/ipcaState";
 import { formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";
 import { COLOR } from "@/theme/colors";
@@ -13,7 +13,7 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { useAtom } from "jotai";
-import { MunicipioPageProps } from "../../../../MunicipioPageProps";
+import { MunicipioPageProps } from "../../../../routes";
 
 type Props = {
   despesa: {

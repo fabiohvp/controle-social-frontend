@@ -9,7 +9,7 @@ type Props = {
 export default function SaudeWidget(props: Props) {
   return (
     <Link
-      href="/areas-tematicas/saude/visao-geral"
+      href="/area-tematica/saude/visao-geral"
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className

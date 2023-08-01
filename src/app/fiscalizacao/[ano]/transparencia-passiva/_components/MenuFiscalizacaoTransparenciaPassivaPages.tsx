@@ -1,26 +1,16 @@
 "use client";
+import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import {
   DropdownValue,
   createDropdownValue,
-} from "@/components/dropdowns/dropdown/Dropdown";
-import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { KeyValue } from "@/types/KeyValue";
+} from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
 
-const PAGES: KeyValue<string, DropdownValue<string>>[] = [
-  {
-    key: "Câmaras",
-    value: createDropdownValue("camaras"),
-  },
-  {
-    key: "Prefeituras",
-    value: createDropdownValue("prefeituras"),
-  },
-  {
-    key: "Estado",
-    value: createDropdownValue("estado"),
-  },
-];
+const PAGES: Map<string, DropdownValue<string>> = new Map([
+  ["Câmaras", createDropdownValue("camaras")],
+  ["Prefeituras", createDropdownValue("prefeituras")],
+  ["Estado", createDropdownValue("estado")],
+]);
 
 export default function MenuFiscalizacaoTransparenciaPassivaPages() {
   const routeParams = useParams();
@@ -29,8 +19,8 @@ export default function MenuFiscalizacaoTransparenciaPassivaPages() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) =>
-          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${item.value.value}`
+        generateUrl={([_, value]) =>
+          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${value.value}`
         }
         items={PAGES}
         selected={createDropdownValue(segments)}

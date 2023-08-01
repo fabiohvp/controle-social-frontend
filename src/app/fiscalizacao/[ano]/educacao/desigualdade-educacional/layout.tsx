@@ -1,14 +1,14 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import { ReactNode } from "react";
-import DesigualdadeEducacionalItensSubmenu from "./DesigualdadeEducacionalItensSubmenu";
+import BreadcrumbDesigualdadeEducacional from "./BreadcrumbDesigualdadeEducacional";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={DesigualdadeEducacionalItensSubmenu}
+      itensBreadcrumb={BreadcrumbDesigualdadeEducacional}
     >
       <PainelDeAlerta type="info">
         Auditoria que teve por objetivo avaliar a governança da política pública

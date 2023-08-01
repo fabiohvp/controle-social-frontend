@@ -1,10 +1,10 @@
 import { normalize } from "@/formatters/string";
 import { getDatasLimites } from "@/shared/municipio";
 import { getUnidadesGestorasEstaduais } from "@/shared/unidadeGestora";
+import { getObrigacaoesDeEnvios } from "../_api/getObrigacaoesDeEnvios";
+import { getRemessas } from "../_api/getRemessas";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
-import { getDoughnut } from "../getDoughnuts";
-import { getObrigacaoesDeEnvios } from "../getObrigacaoesDeEnvios";
-import { getRemessas } from "../getRemessas";
+import { getDoughnut } from "../_shared/getDoughnuts";
 
 type Props = {
   ano: string;

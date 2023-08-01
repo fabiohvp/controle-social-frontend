@@ -1,7 +1,7 @@
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { FaHand } from "react-icons/fa6";
-import { MunicipioPageProps } from "../../../../MunicipioPageProps";
+import { MunicipioPageProps } from "../../../../routes";
 
 type Data = {
   chaveSeguranca: string;

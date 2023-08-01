@@ -60,20 +60,20 @@ function DropdownAreasTematicas({
     <DropdownMenu icon={<AreaTematicaIcon />} title="Áreas temáticas">
       <ul className="font-normal">
         <DropdownItem>
-          <Link href="/areas-tematicas/assistencia-social/referenciamento">
+          <Link href="/area-tematica/assistencia-social/referenciamento">
             Assistência social
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/areas-tematicas/concessao-publica/visao-geral">
+          <Link href="/area-tematica/concessao-publica/visao-geral">
             Concessões comuns e PPP
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/areas-tematicas/educacao/visao-geral">Educação</Link>
+          <Link href="/area-tematica/educacao/visao-geral">Educação</Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/areas-tematicas/estrutura-administrativa">
+          <Link href="/area-tematica/estrutura-administrativa">
             Estrutura administrativa
           </Link>
         </DropdownItem>
@@ -90,7 +90,7 @@ function DropdownAreasTematicas({
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/areas-tematicas/saude/estabelecimentos">Saúde</Link>
+          <Link href="/area-tematica/saude/estabelecimentos">Saúde</Link>
         </DropdownItem>
       </ul>
     </DropdownMenu>
@@ -201,7 +201,7 @@ function DropdownPrestacoesContas() {
       <ul className="font-normal">
         <DropdownItem>
           <Link
-            href={`/prestaca-de-conta/${
+            href={`/prestacao-de-conta/${
               params.ano ?? ANO_DEFAULT
             }/municipios/governo/07`}
           >
@@ -210,7 +210,7 @@ function DropdownPrestacoesContas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/prestaca-de-conta/monitoramento/${
+            href={`/prestacao-de-conta/monitoramento/${
               params.ano ?? ANO_DEFAULT
             }/municipios/todos`}
           >
@@ -218,12 +218,12 @@ function DropdownPrestacoesContas() {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href={`/prestaca-de-conta/2023/parecer-previo`}>
+          <Link href={`/prestacao-de-conta/2023/parecer-previo`}>
             Parecer prévio
           </Link>
         </DropdownItem>
         <DropdownItem>
-          <Link href="/prestaca-de-conta/julgamento-de-contas/visao-geral">
+          <Link href="/prestacao-de-conta/julgamento-de-contas/visao-geral">
             Julgamento de contas
           </Link>
         </DropdownItem>

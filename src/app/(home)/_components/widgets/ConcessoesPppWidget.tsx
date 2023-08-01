@@ -9,7 +9,7 @@ type Props = {
 export default function ConcessoesPppWidget(props: Props) {
   return (
     <Link
-      href="/areas-tematicas/concessao-publica/visao-geral"
+      href="/area-tematica/concessao-publica/visao-geral"
       className={twMerge("flex justify-center gap-20 p-12", props.className)}
       prefetch={false}
     >

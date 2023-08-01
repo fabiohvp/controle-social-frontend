@@ -1,18 +1,15 @@
 "use client";
-import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/municipioState";
-import { KeyValue } from "@/types/KeyValue";
+import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/routes";
 import { MunicipiosProps } from "@/types/Municipio";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import {
-  DropdownValue,
-  createDropdownValue,
-} from "../dropdowns/dropdown/Dropdown";
 import DropdownBody from "../dropdowns/dropdown/DropdownBody";
+import { DropdownItem } from "../dropdowns/dropdown/DropdownItem";
 import DropdownLinksRenderer from "../dropdowns/dropdown/DropdownLinksRenderer";
+import { createDropdownValue } from "../dropdowns/dropdown/DropdownValue";
 import ComparadorIcon from "../images/icons/ComparadorIcon";
 import ConcessoesIcon from "../images/icons/ConcessoesIcon";
 import CrasIcon from "../images/icons/CrasIcon";
@@ -36,10 +33,10 @@ import "./menuMobile.css";
 type Props = MunicipiosProps & HTMLAttributes<HTMLDivElement>;
 
 function generateUrl(routeParams: Params) {
-  return function <T>(item: KeyValue<string, DropdownValue<T>>, _: number) {
+  return function <T>(item: DropdownItem<T>, _: number) {
     return generateMunicipioUrl({
       ...routeParams,
-      municipio: item.value.value,
+      municipio: item[1].value,
     });
   };
 }
@@ -165,7 +162,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
         </li>
         <li>
           <Link
-            href="/areas-tematicas/assistencia-social/referenciamento"
+            href="/area-tematica/assistencia-social/referenciamento"
             prefetch={false}
           >
             <section>
@@ -179,7 +176,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
         </li>
         <li>
           <Link
-            href="/areas-tematicas/concessao-publica/visao-geral"
+            href="/area-tematica/concessao-publica/visao-geral"
             prefetch={false}
           >
             <section>
@@ -192,7 +189,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/educacao/visao-geral" prefetch={false}>
+          <Link href="/area-tematica/educacao/visao-geral" prefetch={false}>
             <section>
               <h5>EDUCAÇÃO</h5>
               <div>Dados sobre escolas, alunos e profissionais</div>
@@ -203,10 +200,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link
-            href="/areas-tematicas/estrutura-administrativa"
-            prefetch={false}
-          >
+          <Link href="/area-tematica/estrutura-administrativa" prefetch={false}>
             <section>
               <h5>ESTRUTURA ADMINISTRATIVA</h5>
               <div>...no estado e nos municípios</div>
@@ -231,7 +225,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/areas-tematicas/saude/estabelecimentos" prefetch={false}>
+          <Link href="/area-tematica/saude/estabelecimentos" prefetch={false}>
             <section>
               <h5>SAÚDE</h5>
               <div>Dados sobre leitos e estabelecimentos de saúde</div>

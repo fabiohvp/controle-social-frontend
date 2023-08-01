@@ -1,10 +1,13 @@
 import { KeyValue } from "@/types/KeyValue";
 import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import { DropdownValue } from "./DropdownValue";
 import "./dropdownItem.css";
 
-export type DropdownItemRender<T> = KeyValue<string, T> & {
-  render: (item: KeyValue<string, T>, index: number) => ReactNode;
+export type DropdownItem<T> = [string, DropdownValue<T>];
+
+export type DropdownItemRender<T> = KeyValue<string, DropdownValue<T>> & {
+  render: (item: DropdownItem<T>, index: number) => ReactNode;
 };
 
 type Props = {

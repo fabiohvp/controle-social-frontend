@@ -1,13 +1,13 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
-import FiscalizacaoMamografiaRastreamentoSubmenuItems from "./FiscalizacaoMamografiaRastreamentoSubmenuItems";
+import BreadcrumbMamografiaRastreamento from "./BreadcrumbMamografiaRastreamento";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={FiscalizacaoMamografiaRastreamentoSubmenuItems}
+      itensBreadcrumb={BreadcrumbMamografiaRastreamento}
     >
       <PainelDeAlerta type="info">
         Auditoria Operacional que avaliou se o quantitativo de equipamentos,

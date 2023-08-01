@@ -1,15 +1,15 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { MunicipioPageProps } from "../../MunicipioPageProps";
-import MunicipiosBarraLateral from "../../_components/MunicipiosBarraLateral";
-import GestaoFiscalItensSubmenu from "../GestaoFiscalItensSubmenu";
+import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
+import { MunicipioPageProps } from "../../routes";
+import GestaoFiscalItensSubmenu from "../BreadcrumbGestaoFiscal";
 
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
       exibirBotaoIPCA
-      itensSubmenu={GestaoFiscalItensSubmenu}
-      barraLateral={MunicipiosBarraLateral}
+      itensBreadcrumb={GestaoFiscalItensSubmenu}
+      barraLateral={BarraLateralMunicipios}
     >
       meta arrecadação: {params.ano} {params.municipio}
     </DashboardLayout>

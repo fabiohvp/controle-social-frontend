@@ -1,6 +1,7 @@
 "use client";
-import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
+
+import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
 import {
@@ -17,17 +18,21 @@ export default function FolhaDePagamentoMenuAnos() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) =>
+        generateUrl={([_, value]) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            ano: item.value.value,
+            ano: value.value,
             segment,
           })
         }
-        items={state.anos.map((ano) => ({
-          key: ano.toString(),
-          value: createDropdownValue(ano.toString()),
-        }))}
+        items={
+          new Map(
+            state.anos.map((ano) => [
+              ano.toString(),
+              createDropdownValue(ano.toString()),
+            ])
+          )
+        }
         selected={createDropdownValue(routeParams.ano)}
       />
     </li>

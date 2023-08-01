@@ -1,10 +1,10 @@
 import { getDataAtual } from "@/shared/date";
 import { getEsferasAdministrativas } from "@/shared/esferaAdministrativa";
 import { getDatasLimites } from "@/shared/municipio";
+import { getObrigacaoesDeEnvios } from "../_api/getObrigacaoesDeEnvios";
+import { getRemessas } from "../_api/getRemessas";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
-import { getDoughnut } from "../getDoughnuts";
-import { getObrigacaoesDeEnvios } from "../getObrigacaoesDeEnvios";
-import { getRemessas } from "../getRemessas";
+import { getDoughnut } from "../_shared/getDoughnuts";
 
 type Props = {
   ano: string;

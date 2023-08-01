@@ -1,7 +1,7 @@
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import Image from "next/image";
 import Link from "next/link";
-import { MunicipioPanelProps } from "../../../../MunicipioPageProps";
+import { MunicipioPanelProps } from "../../../../routes";
 import SituacaoPrestacaoContaWidget from "./SituacaoPrestacaoContaWidget";
 
 export async function PrestacaoContaCamaraWidget({

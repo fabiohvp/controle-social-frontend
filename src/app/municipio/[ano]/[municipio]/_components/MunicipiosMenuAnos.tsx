@@ -1,6 +1,7 @@
 "use client";
-import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
+
+import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
 import { municipioState } from "../municipioState";
@@ -14,13 +15,17 @@ export default function MunicipiosMenuAnos() {
     <li>
       <DropdownLinks
         className="min-w-[70px]"
-        generateUrl={(item) =>
-          `/municipio/${item.value.value}/${routeParams.municipio}/${segments}`
+        generateUrl={([_, value]) =>
+          `/municipio/${value.value}/${routeParams.municipio}/${segments}`
         }
-        items={state.anos.map((ano) => ({
-          key: ano.toString(),
-          value: createDropdownValue(ano.toString()),
-        }))}
+        items={
+          new Map(
+            state.anos.map((ano) => [
+              ano.toString(),
+              createDropdownValue(ano.toString()),
+            ])
+          )
+        }
         selected={createDropdownValue(routeParams.ano)}
       />
     </li>

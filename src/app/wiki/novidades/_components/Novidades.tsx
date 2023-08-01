@@ -279,7 +279,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre
-            <Link href="/areas-tematicas/educacao/visao-geral" prefetch={false}>
+            <Link href="/area-tematica/educacao/visao-geral" prefetch={false}>
               Educação
             </Link>
             , como distribuição de escolas públicas, matrículas e profissionais
@@ -392,7 +392,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Painel sobre os contratos de
             <Link
-              href="/areas-tematicas/concessao-publica/visao-geral"
+              href="/area-tematica/concessao-publica/visao-geral"
               prefetch={false}
             >
               Concessão Comum e Parceria Público-Privada
@@ -409,7 +409,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Painel sobre a
             <Link
-              href="/areas-tematicas/estrutura-administrativa"
+              href="/area-tematica/estrutura-administrativa"
               prefetch={false}
             >
               Estrutura Administrativa
@@ -641,7 +641,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Atualização do painel com informações sobre
-            <Link href="/areas-tematicas/saude/visao-geral" prefetch={false}>
+            <Link href="/area-tematica/saude/visao-geral" prefetch={false}>
               saúde.
             </Link>
           </li>
@@ -1267,7 +1267,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel de Controle de
-            <Link href="/boletins/2017/mensal" prefetch={false}>
+            <Link href="/boletins/2017/" prefetch={false}>
               Macrogestão Governamental
             </Link>
           </li>

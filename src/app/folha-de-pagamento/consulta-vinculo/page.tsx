@@ -4,14 +4,14 @@ import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 import { FaSearch } from "react-icons/fa";
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "../folhaDePagamentoConstants";
-import ConsultaVinculoItensSubmenu from "./ConsultaVinculoItensSubmenu";
+import BreadcrumbConsultaVinculo from "./BreadcrumbConsultaVinculo";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="px-2 pt-2"
       exibirFooter={false}
-      itensSubmenu={ConsultaVinculoItensSubmenu}
+      itensBreadcrumb={BreadcrumbConsultaVinculo}
     >
       <PainelComTituloMinimizavel
         header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}

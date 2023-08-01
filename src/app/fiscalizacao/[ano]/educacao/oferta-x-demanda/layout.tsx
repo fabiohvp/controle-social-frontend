@@ -8,7 +8,7 @@ export default function layout({ children }: { children: ReactNode }) {
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={OfertaXDemandaItensSubmenu}
+      itensBreadcrumb={OfertaXDemandaItensSubmenu}
     >
       <PainelDeAlerta type="info">
         Em 2019 o Tribunal de Contas do ES realizou fiscalização, na modalidade

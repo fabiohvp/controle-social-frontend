@@ -1,13 +1,13 @@
+import { EstadoPageProps } from "@/app/estado/[ano]/routes";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { EstadoPageProps } from "../../EstadoPageProps";
-import BarraLateralEstado from "../../_components/EstadoBarraLateral";
-import EstadoGestaoFiscalItensSubmenu from "../EstadoGestaoFiscalItensSubmenu";
+import BarraLateralEstado from "../../_components/BarraLateralEstado";
+import BreadcrumbGestaoFiscal from "../BreadcrumbGestaoFiscal";
 
 export default function Page({ params }: { params: EstadoPageProps }) {
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
-      itensSubmenu={EstadoGestaoFiscalItensSubmenu}
+      itensBreadcrumb={BreadcrumbGestaoFiscal}
       barraLateral={BarraLateralEstado}
     >
       receita correnta liquida: {params.ano}

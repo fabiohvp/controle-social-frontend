@@ -1,6 +1,7 @@
 "use client";
-import { createDropdownValue } from "@/components/dropdowns/dropdown/Dropdown";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
+
+import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useAtom } from "jotai";
 import { useParams, usePathname } from "next/navigation";
 import { controleInternoState } from "../controleInternoState";
@@ -13,13 +14,17 @@ export default function ControleInternoMenuAnos() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={(item) =>
-          `/fiscalizacao/${item.value.value}/controle-interno/${segments}`
+        generateUrl={([_, value]) =>
+          `/fiscalizacao/${value.value}/controle-interno/${segments}`
         }
-        items={state.anos.map((ano) => ({
-          key: ano.toString(),
-          value: createDropdownValue(ano.toString()),
-        }))}
+        items={
+          new Map(
+            state.anos.map((ano) => [
+              ano.toString(),
+              createDropdownValue(ano.toString()),
+            ])
+          )
+        }
         selected={createDropdownValue(routeParams.ano)}
       />
     </li>

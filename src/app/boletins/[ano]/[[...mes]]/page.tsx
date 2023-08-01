@@ -1,8 +1,8 @@
 import { cache } from "react";
-import { BoletinsPageProps } from "../BoletinsPageProps";
-import BoletimAlertPanel, {
+import { BoletinsPageProps } from "../routes";
+import AlertaBoletins, {
   BoletimAlertPanelProps,
-} from "./_components/BoletimAlertPanel";
+} from "./_components/AlertaBoletins";
 import "./boletimMensal.css";
 
 function getUrl(ano: string, mes: string | undefined) {
@@ -38,5 +38,5 @@ const getData = cache(async ({ ano, mes }: BoletinsPageProps) => {
 export default async function Page({ params }: { params: BoletinsPageProps }) {
   const data = await getData({ ...params });
 
-  return <BoletimAlertPanel {...data} {...params} />;
+  return <AlertaBoletins {...data} {...params} />;
 }

@@ -1,15 +1,15 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PortalTransparenciaItensSubmenu from "../PortalTransparenciaItensSubmenu";
-import FiscalizacaoPanelAlert from "../_components/PortalTransparenciaAlerta";
+import BreadcrumbPortalTransparencia from "../BreadcrumbPortalTransparencia";
+import AlertaPortalTransparencia from "../_components/AlertaPortalTransparencia";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={PortalTransparenciaItensSubmenu}
+      itensBreadcrumb={BreadcrumbPortalTransparencia}
     >
-      <FiscalizacaoPanelAlert />
+      <AlertaPortalTransparencia />
       Camaras{/* TODO: adicionar gráficos */}
     </DashboardLayout>
   );

@@ -3,10 +3,7 @@ import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { formatCurrency } from "@/formatters/number";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { cache } from "react";
-import {
-  MunicipioPageProps,
-  MunicipioPanelProps,
-} from "../../../../MunicipioPageProps";
+import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const municipios = await getMunicipios();

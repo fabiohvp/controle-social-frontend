@@ -1,7 +1,7 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { EstadoPageProps } from "../../EstadoPageProps";
-import BarraLateralEstado from "../../_components/EstadoBarraLateral";
-import EstadoItensSubmenu from "../EstadoItensSubmenu";
+import BarraLateralEstado from "../../_components/BarraLateralEstado";
+import { EstadoPageProps } from "../../routes";
+import BreadcrumbEstado from "../BreadcrumbEstado";
 import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
 import { ObrigacoesJuntoTceesWidget } from "./_components/widgets/ObrigacoesJuntoTceesWidget";
 import { PessoalConsolidadoWidget } from "./_components/widgets/PessoalConsolidadoWidget";
@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: EstadoPageProps }) {
     <DashboardLayout
       className="gap-2 p-2"
       exibirBotaoIPCA
-      itensSubmenu={EstadoItensSubmenu}
+      itensBreadcrumb={BreadcrumbEstado}
       barraLateral={BarraLateralEstado}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}

@@ -1,5 +1,5 @@
+import { EstadoPageProps, EstadoPanelProps } from "@/app/estado/[ano]/routes";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
 import ReceitasXDespesasChart from "../charts/ReceitasXDespesasChart";
 
 async function getData({ ano }: EstadoPageProps) {

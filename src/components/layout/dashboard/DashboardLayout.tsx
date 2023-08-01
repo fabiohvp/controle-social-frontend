@@ -13,7 +13,9 @@ import {
 } from "./dashboardConstants";
 import "./dashboardLayout.css";
 
-const IpcaButton = dynamic(() => import("../ipca/IpcaButton"), { ssr: false });
+const BotaoIpca = dynamic(() => import("../../botoes/ipca/BotaoIpca"), {
+  ssr: false,
+});
 
 type Props = {
   barraLateral?: ElementType;
@@ -21,11 +23,23 @@ type Props = {
   children: ReactNode;
   exibirBotaoIPCA?: boolean;
   exibirFooter?: boolean;
-  itensSubmenu?: ElementType;
+  itensBreadcrumb?: ElementType | ReactNode;
 };
 
+function isReactNode(
+  itensBreadcrumb?: ElementType | ReactNode
+): itensBreadcrumb is ReactNode {
+  return (itensBreadcrumb as any).type !== undefined;
+}
+
+function isElementType(
+  itensBreadcrumb?: ElementType | ReactNode
+): itensBreadcrumb is ElementType {
+  return (itensBreadcrumb as any).type === undefined;
+}
+
 export default async function DashboardLayout(props: Props) {
-  const maxHeightContent = props.itensSubmenu
+  const maxHeightContent = props.itensBreadcrumb
     ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
     : MAX_HEIGHT_CONTENT;
 
@@ -35,12 +49,15 @@ export default async function DashboardLayout(props: Props) {
     <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
       <header className="sticky bg-gray-header flex flex-col text-blue-dark">
         <DashboardHeader municipios={municipios} />
-        {props.itensSubmenu && (
+        {props.itensBreadcrumb && (
           <DashboardHeaderSubmenu exibirSidebar={!!props.barraLateral}>
-            <props.itensSubmenu municipios={municipios} />
+            {isReactNode(props.itensBreadcrumb) && props.itensBreadcrumb}
+            {isElementType(props.itensBreadcrumb) && (
+              <props.itensBreadcrumb municipios={municipios} />
+            )}
             {props.exibirBotaoIPCA && (
               <li className="ml-auto px-2">
-                <IpcaButton />
+                <BotaoIpca />
               </li>
             )}
           </DashboardHeaderSubmenu>

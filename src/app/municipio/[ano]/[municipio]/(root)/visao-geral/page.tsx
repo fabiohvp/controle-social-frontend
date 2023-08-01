@@ -1,7 +1,7 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { MunicipioPageProps } from "../../MunicipioPageProps";
-import MunicipiosBarraLateral from "../../_components/MunicipiosBarraLateral";
-import MunicipioSubmenuItems from "../MunicipioSubmenuItems";
+import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
+import { MunicipioPageProps } from "../../routes";
+import BreadcrumbMunicipio from "../BreadcrumbMunicipio";
 import { DespesaReceitaCorrentesWidget } from "./_components/widgets/DespesaReceitaCorrentesWidget";
 import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
 import { FundoFinanceiroWidget } from "./_components/widgets/FundoFinanceiroWidget";
@@ -24,8 +24,8 @@ export default async function Page({ params }: { params: MunicipioPageProps }) {
     <DashboardLayout
       className="gap-2 p-2"
       exibirBotaoIPCA
-      itensSubmenu={MunicipioSubmenuItems}
-      barraLateral={MunicipiosBarraLateral}
+      itensBreadcrumb={BreadcrumbMunicipio}
+      barraLateral={BarraLateralMunicipios}
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">

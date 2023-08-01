@@ -1,4 +1,4 @@
-import { EsferaAdministrativa } from "./EsferaAdministrativa";
+import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 
 export type MunicipiosProps = {
   municipios: EsferaAdministrativa[];

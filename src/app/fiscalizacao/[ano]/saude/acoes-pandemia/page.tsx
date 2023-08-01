@@ -1,13 +1,13 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
-import FiscalizacaoSaudeSubmenuItems from "../FiscalizacaoSaudeSubmenuItems";
+import BreadcrumbSaude from "../BreadcrumbSaude";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={FiscalizacaoSaudeSubmenuItems}
+      itensBreadcrumb={BreadcrumbSaude}
     >
       <PainelDeAlerta type="info">
         Levantamento que teve por objetivo obter informações sobre as ações

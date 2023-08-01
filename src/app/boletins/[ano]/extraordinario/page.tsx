@@ -1,5 +1,5 @@
 import ExternalLink from "@/components/links/ExternalLink";
-import { ExtraordinarioPageProps } from "./ExtraordinarioPageProps";
+import { ExtraordinarioPageProps } from "./routes";
 
 type Data = {
   [key: string]: {

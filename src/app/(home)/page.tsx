@@ -1,4 +1,4 @@
-import HomeLayout from "@/components/layout/home/HomeLayout";
+import HomeLayout from "@/app/(home)/_components/HomeLayout";
 import MenuMobileLayout from "@/components/menu/MenuMobileLayout";
 import ArrecadacaoWidget from "./_components/widgets/ArrecadacaoWidget";
 import ComparativosWidget from "./_components/widgets/ComparativosWidget";

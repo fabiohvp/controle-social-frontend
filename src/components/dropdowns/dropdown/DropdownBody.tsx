@@ -3,8 +3,8 @@ import DropdownModal from "@/components/dropdowns/dropdown/DropdownModal";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { HTMLAttributes, useRef, useState } from "react";
-import { DropdownValue } from "./Dropdown";
 import DropdownItem, { DropdownItemRender } from "./DropdownItem";
+import { DropdownValue } from "./DropdownValue";
 import "./dropdown.css";
 import { dropdownDefaultComparer } from "./dropdownComparers";
 
@@ -14,7 +14,7 @@ export type DropdownBodyProps<T> = {
     selectedValue: string | undefined
   ) => boolean;
   hideSearch?: boolean;
-  items: DropdownItemRender<DropdownValue<T>>[];
+  items: DropdownItemRender<T>[];
   selected?: DropdownValue<T>;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -60,13 +60,13 @@ export default function DropdownBody<T>({
         {visibleItems.map((item, index) => (
           <DropdownItem
             key={index.toString()}
-            className={`${
+            className={
               valuesComparer(item.value.value, selectedValue?.value)
                 ? "active"
                 : ""
-            }`}
+            }
           >
-            {item.render(item, index)}
+            {item.render([item.key, item.value], index)}
           </DropdownItem>
         ))}
       </ul>

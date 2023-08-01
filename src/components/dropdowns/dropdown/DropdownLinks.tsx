@@ -1,14 +1,12 @@
-import { KeyValue } from "@/types/KeyValue";
 import { twMerge } from "tailwind-merge";
-import Dropdown, { DropdownProps, DropdownValue } from "./Dropdown";
+import Dropdown, { DropdownProps } from "./Dropdown";
+import { DropdownItem } from "./DropdownItem";
 import DropdownLinkRenderer from "./DropdownLinksRenderer";
+import { DropdownValue } from "./DropdownValue";
 
 export type Props<T> = Omit<DropdownProps<T>, "items"> & {
-  items: KeyValue<string, DropdownValue<T>>[];
-  generateUrl: (
-    item: KeyValue<string, DropdownValue<T>>,
-    index: number
-  ) => string;
+  items: Map<string, DropdownValue<T>>;
+  generateUrl: (item: DropdownItem<T>, index: number) => string;
 };
 
 export default function DropdownLinks<T>({
@@ -28,9 +26,9 @@ export default function DropdownLinks<T>({
         ...buttonProps,
       }}
       className={twMerge("ellipsis sm:overflow-initial", className)}
-      items={items.map((item) => ({
-        key: item.key,
-        value: item.value,
+      items={[...items].map(([key, value]) => ({
+        key: key,
+        value: value,
         render: DropdownLinkRenderer(generateUrl),
       }))}
       {...props}

@@ -1,9 +1,9 @@
+import { EstadoPageProps, EstadoPanelProps } from "@/app/estado/[ano]/routes";
 import GaugeChart from "@/components/charts/GaugeChart";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
-import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
 
 const CHART_SETTINGS = {
   items: [

@@ -9,7 +9,7 @@ type Props = {
 export default function ArrecadacaoWidget(props: Props) {
   return (
     <Link
-      href="/areas-tematicas/educacao/visao-geral"
+      href="/area-tematica/educacao/visao-geral"
       className={props.className}
       prefetch={false}
     >

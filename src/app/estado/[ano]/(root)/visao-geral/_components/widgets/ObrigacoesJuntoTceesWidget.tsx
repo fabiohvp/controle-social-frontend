@@ -1,8 +1,8 @@
+import { EstadoPageProps, EstadoPanelProps } from "@/app/estado/[ano]/routes";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
-import { EstadoPageProps, EstadoPanelProps } from "../../../../EstadoPageProps";
 import "./obrigacoesJuntoTceesWidget.css";
 
 async function getData({ ano }: EstadoPageProps) {

@@ -2,14 +2,14 @@ import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDe
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
-import FolhaDePagamentoItensSubmenu from "../../FolhaDePagamentoItensSubmenu";
+import BreadcrumbFolhaDePagamento from "../../BreadcrumbFolhaDePagamento";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="px-2 pt-2"
       exibirFooter={false}
-      itensSubmenu={FolhaDePagamentoItensSubmenu}
+      itensBreadcrumb={BreadcrumbFolhaDePagamento}
     >
       <PainelComTituloMinimizavel
         header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}

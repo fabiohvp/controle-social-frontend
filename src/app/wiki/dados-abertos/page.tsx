@@ -1,4 +1,4 @@
-import WikiLayout from "@/components/layout/wiki/WikiLayout";
+import WikiLayout from "@/app/wiki/_components/WikiLayout";
 import ExternalLink from "@/components/links/ExternalLink";
 import Image from "next/image";
 import { BsCurrencyDollar } from "react-icons/bs";

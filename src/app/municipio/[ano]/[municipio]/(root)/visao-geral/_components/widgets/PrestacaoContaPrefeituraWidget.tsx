@@ -1,7 +1,7 @@
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import Link from "next/link";
 import { FaUniversity } from "react-icons/fa";
-import { MunicipioPanelProps } from "../../../../MunicipioPageProps";
+import { MunicipioPanelProps } from "../../../../routes";
 import SituacaoPrestacaoContaWidget from "./SituacaoPrestacaoContaWidget";
 
 export async function PrestacaoContaPrefeituraWidget({

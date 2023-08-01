@@ -1,9 +1,6 @@
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
-import {
-  MunicipioPageProps,
-  MunicipioPanelProps,
-} from "../../../../MunicipioPageProps";
+import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 import ReceitasXDespesasChart from "../charts/ReceitasXDespesasChart";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {

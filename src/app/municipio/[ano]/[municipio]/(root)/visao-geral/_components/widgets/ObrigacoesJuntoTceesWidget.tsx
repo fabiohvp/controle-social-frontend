@@ -3,10 +3,7 @@ import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
-import {
-  MunicipioPageProps,
-  MunicipioPanelProps,
-} from "../../../../MunicipioPageProps";
+import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 import "./obrigacoesJuntoTceesWidget.css";
 
 async function getData({ ano, municipio }: MunicipioPageProps) {

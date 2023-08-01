@@ -6,16 +6,9 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 import DropdownBody from "./DropdownBody";
 import { DropdownItemRender } from "./DropdownItem";
+import { DropdownValue } from "./DropdownValue";
 import "./dropdown.css";
 import { dropdownDefaultComparer } from "./dropdownComparers";
-
-export type DropdownValue<T> = T & {
-  value: string;
-};
-
-export function createDropdownValue<T>(value: string) {
-  return { value } as T;
-}
 
 export type DropdownProps<T> = {
   active?: boolean;
@@ -30,7 +23,7 @@ export type DropdownProps<T> = {
   fit?: boolean;
   hideSearch?: boolean;
   itemProps?: HTMLAttributes<HTMLSpanElement>;
-  items: DropdownItemRender<DropdownValue<T>>[];
+  items: DropdownItemRender<T>[];
   loading?: boolean;
   selected?: DropdownValue<T>;
 } & HTMLAttributes<HTMLDivElement>;

@@ -1,15 +1,15 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import ControleInternoItensSubmenu from "../ControleInternoItensSubmenu";
-import ControleInternoAlerta from "../_components/ControleInternoAlerta";
+import BreadcrumbControleInterno from "../BreadcrumbControleInterno";
+import AlertaControleInterno from "../_components/AlertaControleInterno";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensSubmenu={ControleInternoItensSubmenu}
+      itensBreadcrumb={BreadcrumbControleInterno}
     >
-      <ControleInternoAlerta />
+      <AlertaControleInterno />
       Camaras{/* TODO: adicionar gráficos */}
     </DashboardLayout>
   );

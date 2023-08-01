@@ -21,3 +21,14 @@ export function groupBy<TKey, TValue>(
   });
   return map;
 }
+
+export function makeSortedMapByValue<K, V>(
+  map: Map<K, V>,
+  getValue: (item: [K, V]) => string
+) {
+  map[Symbol.iterator] = function* () {
+    yield* [...this.entries()].sort((a: [K, V], b: [K, V]) =>
+      getValue(a).localeCompare(getValue(b))
+    );
+  };
+}

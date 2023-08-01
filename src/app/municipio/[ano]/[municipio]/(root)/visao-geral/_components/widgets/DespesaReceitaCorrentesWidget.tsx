@@ -4,10 +4,7 @@ import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
-import {
-  MunicipioPageProps,
-  MunicipioPanelProps,
-} from "../../../../MunicipioPageProps";
+import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 
 const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
   const municipios = await getMunicipios();

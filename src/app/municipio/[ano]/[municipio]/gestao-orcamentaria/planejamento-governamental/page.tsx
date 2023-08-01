@@ -1,14 +1,14 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import { MunicipioPageProps } from "../../MunicipioPageProps";
-import MunicipiosBarraLateral from "../../_components/MunicipiosBarraLateral";
-import GestaoOrcamentariaItensSubmenu from "../GestaoOrcamentariaItensSubmenu";
+import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
+import { MunicipioPageProps } from "../../routes";
+import BreadcrumbGestaoOrcamentaria from "../BreadcrumbGestaoOrcamentaria";
 
 export default function Page({ params }: { params: MunicipioPageProps }) {
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
-      itensSubmenu={GestaoOrcamentariaItensSubmenu}
-      barraLateral={MunicipiosBarraLateral}
+      itensBreadcrumb={BreadcrumbGestaoOrcamentaria}
+      barraLateral={BarraLateralMunicipios}
     >
       Planejamento governamental: {params.ano} {params.municipio}
     </DashboardLayout>
