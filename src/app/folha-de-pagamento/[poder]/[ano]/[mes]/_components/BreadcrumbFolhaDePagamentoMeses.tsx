@@ -5,24 +5,24 @@ import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownVal
 import { getMonthNames } from "@/shared/date";
 import { useParams, usePathname } from "next/navigation";
 import {
+  FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-  getFolhaDePagamentoSegment,
-} from "../folhaDePagamentoState";
+} from "../routes";
 
 const meses = getMonthNames({ format: "long" });
 
 export default function BreadcrumbFolhaDePagamentoMeses() {
-  const routeParams = useParams();
-  const segment = getFolhaDePagamentoSegment(usePathname())!;
+  const routeParams = useParams() as FolhaDePagamentoPageProps;
+  const pathname = usePathname();
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
+        generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            mes: value.value,
-            segment,
+            item,
+            pathname,
           })
         }
         items={

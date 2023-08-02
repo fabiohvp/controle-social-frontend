@@ -2,7 +2,7 @@ import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDe
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
-import BreadcrumbContratacoesEDemissoes from "../BreadcrumbContratacoesEDemissoesItens";
+import BreadcrumbContratacoesEDemissoes from "../BreadcrumbContratacoesEDemissoes";
 
 export default function Page() {
   return (

@@ -7,9 +7,9 @@ import {
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { useParams, usePathname } from "next/navigation";
 import {
+  FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-  getFolhaDePagamentoSegment,
-} from "../folhaDePagamentoState";
+} from "../[poder]/[ano]/[mes]/routes";
 
 const PODERES: Map<string, DropdownValue<string>> = new Map([
   ["Todos", createDropdownValue("todos")],
@@ -25,18 +25,19 @@ const PODERES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbFolhaDePagamentoPoderes() {
-  const routeParams = useParams();
-  const segment = getFolhaDePagamentoSegment(usePathname())!;
+  const routeParams = useParams() as FolhaDePagamentoPageProps;
+  const pathname = usePathname();
 
   return (
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={([_, value]) =>
+        generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            poder: value.value,
-            segment,
+            item,
+            pathname,
+            poder: item[1].value,
             unidadeGestora: "todos",
           })
         }

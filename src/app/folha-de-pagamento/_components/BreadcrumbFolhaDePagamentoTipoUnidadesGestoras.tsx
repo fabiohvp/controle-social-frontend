@@ -12,9 +12,9 @@ import {
 import { groupBy } from "@/types/Array";
 import { useParams, usePathname } from "next/navigation";
 import {
+  FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-  getFolhaDePagamentoSegment,
-} from "../folhaDePagamentoState";
+} from "../[poder]/[ano]/[mes]/routes";
 
 type Option = {
   nome: string;
@@ -33,8 +33,8 @@ const TODOS_OPTION = {
 };
 
 export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
-  const routeParams = useParams();
-  const segment = getFolhaDePagamentoSegment(usePathname())!;
+  const routeParams = useParams() as FolhaDePagamentoPageProps;
+  const pathname = usePathname();
   const [options, selectedComparer] = getUnidadesGestorasPorPoder(
     routeParams.poder
   );
@@ -59,14 +59,15 @@ export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
           <DropdownLinks
             bodyProps={{ className: "!min-w-[400px]" }}
             comparer={dropdownStartsWithComparer}
-            generateUrl={([_, value]) =>
+            generateUrl={(item) =>
               generateFolhaDePagamentoUrl({
                 ...routeParams,
                 unidadeGestora:
                   routeParams.poder === "assembleia-legislativa"
-                    ? undefined
-                    : value.value,
-                segment,
+                    ? ""
+                    : item[1].value,
+                item,
+                pathname,
               })
             }
             items={
@@ -82,7 +83,6 @@ export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
         </li>
       )}
       <BreadcrumbFolhaDePagamentoUnidadesGestoras
-        segment={segment}
         unidadesGestoras={selectedUnidadeGestora.unidadesGestoras}
       />
     </>
@@ -90,13 +90,12 @@ export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
 }
 
 function BreadcrumbFolhaDePagamentoUnidadesGestoras({
-  segment,
   unidadesGestoras,
 }: {
-  segment: string;
   unidadesGestoras: Option[];
 }) {
-  const routeParams = useParams();
+  const pathname = usePathname();
+  const routeParams = useParams() as FolhaDePagamentoPageProps;
 
   if (!unidadesGestoras.length) {
     return <></>;
@@ -121,11 +120,12 @@ function BreadcrumbFolhaDePagamentoUnidadesGestoras({
     <li>
       <DropdownLinks
         bodyProps={{ className: "!min-w-[400px]" }}
-        generateUrl={([_, value]) =>
+        generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            segment,
-            unidadeGestora: value.value,
+            item,
+            pathname,
+            unidadeGestora: item[1].value,
           })
         }
         items={

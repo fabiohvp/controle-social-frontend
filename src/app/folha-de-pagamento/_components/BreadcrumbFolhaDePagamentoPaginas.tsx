@@ -1,30 +1,48 @@
 "use client";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
-import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
+import {
+  DropdownValue,
+  createDropdownValue,
+} from "@/components/dropdowns/dropdown/DropdownValue";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { useParams, usePathname } from "next/navigation";
 import {
-  FOLHA_DE_PAGAMENTO_PAGES,
+  FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-  getFolhaDePagamentoSegment,
-} from "../folhaDePagamentoState";
+  getPagina,
+} from "../[poder]/[ano]/[mes]/routes";
+
+const FOLHA_DE_PAGAMENTO_PAGES: Map<string, DropdownValue<string>> = new Map([
+  ["Visão geral", createDropdownValue("visao-geral")],
+  ["Ativos", createDropdownValue("ativos")],
+  ["Beneficiários", createDropdownValue("beneficiarios")],
+  ["Estagiários", createDropdownValue("estagiarios")],
+  [
+    "Ingressos e desligamentos",
+    createDropdownValue("contratacoes-e-demissoes"),
+  ],
+  ["Consulta de vínculo", createDropdownValue("consulta-vinculo")],
+]);
 
 export default function BreadcrumbFolhaDePagamentoPaginas() {
-  const routeParams = useParams();
-  const segment = getFolhaDePagamentoSegment(usePathname());
+  const pathname = usePathname();
+  const routeParams = useParams() as FolhaDePagamentoPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={([_, value]) =>
+        generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            segment: value.value,
+            item,
+            pathname,
+            pagina: item[1].value,
           })
         }
         items={FOLHA_DE_PAGAMENTO_PAGES}
-        selected={createDropdownValue(segment!)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );
