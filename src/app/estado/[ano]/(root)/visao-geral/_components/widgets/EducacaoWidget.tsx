@@ -22,7 +22,7 @@ const CHART_SETTINGS = {
   title: "Limite constitucional",
 };
 
-const getData = cache(async ({ ano }: EstadoPageProps) => {
+const getData = cache(async ({ ano }: Partial<EstadoPageProps>) => {
   const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/Educacao/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`

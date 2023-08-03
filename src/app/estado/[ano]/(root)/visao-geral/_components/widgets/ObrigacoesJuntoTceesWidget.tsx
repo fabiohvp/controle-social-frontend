@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import "./obrigacoesJuntoTceesWidget.css";
 
-async function getData({ ano }: EstadoPageProps) {
+async function getData({ ano }: Partial<EstadoPageProps>) {
   const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
