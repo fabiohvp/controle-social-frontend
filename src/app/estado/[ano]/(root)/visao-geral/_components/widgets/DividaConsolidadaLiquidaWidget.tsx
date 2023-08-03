@@ -32,7 +32,7 @@ const CHART_SETTINGS = {
   title: "Tende a obedecer ao limite de 120% da RCL", //TODO: condicional para quando o valor ultrapassar
 };
 
-const getData = cache(async ({ ano }: EstadoPageProps) => {
+const getData = cache(async ({ ano }: Partial<EstadoPageProps>) => {
   const codigo = "001";
   const res = await fetch(
     `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/LimiteDespesaReceita/GetLimiteDespesaReceita?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
