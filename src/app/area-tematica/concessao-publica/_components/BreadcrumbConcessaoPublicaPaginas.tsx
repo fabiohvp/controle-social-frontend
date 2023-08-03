@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { usePathname } from "next/navigation";
+import { generateConcessaoPublicaUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
@@ -12,16 +13,17 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbConcessaoPublicaPaginas() {
-  const segments = usePathname().split(`/area-tematica/concessao-publica/`)[1];
+  const pathname = usePathname();
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/area-tematica/concessao-publica/${value.value}`
+        generateUrl={(item) =>
+          generateConcessaoPublicaUrl({ pagina: item[1].value })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

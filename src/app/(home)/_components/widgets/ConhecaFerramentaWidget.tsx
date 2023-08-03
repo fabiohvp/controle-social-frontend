@@ -47,7 +47,7 @@ export default function ConhecaFerramentaWidget(props: Props) {
             <p className="carousel-title">{carouselItem.titulo}</p>
             <iframe
               allow="autoplay; encrypted-media"
-              src={`https://www.youtube.com/embed/${carouselItem.videoId}?rel=0&amp;amp;showinfo=0&amp;amp;controls=0`}
+              src={`https://www.youtube-nocookie.com/embed/${carouselItem.videoId}?rel=0&amp;amp;showinfo=0&amp;amp;controls=0`}
               height={295}
               width={840}
             ></iframe>

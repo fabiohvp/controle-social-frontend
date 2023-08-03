@@ -731,7 +731,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Painel com informações sobre
-            <Link href="/areasTematicas/Saude-VisaoGeral" prefetch={false}>
+            <Link href="/area-tematica/saude/estabelecimentos" prefetch={false}>
               saúde.
             </Link>
           </li>

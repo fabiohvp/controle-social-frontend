@@ -1,16 +1,19 @@
 "use client";
+import {
+  MunicipioPageProps,
+  generateMunicipioUrl,
+} from "@/app/municipio/[ano]/[municipio]/routes";
 import ComparadorIcon from "@/components/images/icons/ComparadorIcon";
 import IndicadoresIcon from "@/components/images/icons/IndicadoresIcon";
 import RankingIcon from "@/components/images/icons/RankingIcon";
 import MapaEsIcon from "@/components/images/icons/header/MapaEsIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
-import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import { MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useState } from "react";
 import MapaEsChart from "../charts/MapaEsChart";
 import DropdownMenu from "../dropdowns/dropdown/DropdownMenu";
@@ -50,10 +53,8 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
   const [municipiosFilterable, setMunicipiosFilterable] = useState(
     getMunicipiosFilterable(municipios)
   );
-  const { push } = useRouter();
-  const routeParams = useParams();
-  const segments =
-    usePathname().split(`/${routeParams.municipio}/`)[1] ?? "visao-geral";
+  const pathname = usePathname();
+  const routeParams = useParams() as MunicipioPageProps;
 
   function onKeyUp(event: React.KeyboardEvent<HTMLInputElement>) {
     const searchText = normalize(event.currentTarget.value);
@@ -67,19 +68,6 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
     } else {
       setMunicipiosFilterable(getMunicipiosFilterable(municipios));
     }
-  }
-
-  function onMapaInit(chart: echarts.EChartsType) {
-    chart.on("click", function (params) {
-      const nomeNormalizado = getNomeNormalizadoMunicipio(
-        municipios,
-        params.name
-      );
-      //TODO: fix ano inicial
-      push(
-        `/municipio/${routeParams.ano ?? 2023}/${nomeNormalizado}/${segments}`
-      );
-    });
   }
 
   function onMouseOver(municipio: EsferaAdministrativa) {
@@ -132,19 +120,17 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
                 {
                   <RenderMunicipioGroups
                     municipios={municipios}
-                    onMouseOver={onMouseOver}
+                    pathname={pathname}
                     onMouseOut={onMouseOut}
+                    onMouseOver={onMouseOver}
+                    routeParams={routeParams}
                   />
                 }
               </div>
             )
           )}
           <div className="center h-full w-[300px]">
-            <MapaEsChart
-              getChart={setChart}
-              onInit={onMapaInit}
-              municipios={municipios}
-            />
+            <MapaEsChart getChart={setChart} municipios={municipios} />
           </div>
         </div>
       </div>
@@ -152,24 +138,36 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
   );
 }
 
-function RenderMunicipioGroups(props: {
+function RenderMunicipioGroups({
+  municipios,
+  onMouseOut,
+  onMouseOver,
+  pathname,
+  routeParams,
+}: {
   municipios: MunicipioFilterable[];
   onMouseOver: (municipio: EsferaAdministrativa) => void;
   onMouseOut: (municipio: EsferaAdministrativa) => void;
+  pathname: string;
+  routeParams: MunicipioPageProps;
 }) {
   return (
     <ul>
-      {props.municipios.map((municipio) => (
+      {municipios.map((municipio) => (
         <li
           key={municipio.nome}
           className={`px-2 leading-relaxed ${
             municipio.filtered ? "bg-yellow-300" : ""
           }`}
-          onMouseOver={() => props.onMouseOver(municipio)}
-          onMouseOut={() => props.onMouseOut(municipio)}
+          onMouseOver={() => onMouseOver(municipio)}
+          onMouseOut={() => onMouseOut(municipio)}
         >
           <Link
-            href={`/municipio/2023/${municipio.nomeNormalizado}/visao-geral`}
+            href={generateMunicipioUrl({
+              ...routeParams,
+              municipio: municipio.nomeNormalizado,
+              pathname,
+            })}
             prefetch={false}
           >
             {municipio.nome}

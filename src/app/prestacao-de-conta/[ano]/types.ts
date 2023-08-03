@@ -1,10 +1,3 @@
-export type PrestacaoDeContaGovernoPageProps = {
-  ano: string;
-  tipoConta: string;
-  tipoEsferaAdministrativa: string;
-  tipoUnidadeGestora: string;
-};
-
 export type ResumoProcessoKey =
   | "Aprovação"
   | "Aprovação com ressalva"

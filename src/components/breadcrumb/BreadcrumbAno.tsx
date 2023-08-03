@@ -28,7 +28,10 @@ export default function BreadcrumbAno<T>(props: Props) {
       <DropdownLinks
         className="min-w-[70px]"
         generateUrl={(item, index) =>
-          props.generateUrl({ ...routeParams, item, pathname }, index)
+          props.generateUrl(
+            { ...routeParams, ano: item[1].value, pathname },
+            index
+          )
         }
         items={items}
         selected={createDropdownValue(routeParams.ano)}

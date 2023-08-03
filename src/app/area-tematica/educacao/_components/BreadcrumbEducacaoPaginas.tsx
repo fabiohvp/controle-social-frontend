@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { usePathname } from "next/navigation";
+import { generateEducacaoUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
@@ -14,14 +15,15 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbEducacaoPaginas() {
-  const segments = usePathname().split(`/area-tematica/educacao/`)[1];
+  const pathname = usePathname();
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) => `/area-tematica/educacao/${value.value}`}
+        generateUrl={(item) => generateEducacaoUrl({ pagina: item[1].value })}
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

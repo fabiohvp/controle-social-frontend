@@ -7,8 +7,8 @@ type Props = {
   className?: string;
 };
 
-export default async function PainelWidget(props: Props) {
-  const municipios = await getMunicipios();
+export default function PainelWidget(props: Props) {
+  const municipios = getMunicipios();
 
   return (
     <div

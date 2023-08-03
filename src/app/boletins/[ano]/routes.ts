@@ -1,16 +1,23 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
-
 export type BoletinsPageProps = {
   ano: string;
-  mes: string[] | undefined;
+  mes: string | undefined;
+  pagina: string | undefined;
 };
 
-export function generateBoletinsUrl<T>({
+export function generateBoletinsUrl({
   ano,
-  item,
   mes,
+  pagina,
   pathname,
-}: BoletinsPageProps & { item: DropdownItem<T>; pathname: string }) {
-  const segment = pathname.split(`/${ano}/`)[1];
-  return `/boletins/${item[1].value ?? 2023}/${segment ?? mes ?? ""}`;
+}: BoletinsPageProps & { pathname: string }) {
+  if (pagina || !mes) {
+    pagina = pagina ?? getPagina(pathname) ?? "";
+    return `/boletins/${ano}/${pagina}`;
+  }
+  return `/boletins/${ano}/${mes}`;
+}
+
+export function getPagina(pathname: string) {
+  const pagina = pathname.split("/")[3];
+  return pagina;
 }

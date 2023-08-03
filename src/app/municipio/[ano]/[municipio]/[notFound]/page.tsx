@@ -11,10 +11,10 @@ const redirects = new Map<string, string>([
 ]);
 
 export default async function Page(props: Props) {
-  const segment = props.params.notFound;
+  const pagina = props.params.notFound;
 
   for (const [key, value] of redirects) {
-    if (segment === key) {
+    if (pagina === key) {
       return redirect(value);
     } else {
       const url = generateMunicipioUrl({

@@ -7,7 +7,7 @@ import { useParams, usePathname } from "next/navigation";
 import {
   FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-} from "../routes";
+} from "../../../../routes";
 
 const meses = getMonthNames({ format: "long" });
 
@@ -21,7 +21,6 @@ export default function BreadcrumbFolhaDePagamentoMeses() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            item,
             pathname,
           })
         }

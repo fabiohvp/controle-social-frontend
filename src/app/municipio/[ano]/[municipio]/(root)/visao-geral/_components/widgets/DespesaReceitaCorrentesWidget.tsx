@@ -6,23 +6,6 @@ import { COLOR } from "@/theme/colors";
 import { cache } from "react";
 import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 
-const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  const municipios = await getMunicipios();
-  const codigo = await getCodigoMunicipio(municipios, municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/LimiteDespesaReceita/GetLimiteDespesaReceita?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = await res.json();
-  return {
-    ...data,
-    valorApurado: parseFloat(data?.valorApurado.replace(",", ".")),
-  } as {
-    valorAlerta: number;
-    valorApurado: number;
-    valorMaximo: number;
-  };
-});
-
 export async function DespesaReceitaCorrentesWidget({
   ano,
   municipio,
@@ -80,3 +63,22 @@ export async function DespesaReceitaCorrentesWidget({
     </PainelComTitulo>
   );
 }
+
+const getData = cache(
+  async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
+    const municipios = getMunicipios();
+    const codigo = getCodigoMunicipio(municipios, municipio!);
+    const res = await fetch(
+      `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/LimiteDespesaReceita/GetLimiteDespesaReceita?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    );
+    const data = await res.json();
+    return {
+      ...data,
+      valorApurado: parseFloat(data?.valorApurado.replace(",", ".")),
+    } as {
+      valorAlerta: number;
+      valorApurado: number;
+      valorMaximo: number;
+    };
+  }
+);

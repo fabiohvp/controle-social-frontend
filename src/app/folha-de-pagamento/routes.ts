@@ -1,5 +1,3 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
-
 export type FolhaDePagamentoPageProps = {
   ano: string;
   mes: string;
@@ -8,15 +6,14 @@ export type FolhaDePagamentoPageProps = {
   unidadeGestora: string;
 };
 
-export function generateFolhaDePagamentoUrl<T>({
+export function generateFolhaDePagamentoUrl({
   ano,
-  item,
   mes,
   pagina,
   pathname,
   poder,
   unidadeGestora,
-}: FolhaDePagamentoPageProps & { item: DropdownItem<T>; pathname: string }) {
+}: FolhaDePagamentoPageProps & { pathname: string }) {
   pagina = pagina ?? getPagina(pathname);
 
   if (pagina === "consulta-vinculo") {
@@ -38,6 +35,6 @@ export function getPagina(pathname: string) {
   } else if (pathname.includes("/contratacoes-e-demissoes")) {
     paginaIndex = 4;
   }
-  const pagina = pathname.split(`/`)[paginaIndex];
+  const pagina = pathname.split("/")[paginaIndex];
   return pagina;
 }

@@ -22,7 +22,7 @@
   }
 }
 
-.dropdown-modal .body {
+.dropdown-modal .items {
   max-height: 80vh;
   min-width: 200px;
   overflow-x: hidden;

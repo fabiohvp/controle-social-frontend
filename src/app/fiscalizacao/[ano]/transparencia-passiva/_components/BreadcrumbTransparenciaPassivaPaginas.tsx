@@ -5,6 +5,11 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  TransparenciaPassivaPageProps,
+  generateTransparenciaPassivaUrl,
+  getPagina,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Câmaras", createDropdownValue("camaras")],
@@ -12,18 +17,24 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Estado", createDropdownValue("estado")],
 ]);
 
-export default function MenuFiscalizacaoTransparenciaPassivaPages() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+export default function BreadcrumbTransparenciaPassivaPaginas() {
+  const pathname = usePathname();
+  const routeParams = useParams() as TransparenciaPassivaPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${value.value}`
+        generateUrl={(item) =>
+          generateTransparenciaPassivaUrl({
+            ...routeParams,
+            item,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

@@ -103,7 +103,7 @@ export default async function Page({
   const data = await getData(params);
 
   return (
-    <table className="table mt-4 responsive text-sm">
+    <table className="table mt-2 responsive text-sm">
       <thead>
         <tr>
           <th className="min-w-[200px]">Edição</th>

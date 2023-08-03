@@ -6,16 +6,6 @@ import { FaCheckCircle } from "react-icons/fa";
 import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 import "./obrigacoesJuntoTceesWidget.css";
 
-async function getData({ ano, municipio }: MunicipioPageProps) {
-  const municipios = await getMunicipios();
-  const codigo = await getCodigoMunicipio(municipios, municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = await res.json();
-  return data as { [key: string]: boolean };
-}
-
 export async function ObrigacoesJuntoTceesWidget({
   ano,
   municipio,
@@ -48,4 +38,14 @@ export async function ObrigacoesJuntoTceesWidget({
       </ul>
     </PainelComTitulo>
   );
+}
+
+async function getData({ ano, municipio }: Partial<MunicipioPageProps>) {
+  const municipios = getMunicipios();
+  const codigo = getCodigoMunicipio(municipios, municipio!);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = await res.json();
+  return data as { [key: string]: boolean };
 }

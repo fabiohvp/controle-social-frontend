@@ -26,6 +26,7 @@ export type DropdownProps<T> = {
   items: DropdownItemRender<T>[];
   loading?: boolean;
   selected?: DropdownValue<T>;
+  selectedProps?: HTMLAttributes<HTMLSpanElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function Dropdown<T>({
@@ -38,10 +39,11 @@ export default function Dropdown<T>({
   comparer,
   fit,
   hideSearch,
-  itemProps: { className: itemClassName, ...itemProps } = {},
+  itemProps,
   items,
   loading,
   selected,
+  selectedProps: { className: selectedClassName, ...selectedProps } = {},
   ...props
 }: DropdownProps<T>) {
   const [open, setOpen] = useState(active ?? false);
@@ -81,9 +83,9 @@ export default function Dropdown<T>({
           <span
             className={twMerge(
               "max-w-[200px] overflow-hidden text-ellipsis",
-              itemClassName
+              selectedClassName
             )}
-            {...itemProps}
+            {...selectedProps}
           >
             {getSelected()}
           </span>
@@ -95,6 +97,7 @@ export default function Dropdown<T>({
           comparer={comparer}
           hideSearch={hideSearch}
           items={items}
+          itemProps={itemProps}
           selected={selected}
           {...bodyProps}
         />

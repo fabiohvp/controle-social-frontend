@@ -2,8 +2,10 @@
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams } from "next/navigation";
-import { generatePrestacaoDeContaUrl } from "../../../../routes";
-import { PrestacaoDeContaGovernoPageProps } from "../../../../types";
+import {
+  PrestacaoDeContaGovernoPageProps,
+  generatePrestacaoDeContaUrl,
+} from "../routes";
 
 export default function BreadcrumbPrestacaoDeContaTipoUnidadeGestora({
   tiposUnidadesGestoras,
@@ -20,10 +22,10 @@ export default function BreadcrumbPrestacaoDeContaTipoUnidadeGestora({
     <li>
       <DropdownLinks
         bodyProps={{ className: "!min-w-[260px]" }}
-        generateUrl={([_, value]) =>
+        generateUrl={(item) =>
           generatePrestacaoDeContaUrl({
             ...routeParams,
-            tipoUnidadeGestora: value.value,
+            tipoUnidadeGestora: item[1].value,
           })
         }
         items={

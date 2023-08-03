@@ -1,19 +1,24 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
 import { CSSProperties } from "react";
 
 export type EstadoPageProps = {
   ano: string;
+  pagina: string;
 };
 
 export type EstadoPanelProps = {
   style?: CSSProperties;
 } & EstadoPageProps;
 
-export function generateEstadoUrl<T>({
+export function generateEstadoUrl({
   ano,
-  item,
+  pagina,
   pathname,
-}: EstadoPageProps & { item: DropdownItem<T>; pathname: string }) {
-  const segments = pathname.split(`/${ano}/`)[1];
-  return `/estado/${item[1].value}/${segments}`;
+}: EstadoPageProps & { pathname: string }) {
+  pagina = pagina ?? getPagina(pathname);
+  return `/estado/${ano}/${pagina}`;
+}
+
+export function getPagina(pathname: string) {
+  const pagina = pathname.split("/")[3];
+  return pagina;
 }

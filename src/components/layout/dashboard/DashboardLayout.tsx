@@ -26,24 +26,12 @@ type Props = {
   itensBreadcrumb?: ElementType | ReactNode;
 };
 
-function isReactNode(
-  itensBreadcrumb?: ElementType | ReactNode
-): itensBreadcrumb is ReactNode {
-  return (itensBreadcrumb as any).type !== undefined;
-}
-
-function isElementType(
-  itensBreadcrumb?: ElementType | ReactNode
-): itensBreadcrumb is ElementType {
-  return (itensBreadcrumb as any).type === undefined;
-}
-
-export default async function DashboardLayout(props: Props) {
+export default function DashboardLayout(props: Props) {
   const maxHeightContent = props.itensBreadcrumb
     ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
     : MAX_HEIGHT_CONTENT;
 
-  const municipios = await getMunicipios();
+  const municipios = getMunicipios();
 
   return (
     <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
@@ -84,4 +72,16 @@ export default async function DashboardLayout(props: Props) {
       </main>
     </div>
   );
+}
+
+function isReactNode(
+  itensBreadcrumb?: ElementType | ReactNode
+): itensBreadcrumb is ReactNode {
+  return (itensBreadcrumb as any).type !== undefined;
+}
+
+function isElementType(
+  itensBreadcrumb?: ElementType | ReactNode
+): itensBreadcrumb is ElementType {
+  return (itensBreadcrumb as any).type === undefined;
 }

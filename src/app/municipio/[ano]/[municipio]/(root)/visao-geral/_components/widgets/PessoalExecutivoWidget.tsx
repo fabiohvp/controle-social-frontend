@@ -33,16 +33,6 @@ const CHART_SETTINGS = {
   title: "Limite LRF",
 };
 
-const getData = cache(async ({ ano, municipio }: MunicipioPageProps) => {
-  const municipios = await getMunicipios();
-  const codigo = await getCodigoMunicipio(municipios, municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalExecutivo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = await res.json();
-  return data as { [key: string]: number };
-});
-
 export async function PessoalExecutivoWidget({
   ano,
   municipio,
@@ -81,3 +71,15 @@ export async function PessoalExecutivoWidget({
     </PainelComTitulo>
   );
 }
+
+const getData = cache(
+  async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
+    const municipios = getMunicipios();
+    const codigo = getCodigoMunicipio(municipios, municipio!);
+    const res = await fetch(
+      `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalExecutivo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    );
+    const data = await res.json();
+    return data as { [key: string]: number };
+  }
+);

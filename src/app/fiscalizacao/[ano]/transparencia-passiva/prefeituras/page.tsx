@@ -1,15 +1,15 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import FiscalizacaoPortalTransparenciaSubmenuItems from "../FiscalizacaoPortalTransparenciaSubmenuItems";
-import FiscalizacaoPanelAlertTransparenciaPassiva from "../_components/FiscalizacaoPanelAlertTransparenciaPassiva";
+import BreadcrumbTransparenciaPassiva from "../BreadcrumbTransparenciaPassiva";
+import AlertaTransparenciaPassiva from "../_components/AlertaTransparenciaPassiva";
 
 export default function Page() {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensBreadcrumb={FiscalizacaoPortalTransparenciaSubmenuItems}
+      itensBreadcrumb={BreadcrumbTransparenciaPassiva}
     >
-      <FiscalizacaoPanelAlertTransparenciaPassiva />
+      <AlertaTransparenciaPassiva />
       Prefeituras{/* TODO: adicionar gráficos */}
     </DashboardLayout>
   );

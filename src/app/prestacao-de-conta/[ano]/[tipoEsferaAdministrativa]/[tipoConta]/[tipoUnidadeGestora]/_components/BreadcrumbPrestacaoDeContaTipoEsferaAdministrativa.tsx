@@ -1,12 +1,15 @@
 "use client";
+import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import {
   DropdownValue,
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams } from "next/navigation";
-import { generatePrestacaoDeContaUrl } from "../../../../routes";
-import { PrestacaoDeContaGovernoPageProps } from "../../../../types";
+import {
+  PrestacaoDeContaGovernoPageProps,
+  generatePrestacaoDeContaUrl,
+} from "../routes";
 
 export const PRESTACAO_DE_CONTA_TIPO_ESFERA_ADMINISTRATIVA: Map<
   string,
@@ -22,8 +25,8 @@ export default function BreadcrumbPrestacaoDeContaTipoEsferaAdministrativa() {
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          generatePrestacaoDeContaUrl(routeChange(value.value, routeParams))
+        generateUrl={(item) =>
+          generatePrestacaoDeContaUrl(routeChange(item, routeParams))
         }
         items={PRESTACAO_DE_CONTA_TIPO_ESFERA_ADMINISTRATIVA}
         selected={createDropdownValue(routeParams.tipoEsferaAdministrativa)}
@@ -32,18 +35,19 @@ export default function BreadcrumbPrestacaoDeContaTipoEsferaAdministrativa() {
   );
 }
 
-function routeChange(
-  itemValue: string,
+function routeChange<T>(
+  item: DropdownItem<T>,
   routeParams: PrestacaoDeContaGovernoPageProps
 ) {
+  const value = item[1].value;
   const newRouteParams = {
     ...routeParams,
-    tipoEsferaAdministrativa: itemValue,
+    tipoEsferaAdministrativa: value,
   };
-  if (routeParams.tipoEsferaAdministrativa !== itemValue) {
+  if (routeParams.tipoEsferaAdministrativa !== value) {
     newRouteParams.tipoConta = "governo";
 
-    if (itemValue === "estado") {
+    if (value === "estado") {
       newRouteParams.tipoUnidadeGestora = "10";
     } else {
       newRouteParams.tipoUnidadeGestora = "07";

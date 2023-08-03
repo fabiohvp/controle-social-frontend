@@ -3,7 +3,7 @@
   "artigos": [
     {
       "description": "Serviços públicos transferidos ao particular",
-      "href": "/areas-tematicas/concessao-publica/visao-geral",
+      "href": "/area-tematica/concessao-publica/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/concessoes-ppp.png",
@@ -13,7 +13,7 @@
     },
     {
       "description": "Distribuição de escolas, matrículas e profissionais",
-      "href": "/areas-tematicas/educacao/visao-geral",
+      "href": "/area-tematica/educacao/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/educacao.png",
@@ -23,7 +23,7 @@
     },
     {
       "description": "Cargos, empregos e funções públicas",
-      "href": "/areas-tematicas/estrutura-administrativa",
+      "href": "/area-tematica/estrutura-administrativa",
       "image": {
         "height": 50,
         "src": "/icons/estrutura-administrativa.png",
@@ -43,7 +43,7 @@
     },
     {
       "description": "Equipamentos, leitos e estabelecimentos de saúde",
-      "href": "/areas-tematicas/saude/estabelecimentos",
+      "href": "/area-tematica/saude/estabelecimentos",
       "image": {
         "height": 50,
         "src": "/icons/saude.png",

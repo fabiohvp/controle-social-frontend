@@ -10,8 +10,8 @@ type Props = {
   title: string;
 };
 
-export default async function WikiLayout({ children, title }: Props) {
-  const municipios = await getMunicipios();
+export default function WikiLayout({ children, title }: Props) {
+  const municipios = getMunicipios();
 
   return (
     <>

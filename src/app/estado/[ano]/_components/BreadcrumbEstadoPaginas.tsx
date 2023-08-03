@@ -6,6 +6,7 @@ import {
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { useParams, usePathname } from "next/navigation";
+import { EstadoPageProps, generateEstadoUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
@@ -19,19 +20,23 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbEstadoPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
-  const initialSegment = segments.split("/")[0];
+  const pathname = usePathname();
+  const routeParams = useParams() as EstadoPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
         comparer={dropdownStartsWithComparer}
-        generateUrl={([_, value]) =>
-          `/estado/${routeParams.ano}/${value.value}`
+        generateUrl={(item) =>
+          generateEstadoUrl({
+            ...routeParams,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(initialSegment)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

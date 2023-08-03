@@ -13,7 +13,7 @@ export default function ListaCircular({
   ...props
 }: Props) {
   return (
-    <ul className={twMerge("circle-list", className)} {...props}>
+    <ul className={twMerge("lista-circular", className)} {...props}>
       {children}
     </ul>
   );

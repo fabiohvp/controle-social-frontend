@@ -5,6 +5,11 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  OfertaXDemandaLabelPageProps,
+  generateOfertaXDemandaUrl,
+  getPagina,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Distribuição das escolas", createDropdownValue("escolas")],
@@ -20,19 +25,24 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
   ],
 ]);
 
-export default function OfertaXDemandaMenuPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[5];
+export default function BreadcrumbOfertaXDemandPaginas() {
+  const pathname = usePathname();
+  const routeParams = useParams() as OfertaXDemandaLabelPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        bodyProps={{ className: "!min-w-[350px]" }}
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/educacao/oferta-x-demanda/${value.value}`
+        bodyProps={{ className: "!min-w-[340px]" }}
+        generateUrl={(item) =>
+          generateOfertaXDemandaUrl({
+            ...routeParams,
+            pathname,
+            pagina: item[1].value,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

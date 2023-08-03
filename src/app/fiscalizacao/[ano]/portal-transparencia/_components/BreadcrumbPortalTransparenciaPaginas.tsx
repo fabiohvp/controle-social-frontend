@@ -5,6 +5,11 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  PortalTransparenciaPageProps,
+  generatePortalTransparenciaUrl,
+  getPagina,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Câmaras", createDropdownValue("camaras")],
@@ -13,17 +18,23 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbPortalTransparenciaPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+  const pathname = usePathname();
+  const routeParams = useParams() as PortalTransparenciaPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/portal-transparencia/${value.value}`
+        generateUrl={(item) =>
+          generatePortalTransparenciaUrl({
+            ...routeParams,
+            item,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

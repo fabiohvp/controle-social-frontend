@@ -133,6 +133,10 @@ a:hover {
   margin-left: auto;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -3,6 +3,7 @@ import DropdownModal from "@/components/dropdowns/dropdown/DropdownModal";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { HTMLAttributes, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import DropdownItem, { DropdownItemRender } from "./DropdownItem";
 import { DropdownValue } from "./DropdownValue";
 import "./dropdown.css";
@@ -14,14 +15,18 @@ export type DropdownBodyProps<T> = {
     selectedValue: string | undefined
   ) => boolean;
   hideSearch?: boolean;
+  itemProps?: HTMLAttributes<HTMLSpanElement>;
   items: DropdownItemRender<T>[];
+  itemsProps?: HTMLAttributes<HTMLSpanElement>;
   selected?: DropdownValue<T>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function DropdownBody<T>({
   comparer,
   hideSearch,
+  itemProps: { className: itemClassName, ...itemProps } = {},
   items,
+  itemsProps: { className: itemsClassName, ...itemsProps } = {},
   selected: selectedValue,
   ...props
 }: DropdownBodyProps<T>) {
@@ -56,15 +61,17 @@ export default function DropdownBody<T>({
           />
         </div>
       )}
-      <ul className="body">
+      <ul className={twMerge("items", itemsClassName)} {...itemsProps}>
         {visibleItems.map((item, index) => (
           <DropdownItem
             key={index.toString()}
-            className={
+            className={twMerge(
+              itemClassName,
               valuesComparer(item.value.value, selectedValue?.value)
                 ? "active"
                 : ""
-            }
+            )}
+            {...itemProps}
           >
             {item.render([item.key, item.value], index)}
           </DropdownItem>

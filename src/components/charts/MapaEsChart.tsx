@@ -1,5 +1,11 @@
 "use client";
+import { getPagina } from "@/app/folha-de-pagamento/routes";
+import {
+  MunicipioPageProps,
+  generateMunicipioUrl,
+} from "@/app/municipio/[ano]/[municipio]/routes";
 import { deepMerge } from "@/shared/merge";
+import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
 import { MunicipiosProps } from "@/types/Municipio";
 import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
@@ -12,7 +18,7 @@ import {
 import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { GeoOption } from "echarts/types/dist/shared";
-import { useParams } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import {
   CSSProperties,
   Dispatch,
@@ -53,9 +59,29 @@ function MapaEsChart({
   style,
   ...props
 }: MapaEsProps) {
-  const routeParams = useParams();
+  const { push } = useRouter();
+  const pathname = usePathname();
+  const routeParams = useParams() as MunicipioPageProps;
+  const pagina = getPagina(pathname);
 
   let regions: SelectedRegion[] = [];
+
+  function onMapaInit(chart: echarts.EChartsType) {
+    chart.on("click", function (params) {
+      const nomeNormalizado = getNomeNormalizadoMunicipio(
+        municipios,
+        params.name
+      )!;
+      push(
+        generateMunicipioUrl({
+          ...routeParams,
+          municipio: nomeNormalizado,
+          pagina,
+          pathname,
+        })
+      );
+    });
+  }
 
   if (selectedRegions) {
     regions = [...selectedRegions];
@@ -130,6 +156,7 @@ function MapaEsChart({
   function onChartInit(chart: echarts.EChartsType, ref: HTMLDivElement) {
     echarts.registerMap("ES", MAP_DATA as any);
     getChart && getChart(chart);
+    onMapaInit(chart);
     onInit && onInit(chart, ref);
   }
 
@@ -151,7 +178,3 @@ function MapaEsChart({
 }
 
 export default memo(MapaEsChart);
-
-function round(value: number) {
-  return Math.round(value * 100) / 100;
-}

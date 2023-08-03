@@ -14,7 +14,7 @@ import { useParams, usePathname } from "next/navigation";
 import {
   FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-} from "../[poder]/[ano]/[mes]/routes";
+} from "../../../routes";
 
 type Option = {
   nome: string;
@@ -66,7 +66,6 @@ export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
                   routeParams.poder === "assembleia-legislativa"
                     ? ""
                     : item[1].value,
-                item,
                 pathname,
               })
             }
@@ -123,7 +122,6 @@ function BreadcrumbFolhaDePagamentoUnidadesGestoras({
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            item,
             pathname,
             unidadeGestora: item[1].value,
           })

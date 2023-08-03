@@ -5,6 +5,11 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  ObrigacaoEnvioPageProps,
+  generateObrigacaoEnvioUrl,
+  getPagina,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Municípios", createDropdownValue("municipios")],
@@ -12,17 +17,22 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbObrigacaoEnvioPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
+  const pathname = usePathname();
+  const routeParams = useParams() as ObrigacaoEnvioPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/obrigacao-envio/${routeParams.ano}/${value.value}`
+        generateUrl={(item) =>
+          generateObrigacaoEnvioUrl({
+            ...routeParams,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

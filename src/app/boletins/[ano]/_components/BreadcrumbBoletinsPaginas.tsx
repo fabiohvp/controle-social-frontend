@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import { BoletinsPageProps, generateBoletinsUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Boletim de macrogestão", createDropdownValue("*")],
@@ -13,17 +14,22 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbBoletinsPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
+  const pathname = usePathname();
+  const routeParams = useParams() as BoletinsPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/boletins/${routeParams.ano}/${value.value}`
+        generateUrl={(item) =>
+          generateBoletinsUrl({
+            ...routeParams,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { usePathname } from "next/navigation";
+import { generateAssistenciaSocialUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Capacidade de referenciamento", createDropdownValue("referenciamento")],
@@ -14,17 +15,18 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbAssistenciaSocialPaginas() {
-  const segments = usePathname().split(`/area-tematica/assistencia-social/`)[1];
+  const pathname = usePathname();
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
         bodyProps={{ className: "!min-w-[260px]" }}
-        generateUrl={([_, value]) =>
-          `/area-tematica/assistencia-social/${value.value}`
+        generateUrl={(item) =>
+          generateAssistenciaSocialUrl({ pagina: item[1].value })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

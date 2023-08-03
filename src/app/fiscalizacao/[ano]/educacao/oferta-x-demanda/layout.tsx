@@ -1,14 +1,14 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import { ReactNode } from "react";
-import OfertaXDemandaItensSubmenu from "./OfertaXDemandaItensSubmenu";
+import BreadcrumbOfertaXDemanda from "./BreadcrumbOfertaXDemanda";
 
 export default function layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
       className="pt-2 px-2"
       exibirFooter={false}
-      itensBreadcrumb={OfertaXDemandaItensSubmenu}
+      itensBreadcrumb={BreadcrumbOfertaXDemanda}
     >
       <PainelDeAlerta type="info">
         Em 2019 o Tribunal de Contas do ES realizou fiscalização, na modalidade

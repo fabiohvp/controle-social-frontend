@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import { SaudePageProps, generateSaudeUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Ações sobre a pandemia", createDropdownValue("acoes-pandemia")],
@@ -16,17 +17,22 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbSaudePaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+  const pathname = usePathname();
+  const routeParams = useParams() as SaudePageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/saude/${value.value}`
+        generateUrl={(item) =>
+          generateSaudeUrl({
+            ...routeParams,
+            pathname,
+            pagina: item[1].value,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

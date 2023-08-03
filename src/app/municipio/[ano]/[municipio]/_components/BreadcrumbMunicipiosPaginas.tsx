@@ -4,14 +4,18 @@ import {
   DropdownValue,
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
+import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { useParams, usePathname } from "next/navigation";
-import { generateMunicipioUrl } from "../../routes";
+import { MunicipioPageProps, generateMunicipioUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
   ["Obrigações junto ao TCE-ES", createDropdownValue("obrigacao-envio")],
-  ["Gestão orçamentária", createDropdownValue("gestao-orcamentaria")],
-  ["Gestão fiscal", createDropdownValue("gestao-fiscal")],
+  [
+    "Gestão orçamentária",
+    createDropdownValue("gestao-orcamentaria/planejamento-governamental"),
+  ],
+  ["Gestão fiscal", createDropdownValue("gestao-fiscal/meta-arrecadacao")],
   ["Previdência", createDropdownValue("previdencia")],
   ["Rankings", createDropdownValue("rankings")],
   ["Prestação de contas", createDropdownValue("prestacao-conta")],
@@ -23,17 +27,23 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 
 export default function BreadcrumbMunicipiosPaginas() {
   const pathname = usePathname();
-  const routeParams = useParams() as any;
-  const segment = usePathname().split("/")[4];
+  const routeParams = useParams() as MunicipioPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
+        bodyProps={{ className: "!min-w-[220px]" }}
+        comparer={dropdownStartsWithComparer}
         generateUrl={(item) =>
-          generateMunicipioUrl({ ...routeParams, item, pathname })
+          generateMunicipioUrl({
+            ...routeParams,
+            pagina: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segment)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

@@ -13,12 +13,12 @@ import { FaBalanceScale, FaHistory } from "react-icons/fa";
 import { FaRegHand } from "react-icons/fa6";
 import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import {
-  PrestacaoDeContaGovernoPageProps,
   ResumoProcessoKey,
   ResumoProcessos,
   SituacaoProcesso,
 } from "../../../types";
 import BreadcrumbPrestacaoDeConta from "./BreadcrumbPrestacaoDeConta";
+import { PrestacaoDeContaGovernoPageProps } from "./routes";
 
 export default async function Page({
   params,

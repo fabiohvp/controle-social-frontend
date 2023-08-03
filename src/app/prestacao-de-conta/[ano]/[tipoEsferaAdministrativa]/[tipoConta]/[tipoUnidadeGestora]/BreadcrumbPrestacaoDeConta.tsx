@@ -2,11 +2,11 @@
 import BreadcrumbAno from "@/components/breadcrumb/BreadcrumbAno";
 import { useAtom } from "jotai";
 import BreadcrumbPrestacaoDeContaLabel from "../../../_components/BreadcrumbPrestacaoDeContaLabel";
-import { prestacaoDeContaState } from "../../../prestacaoDeContaState";
-import { generatePrestacaoDeContaUrl } from "../../../routes";
 import BreadcrumbPrestacaoDeContaTipoConta from "./_components/BreadcrumbPrestacaoDeContaTipoConta";
 import BreadcrumbPrestacaoDeContaTipoEsferaAdministrativa from "./_components/BreadcrumbPrestacaoDeContaTipoEsferaAdministrativa";
 import BreadcrumbPrestacaoDeContaTipoUnidadeGestora from "./_components/BreadcrumbPrestacaoDeContaTipoUnidadeGestora";
+import { prestacaoDeContaState } from "./prestacaoDeContaState";
+import { generatePrestacaoDeContaUrl } from "./routes";
 
 export default function BreadcrumbPrestacaoDeConta({
   tiposUnidadesGestoras,

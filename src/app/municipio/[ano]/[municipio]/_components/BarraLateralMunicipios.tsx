@@ -11,6 +11,7 @@ import {
 
 export default function BarraLateralMunicipios() {
   const routeParams = useParams();
+
   return (
     <>
       <ItemBarraLateral

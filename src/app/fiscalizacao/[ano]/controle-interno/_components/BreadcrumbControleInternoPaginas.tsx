@@ -5,24 +5,35 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  ControleInternoPageProps,
+  generateControleInternoUrl,
+  getPagina,
+} from "../routes";
 
-const PAGES: Map<string, DropdownValue<string>> = new Map([
+const CONTROLE_INTERNO_PAGINAS: Map<string, DropdownValue<string>> = new Map([
   ["Câmaras", createDropdownValue("camaras")],
   ["Prefeituras", createDropdownValue("prefeituras")],
 ]);
 
 export default function BreadcrumbControleInternoPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[4];
+  const pathname = usePathname();
+  const routeParams = useParams() as ControleInternoPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/controle-interno/${value.value}`
+        generateUrl={(item) =>
+          generateControleInternoUrl({
+            ...routeParams,
+            item,
+            pagina: item[1].value,
+            pathname,
+          })
         }
-        items={PAGES}
-        selected={createDropdownValue(segments)}
+        items={CONTROLE_INTERNO_PAGINAS}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

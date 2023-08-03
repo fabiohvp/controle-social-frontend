@@ -10,9 +10,9 @@ import {
   FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
   getPagina,
-} from "../[poder]/[ano]/[mes]/routes";
+} from "../../../routes";
 
-const FOLHA_DE_PAGAMENTO_PAGES: Map<string, DropdownValue<string>> = new Map([
+const FOLHA_DE_PAGAMENTO_PAGINAS: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
   ["Ativos", createDropdownValue("ativos")],
   ["Beneficiários", createDropdownValue("beneficiarios")],
@@ -36,12 +36,11 @@ export default function BreadcrumbFolhaDePagamentoPaginas() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            item,
             pathname,
             pagina: item[1].value,
           })
         }
-        items={FOLHA_DE_PAGAMENTO_PAGES}
+        items={FOLHA_DE_PAGAMENTO_PAGINAS}
         selected={createDropdownValue(pagina)}
       />
     </li>

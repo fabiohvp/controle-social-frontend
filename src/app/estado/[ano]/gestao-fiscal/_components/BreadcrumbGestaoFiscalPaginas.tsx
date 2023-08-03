@@ -5,27 +5,34 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  GestaoFiscalPageProps,
+  generateGestaoFiscalUrl,
+  getSegment,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
-  [
-    "Metas de arrecadação",
-    createDropdownValue("gestao-fiscal/meta-arrecadacao"),
-  ],
-  ["RCL", createDropdownValue("gestao-fiscal/receita-corrente-liquida")],
+  ["Metas de arrecadação", createDropdownValue("meta-arrecadacao")],
+  ["RCL", createDropdownValue("receita-corrente-liquida")],
 ]);
 
 export default function BreadcrumbGestaoFiscalPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/${routeParams.ano}/`)[1];
+  const pathname = usePathname();
+  const routeParams = useParams() as GestaoFiscalPageProps;
+  const segment = getSegment(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/estado/${routeParams.ano}/${value.value}`
+        generateUrl={(item) =>
+          generateGestaoFiscalUrl({
+            ...routeParams,
+            segment: item[1].value,
+            pathname,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(segment)}
       />
     </li>
   );

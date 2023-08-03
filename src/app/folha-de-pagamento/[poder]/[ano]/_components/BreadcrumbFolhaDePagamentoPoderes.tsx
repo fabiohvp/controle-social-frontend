@@ -9,7 +9,7 @@ import { useParams, usePathname } from "next/navigation";
 import {
   FolhaDePagamentoPageProps,
   generateFolhaDePagamentoUrl,
-} from "../[poder]/[ano]/[mes]/routes";
+} from "../../../routes";
 
 const PODERES: Map<string, DropdownValue<string>> = new Map([
   ["Todos", createDropdownValue("todos")],
@@ -35,7 +35,6 @@ export default function BreadcrumbFolhaDePagamentoPoderes() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
-            item,
             pathname,
             poder: item[1].value,
             unidadeGestora: "todos",

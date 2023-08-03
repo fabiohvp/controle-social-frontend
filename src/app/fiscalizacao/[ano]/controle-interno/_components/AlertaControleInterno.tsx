@@ -4,6 +4,7 @@ import ExternalLink from "@/components/links/ExternalLink";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import { useParams } from "next/navigation";
 
+//TODO: texto está fixo para prefeitura e camaras, verificar se precisa diferenciar
 const RELATORIOS: { [key: string]: { texto: string; href: string } } = {
   2015: {
     href: "https://servicos.tcees.tc.br/DocumentoDisponibilizado/BaixarDocumentoDisponibilizado?idDocumento=1279595&key=d19e8f0b3a52b7fbba6ee6f8d63778a44e277446d4198949f1bdc2d8d1f78bea03569ddfc8ee672f211aba38126981de8a940cdac54423622e6691fda6e4218a",

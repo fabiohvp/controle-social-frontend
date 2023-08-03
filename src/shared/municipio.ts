@@ -8,6 +8,12 @@ export const QUANTIDADE_MUNICIPIOS = 78;
 export const QUANTIDADE_CONSORCIOS = 1;
 export const QUANTIDADE_ESTADO = 1;
 
+let municipios: EsferaAdministrativa[];
+
+export async function initMunicipios() {
+  municipios = await loadMunicipios();
+}
+
 export function getCodigoMunicipio(
   municipios: EsferaAdministrativa[],
   nomeNormalizado: string
@@ -52,51 +58,9 @@ export const getDatasLimites = cache(
   }
 );
 
-export const getMunicipios = cache(
-  async (): Promise<EsferaAdministrativa[]> => {
-    if (process.env.npm_lifecycle_event === "build") {
-      const res = await fetch(
-        "https://paineldecontrole.tcees.tc.br/api/Settings/GetAll?v=26-07-2023-1690391164330"
-      );
-      return res.json().then(
-        ({
-          esferasAdministrativas,
-        }: {
-          esferasAdministrativas: {
-            codigoEsferaAdministrativa: string;
-            nomeEsferaAdministrativa: string;
-          }[];
-        }) => {
-          const municipios: EsferaAdministrativa[] = [];
-
-          for (const esferaAdministrativa of Object.values(
-            esferasAdministrativas
-          )) {
-            municipios.push({
-              codigo: esferaAdministrativa.codigoEsferaAdministrativa,
-              nome: esferaAdministrativa.nomeEsferaAdministrativa,
-              nomeNormalizado: normalize(
-                esferaAdministrativa.nomeEsferaAdministrativa
-              ),
-            });
-          }
-          return municipios;
-        }
-      );
-    } else {
-      const res = await fetch(
-        `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
-      );
-      return res.json().then((data) =>
-        data.map((d: EsferaAdministrativa) => ({
-          codigo: d.codigo,
-          nome: d.nome,
-          nomeNormalizado: d.nomeNormalizado,
-        }))
-      );
-    }
-  }
-);
+export function getMunicipios() {
+  return municipios;
+}
 
 export function getNomeNormalizadoMunicipio(
   municipios: EsferaAdministrativa[],
@@ -107,4 +71,50 @@ export function getNomeNormalizadoMunicipio(
     return municipio.nomeNormalizado;
   }
   return null;
+}
+
+async function loadMunicipios() {
+  if (municipios) return Promise.resolve(municipios);
+
+  if (process.env.npm_lifecycle_event === "build") {
+    const res = await fetch(
+      "https://paineldecontrole.tcees.tc.br/api/Settings/GetAll?v=26-07-2023-1690391164330"
+    );
+    return res.json().then(
+      ({
+        esferasAdministrativas,
+      }: {
+        esferasAdministrativas: {
+          codigoEsferaAdministrativa: string;
+          nomeEsferaAdministrativa: string;
+        }[];
+      }) => {
+        const municipios: EsferaAdministrativa[] = [];
+
+        for (const esferaAdministrativa of Object.values(
+          esferasAdministrativas
+        )) {
+          municipios.push({
+            codigo: esferaAdministrativa.codigoEsferaAdministrativa,
+            nome: esferaAdministrativa.nomeEsferaAdministrativa,
+            nomeNormalizado: normalize(
+              esferaAdministrativa.nomeEsferaAdministrativa
+            ),
+          });
+        }
+        return municipios;
+      }
+    );
+  } else {
+    const res = await fetch(
+      `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
+    );
+    return res.json().then((data) =>
+      data.map((d: EsferaAdministrativa) => ({
+        codigo: d.codigo,
+        nome: d.nome,
+        nomeNormalizado: d.nomeNormalizado,
+      }))
+    );
+  }
 }

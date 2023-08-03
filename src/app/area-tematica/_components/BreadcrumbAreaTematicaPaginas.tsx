@@ -31,7 +31,7 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbAreaTematicaPaginas() {
-  const segment = usePathname().split(`/area-tematica/`)[1].split("/")[0];
+  const area = usePathname().split("/")[2].split("/")[0];
 
   return (
     <li>
@@ -39,7 +39,7 @@ export default function BreadcrumbAreaTematicaPaginas() {
         comparer={dropdownStartsWithComparer}
         generateUrl={([_, value]) => value.value}
         items={PAGES}
-        selected={createDropdownValue(`/area-tematica/${segment}`)}
+        selected={createDropdownValue(`/area-tematica/${area}`)}
       />
     </li>
   );

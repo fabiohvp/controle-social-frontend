@@ -17,21 +17,6 @@ type Props = {
   codigoFiltro: string;
 } & MunicipioPageProps;
 
-async function getData(
-  codigoFiltro: string,
-  { ano, municipio }: MunicipioPageProps
-) {
-  const municipios = await getMunicipios();
-  const codigo = await getCodigoMunicipio(municipios, municipio);
-  const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
-  );
-  const data = (await res.json()) as Data[];
-  return data.filter((o) =>
-    o.processo.unidadesGestoras.some((p) => p.codigo.includes(codigoFiltro))
-  );
-}
-
 export default async function SituacaoPrestacaoContaWidget({
   codigoFiltro,
   ano,
@@ -64,5 +49,20 @@ export default async function SituacaoPrestacaoContaWidget({
     </div>
   ) : (
     <div>Prestação de Contas Anual está em atraso para a competência {ano}</div>
+  );
+}
+
+async function getData(
+  codigoFiltro: string,
+  { ano, municipio }: Partial<MunicipioPageProps>
+) {
+  const municipios = getMunicipios();
+  const codigo = getCodigoMunicipio(municipios, municipio!);
+  const res = await fetch(
+    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+  );
+  const data = (await res.json()) as Data[];
+  return data.filter((o) =>
+    o.processo.unidadesGestoras.some((p) => p.codigo.includes(codigoFiltro))
   );
 }

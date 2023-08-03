@@ -5,6 +5,11 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useParams, usePathname } from "next/navigation";
+import {
+  DesigualdadeEducacionalPageProps,
+  generateDesigualdadeEducacionalUrl,
+  getPagina,
+} from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Manifestação técnica", createDropdownValue("manifestacao-tecnica")],
@@ -12,17 +17,22 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbDesigualdadeEducacionalPaginas() {
-  const routeParams = useParams();
-  const segments = usePathname().split(`/`)[5];
+  const pathname = usePathname();
+  const routeParams = useParams() as DesigualdadeEducacionalPageProps;
+  const pagina = getPagina(pathname);
 
   return (
     <li>
       <DropdownLinks
-        generateUrl={([_, value]) =>
-          `/fiscalizacao/${routeParams.ano}/educacao/desigualdade-educacional/${value.value}`
+        generateUrl={(item) =>
+          generateDesigualdadeEducacionalUrl({
+            ...routeParams,
+            pathname,
+            pagina: item[1].value,
+          })
         }
         items={PAGES}
-        selected={createDropdownValue(segments)}
+        selected={createDropdownValue(pagina)}
       />
     </li>
   );

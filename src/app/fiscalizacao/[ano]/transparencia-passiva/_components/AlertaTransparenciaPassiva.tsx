@@ -9,7 +9,7 @@ const RELATORIOS: { [key: string]: string } = {
   2018: "https://servicos.tcees.tc.br/DocumentoDisponibilizado/BaixarDocumentoDisponibilizado?idDocumento=2132536&key=1711a86e16d85a27d6f54c9a1ce6d9af95af9e5b7ccda1ec3ab0e7ef6af725048878004d6bf2f95afce2de18dc8e9af022d2aa60094bdeb02fb69a9a28cd9c99",
 };
 
-export default function FiscalizacaoPanelAlertTransparenciaPassiva() {
+export default function AlertaTransparenciaPassiva() {
   const routeParams = useParams();
 
   return (

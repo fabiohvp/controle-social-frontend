@@ -8,13 +8,13 @@ type Props = {
   top?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default async function MenuMobileLayout({
+export default function MenuMobileLayout({
   className,
   maxHeight,
   top,
   ...props
 }: Props) {
-  const municipios = await getMunicipios();
+  const municipios = getMunicipios();
 
   return (
     <div

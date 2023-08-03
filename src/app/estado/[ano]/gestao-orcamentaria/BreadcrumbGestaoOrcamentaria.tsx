@@ -4,8 +4,8 @@ import { useAtom } from "jotai";
 import BreadcrumbEstadoLabel from "../_components/BreadcrumbEstadoLabel";
 import BreadcrumbEstadoPaginas from "../_components/BreadcrumbEstadoPaginas";
 import { estadoState } from "../estadoState";
-import { generateEstadoUrl } from "../routes";
 import BreadcrumbGestaoOrcamentariaPaginas from "./_components/BreadcrumbGestaoOrcamentariaPaginas";
+import { generateGestaoOrcamentariaUrl } from "./routes";
 
 export default function BreadcrumbGestaoOrcamentaria() {
   const [state] = useAtom(estadoState);
@@ -15,7 +15,10 @@ export default function BreadcrumbGestaoOrcamentaria() {
       <BreadcrumbEstadoLabel />
       <BreadcrumbEstadoPaginas />
       <BreadcrumbGestaoOrcamentariaPaginas />
-      <BreadcrumbAno anos={state.anos} generateUrl={generateEstadoUrl} />
+      <BreadcrumbAno
+        anos={state.anos}
+        generateUrl={generateGestaoOrcamentariaUrl}
+      />
     </>
   );
 }
