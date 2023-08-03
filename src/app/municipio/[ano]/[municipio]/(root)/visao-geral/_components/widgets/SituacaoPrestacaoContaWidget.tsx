@@ -15,7 +15,7 @@ type Data = {
 
 type Props = {
   codigoFiltro: string;
-} & MunicipioPageProps;
+} & Partial<MunicipioPageProps>;
 
 export default async function SituacaoPrestacaoContaWidget({
   codigoFiltro,
