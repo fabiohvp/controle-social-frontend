@@ -74,7 +74,7 @@ export async function PessoalConsolidadoWidget({
 
 const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
-    const municipios = getMunicipios();
+    const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
     const res = await fetch(
       `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PessoalConsolidado/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`

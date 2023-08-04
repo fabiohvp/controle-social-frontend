@@ -2,7 +2,8 @@ import DashboardFooter from "@/components/layout/dashboard/DashboardFooter";
 import DashboardHeader from "@/components/layout/dashboard/DashboardHeader";
 import { MAX_HEIGHT_CONTENT } from "@/components/layout/dashboard/dashboardConstants";
 import "@/components/layout/dashboard/dashboardLayout.css";
-import { getMunicipios } from "@/shared/municipio";
+import GlobalStateProvider from "@/providers/GlobalProvider";
+import { initGlobalState } from "@/shared/globalState";
 import { ReactNode } from "react";
 
 type Props = {
@@ -11,11 +12,11 @@ type Props = {
 };
 
 export default function WikiLayout({ children, title }: Props) {
-  const municipios = getMunicipios();
+  const globalState = initGlobalState();
 
   return (
-    <>
-      <DashboardHeader municipios={municipios} />
+    <GlobalStateProvider value={globalState}>
+      <DashboardHeader />
       <div className="overflow-y-auto" style={{ height: MAX_HEIGHT_CONTENT }}>
         <div className="container py-2 text-sm">
           <h2 className="my-1">{title}</h2>
@@ -24,6 +25,6 @@ export default function WikiLayout({ children, title }: Props) {
         </div>
         <DashboardFooter />
       </div>
-    </>
+    </GlobalStateProvider>
   );
 }

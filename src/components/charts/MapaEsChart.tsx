@@ -4,9 +4,9 @@ import {
   MunicipioPageProps,
   generateMunicipioUrl,
 } from "@/app/municipio/[ano]/[municipio]/routes";
+import { useGlobalState } from "@/providers/GlobalProvider";
 import { deepMerge } from "@/shared/merge";
 import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
-import { MunicipiosProps } from "@/types/Municipio";
 import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
 import {
@@ -25,6 +25,7 @@ import {
   HTMLAttributes,
   SetStateAction,
   memo,
+  use,
 } from "react";
 import EChart from "./EChart";
 import MAP_DATA from "./mapa-es.json";
@@ -44,8 +45,7 @@ export type MapaEsProps = {
   onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
   selectedRegions?: SelectedRegion[];
   style?: CSSProperties;
-} & MunicipiosProps &
-  HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
 function MapaEsChart({
   chartOptions,
@@ -53,7 +53,6 @@ function MapaEsChart({
   chartGeoOptions,
   getChart,
   legends,
-  municipios,
   onInit,
   selectedRegions,
   style,
@@ -63,6 +62,8 @@ function MapaEsChart({
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
   const pagina = getPagina(pathname);
+
+  const municipios = use(useGlobalState()).municipios;
 
   let regions: SelectedRegion[] = [];
 

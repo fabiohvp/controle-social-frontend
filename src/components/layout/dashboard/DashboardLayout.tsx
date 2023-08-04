@@ -1,6 +1,7 @@
 import BarraLateral from "@/components/barraLateral/BarraLateral";
 import LoadingPage from "@/components/loading/LoadingPage";
-import { getMunicipios } from "@/shared/municipio";
+import GlobalStateProvider from "@/providers/GlobalProvider";
+import { initGlobalState } from "@/shared/globalState";
 import dynamic from "next/dynamic";
 import { ElementType, ReactNode, Suspense } from "react";
 import { twMerge } from "tailwind-merge";
@@ -31,46 +32,51 @@ export default function DashboardLayout(props: Props) {
     ? MAX_HEIGHT_WITH_SUBMENU_CONTENT
     : MAX_HEIGHT_CONTENT;
 
-  const municipios = getMunicipios();
+  const globalState = initGlobalState();
 
   return (
-    <div className="grid min-h-screen" style={{ gridTemplateRows: "auto 1fr" }}>
-      <header className="sticky bg-gray-header flex flex-col text-blue-dark">
-        <DashboardHeader municipios={municipios} />
-        {props.itensBreadcrumb && (
-          <DashboardHeaderSubmenu exibirSidebar={!!props.barraLateral}>
-            {isReactNode(props.itensBreadcrumb) && props.itensBreadcrumb}
-            {isElementType(props.itensBreadcrumb) && (
-              <props.itensBreadcrumb municipios={municipios} />
-            )}
-            {props.exibirBotaoIPCA && (
-              <li className="ml-auto px-2">
-                <BotaoIpca />
-              </li>
-            )}
-          </DashboardHeaderSubmenu>
-        )}
-      </header>
-      <main className="grid">
-        <div className="basis-full flex">
-          {props.barraLateral && (
-            <BarraLateral>
-              <props.barraLateral />
-            </BarraLateral>
+    <GlobalStateProvider value={globalState}>
+      <div
+        className="grid min-h-screen"
+        style={{ gridTemplateRows: "auto 1fr" }}
+      >
+        <header className="sticky bg-gray-header flex flex-col text-blue-dark">
+          <DashboardHeader />
+          {props.itensBreadcrumb && (
+            <DashboardHeaderSubmenu exibirSidebar={!!props.barraLateral}>
+              {isReactNode(props.itensBreadcrumb) && props.itensBreadcrumb}
+              {isElementType(props.itensBreadcrumb) && (
+                <props.itensBreadcrumb />
+              )}
+              {props.exibirBotaoIPCA && (
+                <li className="ml-auto px-2">
+                  <BotaoIpca />
+                </li>
+              )}
+            </DashboardHeaderSubmenu>
           )}
-          <div
-            className={twMerge(
-              "basis-full flex flex-col overflow-y-auto text-gray-dark",
-              props.className
+        </header>
+        <main className="grid">
+          <div className="basis-full flex">
+            {props.barraLateral && (
+              <BarraLateral>
+                <props.barraLateral />
+              </BarraLateral>
             )}
-            style={{ height: maxHeightContent }}
-          >
-            <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>
-            {props.exibirFooter !== false && <DashboardFooter />}
+            <div
+              className={twMerge(
+                "basis-full flex flex-col overflow-y-auto text-gray-dark",
+                props.className
+              )}
+              style={{ height: maxHeightContent }}
+            >
+              <Suspense fallback={<LoadingPage />}>{props.children}</Suspense>
+              {props.exibirFooter !== false && <DashboardFooter />}
+            </div>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </GlobalStateProvider>
   );
 }
 

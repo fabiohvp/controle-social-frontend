@@ -9,12 +9,12 @@ import RankingIcon from "@/components/images/icons/RankingIcon";
 import MapaEsIcon from "@/components/images/icons/header/MapaEsIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
+import { useGlobalState } from "@/providers/GlobalProvider";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
-import { MunicipiosProps } from "@/types/Municipio";
 import * as echarts from "echarts/core";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { useState } from "react";
+import { use, useState } from "react";
 import MapaEsChart from "../charts/MapaEsChart";
 import DropdownMenu from "../dropdowns/dropdown/DropdownMenu";
 
@@ -48,7 +48,8 @@ function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
   return groups;
 }
 
-export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
+export default function MegaMenuMunicipios() {
+  const municipios = use(useGlobalState()).municipios;
   const [chart, setChart] = useState<echarts.EChartsType | null>(null);
   const [municipiosFilterable, setMunicipiosFilterable] = useState(
     getMunicipiosFilterable(municipios)
@@ -130,7 +131,7 @@ export default function MegaMenuMunicipios({ municipios }: MunicipiosProps) {
             )
           )}
           <div className="center h-full w-[300px]">
-            <MapaEsChart getChart={setChart} municipios={municipios} />
+            <MapaEsChart getChart={setChart} />
           </div>
         </div>
       </div>

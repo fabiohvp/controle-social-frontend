@@ -15,7 +15,7 @@ export default function BreadcrumbGestaoOrcamentaria({
 
   return (
     <>
-      <BreadcrumbMunicipiosNomes municipios={municipios} />
+      <BreadcrumbMunicipiosNomes />
       <BreadcrumbMunicipiosPaginas />
       <BreadcrumbGestaoOrcamentariaPaginas />
       <BreadcrumbAno anos={state.anos} generateUrl={generateMunicipioUrl} />

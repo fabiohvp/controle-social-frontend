@@ -1,5 +1,4 @@
 import MenuMobile from "@/components/menu/MenuMobile";
-import { getMunicipios } from "@/shared/municipio";
 import { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -8,14 +7,12 @@ type Props = {
   top?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function MenuMobileLayout({
+export default async function MenuMobileLayout({
   className,
   maxHeight,
   top,
   ...props
 }: Props) {
-  const municipios = getMunicipios();
-
   return (
     <div
       className={twMerge(
@@ -25,7 +22,7 @@ export default function MenuMobileLayout({
       style={{ top }}
       {...props}
     >
-      <MenuMobile municipios={municipios} style={{ maxHeight }} />
+      <MenuMobile style={{ maxHeight }} />
     </div>
   );
 }

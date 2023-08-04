@@ -1,4 +1,3 @@
-import { initMunicipios } from "@/shared/municipio";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
@@ -16,8 +15,6 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  await initMunicipios();
-
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

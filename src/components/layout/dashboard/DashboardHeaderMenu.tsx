@@ -8,21 +8,21 @@ import InteligenciaArtificialIcon from "@/components/images/icons/header/Intelig
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
+import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
-import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
-import { MunicipiosProps } from "@/types/Municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { use } from "react";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 const ANO_DEFAULT = 2023;
 const MES_DEFAULT = 1;
 
-export default function DashboardHeaderItems({ municipios }: MunicipiosProps) {
+export default function DashboardHeaderItems() {
   return (
     <ul className="dashboard-menu font-bold hidden xl:flex">
       <li className="px-3 active">
-        <MegaMenuMunicipios municipios={municipios} />
+        <MegaMenuMunicipios />
       </li>
       <li className="px-3">
         <LinkEstado />
@@ -37,7 +37,7 @@ export default function DashboardHeaderItems({ municipios }: MunicipiosProps) {
         <DropdownFiscalizacoes />
       </li>
       <li className="px-3">
-        <DropdownAreasTematicas municipios={municipios} />
+        <DropdownAreasTematicas />
       </li>
       <li className="px-3">
         <DropdownInteligenciaArtificial />
@@ -49,11 +49,8 @@ export default function DashboardHeaderItems({ municipios }: MunicipiosProps) {
   );
 }
 
-function DropdownAreasTematicas({
-  municipios,
-}: {
-  municipios: EsferaAdministrativa[];
-}) {
+function DropdownAreasTematicas({}: {}) {
+  const municipios = use(useGlobalState()).municipios;
   const params = useParams();
 
   return (

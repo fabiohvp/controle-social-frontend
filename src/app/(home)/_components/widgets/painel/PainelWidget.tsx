@@ -1,5 +1,4 @@
 import MapaEsChart from "@/components/charts/MapaEsChart";
-import { getMunicipios } from "@/shared/municipio";
 import { twMerge } from "tailwind-merge";
 import LinksWidgets from "./LinksWidgets";
 
@@ -8,8 +7,6 @@ type Props = {
 };
 
 export default function PainelWidget(props: Props) {
-  const municipios = getMunicipios();
-
   return (
     <div
       className={twMerge(
@@ -27,7 +24,7 @@ export default function PainelWidget(props: Props) {
         </p>
       </div>
       <div className="flex justify-center">
-        <MapaEsChart municipios={municipios} />
+        <MapaEsChart />
       </div>
     </div>
   );

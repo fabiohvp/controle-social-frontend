@@ -97,7 +97,6 @@ export default function ObrigacaoEnvioVisaoGeral({
               : []
           }
           onInit={onMapaInit}
-          municipios={esferasAdministrativas}
           selectedRegions={selectedRegions}
         />
       )}

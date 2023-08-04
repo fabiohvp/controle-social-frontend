@@ -10,10 +10,6 @@ export const QUANTIDADE_ESTADO = 1;
 
 let municipios: EsferaAdministrativa[];
 
-export async function initMunicipios() {
-  municipios = await loadMunicipios();
-}
-
 export function getCodigoMunicipio(
   municipios: EsferaAdministrativa[],
   nomeNormalizado: string
@@ -49,33 +45,18 @@ export const getDatasLimites = cache(
       return res
         .json()
         .then(({ datasLimites }) => formatData(datasLimites[ano]));
-    } else {
-      const res = await fetch(
-        `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio/datas-limites?ano=${ano}`
-      );
-      return res.json().then(formatData);
     }
+    const res = await fetch(
+      `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio/datas-limites?ano=${ano}`
+    );
+    return res.json().then(formatData);
   }
 );
 
-export function getMunicipios() {
-  return municipios;
-}
-
-export function getNomeNormalizadoMunicipio(
-  municipios: EsferaAdministrativa[],
-  nome: string
-) {
-  const municipio = municipios.find((o) => o.nome === nome);
-  if (municipio) {
-    return municipio.nomeNormalizado;
+export const getMunicipios = cache(async () => {
+  if (municipios) {
+    return Promise.resolve(municipios);
   }
-  return null;
-}
-
-async function loadMunicipios() {
-  if (municipios) return Promise.resolve(municipios);
-
   if (process.env.npm_lifecycle_event === "build") {
     const res = await fetch(
       "https://paineldecontrole.tcees.tc.br/api/Settings/GetAll?v=26-07-2023-1690391164330"
@@ -89,12 +70,12 @@ async function loadMunicipios() {
           nomeEsferaAdministrativa: string;
         }[];
       }) => {
-        const municipios: EsferaAdministrativa[] = [];
+        const _municipios: EsferaAdministrativa[] = [];
 
         for (const esferaAdministrativa of Object.values(
           esferasAdministrativas
         )) {
-          municipios.push({
+          _municipios.push({
             codigo: esferaAdministrativa.codigoEsferaAdministrativa,
             nome: esferaAdministrativa.nomeEsferaAdministrativa,
             nomeNormalizado: normalize(
@@ -102,19 +83,32 @@ async function loadMunicipios() {
             ),
           });
         }
-        return municipios;
+        municipios = _municipios;
+        return _municipios;
       }
     );
-  } else {
-    const res = await fetch(
-      `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
-    );
-    return res.json().then((data) =>
-      data.map((d: EsferaAdministrativa) => ({
-        codigo: d.codigo,
-        nome: d.nome,
-        nomeNormalizado: d.nomeNormalizado,
-      }))
-    );
   }
+  const res = await fetch(
+    `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
+  );
+  return res.json().then((data) => {
+    const _municipios = data.map((d: EsferaAdministrativa) => ({
+      codigo: d.codigo,
+      nome: d.nome,
+      nomeNormalizado: d.nomeNormalizado,
+    }));
+    municipios = _municipios;
+    return municipios;
+  });
+});
+
+export function getNomeNormalizadoMunicipio(
+  municipios: EsferaAdministrativa[],
+  nome: string
+) {
+  const municipio = municipios.find((o) => o.nome === nome);
+  if (municipio) {
+    return municipio.nomeNormalizado;
+  }
+  return null;
 }

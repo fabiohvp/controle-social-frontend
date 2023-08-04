@@ -15,7 +15,7 @@ export default function GestaoFiscalItensSubmenu({
 
   return (
     <>
-      <BreadcrumbMunicipiosNomes municipios={municipios} />
+      <BreadcrumbMunicipiosNomes />
       <BreadcrumbMunicipiosPaginas />
       <BreadcrumbGestaoFiscalPaginas />
       <BreadcrumbAno anos={state.anos} generateUrl={generateGestaoFiscalUrl} />
