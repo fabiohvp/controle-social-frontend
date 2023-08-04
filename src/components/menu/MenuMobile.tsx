@@ -1,9 +1,11 @@
 "use client";
-import { generateMunicipioUrl } from "@/app/municipio/[ano]/[municipio]/routes";
+import {
+  MunicipioPageProps,
+  generateMunicipioUrl,
+} from "@/app/municipio/[ano]/[municipio]/routes";
 import { MunicipiosProps } from "@/types/Municipio";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { HTMLAttributes, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import DropdownBody from "../dropdowns/dropdown/DropdownBody";
@@ -32,11 +34,12 @@ import "./menuMobile.css";
 
 type Props = MunicipiosProps & HTMLAttributes<HTMLDivElement>;
 
-function generateUrl(routeParams: Params) {
+function generateUrl(pathname: string, routeParams: MunicipioPageProps) {
   return function <T>(item: DropdownItem<T>, _: number) {
     return generateMunicipioUrl({
       ...routeParams,
       municipio: item[1].value,
+      pathname,
     });
   };
 }
@@ -44,7 +47,8 @@ function generateUrl(routeParams: Params) {
 export default function MenuMobile({ className, municipios, ...props }: Props) {
   const [municipiosOpen, setMunicipiosOpen] = useState(false);
   const [prestacoesDeContasOpen, setPestacoesDeContasOpen] = useState(false);
-  const routeParams = useParams();
+  const pathname = usePathname();
+  const routeParams = useParams() as MunicipioPageProps;
 
   function openDropdownMunicipios() {
     setMunicipiosOpen(true);
@@ -68,7 +72,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
           items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: DropdownLinksRenderer(generateUrl(routeParams)),
+            render: DropdownLinksRenderer(generateUrl(pathname, routeParams)),
           }))}
         />
       )}
@@ -78,7 +82,7 @@ export default function MenuMobile({ className, municipios, ...props }: Props) {
           items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: DropdownLinksRenderer(generateUrl(routeParams)),
+            render: DropdownLinksRenderer(generateUrl(pathname, routeParams)),
           }))}
         />
       )}
