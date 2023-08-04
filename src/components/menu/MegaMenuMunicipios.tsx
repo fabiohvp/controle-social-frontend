@@ -11,7 +11,7 @@ import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
-import * as echarts from "echarts/core";
+import type { EChartsType } from "echarts/core";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { use, useState } from "react";
@@ -50,7 +50,7 @@ function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
 
 export default function MegaMenuMunicipios() {
   const municipios = use(useGlobalState()).municipios;
-  const [chart, setChart] = useState<echarts.EChartsType | null>(null);
+  const [chart, setChart] = useState<EChartsType | null>(null);
   const [municipiosFilterable, setMunicipiosFilterable] = useState(
     getMunicipiosFilterable(municipios)
   );
@@ -90,18 +90,24 @@ export default function MegaMenuMunicipios() {
   return (
     <DropdownMenu icon={<MapaEsIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
-        <Link href="/comparar/2023/municipios" className="flex gap-1">
+        <Link
+          href="/comparar/2023/municipios"
+          className="flex gap-1"
+          prefetch={false}
+        >
           <ComparadorIcon small /> Comparação entre municípios
         </Link>
         <Link
           href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao"
           className="flex gap-1"
+          prefetch={false}
         >
           <IndicadoresIcon small /> Indicadores consolidados
         </Link>
         <Link
           href="/rankings/2023/municipios/receita-receita-arrecadada"
           className="flex gap-1"
+          prefetch={false}
         >
           <RankingIcon small /> Rankings
         </Link>

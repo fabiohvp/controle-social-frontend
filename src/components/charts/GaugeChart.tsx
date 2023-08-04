@@ -76,7 +76,7 @@ export default function GaugeChart(props: GaugeChartProps) {
               fontSize: 12,
               distance: -30,
               rotate: "tangential",
-              formatter: function (value) {
+              formatter: function (value: any) {
                 for (const item of props.items) {
                   if (item.value === value) return item.name;
                 }

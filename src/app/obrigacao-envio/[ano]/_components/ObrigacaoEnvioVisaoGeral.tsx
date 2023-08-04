@@ -12,7 +12,7 @@ import {
   EsferaAdministrativa,
   EsferaAdministrativaProps,
 } from "@/types/EsferaAdministrativa";
-import * as echarts from "echarts/core";
+import type { EChartsType } from "echarts/core";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -45,7 +45,7 @@ export default function ObrigacaoEnvioVisaoGeral({
     setSelectedDoughnut(doughnuts[selectedMode]!);
   }, [selectedMode]);
 
-  function onMapaInit(chart: echarts.EChartsType) {
+  function onMapaInit(chart: EChartsType) {
     chart.on("click", function (params) {
       const nomeNormalizado = getNomeNormalizadoMunicipio(
         esferasAdministrativas,

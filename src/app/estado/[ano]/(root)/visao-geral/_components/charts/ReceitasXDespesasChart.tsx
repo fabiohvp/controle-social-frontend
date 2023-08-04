@@ -5,13 +5,13 @@ import EChart from "@/components/charts/EChart";
 import { formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";
 import { COLOR } from "@/theme/colors";
-import { EChartsOption } from "echarts";
 import { BarChart } from "echarts/charts";
 import {
   DatasetComponent,
   GridComponent,
   VisualMapComponent,
 } from "echarts/components";
+import type { EChartsCoreOption } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { useAtom } from "jotai";
 
@@ -93,7 +93,7 @@ function getOptions(props: Props, ipca: Ipca) {
         type: "bar",
       },
     ],
-  } as EChartsOption;
+  } as EChartsCoreOption;
 }
 
 export default function ReceitasXDespesasChart(props: Props) {

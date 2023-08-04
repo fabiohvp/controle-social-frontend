@@ -1,6 +1,10 @@
 "use client";
-import { EChartsOption, SetOptionOpts } from "echarts";
-import * as echarts from "echarts/core";
+import type {
+  EChartsCoreOption,
+  EChartsType,
+  SetOptionOpts,
+} from "echarts/core";
+import { init, registerLocale, use } from "echarts/core";
 import {
   CSSProperties,
   HTMLAttributes,
@@ -9,6 +13,8 @@ import {
   useState,
 } from "react";
 import { twMerge } from "tailwind-merge";
+// @ts-ignore-next-line
+import EChartsLanguageEnglish from "echarts/i18n/langEN";
 
 export type LabelFormatter = {
   fontSize: number | string;
@@ -22,13 +28,13 @@ type EChartComponent = (registers: any) => void;
 type Props = {
   className?: string;
   components: EChartComponent[];
-  options: EChartsOption;
+  options: EChartsCoreOption;
   loading?: boolean;
   style?: CSSProperties;
   settings?: SetOptionOpts;
   theme?: "light" | "dark";
 
-  onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
+  onInit?: (chart: EChartsType, ref: HTMLDivElement) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function EChart({
@@ -42,11 +48,12 @@ export default function EChart({
   onInit,
   ...props
 }: Props) {
-  const [chart, setChart] = useState<echarts.EChartsType>();
+  const [chart, setChart] = useState<EChartsType>();
   const element = useCallback((element: HTMLDivElement) => {
-    echarts.use(components);
+    use(components);
 
-    const chart = echarts.init(element, theme);
+    registerLocale("EN", EChartsLanguageEnglish);
+    const chart = init(element, theme, { locale: "EN" });
     onInit && onInit(chart, element);
 
     chart.setOption(options);

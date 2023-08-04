@@ -10,6 +10,7 @@ export default function LogoComVersao({ className, ...props }: Props) {
     <Link
       href="/"
       className={twMerge("center h-full relative", className)}
+      prefetch={false}
       {...props}
     >
       <PainelControleLogo />

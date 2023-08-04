@@ -27,7 +27,7 @@ export default function HeaderFixedButtons(props: Props) {
         </span>
 
         <Link href="https://www.tcees.tc.br/" target="_blank">
-          <TceesLogo style={{ height: 60 }} />
+          <TceesLogo />
         </Link>
       </span>
     </>

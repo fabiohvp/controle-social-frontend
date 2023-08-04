@@ -40,7 +40,10 @@ export default function DashboardFooter() {
                   show={showModalAtualizacaoDados}
                 />
               </>
-              |<Link href="/wiki/dados-abertos">Dados abertos</Link>
+              |
+              <Link href="/wiki/dados-abertos" prefetch={false}>
+                Dados abertos
+              </Link>
             </div>
             <div className="flex justify-center gap-2 mt-1">
               <>
@@ -68,7 +71,10 @@ export default function DashboardFooter() {
                   show={showModalGlossario}
                 />
               </>
-              |<Link href="/wiki/sobre">Ajuda</Link>
+              |
+              <Link href="/wiki/sobre" prefetch={false}>
+                Ajuda
+              </Link>
             </div>
           </footer>
         </div>

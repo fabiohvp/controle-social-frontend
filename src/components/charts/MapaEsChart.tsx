@@ -7,7 +7,6 @@ import {
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { deepMerge } from "@/shared/merge";
 import { getNomeNormalizadoMunicipio } from "@/shared/municipio";
-import { EChartsOption } from "echarts";
 import { MapChart } from "echarts/charts";
 import {
   GeoComponent,
@@ -15,7 +14,8 @@ import {
   TooltipComponent,
   VisualMapComponent,
 } from "echarts/components";
-import * as echarts from "echarts/core";
+import type { EChartsCoreOption, EChartsType } from "echarts/core";
+import { registerMap } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { GeoOption } from "echarts/types/dist/shared";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -37,12 +37,12 @@ export type SelectedRegion = {
 };
 
 export type MapaEsProps = {
-  chartOptions?: Partial<EChartsOption>;
+  chartOptions?: Partial<EChartsCoreOption>;
   className?: string;
   chartGeoOptions?: Partial<GeoOption>;
-  getChart?: Dispatch<SetStateAction<echarts.EChartsType | null>>;
+  getChart?: Dispatch<SetStateAction<EChartsType | null>>;
   legends?: { color: string; name: string; value: number }[];
-  onInit?: (chart: echarts.EChartsType, ref: HTMLDivElement) => void;
+  onInit?: (chart: EChartsType, ref: HTMLDivElement) => void;
   selectedRegions?: SelectedRegion[];
   style?: CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
@@ -67,7 +67,7 @@ function MapaEsChart({
 
   let regions: SelectedRegion[] = [];
 
-  function onMapaInit(chart: echarts.EChartsType) {
+  function onMapaInit(chart: EChartsType) {
     chart.on("click", function (params) {
       const nomeNormalizado = getNomeNormalizadoMunicipio(
         municipios,
@@ -154,8 +154,8 @@ function MapaEsChart({
     chartOptions
   );
 
-  function onChartInit(chart: echarts.EChartsType, ref: HTMLDivElement) {
-    echarts.registerMap("ES", MAP_DATA as any);
+  function onChartInit(chart: EChartsType, ref: HTMLDivElement) {
+    registerMap("ES", MAP_DATA as any);
     getChart && getChart(chart);
     onMapaInit(chart);
     onInit && onInit(chart, ref);

@@ -35,9 +35,9 @@ export default function MenuMobileModals() {
   const [municipiosOpen, setMunicipiosOpen] = useState(false);
   const [prestacoesDeContasOpen, setPrestacoesDeContasOpen] = useState(false);
 
+  const municipios = use(useGlobalState()).municipios;
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
-  const municipios = use(useGlobalState()).municipios;
 
   function openDropdownFiscalizacoes() {
     setFiscalizacoesOpen(true);

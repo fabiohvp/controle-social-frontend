@@ -103,7 +103,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Resultado da Fiscalização sobre
-            <Link href="/cancerColoDeUtero/2022">
+            <Link href="/cancerColoDeUtero/2022" prefetch={false}>
               Câncer de colo de útero
             </Link>{" "}
             prefetch={false}, ano de 2022.

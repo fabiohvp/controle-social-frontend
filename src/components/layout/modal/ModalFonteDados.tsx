@@ -58,8 +58,11 @@ export default function ModalFonteDados({ setShow, show }: ModalProps) {
             : dados de segurados (atualizado em 27/08/2019);
           </li>
           <li>
-            <Link href="https://cnes.datasus.gov.br/">CNES</Link>: informações
-            sobre equipamentos, leitos e estabelecimentos de saúde.
+            <Link href="https://cnes.datasus.gov.br/" prefetch={false}>
+              CNES
+            </Link>
+            : informações sobre equipamentos, leitos e estabelecimentos de
+            saúde.
           </li>
           <li>
             <ExternalLink href="https://sisaps.saude.gov.br/notatecnica/frmListaMunic.php">

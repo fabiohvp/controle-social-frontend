@@ -6,7 +6,7 @@ export default function HomeFooter() {
     <div className="container flex justify-around">
       <section className="flex flex-col gap-5">
         <Link href="https://www.tcees.tc.br" target="_blank">
-          <TceesLogo fill="white" />
+          <TceesLogo color="branco" />
         </Link>
         <h3>
           Telefone geral: &nbsp;
