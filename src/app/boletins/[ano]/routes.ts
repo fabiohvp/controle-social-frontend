@@ -11,7 +11,7 @@ export function generateBoletinsUrl({
   pathname,
 }: BoletinsPageProps & { pathname: string }) {
   if (pagina || !mes) {
-    pagina = pagina ?? getPagina(pathname) ?? "";
+    pagina = (pagina || getPagina(pathname)) ?? "";
     return `/boletins/${ano}/${pagina}`;
   }
   return `/boletins/${ano}/${mes}`;

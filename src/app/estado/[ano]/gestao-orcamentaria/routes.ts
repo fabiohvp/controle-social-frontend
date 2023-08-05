@@ -5,13 +5,13 @@ export type GestaoOrcamentariaPageProps = {
   segment: string;
 };
 
-export function generateGestaoOrcamentariaUrl<T>({
+export function generateGestaoOrcamentariaUrl({
   ano,
   pathname,
   segment,
 }: GestaoOrcamentariaPageProps & { pathname: string }) {
   const pagina = getPagina(pathname);
-  segment = segment ?? getSegment(pathname);
+  segment = segment || getSegment(pathname);
   return `/estado/${ano}/${pagina}/${segment}`;
 }
 

@@ -27,7 +27,6 @@ export default function BreadcrumbControleInternoPaginas() {
         generateUrl={(item) =>
           generateControleInternoUrl({
             ...routeParams,
-            item,
             pagina: item[1].value,
             pathname,
           })

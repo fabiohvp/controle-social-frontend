@@ -8,7 +8,7 @@ export function generateSaudeUrl({
   pagina,
   pathname,
 }: SaudePageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/saude/${pagina}`;
 }
 

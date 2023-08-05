@@ -28,7 +28,6 @@ export default function BreadcrumbPortalTransparenciaPaginas() {
         generateUrl={(item) =>
           generatePortalTransparenciaUrl({
             ...routeParams,
-            item,
             pagina: item[1].value,
             pathname,
           })

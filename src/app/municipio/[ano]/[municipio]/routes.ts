@@ -17,16 +17,11 @@ export function generateMunicipioUrl({
   pathname,
 }: MunicipioPageProps & { pathname: string }) {
   municipio = municipio ?? "serra";
-  pagina = pagina ?? getPaginaComSegments(pathname);
-  return `/municipio/${ano ?? "2023"}/${municipio}/${pagina || "visao-geral"}`;
+  pagina = pagina || getPagina(pathname);
+  return `/municipio/${ano ?? "2023"}/${municipio}/${pagina}`;
 }
 
 export function getPagina(pathname: string) {
   const pagina = pathname.split("/")[4];
-  return pagina;
-}
-
-function getPaginaComSegments(pathname: string) {
-  const paginaComSegments = pathname.split("/").slice(4).join("/");
-  return paginaComSegments;
+  return pagina || "visao-geral";
 }

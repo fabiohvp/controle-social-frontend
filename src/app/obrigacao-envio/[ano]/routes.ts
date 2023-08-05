@@ -3,12 +3,12 @@ export type ObrigacaoEnvioPageProps = {
   pagina: string;
 };
 
-export function generateObrigacaoEnvioUrl<T>({
+export function generateObrigacaoEnvioUrl({
   ano,
   pagina,
   pathname,
 }: ObrigacaoEnvioPageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/obrigacao-envio/${ano}/${pagina}`;
 }
 

@@ -14,7 +14,7 @@ export function generateEstadoUrl({
   pagina,
   pathname,
 }: EstadoPageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/estado/${ano}/${pagina}`;
 }
 

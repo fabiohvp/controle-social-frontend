@@ -8,7 +8,7 @@ export function generateOfertaXDemandaUrl({
   pagina,
   pathname,
 }: OfertaXDemandaLabelPageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/educacao/oferta-x-demanda/${pagina}`;
 }
 

@@ -11,7 +11,7 @@ export function generateGestaoFiscalUrl({
   segment,
 }: GestaoFiscalPageProps & { pathname: string }) {
   const pagina = getPagina(pathname);
-  segment = segment ?? getSegment(pathname);
+  segment = segment || getSegment(pathname);
   return `/estado/${ano}/${pagina}/${segment}`;
 }
 

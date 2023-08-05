@@ -1,19 +1,16 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
-
 export type ControleInternoPageProps = {
   ano: string;
   pagina: string;
 };
 
-export function generateControleInternoUrl<T>({
+export function generateControleInternoUrl({
   ano,
   pagina,
   pathname,
 }: ControleInternoPageProps & {
-  item: DropdownItem<T>;
   pathname: string;
 }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/controle-interno/${pagina}`;
 }
 

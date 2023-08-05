@@ -8,7 +8,7 @@ export function generateDesigualdadeEducacionalUrl({
   pagina,
   pathname,
 }: DesigualdadeEducacionalPageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/educacao/desigualdade-educacional/${pagina}`;
 }
 

@@ -1,19 +1,16 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
-
 export type TransparenciaPassivaPageProps = {
   ano: string;
   pagina: string;
 };
 
-export function generateTransparenciaPassivaUrl<T>({
+export function generateTransparenciaPassivaUrl({
   ano,
   pagina,
   pathname,
 }: TransparenciaPassivaPageProps & {
-  item: DropdownItem<T>;
   pathname: string;
 }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/transparencia-passiva/${pagina}`;
 }
 

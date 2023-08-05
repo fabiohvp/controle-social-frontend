@@ -1,19 +1,16 @@
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
-
 export type PortalTransparenciaPageProps = {
   ano: string;
   pagina: string;
 };
 
-export function generatePortalTransparenciaUrl<T>({
+export function generatePortalTransparenciaUrl({
   ano,
   pagina,
   pathname,
 }: PortalTransparenciaPageProps & {
-  item: DropdownItem<T>;
   pathname: string;
 }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
   return `/fiscalizacao/${ano}/portal-transparencia/${pagina}`;
 }
 

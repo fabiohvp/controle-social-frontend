@@ -14,7 +14,7 @@ export function generateFolhaDePagamentoUrl({
   poder,
   unidadeGestora,
 }: FolhaDePagamentoPageProps & { pathname: string }) {
-  pagina = pagina ?? getPagina(pathname);
+  pagina = pagina || getPagina(pathname);
 
   if (pagina === "consulta-vinculo") {
     return "/folha-de-pagamento/consulta-vinculo";
