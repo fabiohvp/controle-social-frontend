@@ -210,7 +210,7 @@ function RenderTable({
                     </ExternalLink>
                   </div>
                 ) : (
-                  <span key={responsavel.nome}>&nbsp;</span>
+                  <div key={responsavel.nome}>&nbsp;</div>
                 )
               )}
             </td>
@@ -226,7 +226,7 @@ function RenderTable({
                     </ExternalLink>
                   </div>
                 ) : (
-                  <span key={responsavel.nome}>&nbsp;</span>
+                  <div key={responsavel.nome}>&nbsp;</div>
                 )
               )}
             </td>

@@ -257,7 +257,7 @@ function DropdownPrestacoesContas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/prestacao-de-conta/monitoramento/${ano}/municipios/todos`}
+            href={`/prestacao-de-conta/${ano}/municipios/monitoramento/todos`}
             prefetch={false}
           >
             Monitoramentos

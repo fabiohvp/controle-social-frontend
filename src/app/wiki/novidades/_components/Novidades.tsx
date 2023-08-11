@@ -142,7 +142,10 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel para
-            <Link href="/monitoramento/2019/municipios/Todos" prefetch={false}>
+            <Link
+              href="/prestacao-de-conta/2019/municipios/monitoramento/todos"
+              prefetch={false}
+            >
               monitoramento de providências
             </Link>
             a serem tomadas pelos órgãos, a partir das deliberações do TCEES.
