@@ -13,7 +13,7 @@
     },
     {
       "description": "Órgãos que cumpriram a obrigação de enviar dados ao TCE-ES",
-      "href": "/obrigacao-envio/{obrigacao-de-envio-ano}/municipios",
+      "href": "/obrigacao-de-envio/{obrigacao-de-envio-ano}/municipios",
       "image": {
         "height": 50,
         "src": "/icons/obrigacoes.png",

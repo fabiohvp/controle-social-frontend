@@ -86,7 +86,7 @@ function DropdownAreasTematicas({}: {}) {
           {/* TODO: fix this link */}
           <Link
             href={`/folha-de-pagamento/executivo-municipal/${
-              params.ano ?? ANO_DEFAULT
+              params.ano ?? globalState.anos.folhaDePagamento.anoAtual
             }/${params.mes ?? MES_DEFAULT}/visao-geral/${
               getCodigoMunicipio(municipios, params.municipio) ?? ""
             }`}
@@ -106,6 +106,7 @@ function DropdownAreasTematicas({}: {}) {
 }
 
 function DropdownFiscalizacoes() {
+  const globalState = useGlobalState();
   const params = useParams();
 
   return (
@@ -161,7 +162,9 @@ function DropdownFiscalizacoes() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/estado/${params.ano ?? ANO_DEFAULT}/iege`}
+            href={`/estado/${
+              params.ano ?? globalState.anos.estado.anoAtual
+            }/iege`}
             prefetch={false}
           >
             Índice de efetividade de gestão estadual (IEGE)
@@ -169,7 +172,9 @@ function DropdownFiscalizacoes() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/municipio/${params.ano ?? ANO_DEFAULT}/iegm`}
+            href={`/municipio/${
+              params.ano ?? globalState.anos.municipio.anoAtual
+            }/iegm`}
             prefetch={false}
           >
             Índice de efetividade de gestão municipal (IEGM)
@@ -232,7 +237,9 @@ function DropdownInteligenciaArtificial() {
 }
 
 function DropdownPrestacoesContas() {
+  const globalState = useGlobalState();
   const params = useParams();
+  const ano = params.ano ?? globalState.anos.prestacaoDeConta.anoAtual;
 
   return (
     <DropdownMenu
@@ -242,9 +249,7 @@ function DropdownPrestacoesContas() {
       <ul className="font-normal">
         <DropdownItem>
           <Link
-            href={`/prestacao-de-conta/${
-              params.ano ?? ANO_DEFAULT
-            }/municipios/governo/07`}
+            href={`/prestacao-de-conta/${ano}/municipios/governo/07`}
             prefetch={false}
           >
             Processos
@@ -252,9 +257,7 @@ function DropdownPrestacoesContas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/prestacao-de-conta/monitoramento/${
-              params.ano ?? ANO_DEFAULT
-            }/municipios/todos`}
+            href={`/prestacao-de-conta/monitoramento/${ano}/municipios/todos`}
             prefetch={false}
           >
             Monitoramentos
@@ -262,7 +265,7 @@ function DropdownPrestacoesContas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href={`/prestacao-de-conta/2023/parecer-previo`}
+            href={`/prestacao-de-conta/${ano}/parecer-previo`}
             prefetch={false}
           >
             Parecer prévio
@@ -282,11 +285,12 @@ function DropdownPrestacoesContas() {
 }
 
 function LinkBoletins() {
+  const globalState = useGlobalState();
   const params = useParams();
 
   return (
     <Link
-      href={`/boletins/${params.ano ?? ANO_DEFAULT}/`}
+      href={`/boletins/${params.ano ?? globalState.anos.boletins.anoAtual}/`}
       className="center gap-1"
       prefetch={false}
     >
@@ -297,11 +301,14 @@ function LinkBoletins() {
 }
 
 function LinkEstado() {
+  const globalState = useGlobalState();
   const params = useParams();
 
   return (
     <Link
-      href={`/estado/${params.ano ?? ANO_DEFAULT}/visao-geral`}
+      href={`/estado/${
+        params.ano ?? globalState.anos.estado.anoAtual
+      }/visao-geral`}
       className="center gap-1"
       prefetch={false}
     >
@@ -312,11 +319,14 @@ function LinkEstado() {
 }
 
 function LinkObrigacoes() {
+  const globalState = useGlobalState();
   const params = useParams();
 
   return (
     <Link
-      href={`/obrigacao-de-envio/${params.ano ?? ANO_DEFAULT}/municipios`}
+      href={`/obrigacao-de-envio/${
+        params.ano ?? globalState.anos.obrigacaoEnvio.anoAtual
+      }/municipios`}
       className="center gap-1"
       prefetch={false}
     >

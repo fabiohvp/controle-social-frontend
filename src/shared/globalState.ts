@@ -13,6 +13,7 @@ export type GlobalState = {
     folhaDePagamento: GlobalStateAno;
     municipio: GlobalStateAno;
     obrigacaoEnvio: GlobalStateAno;
+    prestacaoDeConta: GlobalStateAno;
   };
   apis: {
     google: {
@@ -49,6 +50,10 @@ export async function initGlobalState() {
             anoAtual: 2023,
           },
           obrigacaoEnvio: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
+          prestacaoDeConta: {
             anoInicio: 2023,
             anoAtual: 2023,
           },
