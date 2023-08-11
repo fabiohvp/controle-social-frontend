@@ -1,5 +1,5 @@
 import GlobalStateProvider from "@/providers/GlobalProvider";
-import { initGlobalState } from "@/shared/globalState";
+import { globalState, initGlobalState } from "@/shared/globalState";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const globalState = initGlobalState();
+  await initGlobalState();
 
   return (
     <html lang="en">

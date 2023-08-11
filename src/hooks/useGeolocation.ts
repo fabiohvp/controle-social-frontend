@@ -1,9 +1,9 @@
 "use client";
 import { normalize } from "@/formatters/string";
-//reference: https://github.com/bence-toth/react-hook-geolocation#readme
 import { useGlobalState } from "@/providers/GlobalProvider";
+//reference: https://github.com/bence-toth/react-hook-geolocation#readme
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
-import { use, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface EnrichedGeolocationCoordinates
   extends Partial<GeolocationCoordinates> {
@@ -17,7 +17,7 @@ function useGeolocation(
   { enableHighAccuracy, maximumAge, timeout }: PositionOptions = {},
   isEnabled = true
 ): EnrichedGeolocationCoordinates {
-  const globalState = use(useGlobalState());
+  const globalState = useGlobalState();
   const googleApiKey = globalState.apis.google.key;
 
   const [data, setData] = useState<EnrichedGeolocationCoordinates>({

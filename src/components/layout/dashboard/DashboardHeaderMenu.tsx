@@ -12,7 +12,6 @@ import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { use } from "react";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 const ANO_DEFAULT = 2023;
@@ -50,7 +49,8 @@ export default function DashboardHeaderItems() {
 }
 
 function DropdownAreasTematicas({}: {}) {
-  const municipios = use(useGlobalState()).municipios;
+  const globalState = useGlobalState();
+  const municipios = globalState.municipios;
   const params = useParams();
 
   return (

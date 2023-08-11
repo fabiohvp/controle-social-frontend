@@ -15,7 +15,7 @@ import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import type { EChartsType } from "echarts/core";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { use, useState } from "react";
+import { useState } from "react";
 import MapaEsChart from "../charts/MapaEsChart";
 import DropdownMenu from "../dropdowns/dropdown/DropdownMenu";
 
@@ -50,7 +50,7 @@ function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
 }
 
 export default function MegaMenuMunicipios() {
-  const globalState = use(useGlobalState());
+  const globalState = useGlobalState();
   const municipios = globalState.municipios;
   const [chart, setChart] = useState<EChartsType | null>(null);
   const [municipiosFilterable, setMunicipiosFilterable] = useState(

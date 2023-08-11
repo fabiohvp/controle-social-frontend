@@ -25,7 +25,6 @@ import {
   HTMLAttributes,
   SetStateAction,
   memo,
-  use,
 } from "react";
 import EChart from "./EChart";
 import MAP_DATA from "./mapa-es.json";
@@ -63,7 +62,7 @@ function MapaEsChart({
   const routeParams = useParams() as MunicipioPageProps;
   const pagina = getPagina(pathname);
 
-  const globalState = use(useGlobalState());
+  const globalState = useGlobalState();
   const municipios = globalState.municipios;
 
   let regions: SelectedRegion[] = [];

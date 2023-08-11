@@ -107,13 +107,15 @@ export default async function Page({
       <tbody>
         {data.map((row, index) => (
           <tr key={index} className={`${index % 2 === 0 ? "even" : "odd"}`}>
-            <td>
+            <td data-label="Edição">
               <ExternalLink href={row.edicao.href}>
                 {row.edicao.titulo}
               </ExternalLink>
             </td>
-            <td>{row.resumo}</td>
-            <td className="text-center">{row.publicacao}</td>
+            <td data-label="Resumo">{row.resumo}</td>
+            <td className="text-center" data-label="Publicação">
+              {row.publicacao}
+            </td>
           </tr>
         ))}
       </tbody>

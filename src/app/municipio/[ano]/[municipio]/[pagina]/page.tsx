@@ -1,6 +1,5 @@
-import { useGlobalState } from "@/providers/GlobalProvider";
+import { globalState } from "@/shared/globalState";
 import { redirect } from "next/navigation";
-import { use } from "react";
 import { generateGestaoFiscalUrl } from "../gestao-fiscal/routes";
 import { generateGestaoOrcamentariaUrl } from "../gestao-orcamentaria/routes";
 import { MunicipioPageProps, generateMunicipioUrl } from "../routes";
@@ -14,7 +13,6 @@ const redirects = new Map<string, (params: any) => string>([
 ]);
 
 export default function Page(props: Props) {
-  const globalState = use(useGlobalState());
   const pagina = props.params.pagina;
 
   for (const [key, getUrl] of redirects) {

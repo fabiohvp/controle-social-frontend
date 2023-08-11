@@ -2,9 +2,7 @@
 import { GlobalState } from "@/shared/globalState";
 import { ReactNode, createContext, useContext } from "react";
 
-export const GlobalStateContext = createContext<Promise<GlobalState> | null>(
-  null
-);
+export const GlobalStateContext = createContext<GlobalState | null>(null);
 
 export function useGlobalState() {
   const globalState = useContext(GlobalStateContext);
@@ -22,7 +20,7 @@ export default function GlobalStateProvider({
   value: globalState,
 }: {
   children: ReactNode;
-  value: Promise<GlobalState>;
+  value: GlobalState;
 }) {
   return (
     <GlobalStateContext.Provider value={globalState}>

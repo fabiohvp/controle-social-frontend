@@ -5,7 +5,6 @@ import { useGlobalState } from "@/providers/GlobalProvider";
 import { GlobalState } from "@/shared/globalState";
 import Image from "next/image";
 import Link from "next/link";
-import { use } from "react";
 import AREAS_TEMATICAS from "./area-tematica.json";
 import ESTADO from "./estado.json";
 import INTELIGENCIA_ARTIFICIAL from "./inteligencia-artificial.json";
@@ -34,7 +33,7 @@ const panels: Panel[][] = [
 ];
 
 export default function LinksWidgets() {
-  const globalState = use(useGlobalState());
+  const globalState = useGlobalState();
   const { municipio } = useGeolocation();
 
   return (

@@ -25,40 +25,42 @@ export type GlobalState = {
   municipios: EsferaAdministrativa[];
 };
 
-export function initGlobalState() {
-  const globalState: Promise<GlobalState> = Promise.all([getMunicipios()]).then(
-    ([municipios]) => ({
-      anos: {
-        boletins: {
-          anoInicio: 2023,
-          anoAtual: 2023,
+export let globalState: GlobalState;
+
+export async function initGlobalState() {
+  globalState = await Promise.all([getMunicipios()]).then(
+    ([municipios]) =>
+      ({
+        anos: {
+          boletins: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
+          estado: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
+          folhaDePagamento: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
+          municipio: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
+          obrigacaoEnvio: {
+            anoInicio: 2023,
+            anoAtual: 2023,
+          },
         },
-        estado: {
-          anoInicio: 2023,
-          anoAtual: 2023,
+        apis: {
+          google: {
+            //key: "AIzaSyBXegZgIkYoYJVLaVuWTdrDRApB1UTNBEk",
+            key: "AIzaSyAwz6Bw5EpbIUH0eH2O7xDcvQbTiUguk1k",
+          },
         },
-        folhaDePagamento: {
-          anoInicio: 2023,
-          anoAtual: 2023,
-        },
-        municipio: {
-          anoInicio: 2023,
-          anoAtual: 2023,
-        },
-        obrigacaoEnvio: {
-          anoInicio: 2023,
-          anoAtual: 2023,
-        },
-      },
-      apis: {
-        google: {
-          //key: "AIzaSyBXegZgIkYoYJVLaVuWTdrDRApB1UTNBEk",
-          key: "AIzaSyAwz6Bw5EpbIUH0eH2O7xDcvQbTiUguk1k",
-        },
-      },
-      municipio: municipios.find((o) => o.codigo === "077")!,
-      municipios,
-    })
+        municipio: municipios.find((o) => o.codigo === "077")!,
+        municipios,
+      } as GlobalState)
   );
-  return globalState;
 }

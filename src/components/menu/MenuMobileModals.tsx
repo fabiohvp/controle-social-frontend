@@ -8,7 +8,7 @@ import { useGlobalState } from "@/providers/GlobalProvider";
 import { GlobalState } from "@/shared/globalState";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { use, useState } from "react";
+import { useState } from "react";
 import DropdownBody from "../dropdowns/dropdown/DropdownBody";
 import { DropdownItem } from "../dropdowns/dropdown/DropdownItem";
 import DropdownLinksRenderer from "../dropdowns/dropdown/DropdownLinksRenderer";
@@ -38,7 +38,7 @@ export default function MenuMobileModals() {
   const [prestacoesDeContasOpen, setPrestacoesDeContasOpen] = useState(false);
   const { municipio } = useGeolocation();
 
-  const globalState = use(useGlobalState());
+  const globalState = useGlobalState();
   const municipios = globalState.municipios;
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
