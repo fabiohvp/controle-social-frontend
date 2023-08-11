@@ -5,7 +5,9 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
+import { useGlobalState } from "@/providers/GlobalProvider";
 import { useParams, usePathname } from "next/navigation";
+import { use } from "react";
 import { MunicipioPageProps, generateMunicipioUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
@@ -26,6 +28,7 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
 ]);
 
 export default function BreadcrumbMunicipiosPaginas() {
+  const globalState = use(useGlobalState());
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
   const pagina = getPagina(pathname);
@@ -38,6 +41,7 @@ export default function BreadcrumbMunicipiosPaginas() {
         generateUrl={(item) =>
           generateMunicipioUrl({
             ...routeParams,
+            globalState,
             pagina: item[1].value,
             pathname,
           })

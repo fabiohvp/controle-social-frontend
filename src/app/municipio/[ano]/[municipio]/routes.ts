@@ -1,5 +1,5 @@
-import { useGlobalState } from "@/providers/GlobalProvider";
-import { CSSProperties, use } from "react";
+import { GlobalState } from "@/shared/globalState";
+import { CSSProperties } from "react";
 
 export type MunicipioPageProps = {
   ano: string;
@@ -13,15 +13,15 @@ export type MunicipioPanelProps = {
 
 export function generateMunicipioUrl({
   ano,
+  globalState,
   municipio,
   pagina,
   pathname,
-}: MunicipioPageProps & { pathname: string }) {
-  const globalState = use(useGlobalState());
-
+}: MunicipioPageProps & { globalState: GlobalState; pathname: string }) {
+  ano = ano ?? globalState.anos.municipio.anoAtual;
   municipio = municipio ?? globalState.municipio.nomeNormalizado;
   pagina = pagina || getPagina(pathname);
-  return `/municipio/${ano ?? "2023"}/${municipio}/${pagina}`;
+  return `/municipio/${ano}/${municipio}/${pagina}`;
 }
 
 export function getPagina(pathname: string) {

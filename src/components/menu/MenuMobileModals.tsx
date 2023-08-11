@@ -5,6 +5,7 @@ import {
 } from "@/app/municipio/[ano]/[municipio]/routes";
 import useGeolocation from "@/hooks/useGeolocation";
 import { useGlobalState } from "@/providers/GlobalProvider";
+import { GlobalState } from "@/shared/globalState";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { use, useState } from "react";
@@ -63,7 +64,9 @@ export default function MenuMobileModals() {
           items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: DropdownLinksRenderer(generateUrl(pathname, routeParams)),
+            render: DropdownLinksRenderer(
+              generateUrl(globalState, pathname, routeParams)
+            ),
           }))}
         />
       )}
@@ -73,7 +76,9 @@ export default function MenuMobileModals() {
           items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: DropdownLinksRenderer(generateUrl(pathname, routeParams)),
+            render: DropdownLinksRenderer(
+              generateUrl(globalState, pathname, routeParams)
+            ),
           }))}
         />
       )}
@@ -83,7 +88,9 @@ export default function MenuMobileModals() {
           items={municipios.map((municipio) => ({
             key: municipio.nome,
             value: createDropdownValue(municipio.nomeNormalizado),
-            render: DropdownLinksRenderer(generateUrl(pathname, routeParams)),
+            render: DropdownLinksRenderer(
+              generateUrl(globalState, pathname, routeParams)
+            ),
           }))}
         />
       )}
@@ -319,10 +326,15 @@ export default function MenuMobileModals() {
   );
 }
 
-function generateUrl(pathname: string, routeParams: MunicipioPageProps) {
+function generateUrl(
+  globalState: GlobalState,
+  pathname: string,
+  routeParams: MunicipioPageProps
+) {
   return function <T>(item: DropdownItem<T>, _: number) {
     return generateMunicipioUrl({
       ...routeParams,
+      globalState,
       municipio: item[1].value,
       pathname,
     });

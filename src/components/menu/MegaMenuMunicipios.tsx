@@ -10,6 +10,7 @@ import MapaEsIcon from "@/components/images/icons/header/MapaEsIcon";
 import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { useGlobalState } from "@/providers/GlobalProvider";
+import { GlobalState } from "@/shared/globalState";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import type { EChartsType } from "echarts/core";
 import Link from "next/link";
@@ -49,7 +50,8 @@ function getMunicipiosGroups(municipios: MunicipioFilterable[]) {
 }
 
 export default function MegaMenuMunicipios() {
-  const municipios = use(useGlobalState()).municipios;
+  const globalState = use(useGlobalState());
+  const municipios = globalState.municipios;
   const [chart, setChart] = useState<EChartsType | null>(null);
   const [municipiosFilterable, setMunicipiosFilterable] = useState(
     getMunicipiosFilterable(municipios)
@@ -126,6 +128,7 @@ export default function MegaMenuMunicipios() {
               <div key={index}>
                 {
                   <RenderMunicipioGroups
+                    globalState={globalState}
                     municipios={municipios}
                     pathname={pathname}
                     onMouseOut={onMouseOut}
@@ -146,12 +149,14 @@ export default function MegaMenuMunicipios() {
 }
 
 function RenderMunicipioGroups({
+  globalState,
   municipios,
   onMouseOut,
   onMouseOver,
   pathname,
   routeParams,
 }: {
+  globalState: GlobalState;
   municipios: MunicipioFilterable[];
   onMouseOver: (municipio: EsferaAdministrativa) => void;
   onMouseOut: (municipio: EsferaAdministrativa) => void;
@@ -172,6 +177,7 @@ function RenderMunicipioGroups({
           <Link
             href={generateMunicipioUrl({
               ...routeParams,
+              globalState,
               municipio: municipio.nomeNormalizado,
               pathname,
             })}

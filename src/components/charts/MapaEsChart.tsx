@@ -77,6 +77,7 @@ function MapaEsChart({
       push(
         generateMunicipioUrl({
           ...routeParams,
+          globalState,
           municipio: nomeNormalizado,
           pagina,
           pathname,

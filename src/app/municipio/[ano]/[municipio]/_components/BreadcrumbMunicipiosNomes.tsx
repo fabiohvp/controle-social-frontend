@@ -11,9 +11,10 @@ type Props = {
 };
 
 export default function BreadcrumbMunicipiosNomes({ active }: Props) {
+  const globalState = use(useGlobalState());
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
-  const municipios = use(useGlobalState()).municipios;
+  const municipios = globalState.municipios;
 
   return (
     <li>
@@ -22,6 +23,7 @@ export default function BreadcrumbMunicipiosNomes({ active }: Props) {
         generateUrl={(item) =>
           generateMunicipioUrl({
             ...routeParams,
+            globalState,
             municipio: item[1].value,
             pathname,
           })
