@@ -10,7 +10,7 @@ import { EstadoPageProps, generateEstadoUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
-  ["Obrigações junto ao TCE-ES", createDropdownValue("obrigacao-envio")],
+  ["Obrigações junto ao TCE-ES", createDropdownValue("obrigacao-de-envio")],
   [
     "Gestão orçamentária",
     createDropdownValue("gestao-orcamentaria/planejamento-governamental"),

@@ -63,7 +63,8 @@ function MapaEsChart({
   const routeParams = useParams() as MunicipioPageProps;
   const pagina = getPagina(pathname);
 
-  const municipios = use(useGlobalState()).municipios;
+  const globalState = use(useGlobalState());
+  const municipios = globalState.municipios;
 
   let regions: SelectedRegion[] = [];
 

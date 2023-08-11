@@ -9,7 +9,7 @@ export function generateObrigacaoEnvioUrl({
   pathname,
 }: ObrigacaoEnvioPageProps & { pathname: string }) {
   pagina = pagina || getPagina(pathname);
-  return `/obrigacao-envio/${ano}/${pagina}`;
+  return `/obrigacao-de-envio/${ano}/${pagina}`;
 }
 
 export function getPagina(pathname: string) {

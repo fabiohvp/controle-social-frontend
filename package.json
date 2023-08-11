@@ -31,6 +31,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.53.6",
     "eslint-config-prettier": "^8.10.0",
     "source-map-explorer": "^2.5.3"
   }

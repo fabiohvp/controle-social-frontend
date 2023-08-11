@@ -1,3 +1,4 @@
+import useGeolocation from "@/hooks/useGeolocation";
 import Image from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
@@ -7,9 +8,11 @@ type Props = {
 };
 
 export default function LimitesSaudeWidget(props: Props) {
+  const { municipio } = useGeolocation();
+
   return (
     <Link
-      href="/municipio/2020/colatina/gestao-fiscal/saude"
+      href={`/municipio/2020/${municipio.nomeNormalizado}/gestao-fiscal/saude`}
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className

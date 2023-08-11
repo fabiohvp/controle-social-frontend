@@ -22,9 +22,9 @@ export async function ObrigacoesJuntoTceesWidget({
         {Object.keys(data).map((key) => (
           <li
             key={key}
-            className="municipio-obrigacao-envio-ano flex flex-col gap-2 relative"
+            className="municipio-obrigacao-de-envio-ano flex flex-col gap-2 relative"
           >
-            <Link href={`/municipio/${key}/${municipio}/obrigacao-envio`}>
+            <Link href={`/municipio/${key}/${municipio}/obrigacao-de-envio`}>
               <FaCheckCircle
                 className="text-6xl"
                 style={{

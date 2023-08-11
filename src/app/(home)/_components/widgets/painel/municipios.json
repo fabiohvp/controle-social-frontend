@@ -3,17 +3,17 @@
   "artigos": [
     {
       "description": "Diversas informações para você fiscalizar o município",
-      "href": "/municipio/2023/colatina/visao-geral",
+      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/municipio-geolocalizado.png",
         "width": 39
       },
-      "titulo": "Colatina"
+      "titulo": "{municipio-nome}"
     },
     {
       "description": "Selecione o município que deseja fiscalizar",
-      "href": "/municipio/2023/colatina/visao-geral",
+      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/mapa-es.png",
@@ -23,7 +23,7 @@
     },
     {
       "description": "Visão geral da situação dos municípios capixabas",
-      "href": "/municipio/2023/colatina/visao-geral",
+      "href": "/indicadores-consolidados/{municipio-ano}/receita/orcamentaria",
       "image": {
         "height": 50,
         "src": "/icons/indicadores.png",
@@ -33,7 +33,7 @@
     },
     {
       "description": "Identifique similaridades e diferenças entre municípios",
-      "href": "/municipio/2023/colatina/visao-geral",
+      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/comparador.png",
@@ -43,7 +43,7 @@
     },
     {
       "description": "Escolha um tema e veja a situação de cada município",
-      "href": "/municipio/2023/colatina/visao-geral",
+      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/rankings",
       "image": {
         "height": 50,
         "src": "/icons/ranking.png",

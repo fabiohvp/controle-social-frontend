@@ -1,4 +1,4 @@
-.municipio-obrigacao-envio-ano:not(:last-child)::after {
+.municipio-obrigacao-de-envio-ano:not(:last-child)::after {
   border-top: 1px solid #ccc;
   content: "----";
   height: 1px;

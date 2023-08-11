@@ -3,6 +3,7 @@ import {
   MunicipioPageProps,
   generateMunicipioUrl,
 } from "@/app/municipio/[ano]/[municipio]/routes";
+import useGeolocation from "@/hooks/useGeolocation";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
@@ -34,8 +35,10 @@ export default function MenuMobileModals() {
   const [fiscalizacoesOpen, setFiscalizacoesOpen] = useState(false);
   const [municipiosOpen, setMunicipiosOpen] = useState(false);
   const [prestacoesDeContasOpen, setPrestacoesDeContasOpen] = useState(false);
+  const { municipio } = useGeolocation();
 
-  const municipios = use(useGlobalState()).municipios;
+  const globalState = use(useGlobalState());
+  const municipios = globalState.municipios;
   const pathname = usePathname();
   const routeParams = useParams() as MunicipioPageProps;
 
@@ -86,9 +89,12 @@ export default function MenuMobileModals() {
       )}
       <ul className="flex flex-col gap-1 self-start w-full md:w-1/2 lg:w-3/5">
         <li>
-          <Link href="/municipio/2023/serra/visao-geral" prefetch={false}>
+          <Link
+            href={`/municipio/2023/${municipio.nomeNormalizado}/visao-geral`}
+            prefetch={false}
+          >
             <section>
-              <h5>SERRA</h5>
+              <h5 className="uppercase">{municipio.nome}</h5>
               <div>Dados da cidade geolocalizada</div>
             </section>
             <div className="icon">
@@ -130,7 +136,7 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
-          <Link href="/obrigacao-envio/2023/municipios" prefetch={false}>
+          <Link href="/obrigacao-de-envio/2023/municipios" prefetch={false}>
             <section>
               <h5>OBRIGAÇÕES</h5>
               <div>...dos jurisdicionados junto ao TCE-ES</div>

@@ -14,7 +14,7 @@ type Props = {
 //TODO: criar dois endpoints (backend), um para municipio e outro para estado,
 //criar uma estrutura de dados que já traga o nome da UG/Município, sua data limite
 //e quantidade de envios feitos/atrasados/obrigatorios e por último..
-//REFAZER toda a parte de obrigacao-envio
+//REFAZER toda a parte de obrigacao-de-envio
 export default function ObrigacaoEnvioLayout({
   doughnuts,
   esferasAdministrativas,
@@ -33,7 +33,7 @@ export default function ObrigacaoEnvioLayout({
         }}
         header="Visão geral"
         legend={
-          <LegendaTooltip id="obrigacao-envio-municipios-visao-geral">
+          <LegendaTooltip id="obrigacao-de-envio-municipios-visao-geral">
             Visão geral das pendências juntos ao tribunal
           </LegendaTooltip>
         }

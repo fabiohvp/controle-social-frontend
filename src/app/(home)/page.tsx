@@ -1,3 +1,4 @@
+"use client";
 import HomeLayout from "@/app/(home)/_components/HomeLayout";
 import MenuMobileLayout from "@/components/menu/MenuMobileLayout";
 import ArrecadacaoWidget from "./_components/widgets/ArrecadacaoWidget";

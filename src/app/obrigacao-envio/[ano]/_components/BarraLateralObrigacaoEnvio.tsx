@@ -9,13 +9,13 @@ export default function BarraLateralObrigacaoEnvio() {
   return (
     <>
       <ItemBarraLateral
-        href={`/obrigacao-envio/${routeParams.ano}/municipios`}
+        href={`/obrigacao-de-envio/${routeParams.ano}/municipios`}
         icon={<FaMapMarkerAlt className="text-xl" />}
         text="Municípios"
         tooltip="Municípios"
       />
       <ItemBarraLateral
-        href={`/obrigacao-envio/${routeParams.ano}/estado`}
+        href={`/obrigacao-de-envio/${routeParams.ano}/estado`}
         icon={<EstadoIcon color="white" />}
         text="Estado"
         tooltip="Estado"

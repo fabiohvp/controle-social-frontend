@@ -1,4 +1,5 @@
-import { CSSProperties } from "react";
+import { useGlobalState } from "@/providers/GlobalProvider";
+import { CSSProperties, use } from "react";
 
 export type MunicipioPageProps = {
   ano: string;
@@ -16,7 +17,9 @@ export function generateMunicipioUrl({
   pagina,
   pathname,
 }: MunicipioPageProps & { pathname: string }) {
-  municipio = municipio ?? "serra";
+  const globalState = use(useGlobalState());
+
+  municipio = municipio ?? globalState.municipio.nomeNormalizado;
   pagina = pagina || getPagina(pathname);
   return `/municipio/${ano ?? "2023"}/${municipio}/${pagina}`;
 }

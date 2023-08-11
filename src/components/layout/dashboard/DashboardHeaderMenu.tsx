@@ -316,7 +316,7 @@ function LinkObrigacoes() {
 
   return (
     <Link
-      href={`/obrigacao-envio/${params.ano ?? ANO_DEFAULT}/municipios`}
+      href={`/obrigacao-de-envio/${params.ano ?? ANO_DEFAULT}/municipios`}
       className="center gap-1"
       prefetch={false}
     >

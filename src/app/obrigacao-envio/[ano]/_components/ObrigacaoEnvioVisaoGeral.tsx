@@ -55,7 +55,7 @@ export default function ObrigacaoEnvioVisaoGeral({
       push(
         `/municipio/${
           routeParams.ano ?? 2023
-        }/${nomeNormalizado}/obrigacao-envio`
+        }/${nomeNormalizado}/obrigacao-de-envio`
       );
     });
   }
@@ -139,7 +139,7 @@ function RenderAlerts({
               <Link
                 href={`/municipio/${ano}/${normalize(
                   doughnut.nome
-                )}/obrigacao-envio`}
+                )}/obrigacao-de-envio`}
                 className="text-link"
               >
                 {doughnut.nome}

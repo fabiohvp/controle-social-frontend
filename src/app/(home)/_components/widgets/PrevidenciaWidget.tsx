@@ -1,3 +1,4 @@
+import useGeolocation from "@/hooks/useGeolocation";
 import Image from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
@@ -7,9 +8,11 @@ type Props = {
 };
 
 export default function PrevidenciaWidget(props: Props) {
+  const { municipio } = useGeolocation();
+
   return (
     <Link
-      href="/municipio/2023/colatina/previdencia/receita"
+      href={`/municipio/2023/${municipio.nomeNormalizado}/previdencia/receita`}
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className

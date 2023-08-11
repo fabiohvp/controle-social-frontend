@@ -2,7 +2,9 @@
 import { GlobalState } from "@/shared/globalState";
 import { ReactNode, createContext, useContext } from "react";
 
-const GlobalStateContext = createContext<Promise<GlobalState> | null>(null);
+export const GlobalStateContext = createContext<Promise<GlobalState> | null>(
+  null
+);
 
 export function useGlobalState() {
   const globalState = useContext(GlobalStateContext);

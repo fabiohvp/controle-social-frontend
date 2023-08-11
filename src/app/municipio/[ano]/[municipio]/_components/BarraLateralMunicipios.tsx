@@ -21,7 +21,7 @@ export default function BarraLateralMunicipios() {
         tooltip="Visão geral do município"
       />
       <ItemBarraLateral
-        href={`/municipio/${routeParams.ano}/${routeParams.municipio}/obrigacao-envio`}
+        href={`/municipio/${routeParams.ano}/${routeParams.municipio}/obrigacao-de-envio`}
         icon={<FaCheck className="text-xl" />}
         text="Obrigações"
         tooltip="Obrigações junto ao TCE-ES"
