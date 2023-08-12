@@ -273,7 +273,7 @@ function DropdownPrestacoesContas() {
         </DropdownItem>
         <DropdownItem>
           <Link
-            href="/prestacao-de-conta/julgamento-de-contas/visao-geral"
+            href={`/prestacao-de-conta/${ano}/julgamento-de-conta/visao-geral`}
             prefetch={false}
           >
             Julgamento de contas

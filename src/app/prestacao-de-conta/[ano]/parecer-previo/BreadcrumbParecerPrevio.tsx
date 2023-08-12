@@ -3,7 +3,7 @@ import BreadcrumbAno from "@/components/breadcrumb/BreadcrumbAno";
 import { useAtom } from "jotai";
 import BreadcrumbPrestacaoDeContaLabel from "../_components/BreadcrumbPrestacaoDeContaLabel";
 import BreadcrumbParecerPrevioLabel from "./_components/BreadcrumbParecerPrevioLabel";
-import { parecerPrevioState } from "./parecerPrevio";
+import { parecerPrevioState } from "./parecerPrevioState";
 import { generateParecerPrevioUrl } from "./routes";
 
 export default function BreadcrumbParecerPrevio() {

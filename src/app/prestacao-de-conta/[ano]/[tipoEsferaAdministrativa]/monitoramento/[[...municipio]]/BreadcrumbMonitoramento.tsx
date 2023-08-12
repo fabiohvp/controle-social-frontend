@@ -5,7 +5,7 @@ import BreadcrumbPrestacaoDeContaLabel from "../../../_components/BreadcrumbPres
 import BreadcrumbMonitoramentoLabel from "../_components/BreadcrumbMonitoramentoLabel";
 import BreadcrumbMonitoramentoMunicipiosNomes from "../_components/BreadcrumbMonitoramentoMunicipiosNomes";
 import BreadcrumbMonitoramentoTipoEsferaAdministrativa from "../_components/BreadcrumbMonitoramentoTipoEsferaAdministrativa";
-import { monitoramentoState } from "./monitoramento";
+import { monitoramentoState } from "./monitoramentoState";
 import { generateMonitoramentoUrl } from "./routes";
 
 export default function BreadcrumbMonitoramento() {

@@ -3,6 +3,7 @@ import {
   DropdownValue,
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
+import { globalState } from "@/shared/globalState";
 import { useParams, usePathname } from "next/navigation";
 
 type Props = {
@@ -29,7 +30,7 @@ export default function BreadcrumbAno<T>(props: Props) {
         className="min-w-[70px]"
         generateUrl={(item, index) =>
           props.generateUrl(
-            { ...routeParams, ano: item[1].value, pathname },
+            { ...routeParams, ano: item[1].value, globalState, pathname },
             index
           )
         }

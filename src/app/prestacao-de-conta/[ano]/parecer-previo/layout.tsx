@@ -3,7 +3,7 @@ import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
 import { ReactNode } from "react";
 import BreadcrumbParecerPrevio from "./BreadcrumbParecerPrevio";
 
-export default async function Page({ children }: { children: ReactNode }) {
+export default async function Layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
       className="gap-2 p-2"
