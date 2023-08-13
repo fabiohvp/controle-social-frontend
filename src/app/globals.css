@@ -126,13 +126,6 @@ a:hover {
   justify-content: center;
 }
 
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .disabled {
   pointer-events: none;
 }
@@ -169,20 +162,27 @@ ul.styled li {
   @apply text-sm;
 }
 
+.wrapper {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @screen sm {
-  .container {
+  .wrapper {
     width: 750px;
   }
 }
 
 @screen lg {
-  .container {
+  .wrapper {
     width: 970px;
   }
 }
 
 @screen xl {
-  .container {
+  .wrapper {
     width: 1170px;
   }
 

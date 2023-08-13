@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HomeFooter() {
   return (
-    <div className="container flex justify-around">
+    <div className="wrapper flex justify-around">
       <section className="flex flex-col gap-5">
         <Link href="https://www.tcees.tc.br" target="_blank">
           <TceesLogo color="branco" />
