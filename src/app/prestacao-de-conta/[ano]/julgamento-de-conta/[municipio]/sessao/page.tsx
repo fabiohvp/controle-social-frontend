@@ -1,3 +1,4 @@
+import { Aba } from "@/components/abas/Aba";
 import ExternalLink from "@/components/links/ExternalLink";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
@@ -12,23 +13,10 @@ type Sessao = {
   numeroDecretoLegislativo: string;
   sumario: [
     {
-      ataJulgamentoUrl: string;
-      decretoLegislativoUrl: string;
-      responsavel: string;
-      numeroParecerPrevio: number;
       anoParecerPrevio: number;
-      parecerPrevioJulgamentoSituacao: string;
-      dataRecebimentoParecerPrevioLegislativo: string;
-      arquivoAtaJulgamentoId: number;
-      arquivoDecretoLegislativoId: number;
-      quantidadeVereadoresExercicio: number;
-      prazoJulgamentoLeiOrganicaUG: number;
-      votoAberto: boolean;
-      numeroDecretoLegislativo: string;
-      dataJulgamento: string;
-      dataTransitoJulgado: string;
-      dataResultado: string;
-      resultadoParecer: string;
+      arquivoAtaJulgamentoId?: number;
+      arquivoDecretoLegislativoId?: number;
+      ataJulgamentoUrl: string;
       dados: {
         tabela: {
           nomeVereador: string;
@@ -37,7 +25,7 @@ type Sessao = {
           registrouPresenca: string;
           votoAberto: boolean;
         }[];
-        tabelaVotoFechado: null;
+        tabelaVotoFechado?: any;
         tabelaVotoAbertoQuantidade: {
           aprovado: number;
           reprovado: number;
@@ -48,6 +36,19 @@ type Sessao = {
           votoAberto: boolean;
         };
       };
+      dataJulgamento: string;
+      dataRecebimentoParecerPrevioLegislativo: string;
+      dataResultado: string;
+      dataTransitoJulgado: string;
+      decretoLegislativoUrl: string;
+      numeroDecretoLegislativo: string;
+      numeroParecerPrevio: number;
+      parecerPrevioJulgamentoSituacao: string;
+      prazoJulgamentoLeiOrganicaUG?: number;
+      quantidadeVereadoresExercicio?: number;
+      responsavel: string;
+      resultadoParecer: string;
+      votoAberto?: boolean;
     }
   ];
 };
@@ -91,10 +92,40 @@ export default async function Page({
   const parecerPrevio = sessoes[0].sumario[0];
   const tabelaVotosQuantidades = parecerPrevio.dados.tabelaVotoAbertoQuantidade;
 
+  if (!parecerPrevio.dataJulgamento) {
+    return (
+      <>
+        <div>
+          <h4 className="py-1">Parecer prévio do TCE-ES</h4>
+          <RenderField
+            value={`${parecerPrevio.numeroParecerPrevio}/${parecerPrevio.anoParecerPrevio}`}
+          >
+            Número
+          </RenderField>
+          <RenderField
+            value={parecerPrevio.dataRecebimentoParecerPrevioLegislativo}
+          >
+            Data da ciência da Câmara Municipal
+          </RenderField>
+          <RenderField value={parecerPrevio.resultadoParecer}>
+            Resultado
+          </RenderField>
+        </div>
+        <hr className="py-1" />
+        <PainelComTituloMinimizavel
+          header={`PREFEITO(A) ${parecerPrevio.responsavel}`}
+          headerProps={{ className: "font-bold" }}
+        >
+          Responsável sem julgamento.
+        </PainelComTituloMinimizavel>
+      </>
+    );
+  }
+
   return (
     <>
-      <div className="flex justify-around">
-        <div>
+      <div className="flex flex-wrap justify-between xl:w-3/4">
+        <div className="border-b pb-2 w-full md:border-b-0 md:w-auto">
           <h4 className="py-1">Parecer prévio do TCE-ES</h4>
           <RenderField
             value={`${parecerPrevio.numeroParecerPrevio}/${parecerPrevio.anoParecerPrevio}`}
@@ -113,10 +144,12 @@ export default async function Page({
             Resultado
           </RenderField>
         </div>
-        <div>
+        <div className="border-b pb-2 w-full md:border-b-0 md:w-auto">
           <h4 className="py-1">Julgamento pela Câmara</h4>
           <RenderField
-            value={parecerPrevio.quantidadeVereadoresExercicio.toString()}
+            value={(
+              parecerPrevio.quantidadeVereadoresExercicio ?? 0
+            ).toString()}
           >
             Quantidade de vereadores no exercício
           </RenderField>
@@ -134,7 +167,7 @@ export default async function Page({
           </ExternalLink>
         </div>
 
-        <div>
+        <div className="border-b pb-2 w-full md:border-b-0 md:w-auto">
           <RenderField value={tabelaVotosQuantidades.aprovado.toString()}>
             Votos pela aprovação
           </RenderField>
@@ -180,46 +213,87 @@ function RenderField({
 
 function RenderSessao({ sessao }: { sessao: Sessao }) {
   const groups = [...groupBy(sessao.sumario, (s) => s.dataJulgamento)];
+  const map = new Map<string, ReactNode>();
 
-  return (
-    <>
-      {groups.map(([data, sumarios]) => (
-        <>
-          {data && <div>{data}</div>}
-          {sumarios.map((sumario) => {
-            <PainelComTituloMinimizavel
-              header={`PREFEITO(A) ${sumario.responsavel}`}
-              headerProps={{ className: "font-bold text-xl" }}
-            >
-              <table className="table mt-4 responsive text-sm">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Partido</th>
-                    <th>Voto</th>
-                    <th>Registrou presença</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sumario.dados.tabela.map((row, index) => (
-                    <tr
-                      key={row.nomeVereador}
-                      className={`${index % 2 === 0 ? "even" : "odd"}`}
-                    >
-                      <td data-label="Nome">{row.nomeVereador}</td>
-                      <td data-label="Partido">{row.partidoVereador}</td>
-                      <td data-label="Voto">{row.parecerPrevioVotoTipo}</td>
-                      <td data-label="Registrou presença">
-                        {row.registrouPresenca}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </PainelComTituloMinimizavel>;
-          })}
-        </>
-      ))}
-    </>
-  );
+  for (const [data, sumarios] of groups) {
+    map.set(
+      `Sessão - ${data}`,
+      sumarios.map((sumario) => (
+        <PainelComTituloMinimizavel
+          header={`PREFEITO(A) ${sumario.responsavel}`}
+          headerProps={{ className: "font-bold" }}
+        >
+          <table className="table mt-4 responsive text-sm">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Partido</th>
+                <th>Voto</th>
+                <th>Registrou presença</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sumario.dados.tabela.map((row, index) => (
+                <tr
+                  key={row.nomeVereador}
+                  className={`${index % 2 === 0 ? "even" : "odd"}`}
+                >
+                  <td data-label="Nome">{row.nomeVereador}</td>
+                  <td data-label="Partido">{row.partidoVereador}</td>
+                  <td data-label="Voto">{row.parecerPrevioVotoTipo}</td>
+                  <td data-label="Registrou presença">
+                    {row.registrouPresenca}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </PainelComTituloMinimizavel>
+      ))
+    );
+  }
+
+  return <Aba items={map} />;
+
+  // return (
+  //   <>
+  //     {groups.map(([data, sumarios]) => (
+  //       <>
+  //         {data && <Aba items={map} />}
+  //         {sumarios.map((sumario) => (
+  //           <PainelComTituloMinimizavel
+  //             header={`PREFEITO(A) ${sumario.responsavel}`}
+  //             headerProps={{ className: "font-bold text-xl" }}
+  //           >
+  //             <table className="table mt-4 responsive text-sm">
+  //               <thead>
+  //                 <tr>
+  //                   <th>Nome</th>
+  //                   <th>Partido</th>
+  //                   <th>Voto</th>
+  //                   <th>Registrou presença</th>
+  //                 </tr>
+  //               </thead>
+  //               <tbody>
+  //                 {sumario.dados.tabela.map((row, index) => (
+  //                   <tr
+  //                     key={row.nomeVereador}
+  //                     className={`${index % 2 === 0 ? "even" : "odd"}`}
+  //                   >
+  //                     <td data-label="Nome">{row.nomeVereador}</td>
+  //                     <td data-label="Partido">{row.partidoVereador}</td>
+  //                     <td data-label="Voto">{row.parecerPrevioVotoTipo}</td>
+  //                     <td data-label="Registrou presença">
+  //                       {row.registrouPresenca}
+  //                     </td>
+  //                   </tr>
+  //                 ))}
+  //               </tbody>
+  //             </table>
+  //           </PainelComTituloMinimizavel>
+  //         ))}
+  //       </>
+  //     ))}
+  //   </>
+  // );
 }

@@ -8,10 +8,14 @@
   border-top: 1px solid var(--table-border-color);
 }
 
+.table th {
+  text-align: left;
+}
+
 .table th,
 .table td {
-  position: relative;
   padding: 0.5rem 0.5rem;
+  position: relative;
 }
 
 .table thead tr {
