@@ -191,7 +191,7 @@ export default async function Page({
         </div>
       </div>
       {sessoes.map((sessao) => (
-        <RenderSessao sessao={sessao} />
+        <RenderSessao key={sessao.dataJulgamento} sessao={sessao} />
       ))}
     </>
   );
@@ -220,6 +220,7 @@ function RenderSessao({ sessao }: { sessao: Sessao }) {
       `Sessão - ${data}`,
       sumarios.map((sumario) => (
         <PainelComTituloMinimizavel
+          key={sumario.responsavel}
           header={`PREFEITO(A) ${sumario.responsavel}`}
           headerProps={{ className: "font-bold" }}
         >
