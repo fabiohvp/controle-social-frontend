@@ -112,12 +112,14 @@ export default async function Page({
           </RenderField>
         </div>
         <hr className="py-1" />
-        <PainelComTituloMinimizavel
-          header={`PREFEITO(A) ${parecerPrevio.responsavel}`}
-          headerProps={{ className: "font-bold" }}
-        >
-          Responsável sem julgamento.
-        </PainelComTituloMinimizavel>
+        {sessoes[0].sumario.map((sumario) => (
+          <PainelComTituloMinimizavel
+            header={`PREFEITO(A) ${sumario.responsavel}`}
+            headerProps={{ className: "font-bold" }}
+          >
+            Responsável sem julgamento.
+          </PainelComTituloMinimizavel>
+        ))}
       </>
     );
   }
@@ -253,48 +255,5 @@ function RenderSessao({ sessao }: { sessao: Sessao }) {
       ))
     );
   }
-
   return <Aba items={map} />;
-
-  // return (
-  //   <>
-  //     {groups.map(([data, sumarios]) => (
-  //       <>
-  //         {data && <Aba items={map} />}
-  //         {sumarios.map((sumario) => (
-  //           <PainelComTituloMinimizavel
-  //             header={`PREFEITO(A) ${sumario.responsavel}`}
-  //             headerProps={{ className: "font-bold text-xl" }}
-  //           >
-  //             <table className="table mt-4 responsive text-sm">
-  //               <thead>
-  //                 <tr>
-  //                   <th>Nome</th>
-  //                   <th>Partido</th>
-  //                   <th>Voto</th>
-  //                   <th>Registrou presença</th>
-  //                 </tr>
-  //               </thead>
-  //               <tbody>
-  //                 {sumario.dados.tabela.map((row, index) => (
-  //                   <tr
-  //                     key={row.nomeVereador}
-  //                     className={`${index % 2 === 0 ? "even" : "odd"}`}
-  //                   >
-  //                     <td data-label="Nome">{row.nomeVereador}</td>
-  //                     <td data-label="Partido">{row.partidoVereador}</td>
-  //                     <td data-label="Voto">{row.parecerPrevioVotoTipo}</td>
-  //                     <td data-label="Registrou presença">
-  //                       {row.registrouPresenca}
-  //                     </td>
-  //                   </tr>
-  //                 ))}
-  //               </tbody>
-  //             </table>
-  //           </PainelComTituloMinimizavel>
-  //         ))}
-  //       </>
-  //     ))}
-  //   </>
-  // );
 }

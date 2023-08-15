@@ -25,7 +25,10 @@ export default function BreadcrumbMonitoramentoTipoEsferaAdministrativa() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          generateMonitoramentoUrl({ ...routeParams, municipio: item[1].value })
+          generateMonitoramentoUrl({
+            ...routeParams,
+            tipoEsferaAdministrativa: item[1].value,
+          })
         }
         items={MONITORAMENTO_TIPO_ESFERA_ADMINISTRATIVA}
         selected={createDropdownValue(routeParams.tipoEsferaAdministrativa)}

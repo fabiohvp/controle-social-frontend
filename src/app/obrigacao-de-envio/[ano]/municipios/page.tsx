@@ -1,6 +1,7 @@
 import { getDataAtual } from "@/shared/date";
 import { getEsferasAdministrativas } from "@/shared/esferaAdministrativa";
 import { getDatasLimites } from "@/shared/municipio";
+import { handleSettledPromise } from "@/shared/promise";
 import { getObrigacaoesDeEnvios } from "../_api/getObrigacaoesDeEnvios";
 import { getRemessas } from "../_api/getRemessas";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
@@ -11,14 +12,18 @@ type Props = {
 };
 
 export default async function Page({ params }: { params: Props }) {
-  const [obrigacoesDeEnvio, datasLimites, esferasAdministrativas] =
-    await Promise.all([
-      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: true }),
+  const [datasLimitesRes, esferasAdministrativasRes, obrigacoesDeEnvioRes] =
+    await Promise.allSettled([
       getDatasLimites(parseInt(params.ano)),
       getEsferasAdministrativas(),
+      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: true }),
     ]);
   const dataAtual = getDataAtual();
   const anoParameter = parseInt(params.ano);
+
+  let datasLimites = handleSettledPromise(datasLimitesRes);
+  let esferasAdministrativas = handleSettledPromise(esferasAdministrativasRes);
+  let obrigacoesDeEnvio = handleSettledPromise(obrigacoesDeEnvioRes);
 
   const doughnuts = {
     ...getDoughnut({

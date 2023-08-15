@@ -1,5 +1,6 @@
 import { normalize } from "@/formatters/string";
 import { getDatasLimites } from "@/shared/municipio";
+import { handleSettledPromise } from "@/shared/promise";
 import { getUnidadesGestorasEstaduais } from "@/shared/unidadeGestora";
 import { getObrigacaoesDeEnvios } from "../_api/getObrigacaoesDeEnvios";
 import { getRemessas } from "../_api/getRemessas";
@@ -11,18 +12,21 @@ type Props = {
 };
 
 export default async function Page({ params }: { params: Props }) {
-  const [obrigacoesDeEnvio, datasLimites, unidadesGestoras] = await Promise.all(
-    [
-      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: false }),
+  const [datasLimitesRes, unidadesGestorasRes, obrigacoesDeEnvioRes] =
+    await Promise.allSettled([
       getDatasLimites(parseInt(params.ano)),
       getUnidadesGestorasEstaduais().map((ug) => ({
         codigo: ug.codigo.substring(0, 3),
         nome: ug.nome,
         nomeNormalizado: normalize(ug.nome),
       })),
-    ]
-  );
+      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: false }),
+    ]);
   const anoParameter = parseInt(params.ano);
+
+  let datasLimites = handleSettledPromise(datasLimitesRes);
+  let unidadesGestoras = handleSettledPromise(unidadesGestorasRes);
+  let obrigacoesDeEnvio = handleSettledPromise(obrigacoesDeEnvioRes);
 
   const doughnuts = {
     ...getDoughnut({

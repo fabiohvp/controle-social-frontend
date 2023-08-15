@@ -3,6 +3,7 @@ import ExternalLink from "@/components/links/ExternalLink";
 import PainelComTitulo from "@/components/paineis/PainelComTitulo";
 import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
 import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import { handleSettledPromise } from "@/shared/promise";
 import {
   getTipoUnidadesGestorasEstaduais,
   getTipoUnidadesGestorasMunicipais,
@@ -25,10 +26,13 @@ export default async function Page({
 }: {
   params: PrestacaoDeContaGovernoPageProps;
 }) {
-  const [resumoProcessos, situacaoProcessos] = await Promise.all([
+  const [resumoProcessosRes, situacaoProcessosRes] = await Promise.allSettled([
     getResumoProcessos(params),
     getSituacaoProcessos(params),
   ]);
+
+  const resumoProcessos = handleSettledPromise(resumoProcessosRes);
+  const situacaoProcessos = handleSettledPromise(situacaoProcessosRes);
 
   return (
     <DashboardLayout
