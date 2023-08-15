@@ -1,5 +1,4 @@
 "use client";
-import { DropdownItem } from "@/components/dropdowns/dropdown/DropdownItem";
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import {
   DropdownValue,
@@ -26,32 +25,11 @@ export default function BreadcrumbMonitoramentoTipoEsferaAdministrativa() {
     <li>
       <DropdownLinks
         generateUrl={(item) =>
-          generateMonitoramentoUrl(routeChange(item, routeParams))
+          generateMonitoramentoUrl({ ...routeParams, municipio: item[1].value })
         }
         items={MONITORAMENTO_TIPO_ESFERA_ADMINISTRATIVA}
         selected={createDropdownValue(routeParams.tipoEsferaAdministrativa)}
       />
     </li>
   );
-}
-
-function routeChange<T>(
-  item: DropdownItem<T>,
-  routeParams: PrestacaoDeContaGovernoPageProps
-) {
-  const value = item[1].value;
-  const newRouteParams = {
-    ...routeParams,
-    tipoEsferaAdministrativa: value,
-  };
-  if (routeParams.tipoEsferaAdministrativa !== value) {
-    newRouteParams.tipoConta = "governo";
-
-    if (value === "estado") {
-      newRouteParams.tipoUnidadeGestora = "10";
-    } else {
-      newRouteParams.tipoUnidadeGestora = "07";
-    }
-  }
-  return newRouteParams;
 }
