@@ -1,6 +1,6 @@
-import { Aba } from "@/components/abas/Aba";
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import { Tab } from "@/components/tabs/Tab";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { groupBy } from "@/types/Array";
 import { ReactNode } from "react";
@@ -113,12 +113,12 @@ export default async function Page({
         </div>
         <hr className="py-1" />
         {sessoes[0].sumario.map((sumario) => (
-          <PainelComTituloMinimizavel
+          <PanelWithTitleCollapsible
             header={`PREFEITO(A) ${sumario.responsavel}`}
             headerProps={{ className: "font-bold" }}
           >
             Responsável sem julgamento.
-          </PainelComTituloMinimizavel>
+          </PanelWithTitleCollapsible>
         ))}
       </>
     );
@@ -221,7 +221,7 @@ function RenderSessao({ sessao }: { sessao: Sessao }) {
     map.set(
       `Sessão - ${data}`,
       sumarios.map((sumario) => (
-        <PainelComTituloMinimizavel
+        <PanelWithTitleCollapsible
           key={sumario.responsavel}
           header={`PREFEITO(A) ${sumario.responsavel}`}
           headerProps={{ className: "font-bold" }}
@@ -251,9 +251,9 @@ function RenderSessao({ sessao }: { sessao: Sessao }) {
               ))}
             </tbody>
           </table>
-        </PainelComTituloMinimizavel>
+        </PanelWithTitleCollapsible>
       ))
     );
   }
-  return <Aba items={map} />;
+  return <Tab items={map} />;
 }

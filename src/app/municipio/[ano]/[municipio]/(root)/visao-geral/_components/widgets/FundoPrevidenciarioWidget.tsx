@@ -1,5 +1,5 @@
 import GaugeChart from "@/components/charts/GaugeChart";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -36,7 +36,7 @@ export async function FundoPrevidenciarioWidget({
   const data = await getData({ ano, municipio });
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ style }}
       header="Previdência - Fundo Previdenciário"
       legend={
@@ -53,7 +53,7 @@ export async function FundoPrevidenciarioWidget({
       }
     >
       <GaugeChart {...CHART_SETTINGS} selectedValue={Math.abs(data?.valor)} />
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { useParams } from "next/navigation";
 
 const RELATORIOS: { [key: string]: string } = {
@@ -14,7 +14,7 @@ export default function AlertaPortalTransparencia() {
   const routeParams = useParams();
 
   return (
-    <PainelDeAlerta type="info">
+    <AlertPanel type="info">
       Em 2020 o Tribunal de Contas do ES realizou auditoria para avaliar os
       Portais de Transparência das Prefeituras e Câmaras municipais. Foram
       verificados mais de 200 itens, sob a ótica do conteúdo e da qualidade das
@@ -31,6 +31,6 @@ export default function AlertaPortalTransparencia() {
       >
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
-    </PainelDeAlerta>
+    </AlertPanel>
   );
 }

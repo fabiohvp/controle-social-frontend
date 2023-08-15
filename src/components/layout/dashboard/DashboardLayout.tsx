@@ -1,5 +1,5 @@
-import BarraLateral from "@/components/barraLateral/BarraLateral";
 import LoadingPage from "@/components/loading/LoadingPage";
+import Sidebar from "@/components/sidebar/Sidebar";
 import dynamic from "next/dynamic";
 import { ElementType, ReactNode, Suspense } from "react";
 import { twMerge } from "tailwind-merge";
@@ -12,7 +12,7 @@ import {
 } from "./dashboardConstants";
 import "./dashboardLayout.css";
 
-const BotaoIpca = dynamic(() => import("../../botoes/ipca/BotaoIpca"), {
+const BotaoIpca = dynamic(() => import("../../buttons/ipca/IpcaButton"), {
   ssr: false,
 });
 
@@ -49,9 +49,9 @@ export default function DashboardLayout(props: Props) {
       <main className="grid">
         <div className="basis-full flex">
           {props.barraLateral && (
-            <BarraLateral>
+            <Sidebar>
               <props.barraLateral />
-            </BarraLateral>
+            </Sidebar>
           )}
           <div
             className={twMerge(

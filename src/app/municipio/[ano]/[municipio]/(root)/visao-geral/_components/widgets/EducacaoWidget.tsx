@@ -1,5 +1,5 @@
 import GaugeChart from "@/components/charts/GaugeChart";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -31,7 +31,7 @@ export async function EducacaoWidget({
   const data = await getData({ ano, municipio });
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ style }}
       header="Educação"
       legend={
@@ -50,7 +50,7 @@ export async function EducacaoWidget({
         {...CHART_SETTINGS}
         selectedValue={data.aplicacaoPercentual / 100}
       />
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

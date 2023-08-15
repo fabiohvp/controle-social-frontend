@@ -1,5 +1,5 @@
 import GaugeChart from "@/components/charts/GaugeChart";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -39,7 +39,7 @@ export async function DespesaReceitaCorrentesWidget({
   };
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ style }}
       header="Desp. x receitas correntes"
       legend={
@@ -60,7 +60,7 @@ export async function DespesaReceitaCorrentesWidget({
       }
     >
       <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

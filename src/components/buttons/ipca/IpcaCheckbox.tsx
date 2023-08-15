@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { ipcaState } from "./ipcaState";
 
-export default function CheckboxIpca({ className }: { className?: string }) {
+export default function IpcaCheckbox({ className }: { className?: string }) {
   const [ipca, toggle] = useAtom(ipcaState);
 
   return (

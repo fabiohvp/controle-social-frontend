@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { ReactNode } from "react";
 import BreadcrumbOfertaXDemanda from "./BreadcrumbOfertaXDemanda";
 
@@ -10,7 +10,7 @@ export default function layout({ children }: { children: ReactNode }) {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbOfertaXDemanda}
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         Em 2019 o Tribunal de Contas do ES realizou fiscalização, na modalidade
         Levantamento, com o objetivo de verificar e analisar a oferta e a
         demanda por vagas nas redes públicas estadual e municipais da educação
@@ -22,7 +22,7 @@ export default function layout({ children }: { children: ReactNode }) {
         sistema informatizado de gestão escolar, capacidade física das redes,
         indicadores educacionais (Ideb, taxa de distorção idade-série e taxa de
         abandono) e localização da escola em relação ao endereço dos alunos.
-      </PainelDeAlerta>
+      </AlertPanel>
       {children}
     </DashboardLayout>
   );

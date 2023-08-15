@@ -1,19 +1,19 @@
 "use client";
-import { CLASS_CLOSED_WIDTH } from "@/components/barraLateral/barraLateralConstants";
-import BotaoHamburguer from "@/components/botoes/BotaoHamburguer";
+import HamburguerButton from "@/components/buttons/HamburguerButton";
 import { HAMBURGUER_MENU_SIZE } from "@/components/menu/menuConstants";
+import { CLASS_CLOSED_WIDTH } from "@/components/sidebar/sidebarConstants";
 import { useAtom } from "jotai";
-import { barraLateralOpen } from "../../barraLateral/barraLateralState";
+import { sidebarOpen } from "../../sidebar/sidebarState";
 
 export default function DashboardSidebarButton() {
-  const [open, setSidebarOpen] = useAtom(barraLateralOpen);
+  const [open, setOpen] = useAtom(sidebarOpen);
 
   return (
     <div
       className={`bg-blue-menu h-full hidden items-center justify-center overflow-hidden shrink-0 ${CLASS_CLOSED_WIDTH} hover:opacity-90 md:flex`}
-      onClick={() => setSidebarOpen((o) => !o)}
+      onClick={() => setOpen((o) => !o)}
     >
-      <BotaoHamburguer
+      <HamburguerButton
         hamburguer={{
           color: "white",
           toggled: open,

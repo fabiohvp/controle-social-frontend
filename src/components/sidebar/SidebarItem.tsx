@@ -3,16 +3,16 @@ import { useAtom } from "jotai";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
-import { ListaBarraLateral } from "./ListaBarraLateral";
-import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./barraLateralConstants";
-import { barraLateralOpen } from "./barraLateralState";
+import { SidebarList } from "./SidebarList";
+import { ANIMATION_SPEED, CLASS_OPENED_WIDTH } from "./sidebarConstants";
+import { sidebarOpen } from "./sidebarState";
 
-type ItemBarraLateralProps<T> = T extends string ? LinkProps<T> : ButtonProps;
+type SidebarItemProps<T> = T extends string ? LinkProps<T> : ButtonProps;
 
 const ITEM_CLASS_NAMES = `flex items-center justify-between text-white ${CLASS_OPENED_WIDTH}`;
 
-export default function ItemBarraLateral<T>(props: ItemBarraLateralProps<T>) {
-  const [open] = useAtom(barraLateralOpen);
+export default function SidebarItem<T>(props: SidebarItemProps<T>) {
+  const [open] = useAtom(sidebarOpen);
   const [itemOpen, setItemOpen] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function ItemBarraLateral<T>(props: ItemBarraLateralProps<T>) {
         )}
       </li>
       {!isLink(props) && (
-        <ListaBarraLateral
+        <SidebarList
           style={{
             maxHeight: itemOpen ? "100%" : "0",
             transition: `max-height ${ANIMATION_SPEED} ease-${
@@ -51,7 +51,7 @@ export default function ItemBarraLateral<T>(props: ItemBarraLateralProps<T>) {
           }}
         >
           {props.children}
-        </ListaBarraLateral>
+        </SidebarList>
       )}
     </>
   );

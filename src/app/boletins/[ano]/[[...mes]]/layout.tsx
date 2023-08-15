@@ -1,11 +1,11 @@
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { ReactNode } from "react";
 
 //TODO: trocar texto do alerta de acordo com o ano
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-      <PainelDeAlerta className="text-sm" type="info">
+      <AlertPanel className="text-sm" type="info">
         O Boletim de Macrogestão Governamental é um documento informativo
         gerencial publicado mensalmente pelo Tribunal de Contas do Estado do
         Espirito Santo, desde de 2016, elaborado com base nos dados das
@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         gestão dos recursos públicos estaduais e municipais, constituindo-se em
         um instrumento de controle e acompanhamento das finanças públicas dos
         poderes estaduais e municipais do Espírito Santo.
-      </PainelDeAlerta>
+      </AlertPanel>
       {children}
     </>
   );

@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Link from "next/link";
 import { FaUniversity } from "react-icons/fa";
 import { MunicipioPanelProps } from "../../../../routes";
@@ -10,7 +10,7 @@ export async function PrestacaoContaPrefeituraWidget({
   style,
 }: MunicipioPanelProps) {
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ className: "flex items-center", style }}
       header="Prefeitura Municipal"
     >
@@ -25,6 +25,6 @@ export async function PrestacaoContaPrefeituraWidget({
           municipio={municipio}
         />
       </Link>
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }

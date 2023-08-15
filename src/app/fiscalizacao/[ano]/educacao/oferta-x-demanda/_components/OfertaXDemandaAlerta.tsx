@@ -1,7 +1,7 @@
 "use client";
 
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { useParams } from "next/navigation";
 
 const RELATORIOS: { [key: string]: string } = {
@@ -13,7 +13,7 @@ export default function OfertaXDemandaAlerta() {
   const routeParams = useParams();
 
   return (
-    <PainelDeAlerta type="info">
+    <AlertPanel type="info">
       O objetivo do presente levantamento foi avaliar o funcionamento do sistema
       de controle interno dos Municípios do Estado do Espírito Santo, mais
       notadamente, nas Prefeitura e Câmaras, ressalvados os municípios em que se
@@ -32,6 +32,6 @@ export default function OfertaXDemandaAlerta() {
       >
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
-    </PainelDeAlerta>
+    </AlertPanel>
   );
 }

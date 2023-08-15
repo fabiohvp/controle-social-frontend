@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbSaude from "../BreadcrumbSaude";
 
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbSaude}
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         O levantamento realizado teve por objetivo conhecer os sistemas de
         controle, programas, projetos e atividades dos 78 municípios do Estado
         do Espírito Santo, direcionados à redução da mortalidade prematura (30 a
@@ -22,7 +22,7 @@ export default function Page() {
         saúde e bem estar dos Objetivos de Desenvolvimento Sustentável (ODS) da
         Organização das Nações Unidas (ONUA) e os indicadores de pactuação
         interfederativa que retratam as prioridades nacionais em saúde.
-      </PainelDeAlerta>
+      </AlertPanel>
       <iframe
         src="/api/saude/doencas-cronicas-nao-transmissiveis"
         className="h-full mt-2 w-full"

@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 import ReceitasXDespesasChart from "../charts/ReceitasXDespesasChart";
@@ -11,9 +11,9 @@ export async function ReceitasXDespesasWidget({
   const data = await getData({ ano, municipio });
 
   return (
-    <PainelComTitulo bodyProps={{ style }} header="Receitas X Despesas">
+    <PanelWithTitle bodyProps={{ style }} header="Receitas X Despesas">
       <ReceitasXDespesasChart ano={ano} municipio={municipio} {...data} />
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

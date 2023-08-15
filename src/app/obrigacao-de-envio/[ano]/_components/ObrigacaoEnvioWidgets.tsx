@@ -5,7 +5,7 @@ const DOUGHNUT_STYLE = { height: DOUGHNUT__HEIGHT };
 import DoughnutChart, {
   DoughnutChartItem,
 } from "@/components/charts/DoughnutChart";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import useScreenSizeResponsive from "@/hooks/useScreenSizeResponsive";
 import { isScreenBiggerThan } from "@/types/Screen";
 import { HTMLAttributes } from "react";
@@ -65,7 +65,7 @@ function RenderWidget({
   title: string;
 }) {
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       header={title}
       bodyProps={{
         ...bodyProps,
@@ -74,6 +74,6 @@ function RenderWidget({
       {...props}
     >
       {props.children}
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }

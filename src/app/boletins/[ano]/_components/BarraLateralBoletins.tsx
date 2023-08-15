@@ -1,5 +1,5 @@
 "use client";
-import ItemBarraLateral from "@/components/barraLateral/ItemBarraLateral";
+import SidebarItem from "@/components/sidebar/SidebarItem";
 import { useParams } from "next/navigation";
 import { FaRegNewspaper } from "react-icons/fa";
 import { PiFileTextBold } from "react-icons/pi";
@@ -9,19 +9,19 @@ export default function BarraLateralBoletins() {
   const routeParams = useParams();
   return (
     <>
-      <ItemBarraLateral
+      <SidebarItem
         href={`/boletins/${routeParams.ano}/`}
         icon={<FaRegNewspaper className="text-xl" />}
         text="Boletim de macrogestão"
         tooltip="Boletim de macrogestão"
       />
-      <ItemBarraLateral
+      <SidebarItem
         href={`/boletins/${routeParams.ano}/extraordinario`}
         icon={<PiFileTextBold className="text-xl" />}
         text="Boletim extraordinário"
         tooltip="Boletim extraordinário"
       />
-      <ItemBarraLateral
+      <SidebarItem
         href={`/boletins/${routeParams.ano}/informativo`}
         icon={<TbFiles className="text-2xl" />}
         text="Informativos"

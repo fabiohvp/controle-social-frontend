@@ -1,10 +1,10 @@
 import LogoInfoEducacao from "@/components/images/logos/LogoInfoEducacao";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
 export default function Page() {
   return (
     <>
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         header="Acompanhe os cargos, empregos e funções públicas existentes no Estado e nos municípios"
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -20,7 +20,7 @@ export default function Page() {
         <div className="center w-4/12">
           <LogoInfoEducacao />
         </div>
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
       <iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiNWZhZmZiM2EtOTRkOC00YTU0LTk5MzUtNWZhZDFlMTBjOTU1IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"

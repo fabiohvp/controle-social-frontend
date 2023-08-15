@@ -2,14 +2,14 @@
 import { ReactNode, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
-import PainelComTitulo, { PainelComTituloProps } from "./PainelComTitulo";
+import PanelWithTitle, { PainelComTituloProps } from "./PanelWithTitle";
 
 type Props = {
   children: ReactNode;
   collapsed?: boolean;
 } & PainelComTituloProps;
 
-export default function PainelComTituloMinimizavel({
+export default function PanelWithTitleCollapsible({
   children,
   collapsed,
   headerProps: { className: headerClassName, ...headerProps } = {},
@@ -19,7 +19,7 @@ export default function PainelComTituloMinimizavel({
   const [open, setOpen] = useState(collapsed !== false);
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       button={<>{open ? <FaMinus /> : <FaPlus />}</>}
       collapsed={open}
       headerProps={{
@@ -30,6 +30,6 @@ export default function PainelComTituloMinimizavel({
       {...props}
     >
       {children}
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }

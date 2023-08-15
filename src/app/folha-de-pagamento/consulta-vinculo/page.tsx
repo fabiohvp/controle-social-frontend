@@ -1,7 +1,7 @@
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import Input from "@/components/inputs/Input";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import { FaSearch } from "react-icons/fa";
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "../folhaDePagamentoConstants";
 import BreadcrumbConsultaVinculo from "./BreadcrumbConsultaVinculo";
@@ -13,7 +13,7 @@ export default function Page() {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbConsultaVinculo}
     >
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -26,7 +26,7 @@ export default function Page() {
         <div className="center w-4/12">
           <PessoalIcon />
         </div>
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
       <div className="mt-2">
         <h3>Consulta</h3>
         <hr />

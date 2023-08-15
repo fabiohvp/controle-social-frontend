@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { JulgamentoDeContaPageProps } from "../../routes";
 import BreadcrumbMunicipio from "./BreadcrumbMunicipio";
 
@@ -13,7 +13,7 @@ export default async function Page({
       className="gap-2 p-2"
       itensBreadcrumb={BreadcrumbMunicipio}
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         O Tribunal de Contas emite parecer prévio, documento que contém a
         análise técnica sobre a Prestação de Contas Anual dos chefes do poder
         executivo, opinando pela aprovação ou não das contas do Prefeito
@@ -30,7 +30,7 @@ export default async function Page({
         <br />
         <strong>Julgamento</strong> - data em que as contas foram julgadas na
         câmara municipal de vereadores.
-      </PainelDeAlerta>
+      </AlertPanel>
       municipio {params.ano}
       {/* //TODO: implementar gráficos */}
     </DashboardLayout>

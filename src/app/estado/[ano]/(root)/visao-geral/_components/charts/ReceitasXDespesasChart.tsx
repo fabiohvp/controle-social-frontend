@@ -1,6 +1,6 @@
 "use client";
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
-import { Ipca, ipcaState } from "@/components/botoes/ipca/ipcaState";
+import { Ipca, ipcaState } from "@/components/buttons/ipca/ipcaState";
 import EChart from "@/components/charts/EChart";
 import { formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";

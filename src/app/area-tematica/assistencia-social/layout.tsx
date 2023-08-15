@@ -1,7 +1,7 @@
 import CrasLogo from "@/components/images/logos/CrasLogo";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import { ReactNode } from "react";
 import BreadcrumbAssistenciaSocial from "./BreadcrumbAssistenciaSocial";
 
@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbAssistenciaSocial}
     >
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         header="Centros de Referência da Assistência Social (CRAS)."
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -54,7 +54,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="center w-4/12">
           <CrasLogo />
         </div>
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
       {children}
     </DashboardLayout>
   );

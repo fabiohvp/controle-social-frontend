@@ -8,7 +8,7 @@ type Props = {
   onMouseLeave?: (event: React.MouseEvent<HTMLUListElement>) => void;
 };
 
-export function ListaBarraLateral(props: Props) {
+export function SidebarList(props: Props) {
   return (
     <ul
       className={props.className}

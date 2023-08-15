@@ -1,7 +1,7 @@
 "use client";
 
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { useParams } from "next/navigation";
 
 //TODO: texto está fixo para prefeitura e camaras, verificar se precisa diferenciar
@@ -23,7 +23,7 @@ export default function AlertaControleInterno() {
   const routeParams = useParams();
 
   return (
-    <PainelDeAlerta type="info">
+    <AlertPanel type="info">
       <div
         dangerouslySetInnerHTML={{ __html: RELATORIOS[routeParams.ano].texto }}
       ></div>
@@ -33,6 +33,6 @@ export default function AlertaControleInterno() {
       >
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
-    </PainelDeAlerta>
+    </AlertPanel>
   );
 }

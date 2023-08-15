@@ -12,7 +12,7 @@ export type PainelComTituloProps = {
   legend?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function PainelComTitulo({
+export default function PanelWithTitle({
   bodyProps: { className: bodyClassName, ...bodyProps } = {},
   button,
   children,

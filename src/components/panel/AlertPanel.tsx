@@ -36,7 +36,7 @@ type Props = {
   type: ThemeKey;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function PainelDeAlerta({
+export default function AlertPanel({
   children,
   className,
   type,

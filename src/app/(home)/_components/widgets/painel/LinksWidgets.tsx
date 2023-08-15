@@ -1,5 +1,5 @@
 "use client";
-import Painel from "@/components/paineis/Painel";
+import Panel from "@/components/panel/Panel";
 import useGeolocation from "@/hooks/useGeolocation";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { GlobalState } from "@/shared/globalState";
@@ -65,14 +65,14 @@ export default function LinksWidgets() {
                       prefetch={false}
                     >
                       <div className="relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <Painel className="absolute flex flex-col justify-around bg-gray-50 panel">
+                        <Panel className="absolute flex flex-col justify-around bg-gray-50 panel">
                           <Image alt={titulo} {...article.image} />
                           <h3 className="font-normal">{titulo}</h3>
-                        </Painel>
-                        <Painel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden] panel">
+                        </Panel>
+                        <Panel className="bg-[#f8d96a] [transform:rotateY(180deg)] [backface-visibility:hidden] panel">
                           <h3 className="mt-2">{titulo}</h3>
                           <p>{article.description}</p>
-                        </Painel>
+                        </Panel>
                       </div>
                     </Link>
                   );

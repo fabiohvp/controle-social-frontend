@@ -2,13 +2,13 @@
 import { useAtom } from "jotai";
 import { CSSProperties, ReactNode, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { ListaBarraLateral } from "./ListaBarraLateral";
+import { SidebarList } from "./SidebarList";
 import {
   ANIMATION_SPEED,
   CLASS_CLOSED_WIDTH,
   CLASS_OPENED_WIDTH,
-} from "./barraLateralConstants";
-import { barraLateralOpen } from "./barraLateralState";
+} from "./sidebarConstants";
+import { sidebarOpen } from "./sidebarState";
 
 type Props = {
   children: ReactNode;
@@ -16,8 +16,8 @@ type Props = {
   style?: CSSProperties;
 };
 
-export default function BarraLateral(props: Props) {
-  const [open, setOpen] = useAtom(barraLateralOpen);
+export default function Sidebar(props: Props) {
+  const [open, setOpen] = useAtom(sidebarOpen);
   const [hovering, setHovering] = useState(false);
   const [width, setWidth] = useState(getWidth(open));
 
@@ -40,7 +40,7 @@ export default function BarraLateral(props: Props) {
   }
 
   return (
-    <ListaBarraLateral
+    <SidebarList
       className={twMerge(
         `bg-blue-menu grow-0 h-screen overflow-y-auto py-1 shrink-0 text-white hidden md:block ${width}`,
         props.className
@@ -53,7 +53,7 @@ export default function BarraLateral(props: Props) {
       onMouseLeave={onMouseLeave}
     >
       {props.children}
-    </ListaBarraLateral>
+    </SidebarList>
   );
 }
 

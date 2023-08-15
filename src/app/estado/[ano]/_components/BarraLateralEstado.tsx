@@ -1,5 +1,5 @@
 "use client";
-import ItemBarraLateral from "@/components/barraLateral/ItemBarraLateral";
+import SidebarItem from "@/components/sidebar/SidebarItem";
 import { useParams } from "next/navigation";
 import { FaUniversity } from "react-icons/fa";
 import {
@@ -13,54 +13,54 @@ export default function BarraLateralEstado() {
   const routeParams = useParams();
   return (
     <>
-      <ItemBarraLateral
+      <SidebarItem
         href={`/estado/${routeParams.ano}/visao-geral`}
         icon={<FaEye />}
         text="Visão geral"
         tooltip="Visão geral do município"
       />
-      <ItemBarraLateral
+      <SidebarItem
         href={`/estado/${routeParams.ano}/obrigacao-de-envio`}
         icon={<FaCheck className="text-xl" />}
         text="Obrigações"
         tooltip="Obrigações junto ao TCE-ES"
       />
 
-      <ItemBarraLateral
+      <SidebarItem
         icon={<FaDollarSign className="text-xl" />}
         text="Gestão orçamentária"
         tooltip="Gestão orçamentária"
       >
-        <ItemBarraLateral
+        <SidebarItem
           href={`/estado/${routeParams.ano}/gestao-orcamentaria/planejamento-governamental`}
           text="Planejamento governamental"
           tooltip="Planejamento governamental"
         />
-        <ItemBarraLateral
+        <SidebarItem
           href={`/estado/${routeParams.ano}/gestao-orcamentaria/plano-plurianual`}
           text="Plano plurianual"
           tooltip="Plano plurianual"
         />
-      </ItemBarraLateral>
+      </SidebarItem>
 
-      <ItemBarraLateral
+      <SidebarItem
         icon={<FaTriangleExclamation />}
         text="Gestão fiscal"
         tooltip="Gestão fiscal"
       >
-        <ItemBarraLateral
+        <SidebarItem
           href={`/estado/${routeParams.ano}/gestao-fiscal/meta-arrecadacao`}
           text="Metas de arrecadação"
           tooltip="Metas de arrecadação"
         />
-        <ItemBarraLateral
+        <SidebarItem
           href={`/estado/${routeParams.ano}/gestao-fiscal/receita-corrente-liquida`}
           text="RCL"
           tooltip="Receita corrente líquida"
         />
-      </ItemBarraLateral>
+      </SidebarItem>
 
-      <ItemBarraLateral
+      <SidebarItem
         href={`/estado/${routeParams.ano}/prestacao-conta`}
         icon={<FaUniversity className="text-xl" />}
         text="Prestações de contas"

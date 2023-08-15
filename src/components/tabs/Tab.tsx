@@ -6,7 +6,7 @@ export type AbaProps = {
   selectedIndex?: number;
 };
 
-export function Aba({ items, selectedIndex }: AbaProps) {
+export function Tab({ items, selectedIndex }: AbaProps) {
   const [keys] = useState([...items.keys()]);
   const [currentIndex, setCurrentIndex] = useState(selectedIndex ?? 0);
 

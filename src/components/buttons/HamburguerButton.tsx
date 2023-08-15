@@ -7,7 +7,7 @@ type Props = {
   hamburguer: CommonBurgerProps;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function BotaoHamburguer({
+export default function HamburguerButton({
   className,
   hamburguer,
   ...props

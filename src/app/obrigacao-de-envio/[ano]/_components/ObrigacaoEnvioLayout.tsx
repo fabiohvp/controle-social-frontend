@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { EsferaAdministrativaProps } from "@/types/EsferaAdministrativa";
 import { ObrigacaoEnvioDoughnuts } from "../types";
@@ -26,7 +26,7 @@ export default function ObrigacaoEnvioLayout({
       <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-max gap-2">
         <RenderWidgets doughnuts={doughnuts} />
       </div>
-      <PainelComTitulo
+      <PanelWithTitle
         bodyProps={{
           className:
             "flex flex-col h-[560px] md:h-[700px] lg:min-h-[530px] xl:min-h-[700px]",
@@ -44,7 +44,7 @@ export default function ObrigacaoEnvioLayout({
           exibirMapa={exibirMapa}
           isMunicipio={isMunicipio}
         />
-      </PainelComTitulo>
+      </PanelWithTitle>
     </div>
   );
 }

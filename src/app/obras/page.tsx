@@ -1,11 +1,11 @@
 import ObrasImage from "@/components/images/images/ObrasImage";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
 export default function Page() {
   return (
     <DashboardLayout className="pt-2 px-2" exibirFooter={false}>
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         header="Acompanhe as obras públicas estaduais e municipais."
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -19,7 +19,7 @@ export default function Page() {
         <div className="center w-4/12">
           <ObrasImage />
         </div>
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
       <iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiZTA0ODc1NzYtOTczYy00MjY1LTkxMjYtODU1NWY3MzZmMTQyIiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"

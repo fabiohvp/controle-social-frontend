@@ -1,5 +1,5 @@
 "use client";
-import ListaCircular from "@/components/listas/ListaCircular";
+import CircleList from "@/components/lists/CircleList";
 import { getMonthNames } from "@/shared/date";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
@@ -20,7 +20,7 @@ export default function AlertaBoletins(props: BoletinsAlertPanelProps) {
 
   return (
     <div className="mt-2 overflow-hidden shrink-0">
-      <ListaCircular className="boletim-mensal">
+      <CircleList className="boletim-mensal">
         {meses.map((mesNome, index) => {
           const mes = index + 1;
           const disabled = mes > props.mesUltimoEnvio;
@@ -51,7 +51,7 @@ export default function AlertaBoletins(props: BoletinsAlertPanelProps) {
             </li>
           );
         })}
-      </ListaCircular>
+      </CircleList>
     </div>
   );
 }

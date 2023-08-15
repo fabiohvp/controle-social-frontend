@@ -1,7 +1,7 @@
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDePagamentoConstants";
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import BreadcrumbFolhaDePagamento from "../../BreadcrumbFolhaDePagamento";
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbFolhaDePagamento}
     >
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         header={FOLHA_DE_PAGAMENTO_PANEL_TITLE}
         headerProps={{ className: "font-bold text-xl" }}
       >
@@ -24,7 +24,7 @@ export default function Page() {
         <div className="center w-4/12">
           <PessoalIcon />
         </div>
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
       <div className="mt-2">
         <h3>Agentes públicos inativos e pensionistas</h3>
         <hr />

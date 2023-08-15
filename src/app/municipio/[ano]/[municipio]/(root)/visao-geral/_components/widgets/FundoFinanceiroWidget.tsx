@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { formatCurrency } from "@/formatters/number";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
@@ -13,7 +13,7 @@ export async function FundoFinanceiroWidget({
   const data = await getData({ ano, municipio });
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ className: "center flex-col gap-4", style }}
       header="Previdência - Fundo Financeiro"
       legend={
@@ -32,7 +32,7 @@ export async function FundoFinanceiroWidget({
       <div className="text-sm">
         Necessidade de cobertura financeira nos próximos 75 anos
       </div>
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

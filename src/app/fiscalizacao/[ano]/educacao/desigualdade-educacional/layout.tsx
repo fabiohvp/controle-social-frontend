@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { ReactNode } from "react";
 import BreadcrumbDesigualdadeEducacional from "./BreadcrumbDesigualdadeEducacional";
 
@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       exibirFooter={false}
       itensBreadcrumb={BreadcrumbDesigualdadeEducacional}
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         Auditoria que teve por objetivo avaliar a governança da política pública
         estadual de educação do ponto de vista da redução da desigualdade de
         ensino e aprendizagem no Estado do Espírito Santo, em observância aos
@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <br />O ODS 4 é Assegurar a educação inclusiva e equitativa e de
         qualidade, e promover oportunidades de aprendizagem ao longo da vida
         para todos. https://www.ipea.gov.br/ods/ods4.html.
-      </PainelDeAlerta>
+      </AlertPanel>
       {children}
     </DashboardLayout>
   );

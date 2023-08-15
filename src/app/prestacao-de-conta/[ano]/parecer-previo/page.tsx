@@ -1,5 +1,5 @@
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import Link from "next/link";
 import { SituacaoProcesso } from "../types";
 import { ParecerPrevioPageProps } from "./routes";
@@ -20,9 +20,9 @@ export default async function Page({
 
   if (!situacaoProcessos.length) {
     return (
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         Ainda não há prestações de contas disponíveis para {params.ano}.
-      </PainelDeAlerta>
+      </AlertPanel>
     );
   }
 

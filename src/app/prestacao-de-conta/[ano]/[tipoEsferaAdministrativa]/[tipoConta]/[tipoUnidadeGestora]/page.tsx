@@ -1,8 +1,8 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import ExternalLink from "@/components/links/ExternalLink";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
-import PainelComTituloMinimizavel from "@/components/paineis/PainelComTituloMinimizavel";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import { handleSettledPromise } from "@/shared/promise";
 import {
   getTipoUnidadesGestorasEstaduais,
@@ -48,7 +48,7 @@ export default async function Page({
         />
       }
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         A partir do exercício de 2019, as contas de gestão do prefeito podem ser
         apensadas às contas de governo, conforme{" "}
         <Link
@@ -58,7 +58,7 @@ export default async function Page({
           Decisão Plenária 15/2020
         </Link>
         .
-      </PainelDeAlerta>
+      </AlertPanel>
 
       <h4 className="font-normal">
         Prestações de contas anuais submetidas ao TCE-ES <hr />
@@ -68,11 +68,11 @@ export default async function Page({
         <RenderInformacoes />
       </div>
       <RenderTable situacaoProcessos={situacaoProcessos} />
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         Para ter acesso a diversas outras informações sobre os processos, tais
         como documentos, vídeos, movimentações, etc. basta clicar no número do
         processo.
-      </PainelDeAlerta>
+      </AlertPanel>
     </DashboardLayout>
   );
 }
@@ -80,7 +80,7 @@ export default async function Page({
 function RenderInformacoes() {
   return (
     <div className="flex flex-col gap-2 w-full">
-      <PainelComTituloMinimizavel
+      <PanelWithTitleCollapsible
         collapsed={false}
         header="Prestação de Contas Anual (PCA)"
       >
@@ -90,22 +90,22 @@ function RenderInformacoes() {
         estão na alçada de atuação do Tribunal de Contas – os chamados
         jurisdicionados. A eles, cabe o dever de encaminhar à Corte, anualmente,
         prestação de contas.
-      </PainelComTituloMinimizavel>
-      <PainelComTituloMinimizavel collapsed={false} header="Contas de Governo">
+      </PanelWithTitleCollapsible>
+      <PanelWithTitleCollapsible collapsed={false} header="Contas de Governo">
         Documentação que permite ao Tribunal de Contas a avaliação da gestão
         política do chefe do Poder Executivo (prefeitos e governador) para fins
         de emissão de parecer prévio a ser enviado ao Poder Legislativo, onde
         ocorrerá seu julgamento. Trata-se do conjunto de demonstrativos e
         informações de natureza contábil, financeira, orçamentária, patrimonial
         e operacional, expressando os resultados da atuação governamental.
-      </PainelComTituloMinimizavel>
-      <PainelComTituloMinimizavel collapsed={false} header="Contas de Gestão">
+      </PanelWithTitleCollapsible>
+      <PanelWithTitleCollapsible collapsed={false} header="Contas de Gestão">
         Submetidas ao Tribunal de Contas para julgamento (posição manifestada
         pela emissão de acórdão), a documentação é analisada examinando-se,
         dentre outros aspectos, a legalidade, a legitimidade, a economicidade, a
         aplicação das subvenções e a renúncia de receitas na gestão dos recursos
         públicos.
-      </PainelComTituloMinimizavel>
+      </PanelWithTitleCollapsible>
     </div>
   );
 }
@@ -118,7 +118,7 @@ function RenderResumoProcesso({
   const items = getResumoProcessoItemsTemplate(resumoProcessos);
 
   return (
-    <PainelComTitulo header="Resumo das situações das prestações de contas anuais">
+    <PanelWithTitle header="Resumo das situações das prestações de contas anuais">
       <ul className="w-full">
         {Object.entries(items).map(([key, value]) => (
           <li
@@ -142,7 +142,7 @@ function RenderResumoProcesso({
           </span>
         </li>
       </ul>
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

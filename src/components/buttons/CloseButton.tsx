@@ -2,7 +2,7 @@ import { ForwardedRef, HTMLAttributes, forwardRef } from "react";
 
 type Props = HTMLAttributes<HTMLButtonElement>;
 
-function BotaoDeFechar(
+function CloseButton(
   { ...props }: Props,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
@@ -17,4 +17,4 @@ function BotaoDeFechar(
   );
 }
 
-export default forwardRef<HTMLButtonElement, Props>(BotaoDeFechar);
+export default forwardRef<HTMLButtonElement, Props>(CloseButton);

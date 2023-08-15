@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
@@ -14,7 +14,7 @@ export async function ObrigacoesJuntoTceesWidget({
   const data = await getData({ ano, municipio });
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ className: "center gap-4", style }}
       header="Obrigações junto ao TCE-ES"
     >
@@ -36,7 +36,7 @@ export async function ObrigacoesJuntoTceesWidget({
           </li>
         ))}
       </ul>
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }
 

@@ -1,4 +1,4 @@
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { MunicipioPanelProps } from "../../../../routes";
@@ -10,7 +10,7 @@ export async function PrestacaoContaCamaraWidget({
   style,
 }: MunicipioPanelProps) {
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ className: "flex items-center", style }}
       header=" Câmara Municipal de Vereadores"
     >
@@ -30,6 +30,6 @@ export async function PrestacaoContaCamaraWidget({
           municipio={municipio}
         />
       </Link>
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }

@@ -1,5 +1,5 @@
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { ReactNode } from "react";
 import BreadcrumbParecerPrevio from "./BreadcrumbParecerPrevio";
 
@@ -9,11 +9,11 @@ export default async function Layout({ children }: { children: ReactNode }) {
       className="gap-2 p-2"
       itensBreadcrumb={BreadcrumbParecerPrevio}
     >
-      <PainelDeAlerta type="info">
+      <AlertPanel type="info">
         Parecer prévio é um documento com a opinião do TCEES sobre as contas de
         governo do prefeito municipal, enviado para a Câmara Municipal, quem
         realizará o julgamento das contas.
-      </PainelDeAlerta>
+      </AlertPanel>
       {children}
     </DashboardLayout>
   );

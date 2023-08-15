@@ -1,6 +1,6 @@
 "use client";
 import MapaEsChart, { SelectedRegion } from "@/components/charts/MapaEsChart";
-import PainelDeAlerta from "@/components/paineis/PainelDeAlerta";
+import AlertPanel from "@/components/panel/AlertPanel";
 import { normalize } from "@/formatters/string";
 import {
   QUANTIDADE_ESTADO,
@@ -124,13 +124,13 @@ function RenderAlerts({
       : selectedDoughnut.naoObrigatorias.length === QUANTIDADE_ESTADO
   ) {
     return (
-      <PainelDeAlerta className="mt-2" type="info">
+      <AlertPanel className="mt-2" type="info">
         Remessas ainda não exigíveis
-      </PainelDeAlerta>
+      </AlertPanel>
     );
   } else if (selectedDoughnut.comAtraso.length) {
     return (
-      <PainelDeAlerta type="danger" className="min-h-[90px] mt-4">
+      <AlertPanel type="danger" className="min-h-[90px] mt-4">
         <h5>Não enviaram remessas ou enviaram parcialmente</h5>
         <ul className="ml-4 mt-2 text-sm">
           {selectedDoughnut.comAtraso.map((doughnut, index) => (
@@ -147,13 +147,13 @@ function RenderAlerts({
             </li>
           ))}
         </ul>
-      </PainelDeAlerta>
+      </AlertPanel>
     );
   } else if (!selectedDoughnut.comAtraso.length) {
     return (
-      <PainelDeAlerta className="mt-2" type="success">
+      <AlertPanel className="mt-2" type="success">
         Nenhuma remessa em atraso
-      </PainelDeAlerta>
+      </AlertPanel>
     );
   }
   return <></>;

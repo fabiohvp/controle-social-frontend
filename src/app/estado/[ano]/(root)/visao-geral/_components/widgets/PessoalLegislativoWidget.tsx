@@ -1,6 +1,6 @@
 import { EstadoPageProps, EstadoPanelProps } from "@/app/estado/[ano]/routes";
 import GaugeChart from "@/components/charts/GaugeChart";
-import PainelComTitulo from "@/components/paineis/PainelComTitulo";
+import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { COLOR } from "@/theme/colors";
 import { cache } from "react";
@@ -48,7 +48,7 @@ export async function PessoalLegislativoWidget({
   const data = await getData({ ano });
 
   return (
-    <PainelComTitulo
+    <PanelWithTitle
       bodyProps={{ style }}
       header="Pessoal - Legislativo"
       legend={
@@ -75,6 +75,6 @@ export async function PessoalLegislativoWidget({
         {...CHART_SETTINGS}
         selectedValue={data.valorPercentual / 100}
       />
-    </PainelComTitulo>
+    </PanelWithTitle>
   );
 }

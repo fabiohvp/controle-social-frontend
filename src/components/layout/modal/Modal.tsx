@@ -1,6 +1,6 @@
 "use client";
 
-import BotaoDeFechar from "@/components/botoes/BotaoDeFechar";
+import CloseButton from "@/components/buttons/CloseButton";
 
 export type ModalProps = {
   setShow: (show: boolean) => void;
@@ -25,7 +25,7 @@ export default function Modal({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <header className="flex items-start justify-between py-2 px-3 border-b border-solid border-slate-200 rounded-t">
                   <h3>{header}</h3>
-                  <BotaoDeFechar onClick={() => setShow(false)} />
+                  <CloseButton onClick={() => setShow(false)} />
                 </header>
                 <main className="relative p-3 flex-auto max-h-[65vh] overflow-y-auto">
                   {main}
