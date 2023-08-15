@@ -4,7 +4,9 @@
 
 .dropdown-item > * {
   display: flex;
+  height: 100%;
   white-space: break-spaces;
+  width: 100%;
   @apply p-2;
   @apply text-black;
 }

@@ -93,7 +93,7 @@ export default function MegaMenuMunicipios() {
     <DropdownMenu icon={<MapaEsIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link
-          href="/comparar/2023/municipios"
+          href="/municipio/2023/comparador"
           className="flex gap-1"
           prefetch={false}
         >

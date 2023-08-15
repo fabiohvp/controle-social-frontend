@@ -1,4 +1,4 @@
-import ObrasImage from "@/components/images/images/ObrasImage";
+import ObrasImage from "@/components/images/images/FundoTabelaComparadorImage";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
