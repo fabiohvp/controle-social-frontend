@@ -114,6 +114,7 @@ export default async function Page({
         <hr className="py-1" />
         {sessoes[0].sumario.map((sumario) => (
           <PanelWithTitleCollapsible
+            key={sumario.responsavel}
             header={`PREFEITO(A) ${sumario.responsavel}`}
             headerProps={{ className: "font-bold" }}
           >
