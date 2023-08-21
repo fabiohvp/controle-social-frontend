@@ -1,3 +1,10 @@
+const PT_BR_FLOAT_FORMAT = new Intl.NumberFormat("pt-BR", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+const PT_BR_INT_FORMAT = new Intl.NumberFormat("pt-BR");
+
 export function formatCurrency(value: number, fractionDigits = 2) {
   if (!value) {
     value = 0;
@@ -12,6 +19,16 @@ export function formatCurrencyKMB(value: number) {
     return `-${stringValue}`;
   }
   return stringValue;
+}
+
+export function formatFloat(value: number | undefined) {
+  if (value === undefined) return "";
+  return PT_BR_FLOAT_FORMAT.format(value);
+}
+
+export function formatInt(value: number | undefined) {
+  if (value === undefined) return "";
+  return PT_BR_INT_FORMAT.format(value);
 }
 
 function formatPositiveCurrencyValue(value: number) {

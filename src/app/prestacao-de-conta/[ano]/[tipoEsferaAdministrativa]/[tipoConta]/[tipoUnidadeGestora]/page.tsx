@@ -3,6 +3,7 @@ import ExternalLink from "@/components/links/ExternalLink";
 import AlertPanel from "@/components/panel/AlertPanel";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
+import { ENV } from "@/shared/env";
 import { handleSettledPromise } from "@/shared/promise";
 import {
   getTipoUnidadesGestorasEstaduais,
@@ -245,7 +246,9 @@ async function getResumoProcessos(
   props: PrestacaoDeContaGovernoPageProps
 ): Promise<ResumoProcessos> {
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetResumoProcessosPrestacaoContaAnualPorTipoConta?${generateQueryString(
+    `${
+      ENV.apiUrl
+    }/PrestacaoContaControllers/EsferaAdministrativa/GetResumoProcessosPrestacaoContaAnualPorTipoConta?${generateQueryString(
       props
     )}`
   );
@@ -324,7 +327,9 @@ async function getSituacaoProcessos(
   props: PrestacaoDeContaGovernoPageProps
 ): Promise<SituacaoProcesso[]> {
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?${generateQueryString(
+    `${
+      ENV.apiUrl
+    }/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?${generateQueryString(
       props
     )}`
   );

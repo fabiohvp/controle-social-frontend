@@ -2,6 +2,7 @@ import { normalize } from "@/formatters/string";
 import { DatasLimites } from "@/types/DataLimite";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import { cache } from "react";
+import { ENV } from "./env";
 import { Modulo } from "./modulos";
 
 export const QUANTIDADE_MUNICIPIOS = 78;
@@ -38,16 +39,16 @@ export const getDatasLimites = cache(
       }, {} as DatasLimites);
     };
 
-    if (process.env.npm_lifecycle_event === "build") {
+    if (ENV.process === "build") {
       const res = await fetch(
-        "https://paineldecontrole.tcees.tc.br/api/Settings/GetAll?v=26-07-2023-1690391164330"
+        `${ENV.apiUrl}/Settings/GetAll?v=26-07-2023-1690391164330`
       );
       return res
         .json()
         .then(({ datasLimites }) => formatData(datasLimites[ano]));
     }
     const res = await fetch(
-      `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio/datas-limites?ano=${ano}`
+      `${ENV.vercelUrl}/municipio/datas-limites?ano=${ano}`
     );
     return res.json().then(formatData);
   }
@@ -57,10 +58,11 @@ export const getMunicipios = cache(async () => {
   if (municipios) {
     return Promise.resolve(municipios);
   }
-  if (process.env.npm_lifecycle_event === "build") {
+  if (ENV.process === "build") {
     const res = await fetch(
-      "https://paineldecontrole.tcees.tc.br/api/Settings/GetAll?v=26-07-2023-1690391164330"
+      `${ENV.apiUrl}/Settings/GetAll?v=26-07-2023-1690391164330`
     );
+    console.log("xxx");
     return res.json().then(
       ({
         esferasAdministrativas,
@@ -88,9 +90,7 @@ export const getMunicipios = cache(async () => {
       }
     );
   }
-  const res = await fetch(
-    `${process.env.VERCEL_PROTOCOL}://${process.env.VERCEL_URL}/api/municipio`
-  );
+  const res = await fetch(`${ENV.vercelUrl}/municipio`);
   return res.json().then((data) => {
     const _municipios = data.map((d: EsferaAdministrativa) => ({
       codigo: d.codigo,

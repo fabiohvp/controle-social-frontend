@@ -1,8 +1,9 @@
+import { ENV } from "@/shared/env";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(_: NextRequest) {
   const res = await fetch(
-    "https://paineldecontrole.tcees.tc.br/api/FiscalizacaoControllers/DesigualdadeEducacional/DownloadManifestacao?anoExercicio=2020"
+    `${ENV.apiUrl}/FiscalizacaoControllers/DesigualdadeEducacional/DownloadManifestacao?anoExercicio=2020`
   );
   const contents = await res.blob();
 

@@ -1,6 +1,7 @@
 import ExternalLink from "@/components/links/ExternalLink";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import { Tab } from "@/components/tabs/Tab";
+import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { groupBy } from "@/types/Array";
 import { ReactNode } from "react";
@@ -63,7 +64,7 @@ async function getData({
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/PrestacaoContaControllers/JulgamentoConta/GetSumarioDetalheJulgamento?anoExercicio=${ano}&codigoEsferaAdministrativa=${codigo}&v=11-08-2023-5.2.20`
+    `${ENV.apiUrl}/PrestacaoContaControllers/JulgamentoConta/GetSumarioDetalheJulgamento?anoExercicio=${ano}&codigoEsferaAdministrativa=${codigo}&v=11-08-2023-5.2.20`
   );
   return res.json();
 }

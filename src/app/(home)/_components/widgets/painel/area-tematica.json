@@ -2,6 +2,16 @@
   "titulo": "ÁREAS TEMÁTICAS",
   "artigos": [
     {
+      "description": "Estrutura dos Centros de Referência da Assistência Social",
+      "href": "/area-tematica/concessao-publica/visao-geral",
+      "image": {
+        "height": 50,
+        "src": "/icons/cras.png",
+        "width": 50
+      },
+      "titulo": "Assistência social"
+    },
+    {
       "description": "Serviços públicos transferidos ao particular",
       "href": "/area-tematica/concessao-publica/visao-geral",
       "image": {

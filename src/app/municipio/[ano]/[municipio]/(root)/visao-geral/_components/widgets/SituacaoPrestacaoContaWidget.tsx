@@ -1,3 +1,4 @@
+import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { FaHand } from "react-icons/fa6";
@@ -59,7 +60,7 @@ async function getData(
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = (await res.json()) as Data[];
   return data.filter((o) =>

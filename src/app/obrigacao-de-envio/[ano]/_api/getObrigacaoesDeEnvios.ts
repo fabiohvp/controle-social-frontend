@@ -1,3 +1,4 @@
+import { ENV } from "@/shared/env";
 import { ObrigacaoEnvio, Remessa } from "../types";
 
 type ObrigacaoEnvioPromise = {
@@ -20,7 +21,7 @@ export async function getObrigacaoesDeEnvios({
   isMunicipios: boolean;
 }): Promise<ObrigacaoEnvio[]> {
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/ObrigacaoEnvioControllers/EsferaAdministrativa/GetObrigacaoEnvioAnual?anoExercicio=${ano}&isMunicipio=${isMunicipios}&v=26-07-2023-5.2.19`
+    `${ENV.apiUrl}/ObrigacaoEnvioControllers/EsferaAdministrativa/GetObrigacaoEnvioAnual?anoExercicio=${ano}&isMunicipio=${isMunicipios}&v=26-07-2023-5.2.19`
   );
   return (res.json() as Promise<ObrigacaoEnvioPromise[]>).then((data) =>
     data.map((d) => ({

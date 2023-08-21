@@ -1,5 +1,6 @@
 import BoletimMacroGestaoGovernamentalImage from "@/components/images/images/BoletimMacroGestaoGovernamentalImage";
 import { getMonthNames } from "@/shared/date";
+import { ENV } from "@/shared/env";
 import Link from "next/link";
 import { cache } from "react";
 import { FaRegFilePdf } from "react-icons/fa6";
@@ -12,7 +13,7 @@ import "./boletimMensal.css";
 const meses = getMonthNames({ format: "long" });
 
 function getUrl(ano: string, mes: string | undefined) {
-  return `https://paineldecontrole.tcees.tc.br/api/EstadoControllers/ResumoExecutivo/GetResumoExecutivo?idEsferaAdministrativa=81&anoExercicio=${ano}&mes=${mes}&v=18-07-2023-5.2.14`;
+  return `${ENV.apiUrl}/EstadoControllers/ResumoExecutivo/GetResumoExecutivo?idEsferaAdministrativa=81&anoExercicio=${ano}&mes=${mes}&v=18-07-2023-5.2.14`;
 }
 
 async function getDataMes(ano: string, mes: string | undefined) {

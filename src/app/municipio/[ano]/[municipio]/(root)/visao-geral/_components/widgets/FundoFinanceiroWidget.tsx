@@ -1,6 +1,7 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { formatCurrency } from "@/formatters/number";
+import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { cache } from "react";
 import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
@@ -41,7 +42,7 @@ const getData = cache(
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
     const res = await fetch(
-      `https://paineldecontrole.tcees.tc.br/api/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+      `${ENV.apiUrl}/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=11-07-2023-5.2.10`
     );
     const data = await res.json();
     return data as { [key: string]: number };

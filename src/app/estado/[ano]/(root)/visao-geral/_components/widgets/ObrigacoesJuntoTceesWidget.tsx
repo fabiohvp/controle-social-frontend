@@ -1,5 +1,6 @@
 import { EstadoPageProps, EstadoPanelProps } from "@/app/estado/[ano]/routes";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import { ENV } from "@/shared/env";
 import { COLOR } from "@/theme/colors";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
@@ -8,7 +9,7 @@ import "./obrigacoesJuntoTceesWidget.css";
 async function getData({ ano }: Partial<EstadoPageProps>) {
   const codigo = "001";
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data as { [key: string]: boolean };

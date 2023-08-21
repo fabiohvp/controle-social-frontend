@@ -1,4 +1,5 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
+import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { MunicipioPageProps, MunicipioPanelProps } from "../../../../routes";
 import ReceitasXDespesasChart from "../charts/ReceitasXDespesasChart";
@@ -21,7 +22,7 @@ async function getData({ ano, municipio }: Partial<MunicipioPageProps>) {
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
   const res = await fetch(
-    `https://paineldecontrole.tcees.tc.br/api/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
   );
   const data = await res.json();
   return data;

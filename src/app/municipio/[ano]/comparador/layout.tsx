@@ -1,13 +1,13 @@
-import BreadcrumbParecerPrevio from "@/app/prestacao-de-conta/[ano]/parecer-previo/BreadcrumbParecerPrevio";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import { ReactNode } from "react";
+import BreadcrumbComparador from "./BreadcrumbComparador";
 import "./comparador.css";
 
 export default async function Layout({ children }: { children: ReactNode }) {
   return (
     <DashboardLayout
       className="gap-2 p-2"
-      itensBreadcrumb={BreadcrumbParecerPrevio}
+      itensBreadcrumb={BreadcrumbComparador}
     >
       <div className="comparador-municipios mx-auto md:max-w-[970px] lg:max-w-[1170px]">
         <div className="my-4">

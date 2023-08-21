@@ -43,7 +43,7 @@ export default function ObrigacaoEnvioVisaoGeral({
 
   useEffect(() => {
     setSelectedDoughnut(doughnuts[selectedMode]!);
-  }, [selectedMode]);
+  }, [doughnuts, selectedMode]);
 
   function onMapaInit(chart: EChartsType) {
     chart.on("click", function (params) {

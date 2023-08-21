@@ -33,7 +33,7 @@
     },
     {
       "description": "Identifique similaridades e diferenças entre municípios",
-      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/visao-geral",
+      "href": "/municipio/{municipio-ano}/comparador",
       "image": {
         "height": 50,
         "src": "/icons/comparador.png",
@@ -43,13 +43,13 @@
     },
     {
       "description": "Escolha um tema e veja a situação de cada município",
-      "href": "/municipio/{municipio-ano}/{municipio-nome-normalizado}/rankings",
+      "href": "/rankings/{municipio-ano}/receita/arrecadada",
       "image": {
         "height": 50,
         "src": "/icons/ranking.png",
         "width": 50
       },
-      "titulo": "Ranking"
+      "titulo": "Rankings"
     }
   ]
 }
