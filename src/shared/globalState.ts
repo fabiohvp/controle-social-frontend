@@ -1,4 +1,5 @@
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
+import { ENV } from "./env";
 import { getMunicipios } from "./municipio";
 
 type GlobalStateAno = {
@@ -60,8 +61,7 @@ export async function initGlobalState() {
         },
         apis: {
           google: {
-            //key: "AIzaSyBXegZgIkYoYJVLaVuWTdrDRApB1UTNBEk",
-            key: "AIzaSyAwz6Bw5EpbIUH0eH2O7xDcvQbTiUguk1k",
+            key: ENV.apiGoogleMapsKey,
           },
         },
         municipio: municipios.find((o) => o.codigo === "077")!,
