@@ -44,6 +44,7 @@ function useGeolocation(
       const json = (await res.json()) as {
         results: google.maps.GeocoderResult[];
       };
+      //TODO: add log when error
 
       const local = json.results?.find((o) => o.types.includes("locality"));
       let nomeCidade = local?.address_components.find((o) =>
