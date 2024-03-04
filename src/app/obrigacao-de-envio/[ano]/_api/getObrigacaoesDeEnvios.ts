@@ -21,7 +21,7 @@ export async function getObrigacaoesDeEnvios({
   isMunicipios: boolean;
 }): Promise<ObrigacaoEnvio[]> {
   const res = await fetch(
-    `${ENV.apiUrl}/ObrigacaoEnvioControllers/EsferaAdministrativa/GetObrigacaoEnvioAnual?anoExercicio=${ano}&isMunicipio=${isMunicipios}&v=26-07-2023-5.2.19`
+    `${ENV.apiUrl}/ObrigacaoEnvioControllers/EsferaAdministrativa/GetObrigacaoEnvioAnual?anoExercicio=${ano}&isMunicipio=${isMunicipios}&v=${ENV.apiVersion}`
   );
   return (res.json() as Promise<ObrigacaoEnvioPromise[]>).then((data) =>
     data.map((d) => ({

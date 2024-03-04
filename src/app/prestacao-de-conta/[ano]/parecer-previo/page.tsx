@@ -7,7 +7,7 @@ import { ParecerPrevioPageProps } from "./routes";
 
 async function getData(ano: string): Promise<SituacaoProcesso[]> {
   const res = await fetch(
-    `${ENV.apiUrl}/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=07&dadosMunicipios=true&v=11-08-2023-5.2.20`
+    `${ENV.apiUrl}/PrestacaoContaControllers/EsferaAdministrativa/GetProcessosPrestacaoContaAnualPorTipoConta?tipoConta=Governo&anoExercicio=${ano}&codigoTipoUG=07&dadosMunicipios=true&v=${ENV.apiVersion}`
   );
   return res.json();
 }

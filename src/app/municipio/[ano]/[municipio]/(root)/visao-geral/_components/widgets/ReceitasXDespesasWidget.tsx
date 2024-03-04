@@ -22,7 +22,7 @@ async function getData({ ano, municipio }: Partial<MunicipioPageProps>) {
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
   const res = await fetch(
-    `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
   );
   const data = await res.json();
   return data;

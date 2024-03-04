@@ -6,7 +6,7 @@ import ReceitasXDespesasChart from "../charts/ReceitasXDespesasChart";
 async function getData({ ano }: Partial<EstadoPageProps>) {
   const codigo = "001";
   const res = await fetch(
-    `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
   );
   const data = await res.json();
   return data;

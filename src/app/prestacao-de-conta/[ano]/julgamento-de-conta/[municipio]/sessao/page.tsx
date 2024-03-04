@@ -64,7 +64,7 @@ async function getData({
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
   const res = await fetch(
-    `${ENV.apiUrl}/PrestacaoContaControllers/JulgamentoConta/GetSumarioDetalheJulgamento?anoExercicio=${ano}&codigoEsferaAdministrativa=${codigo}&v=11-08-2023-5.2.20`
+    `${ENV.apiUrl}/PrestacaoContaControllers/JulgamentoConta/GetSumarioDetalheJulgamento?anoExercicio=${ano}&codigoEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
   );
   return res.json();
 }

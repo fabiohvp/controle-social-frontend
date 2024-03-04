@@ -125,7 +125,7 @@ async function getData({
 function generatePromises({ ano, codigo }: { ano: string; codigo: string }) {
   const promises = [
     fetch(
-      `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoAnualReceitaArrecadadaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+      `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoAnualReceitaArrecadadaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     ).then(async (o) => {
       const data = (await o.json()) as {
         valores: { anterior: number; atual: number };
@@ -141,7 +141,7 @@ function generatePromises({ ano, codigo }: { ano: string; codigo: string }) {
       };
     }),
     fetch(
-      `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetEvolucaoMensalReceitaDespesa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+      `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetEvolucaoMensalReceitaDespesa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     ).then(async (o) => {
       const data = (await o.json()) as {
         mes: number;
@@ -179,103 +179,103 @@ function generatePromises({ ano, codigo }: { ano: string; codigo: string }) {
       );
     }),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Ranking/GetRanking?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Ranking/GetRanking?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Informacao/getByIdEsferaAdministrativaDadosCompletos?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Informacao/getByIdEsferaAdministrativaDadosCompletos?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Educacao/GetSumario?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Educacao/GetSumario?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/IEGM/GetTodosIndices?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/IEGM/GetTodosIndices?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoAnualDespesaPagaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoAnualDespesaPagaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoAnualDespesaPagaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoAnualDespesaPagaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetValoresComposicao?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetValoresComposicao?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/ReceitaDespesa/GetReceitaXDespesaPorEsferaAdministrativa?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/ObrigacaoEnvio/GetObrigacaoEnvioEmDia?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetDespesaLiquidadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=5&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=5&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=8&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=8&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=7&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=7&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=6&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=6&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Despesa/GetEvolucaoMensalPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=5&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=5&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=8&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=8&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=7&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=7&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=4&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=6&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=6&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=2&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=3&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
     // fetch(
-    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=20-08-2023-5.2.22`
+    //   `${ENV.apiUrl}/MunicipioControllers/Receita/GetReceitaArrecadadaPorClassificacaoNatureza?anoExercicio=${ano}&idEsferaAdministrativa=${codigo}&etiqueta=1&v=${ENV.apiVersion}`
     // ).then((o) => o.json()),
   ];
   return promises;

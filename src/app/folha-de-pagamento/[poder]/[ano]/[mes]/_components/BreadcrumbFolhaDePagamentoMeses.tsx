@@ -21,6 +21,7 @@ export default function BreadcrumbFolhaDePagamentoMeses() {
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,
+            mes: item[1].value,
             pathname,
           })
         }

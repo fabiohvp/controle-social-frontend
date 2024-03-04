@@ -42,7 +42,7 @@ const getData = cache(
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
     const res = await fetch(
-      `${ENV.apiUrl}/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+      `${ENV.apiUrl}/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
     const data = await res.json();
     return data as { [key: string]: number };

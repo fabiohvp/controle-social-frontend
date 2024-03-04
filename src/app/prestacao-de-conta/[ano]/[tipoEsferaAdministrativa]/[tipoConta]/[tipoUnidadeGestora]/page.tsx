@@ -346,5 +346,5 @@ function generateQueryString({
     tipoConta === "governo" ? "Governo" : encodeURIComponent("Gestão")
   }&anoExercicio=${ano}&codigoTipoUG=${tipoUnidadeGestora}&dadosMunicipios=${
     tipoEsferaAdministrativa === "municipios"
-  }&v=29-07-2023-5.2.19`;
+  }&v=${ENV.apiVersion}`;
 }

@@ -36,7 +36,7 @@ const CHART_SETTINGS = {
 const getData = cache(async ({ ano }: Partial<EstadoPageProps>) => {
   const codigo = "001";
   const res = await fetch(
-    `${ENV.apiUrl}/MunicipioControllers/PessoalLegislativo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=11-07-2023-5.2.10`
+    `${ENV.apiUrl}/MunicipioControllers/PessoalLegislativo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
   );
   const data = await res.json();
   return data as { [key: string]: number };
