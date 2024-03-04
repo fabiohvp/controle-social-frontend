@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import AlertPanel from "@/components/panel/AlertPanel";
 
@@ -18,10 +19,9 @@ export default function Page() {
         fazendo de forma justa para com seus contribuintes e revertendo os
         respectivos recursos em favor da sociedade.
       </AlertPanel>
-      <iframe
+      <Iframe
         src="https://public.tableau.com/views/AuditoriadeReceitasMunicipais/Painel1?:embed=y&:toolbar=yes&:embed_code_version=3&:loadOrderID=6&:display_count=yes&:tabs=no?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:toolbar=no&:animate_transition=false&:display_static_image=false&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:tabs=no&:loadOrderID=0"
         className="h-full mt-2 w-full"
-        seamless
       />
     </DashboardLayout>
   );

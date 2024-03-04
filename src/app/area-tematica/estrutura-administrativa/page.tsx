@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import LogoInfoEducacao from "@/components/images/logos/LogoInfoEducacao";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
@@ -21,10 +22,9 @@ export default function Page() {
           <LogoInfoEducacao />
         </div>
       </PanelWithTitleCollapsible>
-      <iframe
+      <Iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiNWZhZmZiM2EtOTRkOC00YTU0LTk5MzUtNWZhZDFlMTBjOTU1IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"
-        seamless
       />
     </>
   );

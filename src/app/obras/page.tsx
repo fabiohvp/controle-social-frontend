@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import ObrasImage from "@/components/images/images/FundoTabelaComparadorImage";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
@@ -20,10 +21,9 @@ export default function Page() {
           <ObrasImage />
         </div>
       </PanelWithTitleCollapsible>
-      <iframe
+      <Iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiZTA0ODc1NzYtOTczYy00MjY1LTkxMjYtODU1NWY3MzZmMTQyIiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"
-        seamless
       />
     </DashboardLayout>
   );

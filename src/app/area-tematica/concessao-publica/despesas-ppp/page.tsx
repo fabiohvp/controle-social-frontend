@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
@@ -50,10 +51,9 @@ export default function Page() {
           <DespesaPppLogo />
         </div>
       </PanelWithTitleCollapsible>
-      <iframe
+      <Iframe
         src="https://app.powerbi.com/view?r=eyJrIjoiNDhkZThiODgtNmJiZS00ZWVlLWE0MjQtNDY1NjgxMTMzNmI0IiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9"
         className="h-full mt-2 w-full"
-        seamless
       />
     </>
   );

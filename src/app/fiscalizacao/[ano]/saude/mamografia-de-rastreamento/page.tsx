@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbMamografiaRastreamento from "./BreadcrumbMamografiaRastreamento";
@@ -16,10 +17,9 @@ export default function Page() {
         impediam ou retardavam a realização dos exames de detecção precoce do
         Câncer de Mama.
       </AlertPanel>
-      <iframe
+      <Iframe
         src="/api/saude/mamografia-de-rastreamento"
         className="h-full mt-2 w-full"
-        seamless
       />
     </DashboardLayout>
   );

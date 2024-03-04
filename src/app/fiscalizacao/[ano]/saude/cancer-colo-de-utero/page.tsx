@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbSaude from "../BreadcrumbSaude";
@@ -16,10 +17,9 @@ export default function Page() {
         intempestividade para confirmação do diagnóstico e da ineficiência para
         o início do tratamento do câncer de colo de útero.
       </AlertPanel>
-      <iframe
+      <Iframe
         src="/api/saude/cancer-colo-de-utero"
         className="h-full mt-2 w-full"
-        seamless
       />
     </DashboardLayout>
   );

@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbSaude from "../BreadcrumbSaude";
@@ -23,10 +24,9 @@ export default function Page() {
         Organização das Nações Unidas (ONUA) e os indicadores de pactuação
         interfederativa que retratam as prioridades nacionais em saúde.
       </AlertPanel>
-      <iframe
+      <Iframe
         src="/api/saude/doencas-cronicas-nao-transmissiveis"
         className="h-full mt-2 w-full"
-        seamless
       />
     </DashboardLayout>
   );

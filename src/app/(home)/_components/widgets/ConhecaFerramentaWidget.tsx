@@ -1,4 +1,5 @@
 "use client";
+import Iframe from "@/components/iframes/Iframe";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { twMerge } from "tailwind-merge";
@@ -45,12 +46,12 @@ export default function ConhecaFerramentaWidget(props: Props) {
         {carouselItems.map((carouselItem) => (
           <div key={carouselItem.videoId}>
             <p className="carousel-title">{carouselItem.titulo}</p>
-            <iframe
+            <Iframe
               allow="autoplay; encrypted-media"
               src={`https://www.youtube-nocookie.com/embed/${carouselItem.videoId}?rel=0&amp;amp;showinfo=0&amp;amp;controls=0`}
               height={295}
               width={840}
-            ></iframe>
+            ></Iframe>
           </div>
         ))}
       </Carousel>

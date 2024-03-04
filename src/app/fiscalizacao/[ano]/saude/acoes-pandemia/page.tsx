@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbSaude from "../BreadcrumbSaude";
@@ -16,11 +17,7 @@ export default function Page() {
         educação e assistência social, mas também ligadas a outros temas
         relevantes, como transparência, receitas, despesas e controle interno.
       </AlertPanel>
-      <iframe
-        src="/api/saude/acoes-pandemia"
-        className="h-full mt-2 w-full"
-        seamless
-      />
+      <Iframe src="/api/saude/acoes-pandemia" className="h-full mt-2 w-full" />
     </DashboardLayout>
   );
 }
