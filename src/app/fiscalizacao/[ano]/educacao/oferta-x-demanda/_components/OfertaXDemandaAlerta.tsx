@@ -10,7 +10,8 @@ const RELATORIOS: { [key: string]: string } = {
 };
 
 export default function OfertaXDemandaAlerta() {
-  const routeParams = useParams();
+  const routeParams = useParams<{ ano: string }>();
+  const ano = routeParams.ano ? parseInt(routeParams.ano, 10) : 2020;
 
   return (
     <AlertPanel type="info">
@@ -26,10 +27,7 @@ export default function OfertaXDemandaAlerta() {
       atingido por cada município, utilizando a seguinte fórmula: (nota do
       Município * 100) / 84.
       <br />
-      <ExternalLink
-        href={RELATORIOS[routeParams.ano]}
-        title="Relatório de auditoria"
-      >
+      <ExternalLink href={RELATORIOS[ano]} title="Relatório de auditoria">
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
     </AlertPanel>
