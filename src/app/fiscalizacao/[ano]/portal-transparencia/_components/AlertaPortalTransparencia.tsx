@@ -11,7 +11,8 @@ const RELATORIOS: { [key: string]: string } = {
 };
 
 export default function AlertaPortalTransparencia() {
-  const routeParams = useParams();
+  const routeParams = useParams<{ ano: string }>();
+  const ano = routeParams.ano ? parseInt(routeParams.ano, 10) : 2020;
 
   return (
     <AlertPanel type="info">
@@ -25,10 +26,7 @@ export default function AlertaPortalTransparencia() {
       entre os municípios e verificar se há melhoria da transparência no
       decorrer do tempo.
       <br />
-      <ExternalLink
-        href={RELATORIOS[routeParams.ano]}
-        title="Relatório de auditoria"
-      >
+      <ExternalLink href={RELATORIOS[ano]} title="Relatório de auditoria">
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
     </AlertPanel>
