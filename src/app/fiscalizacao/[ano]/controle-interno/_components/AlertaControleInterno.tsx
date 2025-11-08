@@ -21,16 +21,12 @@ const RELATORIOS: { [key: string]: { texto: string; href: string } } = {
 
 export default function AlertaControleInterno() {
   const routeParams = useParams();
+  const ano = parseInt(routeParams.ano);
 
   return (
     <AlertPanel type="info">
-      <div
-        dangerouslySetInnerHTML={{ __html: RELATORIOS[routeParams.ano].texto }}
-      ></div>
-      <ExternalLink
-        href={RELATORIOS[routeParams.ano].href}
-        title="Relatório de auditoria"
-      >
+      <div dangerouslySetInnerHTML={{ __html: RELATORIOS[ano].texto }}></div>
+      <ExternalLink href={RELATORIOS[ano].href} title="Relatório de auditoria">
         Acesse na íntegra o relatório de auditoria.
       </ExternalLink>
     </AlertPanel>
