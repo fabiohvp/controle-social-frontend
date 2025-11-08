@@ -12,17 +12,19 @@ type Props = {
 };
 
 export default async function Page({ params }: { params: Props }) {
+  const resolvedParams = await params;
+
   const [datasLimitesRes, unidadesGestorasRes, obrigacoesDeEnvioRes] =
     await Promise.allSettled([
-      getDatasLimites(parseInt(params.ano)),
+      getDatasLimites(parseInt(resolvedParams.ano)),
       getUnidadesGestorasEstaduais().map((ug) => ({
         codigo: ug.codigo.substring(0, 3),
         nome: ug.nome,
         nomeNormalizado: normalize(ug.nome),
       })),
-      getObrigacaoesDeEnvios({ ano: params.ano, isMunicipios: false }),
+      getObrigacaoesDeEnvios({ ano: resolvedParams.ano, isMunicipios: false }),
     ]);
-  const anoParameter = parseInt(params.ano);
+  const anoParameter = parseInt(resolvedParams.ano);
 
   let datasLimites = handleSettledPromise(datasLimitesRes);
   let unidadesGestoras = handleSettledPromise(unidadesGestorasRes);

@@ -17,12 +17,13 @@ export default async function Page({
 }: {
   params: ParecerPrevioPageProps;
 }) {
-  const situacaoProcessos = await getData(params.ano);
+  const resolvedParams = await params;
 
+  const situacaoProcessos = await getData(resolvedParams.ano);
   if (!situacaoProcessos.length) {
     return (
       <AlertPanel type="info">
-        Ainda não há prestações de contas disponíveis para {params.ano}.
+        Ainda não há prestações de contas disponíveis para {resolvedParams.ano}.
       </AlertPanel>
     );
   }

@@ -8,6 +8,8 @@ export default async function Page({
 }: {
   params: JulgamentoDeContaPageProps;
 }) {
+  const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="gap-2 p-2"
@@ -21,7 +23,7 @@ export default async function Page({
         julgar as contas, seguindo ou não o parecer prévio, conforme artigo 31
         da Constituição Federal.
       </AlertPanel>
-      visão geral {params.ano}
+      visão geral {resolvedParams.ano}
       {/* //TODO: implementar gráficos */}
     </DashboardLayout>
   );

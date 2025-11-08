@@ -10,38 +10,56 @@ import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaI
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
+import clsx from "clsx";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
-const ANO_DEFAULT = 2023;
 const MES_DEFAULT = 1;
 
 export default function DashboardHeaderItems() {
+  const route = usePathname();
+
   return (
     <ul className="dashboard-menu font-bold hidden xl:flex">
-      <li className="px-3 active">
+      <li className={clsx("px-3", { active: route.startsWith("/municipio") })}>
         <MegaMenuMunicipios />
       </li>
-      <li className="px-3">
+      <li className={clsx("px-3", { active: route.startsWith("/estado") })}>
         <LinkEstado />
       </li>
-      <li className="px-3">
+      <li
+        className={clsx("px-3", {
+          active: route.startsWith("/obrigacao-de-envio"),
+        })}
+      >
         <LinkObrigacoes />
       </li>
-      <li className="px-3">
+      <li
+        className={clsx("px-3", {
+          active: route.startsWith("/prestacao-de-conta"),
+        })}
+      >
         <DropdownPrestacoesContas />
       </li>
-      <li className="px-3">
+      <li
+        className={clsx("px-3", { active: route.startsWith("/fiscalizacao") })}
+      >
         <DropdownFiscalizacoes />
       </li>
-      <li className="px-3">
+      <li
+        className={clsx("px-3", { active: route.startsWith("/area-tematica") })}
+      >
         <DropdownAreasTematicas />
       </li>
-      <li className="px-3">
+      <li
+        className={clsx("px-3", {
+          active: route.startsWith("/obras") || route.startsWith("/projecao"),
+        })}
+      >
         <DropdownInteligenciaArtificial />
       </li>
-      <li className="px-3">
+      <li className={clsx("px-3", { active: route.startsWith("/boletins") })}>
         <LinkBoletins />
       </li>
     </ul>

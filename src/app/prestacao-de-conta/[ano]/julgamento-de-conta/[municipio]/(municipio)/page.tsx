@@ -8,6 +8,8 @@ export default async function Page({
 }: {
   params: JulgamentoDeContaPageProps;
 }) {
+  const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="gap-2 p-2"
@@ -31,7 +33,7 @@ export default async function Page({
         <strong>Julgamento</strong> - data em que as contas foram julgadas na
         câmara municipal de vereadores.
       </AlertPanel>
-      municipio {params.ano}
+      municipio {resolvedParams.ano}
       {/* //TODO: implementar gráficos */}
     </DashboardLayout>
   );

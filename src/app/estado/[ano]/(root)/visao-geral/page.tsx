@@ -15,6 +15,8 @@ const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
 const GAUGE_STYLE = { height: WIDGET_HEIGHT };
 
 export default async function Page({ params }: { params: EstadoPageProps }) {
+  const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="gap-2 p-2"
@@ -24,17 +26,17 @@ export default async function Page({ params }: { params: EstadoPageProps }) {
     >
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
-        <ReceitasXDespesasWidget style={PANEL_STYLE} {...params} />
-        <ObrigacoesJuntoTceesWidget style={PANEL_STYLE} {...params} />
-        <SaudeWidget style={GAUGE_STYLE} {...params} />
-        <EducacaoWidget style={GAUGE_STYLE} {...params} />
+        <ReceitasXDespesasWidget style={PANEL_STYLE} {...resolvedParams} />
+        <ObrigacoesJuntoTceesWidget style={PANEL_STYLE} {...resolvedParams} />
+        <SaudeWidget style={GAUGE_STYLE} {...resolvedParams} />
+        <EducacaoWidget style={GAUGE_STYLE} {...resolvedParams} />
       </div>
 
       {/* TODO: adicionar mãos com valor em cima dos gráficos */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-5 gap-2">
-        <PessoalConsolidadoWidget style={GAUGE_STYLE} {...params} />
-        <PessoalExecutivoWidget style={GAUGE_STYLE} {...params} />
-        <PessoalLegislativoWidget style={GAUGE_STYLE} {...params} />
+        <PessoalConsolidadoWidget style={GAUGE_STYLE} {...resolvedParams} />
+        <PessoalExecutivoWidget style={GAUGE_STYLE} {...resolvedParams} />
+        <PessoalLegislativoWidget style={GAUGE_STYLE} {...resolvedParams} />
       </div>
     </DashboardLayout>
   );

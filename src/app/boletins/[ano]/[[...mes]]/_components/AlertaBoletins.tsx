@@ -24,13 +24,15 @@ export default function AlertaBoletins(props: BoletinsAlertPanelProps) {
         {meses.map((mesNome, index) => {
           const mes = index + 1;
           const disabled = mes > props.mesUltimoEnvio;
-
           return (
             <li
               key={mesNome}
-              className={`${props.mesSelecionado === mes ? "active" : ""} ${
-                disabled ? "disabled" : ""
-              }`}
+              className={`${
+                props.mesSelecionado === mes ||
+                (!props.mes && index === meses.length - 1)
+                  ? "active"
+                  : ""
+              } ${disabled ? "disabled" : ""}`}
             >
               <hr />
               <Link

@@ -93,7 +93,8 @@ export default async function Page({
 }: {
   params: InformativoPageProps;
 }) {
-  const data = await getData(params);
+  const resolvedParams = await params;
+  const data = await getData(resolvedParams);
 
   return (
     <table className="table responsive text-sm">

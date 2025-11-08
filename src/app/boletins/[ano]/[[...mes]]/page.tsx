@@ -1,5 +1,4 @@
 import BoletimMacroGestaoGovernamentalImage from "@/components/images/images/BoletimMacroGestaoGovernamentalImage";
-import { getMonthNames } from "@/shared/date";
 import { ENV } from "@/shared/env";
 import Link from "next/link";
 import { cache } from "react";
@@ -8,9 +7,8 @@ import { BoletinsPageProps } from "../routes";
 import AlertaBoletins, {
   BoletinsAlertPanelProps,
 } from "./_components/AlertaBoletins";
+import TituloMesBoletim from "./_components/TituloMesBoletim";
 import "./boletimMensal.css";
-
-const meses = getMonthNames({ format: "long" });
 
 function getUrl(ano: string, mes: string | undefined) {
   return `${ENV.apiUrl}/EstadoControllers/ResumoExecutivo/GetResumoExecutivo?idEsferaAdministrativa=81&anoExercicio=${ano}&mes=${mes}&v=18-07-2023-5.2.14`;
@@ -43,19 +41,22 @@ const getData = cache(async ({ ano, mes }: BoletinsPageProps) => {
 });
 
 export default async function Page({ params }: { params: BoletinsPageProps }) {
-  const data = await getData({ ...params });
+  const resolvedParams = await params;
+
+  const data = await getData({ ...resolvedParams });
   const { urlPDF } = extractData(data.conteudo);
 
   return (
     <>
-      <AlertaBoletins {...data} {...params} />
+      <AlertaBoletins {...data} {...resolvedParams} />
 
       <section className="center flex-col gap-2 mt-2">
         <BoletimMacroGestaoGovernamentalImage className="mt-2" />
-        <h2 className="font-normal">
-          {meses[(data.mesSelecionado ?? data.mesUltimoEnvio) - 1]} /{" "}
-          {params.ano}
-        </h2>
+        <TituloMesBoletim
+          ano={parseInt(resolvedParams.ano)}
+          mesSelecionado={data.mesSelecionado}
+          mesUltimoEnvio={data.mesUltimoEnvio}
+        />
         <hr className="w-full md:w-2/3 xl:w-3/5" />
         <div className="mt-2 px-12 text-sm">
           Você também pode fazer o download da ...

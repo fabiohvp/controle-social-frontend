@@ -14,6 +14,8 @@ type Props = {
 };
 
 export default async function Page({ params, searchParams }: Props) {
+  const resolvedParams = await params;
+
   const municipiosSelecionados = searchParams.municipios
     ? Array.isArray(searchParams.municipios)
       ? searchParams.municipios
@@ -25,7 +27,7 @@ export default async function Page({ params, searchParams }: Props) {
 
   for (let i = 0; i < 3; i++) {
     data[i] = await getData({
-      ano: params.ano,
+      ano: resolvedParams.ano,
       municipio: municipiosSelecionados[i],
       municipios,
     });

@@ -27,9 +27,11 @@ export default async function Page({
 }: {
   params: PrestacaoDeContaGovernoPageProps;
 }) {
+  const resolvedParams = await params;
+
   const [resumoProcessosRes, situacaoProcessosRes] = await Promise.allSettled([
-    getResumoProcessos(params),
-    getSituacaoProcessos(params),
+    getResumoProcessos(resolvedParams),
+    getSituacaoProcessos(resolvedParams),
   ]);
 
   const resumoProcessos = handleSettledPromise(resumoProcessosRes);
@@ -42,7 +44,7 @@ export default async function Page({
       itensBreadcrumb={
         <BreadcrumbPrestacaoDeConta
           tiposUnidadesGestoras={
-            await (params.tipoEsferaAdministrativa === "estado"
+            await (resolvedParams.tipoEsferaAdministrativa === "estado"
               ? getTipoUnidadesGestorasEstaduais()
               : getTipoUnidadesGestorasMunicipais())
           }

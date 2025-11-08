@@ -100,7 +100,8 @@ export default async function Page({
 }: {
   params: ExtraordinarioPageProps;
 }) {
-  const data = await getData(params);
+  const resolvedParams = await params;
+  const data = await getData(resolvedParams);
 
   return (
     <table className="table mt-2 responsive text-sm">

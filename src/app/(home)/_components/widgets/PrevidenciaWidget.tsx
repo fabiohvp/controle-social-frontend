@@ -1,3 +1,4 @@
+"use client";
 import useGeolocation from "@/hooks/useGeolocation";
 import Image from "next/image";
 import Link from "next/link";

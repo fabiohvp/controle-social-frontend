@@ -1,6 +1,6 @@
+import IpcaButton from "@/components/buttons/ipca/IpcaButton";
 import LoadingPage from "@/components/loading/LoadingPage";
 import Sidebar from "@/components/sidebar/Sidebar";
-import dynamic from "next/dynamic";
 import { ElementType, ReactNode, Suspense } from "react";
 import { twMerge } from "tailwind-merge";
 import DashboardFooter from "./DashboardFooter";
@@ -11,10 +11,6 @@ import {
   MAX_HEIGHT_WITH_SUBMENU_CONTENT,
 } from "./dashboardConstants";
 import "./dashboardLayout.css";
-
-const BotaoIpca = dynamic(() => import("../../buttons/ipca/IpcaButton"), {
-  ssr: false,
-});
 
 type Props = {
   barraLateral?: ElementType;
@@ -40,7 +36,7 @@ export default function DashboardLayout(props: Props) {
             {isElementType(props.itensBreadcrumb) && <props.itensBreadcrumb />}
             {props.exibirBotaoIPCA && (
               <li className="ml-auto px-2">
-                <BotaoIpca />
+                <IpcaButton />
               </li>
             )}
           </DashboardHeaderSubmenu>

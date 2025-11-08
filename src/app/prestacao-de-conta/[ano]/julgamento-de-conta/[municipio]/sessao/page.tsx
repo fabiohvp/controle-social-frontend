@@ -74,9 +74,11 @@ export default async function Page({
 }: {
   params: JulgamentoDeContaPageProps;
 }) {
+  const resolvedParams = await params;
+
   const sessoes = await getData({
-    ano: params.ano,
-    municipio: params.municipio!,
+    ano: resolvedParams.ano,
+    municipio: resolvedParams.municipio!,
   });
 
   if (!sessoes.length) {
