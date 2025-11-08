@@ -20,8 +20,8 @@ const RELATORIOS: { [key: string]: { texto: string; href: string } } = {
 };
 
 export default function AlertaControleInterno() {
-  const routeParams = useParams();
-  const ano = parseInt(routeParams.ano);
+  const routeParams = useParams<{ ano: string }>();
+  const ano = routeParams.ano ? parseInt(routeParams.ano, 10) : 2020;
 
   return (
     <AlertPanel type="info">
