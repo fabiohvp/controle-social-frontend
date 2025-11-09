@@ -17,6 +17,15 @@ import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 const MES_DEFAULT = 1;
 
+type AnoProps = {
+  ano: string;
+};
+
+type AnoMesMunicipioProps = AnoProps & {
+  mes: string;
+  municipio: string;
+};
+
 export default function DashboardHeaderItems() {
   const route = usePathname();
 
@@ -69,7 +78,7 @@ export default function DashboardHeaderItems() {
 function DropdownAreasTematicas({}: {}) {
   const globalState = useGlobalState();
   const municipios = globalState.municipios;
-  const params = useParams();
+  const params = useParams<AnoMesMunicipioProps>();
 
   return (
     <DropdownMenu icon={<AreaTematicaIcon />} title="Áreas temáticas">
@@ -106,7 +115,7 @@ function DropdownAreasTematicas({}: {}) {
             href={`/folha-de-pagamento/executivo-municipal/${
               params.ano ?? globalState.anos.folhaDePagamento.anoAtual
             }/${params.mes ?? MES_DEFAULT}/visao-geral/${
-              getCodigoMunicipio(municipios, params.municipio) ?? ""
+              getCodigoMunicipio(municipios, params.municipio ?? "") ?? ""
             }`}
             prefetch={false}
           >
@@ -125,7 +134,7 @@ function DropdownAreasTematicas({}: {}) {
 
 function DropdownFiscalizacoes() {
   const globalState = useGlobalState();
-  const params = useParams();
+  const params = useParams<AnoProps>();
 
   return (
     <DropdownMenu icon={<FiscalizacaoIcon />} title="Fiscalizações">
@@ -256,7 +265,7 @@ function DropdownInteligenciaArtificial() {
 
 function DropdownPrestacoesContas() {
   const globalState = useGlobalState();
-  const params = useParams();
+  const params = useParams<AnoProps>();
   const ano = params.ano ?? globalState.anos.prestacaoDeConta.anoAtual;
 
   return (
@@ -304,7 +313,7 @@ function DropdownPrestacoesContas() {
 
 function LinkBoletins() {
   const globalState = useGlobalState();
-  const params = useParams();
+  const params = useParams<AnoProps>();
 
   return (
     <Link
@@ -320,7 +329,7 @@ function LinkBoletins() {
 
 function LinkEstado() {
   const globalState = useGlobalState();
-  const params = useParams();
+  const params = useParams<AnoProps>();
 
   return (
     <Link
@@ -338,7 +347,7 @@ function LinkEstado() {
 
 function LinkObrigacoes() {
   const globalState = useGlobalState();
-  const params = useParams();
+  const params = useParams<AnoProps>();
 
   return (
     <Link

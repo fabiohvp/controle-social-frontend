@@ -35,7 +35,7 @@ export default function ObrigacaoEnvioVisaoGeral({
   isMunicipio,
 }: Props) {
   const { push } = useRouter();
-  const routeParams = useParams();
+  const routeParams = useParams<{ ano: string }>();
   const [selectedMode, setSelectedMode] =
     useState<ObrigacaoEnvioDoughnutKey>("PCM");
   const [selectedDoughnut, setSelectedDoughnut] =
