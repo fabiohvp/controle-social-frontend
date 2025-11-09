@@ -15,11 +15,12 @@ type Props = {
 
 export default async function Page({ params, searchParams }: Props) {
   const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
 
-  const municipiosSelecionados = searchParams.municipios
-    ? Array.isArray(searchParams.municipios)
-      ? searchParams.municipios
-      : [searchParams.municipios]
+  const municipiosSelecionados = resolvedSearchParams.municipios
+    ? Array.isArray(resolvedSearchParams.municipios)
+      ? resolvedSearchParams.municipios
+      : [resolvedSearchParams.municipios]
     : [];
 
   let data: Array<MunicipioData | null> = [null, null, null];
