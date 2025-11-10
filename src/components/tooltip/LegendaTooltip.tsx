@@ -20,7 +20,7 @@ export default function LegendaTooltip(props: Props) {
       >
         <FaInfo />
       </span>
-      <ReactTooltip id={props.id}>{props.children}</ReactTooltip>
+      <ReactTooltip id={props.id} style={{zIndex: 1}}>{props.children}</ReactTooltip>
     </>
   );
 }
