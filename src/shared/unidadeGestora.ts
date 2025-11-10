@@ -1,5 +1,5 @@
-import UNIDADES_GESTORAS from "@/data/unidades-gestoras.json";
 import { makeSortedMapByValue } from "@/types/Array";
+import { loadJsonFile } from "./clientJson";
 
 export type UnidadeGestora = {
 	"codigo": string,
@@ -17,6 +17,12 @@ export type UnidadeGestora = {
 	"telefone1": number,
 	"codigoUGPai": string
 }
+
+let UNIDADES_GESTORAS: UnidadeGestora[] = [];
+
+loadJsonFile("data/unidades-gestoras.json").then(ug => {
+	UNIDADES_GESTORAS = ug;
+});
 
 export const CODIGO_UNIDADE_GESTORA_CONSORCIO = "501";
 export const CODIGO_UNIDADE_GESTORA_ESTADUAL = "500";

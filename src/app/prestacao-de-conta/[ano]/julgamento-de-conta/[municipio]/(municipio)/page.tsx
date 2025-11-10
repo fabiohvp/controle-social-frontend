@@ -6,7 +6,7 @@ import BreadcrumbMunicipio from "./BreadcrumbMunicipio";
 export default async function Page({
   params,
 }: {
-  params: JulgamentoDeContaPageProps;
+  params: Promise<JulgamentoDeContaPageProps>;
 }) {
   const resolvedParams = await params;
 

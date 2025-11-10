@@ -6,8 +6,8 @@ import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsi
 import { ENV } from "@/shared/env";
 import { handleSettledPromise } from "@/shared/promise";
 import {
-  getTipoUnidadesGestorasEstaduais,
-  getTipoUnidadesGestorasMunicipais,
+	getTipoUnidadesGestorasEstaduais,
+	getTipoUnidadesGestorasMunicipais,
 } from "@/shared/unidadeGestora";
 import Link from "next/link";
 import { HTMLAttributes, ReactNode } from "react";
@@ -15,9 +15,9 @@ import { FaBalanceScale, FaHistory } from "react-icons/fa";
 import { FaRegHand } from "react-icons/fa6";
 import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import {
-  ResumoProcessoKey,
-  ResumoProcessos,
-  SituacaoProcesso,
+	ResumoProcessoKey,
+	ResumoProcessos,
+	SituacaoProcesso,
 } from "../../../types";
 import BreadcrumbPrestacaoDeConta from "./BreadcrumbPrestacaoDeConta";
 import { PrestacaoDeContaGovernoPageProps } from "./routes";
@@ -25,7 +25,7 @@ import { PrestacaoDeContaGovernoPageProps } from "./routes";
 export default async function Page({
   params,
 }: {
-  params: PrestacaoDeContaGovernoPageProps;
+  params: Promise<PrestacaoDeContaGovernoPageProps>;
 }) {
   const resolvedParams = await params;
 

@@ -98,7 +98,7 @@ async function getData({ ano }: ExtraordinarioPageProps) {
 export default async function Page({
   params,
 }: {
-  params: ExtraordinarioPageProps;
+  params: Promise<ExtraordinarioPageProps>;
 }) {
   const resolvedParams = await params;
   const data = await getData(resolvedParams);

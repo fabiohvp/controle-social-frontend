@@ -72,7 +72,7 @@ async function getData({
 export default async function Page({
   params,
 }: {
-  params: JulgamentoDeContaPageProps;
+  params: Promise<JulgamentoDeContaPageProps>;
 }) {
   const resolvedParams = await params;
 

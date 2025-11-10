@@ -7,9 +7,9 @@ import { getRemessas } from "../_api/getRemessas";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
 import { getDoughnut } from "../_shared/getDoughnuts";
 
-type Props = {
+type Props = Promise<{
   ano: string;
-};
+}>;
 
 export default async function Page({ params }: { params: Props }) {
   const resolvedParams = await params;

@@ -3,7 +3,8 @@ import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
 import { MunicipioPageProps } from "../../routes";
 import BreadcrumbMunicipio from "../BreadcrumbMunicipio";
 
-export default function Page({ params }: { params: MunicipioPageProps }) {
+export default async function Page({ params }: { params: Promise<MunicipioPageProps> }) {
+	const resolvedParams = await params;
   return (
     <DashboardLayout
       className="gap-2 p-2"
@@ -11,7 +12,7 @@ export default function Page({ params }: { params: MunicipioPageProps }) {
       itensBreadcrumb={BreadcrumbMunicipio}
       barraLateral={BarraLateralMunicipios}
     >
-      Obrigação Envio: {params.ano} {params.municipio}
+      Obrigação Envio: {resolvedParams.ano} {resolvedParams.municipio}
     </DashboardLayout>
   );
 }

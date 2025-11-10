@@ -9,8 +9,8 @@ import { percent } from "@/types/percent";
 import DropdownMunicipiosNomes from "./_components/DropdownMunicipiosNomes";
 
 type Props = {
-  params: { ano: string };
-  searchParams: { municipios: string[] };
+  params: Promise<{ ano: string }>;
+  searchParams: Promise<{ municipios: string[] }>;
 };
 
 export default async function Page({ params, searchParams }: Props) {

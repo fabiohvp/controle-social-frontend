@@ -14,7 +14,7 @@ const WIDGET_HEIGHT = "155px";
 const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
 const GAUGE_STYLE = { height: WIDGET_HEIGHT };
 
-export default async function Page({ params }: { params: EstadoPageProps }) {
+export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
   const resolvedParams = await params;
 
   return (

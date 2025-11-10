@@ -15,7 +15,7 @@ async function getData(ano: string): Promise<SituacaoProcesso[]> {
 export default async function Page({
   params,
 }: {
-  params: ParecerPrevioPageProps;
+  params: Promise<ParecerPrevioPageProps>;
 }) {
   const resolvedParams = await params;
 

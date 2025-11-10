@@ -91,7 +91,7 @@ async function getData({ ano }: InformativoPageProps) {
 export default async function Page({
   params,
 }: {
-  params: InformativoPageProps;
+  params: Promise<InformativoPageProps>;
 }) {
   const resolvedParams = await params;
   const data = await getData(resolvedParams);

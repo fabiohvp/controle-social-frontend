@@ -5,7 +5,7 @@ import { cache } from "react";
 import { FaRegFilePdf } from "react-icons/fa6";
 import { BoletinsPageProps } from "../routes";
 import AlertaBoletins, {
-  BoletinsAlertPanelProps,
+	BoletinsAlertPanelProps,
 } from "./_components/AlertaBoletins";
 import TituloMesBoletim from "./_components/TituloMesBoletim";
 import "./boletimMensal.css";
@@ -40,7 +40,7 @@ const getData = cache(async ({ ano, mes }: BoletinsPageProps) => {
   return data;
 });
 
-export default async function Page({ params }: { params: BoletinsPageProps }) {
+export default async function Page({ params }: { params: Promise<BoletinsPageProps> }) {
   const resolvedParams = await params;
 
   const data = await getData({ ...resolvedParams });

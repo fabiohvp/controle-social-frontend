@@ -65,6 +65,7 @@ export default function Dropdown<T>({
   }
 
   if (loading) return <Loading />;
+	
   return (
     <div
       ref={element}
