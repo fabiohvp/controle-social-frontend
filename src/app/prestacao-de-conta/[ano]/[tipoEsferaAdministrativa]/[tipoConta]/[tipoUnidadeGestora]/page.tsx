@@ -5,9 +5,11 @@ import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import { ENV } from "@/shared/env";
 import { handleSettledPromise } from "@/shared/promise";
+import { readJsonFile } from "@/shared/serverJson";
 import {
 	getTipoUnidadesGestorasEstaduais,
 	getTipoUnidadesGestorasMunicipais,
+	UnidadeGestora,
 } from "@/shared/unidadeGestora";
 import Link from "next/link";
 import { HTMLAttributes, ReactNode } from "react";
@@ -28,6 +30,7 @@ export default async function Page({
   params: Promise<PrestacaoDeContaGovernoPageProps>;
 }) {
   const resolvedParams = await params;
+	const unidadesGestoras = await readJsonFile<UnidadeGestora[]>("data/unidades-gestoras.json");
 
   const [resumoProcessosRes, situacaoProcessosRes] = await Promise.allSettled([
     getResumoProcessos(resolvedParams),
@@ -45,8 +48,8 @@ export default async function Page({
         <BreadcrumbPrestacaoDeConta
           tiposUnidadesGestoras={
             await (resolvedParams.tipoEsferaAdministrativa === "estado"
-              ? getTipoUnidadesGestorasEstaduais()
-              : getTipoUnidadesGestorasMunicipais())
+              ? getTipoUnidadesGestorasEstaduais(unidadesGestoras)
+              : getTipoUnidadesGestorasMunicipais(unidadesGestoras))
           }
         />
       }

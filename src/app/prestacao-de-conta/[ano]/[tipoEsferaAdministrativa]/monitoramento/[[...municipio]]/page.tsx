@@ -3,7 +3,8 @@ import AlertPanel from "@/components/panel/AlertPanel";
 import BreadcrumbMonitoramento from "./BreadcrumbMonitoramento";
 import { MonitoramentoPageProps } from "./routes";
 
-export default function Page({ params }: { params: MonitoramentoPageProps }) {
+export default async function Page({ params }: { params: Promise<MonitoramentoPageProps> }) {
+	const resolvedParams = await params;
   return (
     <DashboardLayout
       className="gap-2 p-2"

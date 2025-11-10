@@ -3,14 +3,16 @@ import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
 import { MunicipioPageProps } from "../../routes";
 import BreadcrumbGestaoOrcamentaria from "../BreadcrumbGestaoOrcamentaria";
 
-export default function Page({ params }: { params: MunicipioPageProps }) {
+export default async function Page({ params }: { params: Promise<MunicipioPageProps> }) {
+	const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
       itensBreadcrumb={BreadcrumbGestaoOrcamentaria}
       barraLateral={BarraLateralMunicipios}
     >
-      Planejamento governamental: {params.ano} {params.municipio}
+      Planejamento governamental: {resolvedParams.ano} {resolvedParams.municipio}
     </DashboardLayout>
   );
 }

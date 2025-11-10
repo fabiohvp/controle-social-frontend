@@ -2,11 +2,13 @@ import { globalState } from "@/shared/globalState";
 import { redirect } from "next/navigation";
 import { MunicipioPageProps, generateMunicipioUrl } from "./routes";
 
-type Props = { params: MunicipioPageProps };
+type Props = { params: Promise<MunicipioPageProps> };
 
-export default function Page(props: Props) {
+export default async function Page(props: Props) {
+	const resolvedParams = await props.params;
+
   const url = generateMunicipioUrl({
-    ...props.params,
+    ...resolvedParams,
     globalState,
     pagina: "",
     pathname: "",

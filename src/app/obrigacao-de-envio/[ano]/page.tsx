@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
 import { ObrigacaoEnvioPageProps, generateObrigacaoEnvioUrl } from "./routes";
 
-type Props = { params: ObrigacaoEnvioPageProps };
+type Props = { params: Promise<ObrigacaoEnvioPageProps> };
 
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
+	const resolvedParams = await params;
   const url = generateObrigacaoEnvioUrl({
-    ...params,
+    ...resolvedParams,
     pagina: "municipios",
     pathname: "",
   });

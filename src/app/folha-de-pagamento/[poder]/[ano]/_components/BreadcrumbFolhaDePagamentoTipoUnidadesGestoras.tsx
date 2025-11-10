@@ -4,16 +4,17 @@ import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
 import { normalize } from "@/formatters/string";
+import { loadJsonFile } from "@/shared/clientJson";
 import {
-  UnidadeGestora,
-  getUnidadesGestoras,
-  getUnidadesGestorasMunicipais,
+	UnidadeGestora,
+	getUnidadesGestorasMunicipais,
 } from "@/shared/unidadeGestora";
 import { groupBy } from "@/types/Array";
 import { useParams, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
-  FolhaDePagamentoPageProps,
-  generateFolhaDePagamentoUrl,
+	FolhaDePagamentoPageProps,
+	generateFolhaDePagamentoUrl,
 } from "../../../routes";
 
 type Option = {
@@ -35,9 +36,18 @@ const TODOS_OPTION = {
 export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
   const routeParams = useParams() as FolhaDePagamentoPageProps;
   const pathname = usePathname();
-  const [options, selectedComparer] = getUnidadesGestorasPorPoder(
-    routeParams.poder
-  );
+
+	const [options, setOptions] = useState<any[]>([]);
+  const [selectedComparer, setSelectedComparer] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const [opts, comparer] = await getUnidadesGestorasPorPoder(routeParams.poder);
+      setOptions(opts);
+      setSelectedComparer(comparer);
+    }
+    fetchData();
+  }, [routeParams.poder]);
 
   if (!options.length) {
     return <></>;
@@ -140,15 +150,17 @@ function BreadcrumbFolhaDePagamentoUnidadesGestoras({
   );
 }
 
-function getUnidadesGestorasPorPoder(poder: string) {
+async function getUnidadesGestorasPorPoder(poder: string) {
+	const unidadesGestoras = await loadJsonFile<UnidadeGestora[]>("data/unidades-gestoras.json");
+
   if (poder === "executivo-estadual") {
-    const ugs = getUnidadesGestoras().filter((ug) =>
+    const ugs = unidadesGestoras.filter((ug) =>
       ug.codigo.startsWith("500E")
     );
     return groupByTipoUnidadesGestoras("tipoUnidadeGestora", ugs);
   }
   if (poder === "judiciario-estadual") {
-    const ugs = getUnidadesGestoras().filter((ug) =>
+    const ugs = unidadesGestoras.filter((ug) =>
       ug.codigo.startsWith("500J")
     );
     return mapByNomeGestoras(ugs);
@@ -157,13 +169,13 @@ function getUnidadesGestorasPorPoder(poder: string) {
     return EMPTY_OPTIONS;
   }
   if (poder === "defensoria-publica") {
-    const ugs = getUnidadesGestoras().filter((ug) =>
+    const ugs = unidadesGestoras.filter((ug) =>
       ug.codigo.startsWith("500D")
     );
     return mapByNomeGestoras(ugs);
   }
   if (poder === "ministerio-publico") {
-    const ugs = getUnidadesGestoras().filter((ug) =>
+    const ugs = unidadesGestoras.filter((ug) =>
       ug.codigo.startsWith("500M")
     );
     return mapByNomeGestoras(ugs);
@@ -172,19 +184,19 @@ function getUnidadesGestorasPorPoder(poder: string) {
     return EMPTY_OPTIONS;
   }
   if (poder === "executivo-municipal") {
-    const ugs = getUnidadesGestorasMunicipais().filter((ug) => {
+    const ugs = getUnidadesGestorasMunicipais(unidadesGestoras).filter((ug) => {
       const tipo = ug.codigo.substring(3, 6);
       return tipo === "E05" || tipo === "E07";
     });
     return groupByMunicipio(ugs);
   }
   if (poder === "legislativo-municipal") {
-    const ugs = getUnidadesGestorasMunicipais().filter(
+    const ugs = getUnidadesGestorasMunicipais(unidadesGestoras).filter(
       (ug) => ug.codigo.charAt(3) === "L"
     );
     return groupByTipoUnidadesGestoras("tipoUnidadeGestora", ugs);
   }
-  const ugs = getUnidadesGestorasMunicipais();
+  const ugs = getUnidadesGestorasMunicipais(unidadesGestoras);
   return groupByMunicipio(ugs);
 }
 

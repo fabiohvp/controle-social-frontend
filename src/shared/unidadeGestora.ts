@@ -1,5 +1,4 @@
 import { makeSortedMapByValue } from "@/types/Array";
-import { loadJsonFile } from "./clientJson";
 
 export type UnidadeGestora = {
 	"codigo": string,
@@ -18,46 +17,36 @@ export type UnidadeGestora = {
 	"codigoUGPai": string
 }
 
-let UNIDADES_GESTORAS: UnidadeGestora[] = [];
-
-loadJsonFile("data/unidades-gestoras.json").then(ug => {
-	UNIDADES_GESTORAS = ug;
-});
-
 export const CODIGO_UNIDADE_GESTORA_CONSORCIO = "501";
 export const CODIGO_UNIDADE_GESTORA_ESTADUAL = "500";
 
-export function getUnidadesGestoras(): UnidadeGestora[] {
-	return UNIDADES_GESTORAS;
-}
-
-export function getUnidadesGestorasConsorcios(): UnidadeGestora[] {
-	return UNIDADES_GESTORAS.filter((ug) =>
+export function getUnidadesGestorasConsorcios(unidadesGestoras: UnidadeGestora[]): UnidadeGestora[] {
+	return unidadesGestoras.filter((ug) =>
 		ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_CONSORCIO)
 	);
 }
 
-export function getUnidadesGestorasEstaduais(): UnidadeGestora[] {
-	return UNIDADES_GESTORAS.filter((ug) =>
+export function getUnidadesGestorasEstaduais(unidadesGestoras: UnidadeGestora[]): UnidadeGestora[] {
+	return unidadesGestoras.filter((ug) =>
 		ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_ESTADUAL)
 	);
 }
 
-export function getUnidadesGestorasMunicipais(): UnidadeGestora[] {
-	return UNIDADES_GESTORAS.filter(
+export function getUnidadesGestorasMunicipais(unidadesGestoras: UnidadeGestora[]): UnidadeGestora[] {
+	return unidadesGestoras.filter(
 		(ug) =>
 			!ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_ESTADUAL) &&
 			!ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_CONSORCIO)
 	);
 }
 
-export function getTipoUnidadesGestorasEstaduais(): Map<string, string> {
-	const unidadesGestoras = UNIDADES_GESTORAS.filter((ug) =>
+export function getTipoUnidadesGestorasEstaduais(unidadesGestoras: UnidadeGestora[]): Map<string, string> {
+	const filteredUnidadesGestoras = unidadesGestoras.filter((ug) =>
 		ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_ESTADUAL)
 	);
 	const tiposUnidadesGestoras = new Map<string, string>();
 
-	for (const unidadeGestora of unidadesGestoras) {
+	for (const unidadeGestora of filteredUnidadesGestoras) {
 		tiposUnidadesGestoras.set(
 			unidadeGestora.codigo.substring(4, 6),
 			unidadeGestora.tipoUnidadeGestora
@@ -67,15 +56,15 @@ export function getTipoUnidadesGestorasEstaduais(): Map<string, string> {
 	return tiposUnidadesGestoras;
 }
 
-export function getTipoUnidadesGestorasMunicipais(): Map<string, string> {
-	const unidadesGestoras = UNIDADES_GESTORAS.filter(
+export function getTipoUnidadesGestorasMunicipais(unidadesGestoras: UnidadeGestora[]): Map<string, string> {
+	const filteredUnidadesGestoras = unidadesGestoras.filter(
 		(ug) =>
 			!ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_ESTADUAL) &&
 			!ug.codigo.startsWith(CODIGO_UNIDADE_GESTORA_CONSORCIO)
 	);
 	const tiposUnidadesGestoras = new Map<string, string>();
 
-	for (const unidadeGestora of unidadesGestoras) {
+	for (const unidadeGestora of filteredUnidadesGestoras) {
 		tiposUnidadesGestoras.set(
 			unidadeGestora.codigo.substring(4, 6),
 			unidadeGestora.tipoUnidadeGestora

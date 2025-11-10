@@ -3,14 +3,16 @@ import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
 import { MunicipioPageProps } from "../../routes";
 import GestaoFiscalItensSubmenu from "../BreadcrumbGestaoFiscal";
 
-export default function Page({ params }: { params: MunicipioPageProps }) {
+export default async function Page({ params }: { params: Promise<MunicipioPageProps> }) {
+	const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
       itensBreadcrumb={GestaoFiscalItensSubmenu}
       barraLateral={BarraLateralMunicipios}
     >
-      receita correnta liquida: {params.ano} {params.municipio}
+      receita correnta liquida: {resolvedParams.ano} {resolvedParams.municipio}
     </DashboardLayout>
   );
 }

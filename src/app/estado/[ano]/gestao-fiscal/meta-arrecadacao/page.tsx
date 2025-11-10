@@ -3,7 +3,9 @@ import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import BarraLateralEstado from "../../_components/BarraLateralEstado";
 import BreadcrumbGestaoFiscal from "../BreadcrumbGestaoFiscal";
 
-export default function Page({ params }: { params: EstadoPageProps }) {
+export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
+	const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
@@ -11,7 +13,7 @@ export default function Page({ params }: { params: EstadoPageProps }) {
       itensBreadcrumb={BreadcrumbGestaoFiscal}
       barraLateral={BarraLateralEstado}
     >
-      meta arrecadação: {params.ano}
+      meta arrecadação: {resolvedParams.ano}
     </DashboardLayout>
   );
 }

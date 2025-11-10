@@ -1,7 +1,8 @@
 import { normalize } from "@/formatters/string";
 import { getDatasLimites } from "@/shared/municipio";
 import { handleSettledPromise } from "@/shared/promise";
-import { getUnidadesGestorasEstaduais } from "@/shared/unidadeGestora";
+import { readJsonFile } from "@/shared/serverJson";
+import { getUnidadesGestorasEstaduais, UnidadeGestora } from "@/shared/unidadeGestora";
 import { getObrigacaoesDeEnvios } from "../_api/getObrigacaoesDeEnvios";
 import { getRemessas } from "../_api/getRemessas";
 import ObrigacaoEnvioLayout from "../_components/ObrigacaoEnvioLayout";
@@ -13,11 +14,12 @@ type Props = Promise<{
 
 export default async function Page({ params }: { params: Props }) {
   const resolvedParams = await params;
+	const unidadesGestorasList = await readJsonFile<UnidadeGestora[]>("data/unidades-gestoras.json");
 
   const [datasLimitesRes, unidadesGestorasRes, obrigacoesDeEnvioRes] =
     await Promise.allSettled([
       getDatasLimites(parseInt(resolvedParams.ano)),
-      getUnidadesGestorasEstaduais().map((ug) => ({
+      getUnidadesGestorasEstaduais(unidadesGestorasList).map((ug) => ({
         codigo: ug.codigo.substring(0, 3),
         nome: ug.nome,
         nomeNormalizado: normalize(ug.nome),

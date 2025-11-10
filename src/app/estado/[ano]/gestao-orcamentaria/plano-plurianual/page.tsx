@@ -3,14 +3,16 @@ import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import BarraLateralEstado from "../../_components/BarraLateralEstado";
 import BreadcrumbGestaoOrcamentaria from "../BreadcrumbGestaoOrcamentaria";
 
-export default function Page({ params }: { params: EstadoPageProps }) {
+export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
+	const resolvedParams = await params;
+
   return (
     <DashboardLayout
       className="flex flex-col gap-2 p-2"
       itensBreadcrumb={BreadcrumbGestaoOrcamentaria}
       barraLateral={BarraLateralEstado}
     >
-      Plano plurianual: {params.ano}
+      Plano plurianual: {resolvedParams.ano}
     </DashboardLayout>
   );
 }
