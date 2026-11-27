@@ -4,6 +4,7 @@ import Patrimonio from "@/components/previdencia/patrimonio/Patrimonio";
 import ProjecoesAtuariais from "@/components/previdencia/projecoes-atuariais/ProjecoesAtuariais";
 import Receitas from "@/components/previdencia/receitas/Receitas";
 import ResultadoAtuarial from "@/components/previdencia/resultado-atuarial/ResultadoAtuarial";
+import SituacaoPrevidenciaria from "@/components/previdencia/situacao-previdenciaria/SituacaoPrevidenciaria";
 import { ESFERA_ESTADO } from "@/shared/esfera";
 import { redirecionarParaPaginaPadrao } from "@/shared/paginasRedirect";
 import {
@@ -68,7 +69,10 @@ export default async function Page({ params }: Props) {
       return <ProjecoesAtuariais {...prevProps} />;
     case "resultado-atuarial":
       return <ResultadoAtuarial {...prevProps} />;
+    case "situacao-previdenciaria":
+      return <SituacaoPrevidenciaria {...prevProps} />;
     default:
       return null;
   }
 }
+

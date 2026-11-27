@@ -38,7 +38,7 @@ export const PAGINAS_PREVIDENCIA_MILITARES: PaginaPrevidencia[] = [
   {
     slug: "segurados",
     titulo: "Segurados",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2022),
   },
 ];

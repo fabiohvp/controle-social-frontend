@@ -53,7 +53,7 @@ export const PAGINAS_GESTAO_FISCAL: Pagina[] = [
   {
     slug: "superavit-deficit",
     titulo: "Superávit/déficit financeiro",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2021, 2025),
   },
   {
@@ -83,7 +83,7 @@ export const PAGINAS_GESTAO_FISCAL: Pagina[] = [
   {
     slug: "alertas-lrf",
     titulo: "Alertas LRF",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2013),
   },
 ];

@@ -57,7 +57,7 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
   {
     slug: "situacao-previdenciaria",
     titulo: "Situação previdenciária",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2018, 2025),
   },
 ];

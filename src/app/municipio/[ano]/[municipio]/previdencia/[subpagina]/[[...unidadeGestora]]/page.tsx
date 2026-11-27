@@ -1,9 +1,13 @@
 import { AvisoDeclaratorio } from "@/components/previdencia/AvisoPrevidencia";
+import ContribuicoesPrevidenciarias from "@/components/previdencia/contribuicoes-previdenciarias/ContribuicoesPrevidenciarias";
 import Despesas from "@/components/previdencia/despesas/Despesas";
 import Patrimonio from "@/components/previdencia/patrimonio/Patrimonio";
+import PlanoAmortizacao from "@/components/previdencia/plano-amortizacao/PlanoAmortizacao";
 import ProjecoesAtuariais from "@/components/previdencia/projecoes-atuariais/ProjecoesAtuariais";
 import Receitas from "@/components/previdencia/receitas/Receitas";
 import ResultadoAtuarial from "@/components/previdencia/resultado-atuarial/ResultadoAtuarial";
+import Segurados from "@/components/previdencia/segurados/Segurados";
+import SituacaoPrevidenciaria from "@/components/previdencia/situacao-previdenciaria/SituacaoPrevidenciaria";
 import { getEsferaMunicipio } from "@/shared/esfera";
 import { redirecionarParaPaginaPadrao } from "@/shared/paginasRedirect";
 import {
@@ -72,7 +76,16 @@ export default async function Page({ params }: Props) {
       return <ProjecoesAtuariais {...prevProps} />;
     case "resultado-atuarial":
       return <ResultadoAtuarial {...prevProps} />;
+    case "plano-amortizacao":
+      return <PlanoAmortizacao {...prevProps} />;
+    case "segurados":
+      return <Segurados {...prevProps} />;
+    case "contribuicoes-previdenciarias":
+      return <ContribuicoesPrevidenciarias {...prevProps} />;
+    case "situacao-previdenciaria":
+      return <SituacaoPrevidenciaria {...prevProps} />;
     default:
       return null;
   }
 }
+

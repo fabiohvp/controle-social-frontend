@@ -1,3 +1,4 @@
+import Iframe from "@/components/iframes/Iframe";
 import DespesaPppLogo from "@/components/images/logos/DespesaPppLogo";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 
@@ -47,7 +48,11 @@ export default function Page() {
           <DespesaPppLogo />
         </div>
       </PanelWithTitleCollapsible>
-      {/* <div>TODO: implementar concessões e PPP / visao-geral</div> */}
+      <Iframe
+        src="https://app.powerbi.com/view?r=eyJrIjoiMDMzMDg0NGEtZDIzZS00Y2FhLWIxNmQtNmViNGI2NGVhYmExIiwidCI6IjlkMTQzN2IxLTQ3MmMtNDUwMS05NDM5LWRjZmU5YTQxZjJiMCJ9&pageName=ReportSection"
+        className="h-full mt-2 w-full"
+      />
     </>
   );
 }
+

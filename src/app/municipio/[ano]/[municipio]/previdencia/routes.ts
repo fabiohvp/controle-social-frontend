@@ -54,7 +54,7 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
   {
     slug: "plano-amortizacao",
     titulo: "Plano de amortização",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2024, 2026),
     // site oficial: só o instituto (sem segregação) ou o fundo previdenciário
     filtrarUnidadesGestoras: (ugs) =>
@@ -64,19 +64,19 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
     slug: "segurados",
     titulo: "Segurados",
     tituloCompleto: "Segurados do RPPS",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2017),
   },
   {
     slug: "contribuicoes-previdenciarias",
     titulo: "Contribuições previdenciárias",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2020),
   },
   {
     slug: "situacao-previdenciaria",
     titulo: "Situação previdenciária",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2018, 2025),
   },
 ];

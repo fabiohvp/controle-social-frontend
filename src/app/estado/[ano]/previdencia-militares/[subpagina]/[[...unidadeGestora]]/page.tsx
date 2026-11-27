@@ -3,6 +3,7 @@ import Despesas from "@/components/previdencia/despesas/Despesas";
 import ProjecoesAtuariais from "@/components/previdencia/projecoes-atuariais/ProjecoesAtuariais";
 import Receitas from "@/components/previdencia/receitas/Receitas";
 import ResultadoAtuarial from "@/components/previdencia/resultado-atuarial/ResultadoAtuarial";
+import Segurados from "@/components/previdencia/segurados/Segurados";
 import { ESFERA_ESTADO } from "@/shared/esfera";
 import { redirecionarParaPaginaPadrao } from "@/shared/paginasRedirect";
 import {
@@ -66,7 +67,10 @@ export default async function Page({ params }: Props) {
       return <ProjecoesAtuariais {...prevProps} />;
     case "resultado-atuarial":
       return <ResultadoAtuarial {...prevProps} />;
+    case "segurados":
+      return <Segurados {...prevProps} />;
     default:
       return null;
   }
 }
+
