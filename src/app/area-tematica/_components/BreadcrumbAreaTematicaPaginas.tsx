@@ -17,7 +17,7 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
     createDropdownValue("/area-tematica/atos-de-pessoal/admissao"),
   ],
   [
-    "Concessões e PPP",
+    "Desestatizações",
     createDropdownValue("/area-tematica/concessao-publica/visao-geral"),
   ],
   [
