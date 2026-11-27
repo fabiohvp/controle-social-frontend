@@ -17,9 +17,10 @@ import {
 } from "@/components/previdencia/previdenciaApi";
 import { getDadosApiEsfera } from "@/shared/esfera";
 import { isInstituto } from "@/shared/previdencia";
+import { COLOR } from "@/theme/colors";
 import { MultiSerie, SerieItem } from "@/types/Serie";
 
-const CORES_COMPOSICAO = ["#607D8B", "#EFB4A3", "#F4B351", "#8BA2AD"];
+const CORES_COMPOSICAO = COLOR.padraoRange;
 
 type EtiquetasApi = Record<string, string[]>;
 type Composicao = { name: string; value: number }[];

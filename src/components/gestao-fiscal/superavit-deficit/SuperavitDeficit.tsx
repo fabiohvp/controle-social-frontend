@@ -4,6 +4,7 @@ import NoDataChart from "@/components/charts/NoDataChart";
 import PanelWithDescription from "@/components/panel/PanelWithDescription";
 import { formatCurrency, formatPercent } from "@/formatters/number";
 import { EsferaProps, getDadosApiEsfera } from "@/shared/esfera";
+import { COLOR } from "@/theme/colors";
 import { MultiSerie } from "@/types/Serie";
 import AvisoPagina from "../_comum/AvisoPagina";
 
@@ -98,13 +99,13 @@ export default async function SuperavitDeficit({
 
       <PanelWithDescription
         className="md:col-span-4"
-        titulo="Recursos vinculados e livres"
+        titulo="Vinculação dos recursos"
         descricao="Distribuição do resultado financeiro apurado entre fontes de recursos vinculados e recursos livres (não vinculados)."
       >
         {vinculadoLivre?.length ? (
           <DoughnutChart
             items={vinculadoLivre}
-            colors={["#2b82bd", "#60bd68"]}
+            colors={COLOR.padraoRange}
             style={{ height: "240px" }}
           />
         ) : (
@@ -120,7 +121,7 @@ export default async function SuperavitDeficit({
         {composicaoVinculado?.length ? (
           <DoughnutChart
             items={composicaoVinculado}
-            colors={["#5da5da", "#faa43a", "#60bd68", "#f17cb0", "#b2912f"]}
+            colors={COLOR.padraoRange}
             style={{ height: "240px" }}
           />
         ) : (
@@ -130,10 +131,14 @@ export default async function SuperavitDeficit({
 
       <PanelWithDescription
         className="md:col-span-12"
-        titulo="Evolução anual do resultado financeiro"
-        descricao="Evolução do superávit ou déficit financeiro ao longo dos exercícios."
+        titulo="Evolução anual do superávit/déficit"
+        descricao="Possibilita observar a evolução do superávit/déficit."
       >
-        <MultiSeriesChart dados={evolucaoAnual} />
+        <MultiSeriesChart
+          dados={evolucaoAnual}
+          tipos={["bar", "bar", "line"]}
+          cores={["#636F78", "#607D8B", "#3D4C57"]}
+        />
       </PanelWithDescription>
 
       {tabela && (

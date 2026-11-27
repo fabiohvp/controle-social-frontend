@@ -101,23 +101,42 @@ export default async function Segurados(props: PrevidenciaProps) {
         </div>
       </div>
 
-      {dados?.evolucaoBeneficiarios && (
-        <PanelWithDescription
-          titulo="Evolução do quantitativo de beneficiários"
-          descricao="Evolução dos quantitativos de segurados ativos, aposentados e pensionistas do regime próprio de previdência social."
-        >
-          <MultiSeriesChart dados={dados.evolucaoBeneficiarios} />
-        </PanelWithDescription>
-      )}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {dados?.evolucaoBeneficiarios && (
+          <PanelWithDescription
+            titulo="Evolução de beneficiários"
+            descricao="Evolução anual do número de servidores ativos, aposentados e pensionistas vinculados ao RPPS."
+          >
+            <MultiSeriesChart
+              dados={dados.evolucaoBeneficiarios}
+              tipos={["line", "line", "line"]}
+              cores={["#C0392B", "#F4B351", "#607D8B"]}
+            />
+          </PanelWithDescription>
+        )}
 
-      {dados?.relacaoAtivosInativos && (
-        <PanelWithDescription
-          titulo="Relação entre servidores ativos e inativos"
-          descricao="Relação entre a quantidade de servidores ativos e a quantidade de beneficiários (aposentados e pensionistas)."
-        >
-          <SingleSeriesChart dados={dados.relacaoAtivosInativos} tipo="bar" />
-        </PanelWithDescription>
-      )}
+        {dados?.evolucaoTipoAposentadoria && (
+          <PanelWithDescription
+            titulo="Evolução por tipo de aposentadoria"
+            descricao="Distribuição de servidores aposentados por tipo de benefício (aposentadoria compulsória, aposentadoria por idade, aposentadoria por invalidez e aposentadoria por tempo de contribuição)."
+          >
+            <MultiSeriesChart
+              dados={dados.evolucaoTipoAposentadoria}
+              tipos={["line", "line", "line", "line"]}
+              cores={["#1DA1F2", "#F4B351", "#607D8B", "#8AA2AD"]}
+            />
+          </PanelWithDescription>
+        )}
+
+        {dados?.relacaoAtivosInativos && (
+          <PanelWithDescription
+            titulo="Relação entre servidores ativos e inativos"
+            descricao="Relação entre a quantidade de servidores ativos e a quantidade de beneficiários (aposentados e pensionistas)."
+          >
+            <SingleSeriesChart dados={dados.relacaoAtivosInativos} tipo="bar" />
+          </PanelWithDescription>
+        )}
+      </div>
     </div>
   );
 }

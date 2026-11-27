@@ -312,6 +312,7 @@ export default async function IndiceVulnerabilidadeFiscal({
         <MultiSeriesChart
           dados={mensais?.endividamento ?? null}
           corrigirIpca={anoExercicio}
+          cores={["#607D8B", "#3D4C57"]}
         />
       </PanelWithDescription>
 
@@ -351,6 +352,7 @@ export default async function IndiceVulnerabilidadeFiscal({
         <MultiSeriesChart
           dados={mensais?.liquidez ?? null}
           corrigirIpca={anoExercicio}
+          cores={["#607D8B", "#3D4C57"]}
         />
       </PanelWithDescription>
 
@@ -388,6 +390,7 @@ export default async function IndiceVulnerabilidadeFiscal({
         <MultiSeriesChart
           dados={mensais?.margem ?? null}
           corrigirIpca={anoExercicio}
+          cores={["#607D8B", "#636F78", "#3D4C57"]}
         />
       </PanelWithDescription>
 

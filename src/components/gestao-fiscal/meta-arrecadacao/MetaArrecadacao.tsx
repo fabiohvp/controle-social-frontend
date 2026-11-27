@@ -64,7 +64,7 @@ export default async function MetaArrecadacao({
           <MultiSeriesChart
             dados={receitaCorrente}
             corrigirIpca={anoExercicio}
-            cores={[COLOR.receita, COLOR["chart-positivo"]]}
+            cores={["#607D8B", "#3D4C57"]}
             style={{ height: "320px" }}
           />
         </PanelWithTitle>
@@ -73,7 +73,7 @@ export default async function MetaArrecadacao({
           <MultiSeriesChart
             dados={receitaCapital}
             corrigirIpca={anoExercicio}
-            cores={[COLOR.receita, COLOR["chart-positivo"]]}
+            cores={["#607D8B", "#3D4C57"]}
             style={{ height: "320px" }}
           />
         </PanelWithTitle>

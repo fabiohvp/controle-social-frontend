@@ -236,6 +236,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={mensais?.endividamento ?? null}
           corrigirIpca={anoExercicio}
+          cores={["#607D8B", "#3D4C57"]}
         />
       </PanelWithDescription>
 
@@ -281,6 +282,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={mensais?.liquidez ?? null}
           corrigirIpca={anoExercicio}
+          cores={["#607D8B", "#3D4C57", "#F28B82"]}
         />
       </PanelWithDescription>
 
@@ -333,7 +335,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={poupanca}
           tipos={["bar", "bar"]}
-          cores={[COLOR.despesa, COLOR.receita]}
+          cores={["#607D8B", "#3D4C57"]}
         />
       </PanelWithDescription>
 
@@ -345,6 +347,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={anuais?.indicadores ?? null}
           formato="percentual"
+          cores={["#607D8B", "#636F78", "#3D4C57"]}
         />
       </PanelWithDescription>
       <PanelWithDescription
@@ -355,6 +358,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={mensais?.indicadores ?? null}
           formato="percentual"
+          cores={["#607D8B", "#636F78", "#3D4C57"]}
         />
       </PanelWithDescription>
 
