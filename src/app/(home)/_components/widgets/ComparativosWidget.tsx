@@ -37,7 +37,7 @@ export default function ComparativosWidget(props: Props) {
             />
           </Link>
           <Link
-            href="rankings/2023/municipios/receita-receita-arrecadada"
+            href="/rankings/2023/receita/arrecadada"
             prefetch={false}
           >
             <p className="carousel-title">Também temos rankings temáticos</p>
