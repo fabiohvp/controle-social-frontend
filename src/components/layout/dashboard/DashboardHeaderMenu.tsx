@@ -4,7 +4,6 @@ import AreaTematicaIcon from "@/components/images/icons/header/AreaTematicaIcon"
 import BoletimIcon from "@/components/images/icons/header/BoletimIcon";
 import EstadoIcon from "@/components/images/icons/header/EstadoIcon";
 import FiscalizacaoIcon from "@/components/images/icons/header/FiscalizacaoIcon";
-import InteligenciaArtificialIcon from "@/components/images/icons/header/InteligenciaArtificialIcon";
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import ExternalLink from "@/components/links/ExternalLink";
@@ -44,7 +43,7 @@ export default function DashboardHeaderItems() {
           active: route.startsWith("/obrigacao-de-envio"),
         })}
       >
-        <LinkObrigacoes />
+        <DropdownObrigacoes />
       </li>
       <li
         className={clsx("px-3", {
@@ -59,16 +58,14 @@ export default function DashboardHeaderItems() {
         <DropdownFiscalizacoes />
       </li>
       <li
-        className={clsx("px-3", { active: route.startsWith("/area-tematica") })}
-      >
-        <DropdownAreasTematicas />
-      </li>
-      <li
         className={clsx("px-3", {
-          active: route.startsWith("/obras") || route.startsWith("/projecao"),
+          active:
+            route.startsWith("/area-tematica") ||
+            route.startsWith("/obras") ||
+            route.startsWith("/projecao"),
         })}
       >
-        <DropdownInteligenciaArtificial />
+        <DropdownAreasTematicas />
       </li>
       <li className={clsx("px-3", { active: route.startsWith("/boletins") })}>
         <LinkBoletins />
@@ -96,10 +93,26 @@ function DropdownAreasTematicas({}: {}) {
         </DropdownItem>
         <DropdownItem>
           <Link
+            href="/area-tematica/atos-de-pessoal/admissao"
+            prefetch={false}
+          >
+            Atos de pessoal
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href="/area-tematica/contratacoes-publicas/contratacoes"
+            prefetch={false}
+          >
+            Contratações públicas
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
             href="/area-tematica/concessao-publica/visao-geral"
             prefetch={false}
           >
-            Concessões comuns e PPP
+            Desestatizações
           </Link>
         </DropdownItem>
         <DropdownItem>
@@ -108,8 +121,37 @@ function DropdownAreasTematicas({}: {}) {
           </Link>
         </DropdownItem>
         <DropdownItem>
+          <Link
+            href="/area-tematica/emendas-parlamentares/emendas"
+            prefetch={false}
+          >
+            Emendas parlamentares
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
           <Link href="/area-tematica/estrutura-administrativa" prefetch={false}>
             Estrutura administrativa
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link href="/obras" prefetch={false}>
+            Geo-obras (legado)
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href="/area-tematica/patrimonio/visao-geral"
+            prefetch={false}
+          >
+            Informações patrimoniais
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href="/area-tematica/previdencia/visao-geral"
+            prefetch={false}
+          >
+            Investimentos dos institutos de previdência
           </Link>
         </DropdownItem>
         <DropdownItem>
@@ -123,6 +165,19 @@ function DropdownAreasTematicas({}: {}) {
             prefetch={false}
           >
             Pessoal
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link href="/projecao" prefetch={false}>
+            Projeções de gastos com pessoal
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href="/area-tematica/saneamento-basico/agua-esgoto"
+            prefetch={false}
+          >
+            Saneamento básico
           </Link>
         </DropdownItem>
         <DropdownItem>
@@ -238,28 +293,6 @@ function DropdownFiscalizacoes() {
   );
 }
 
-function DropdownInteligenciaArtificial() {
-  return (
-    <DropdownMenu
-      icon={<InteligenciaArtificialIcon />}
-      title="Inteligência artificial"
-    >
-      <ul className="font-normal">
-        <DropdownItem>
-          <Link href="/obras" prefetch={false}>
-            Obras públicas
-          </Link>
-        </DropdownItem>
-        <DropdownItem>
-          <Link href="/projecao" prefetch={false}>
-            Projeções de gastos com pessoal
-          </Link>
-        </DropdownItem>
-      </ul>
-    </DropdownMenu>
-  );
-}
-
 function DropdownPrestacoesContas() {
   const globalState = useGlobalState();
   const params = useParams<AnoProps>();
@@ -342,20 +375,33 @@ function LinkEstado() {
   );
 }
 
-function LinkObrigacoes() {
+function DropdownObrigacoes() {
   const globalState = useGlobalState();
   const params = useParams<AnoProps>();
+  const anoObrigacao = params.ano ?? globalState.anos.obrigacaoEnvio.anoAtual;
+  const anoPrestacao =
+    params.ano ?? globalState.anos.prestacaoDeConta.anoAtual;
 
   return (
-    <Link
-      href={`/obrigacao-de-envio/${
-        params.ano ?? globalState.anos.obrigacaoEnvio.anoAtual
-      }/municipios`}
-      className="center gap-1"
-      prefetch={false}
-    >
-      <ObrigacoesIcon />
-      Obrigações
-    </Link>
+    <DropdownMenu icon={<ObrigacoesIcon />} title="Obrigações">
+      <ul className="font-normal">
+        <DropdownItem>
+          <Link
+            href={`/obrigacao-de-envio/${anoObrigacao}/municipios`}
+            prefetch={false}
+          >
+            Remessas
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href={`/prestacao-de-conta/${anoPrestacao}/municipios/monitoramento/todos`}
+            prefetch={false}
+          >
+            Monitoramento de deliberações
+          </Link>
+        </DropdownItem>
+      </ul>
+    </DropdownMenu>
   );
 }

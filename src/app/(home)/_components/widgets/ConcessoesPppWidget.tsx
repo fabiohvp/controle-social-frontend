@@ -14,7 +14,7 @@ export default function ConcessoesPppWidget(props: Props) {
       prefetch={false}
     >
       <section className="max-w-xl">
-        <h2 className="title-with-vertical-bar">Concessões comuns e PPP</h2>
+        <h2 className="title-with-vertical-bar">Desestatizações</h2>
         <p className="mt-8 text-gray-dark text-2xl">
           Acompanhe as concessões comuns e as parcerias publico-privadas
           vigentes no Estado do Espírito Santo e em seus municípios.

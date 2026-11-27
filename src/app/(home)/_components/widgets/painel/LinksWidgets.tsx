@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import AREAS_TEMATICAS from "./area-tematica.json";
 import ESTADO from "./estado.json";
-import INTELIGENCIA_ARTIFICIAL from "./inteligencia-artificial.json";
 import MUNICIPIOS from "./municipios.json";
 import OUTRAS_OPCOES from "./outras-opcoes.json";
 
@@ -29,7 +28,7 @@ type Panel = {
 const panels: Panel[][] = [
   [MUNICIPIOS, ESTADO],
   [AREAS_TEMATICAS],
-  [INTELIGENCIA_ARTIFICIAL, OUTRAS_OPCOES],
+  [OUTRAS_OPCOES],
 ];
 
 export default function LinksWidgets() {
