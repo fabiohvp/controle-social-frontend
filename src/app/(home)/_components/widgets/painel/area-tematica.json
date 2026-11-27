@@ -22,6 +22,16 @@
       "titulo": "Desestatizações"
     },
     {
+      "description": "Contratações, instrumentos convocatórios e atas de registro de preços",
+      "href": "/area-tematica/contratacoes-publicas/contratacoes",
+      "image": {
+        "height": 50,
+        "src": "/icons/obras-publicas.svg",
+        "width": 50
+      },
+      "titulo": "Contratações públicas"
+    },
+    {
       "description": "Distribuição de escolas, matrículas e profissionais",
       "href": "/area-tematica/educacao/visao-geral",
       "image": {
@@ -32,24 +42,34 @@
       "titulo": "Educação"
     },
     {
-      "description": "Cargos, empregos e funções públicas",
-      "href": "/area-tematica/estrutura-administrativa",
+      "description": "Emendas parlamentares e informações patrimoniais",
+      "href": "/area-tematica/emendas-parlamentares/emendas",
       "image": {
         "height": 50,
         "src": "/icons/estrutura-administrativa.png",
         "width": 64
       },
-      "titulo": "Estrutura administrativa"
+      "titulo": "Emendas e patrimônio"
     },
     {
-      "description": "Folha de pagamento, ingressos e desligamentos",
+      "description": "Folha de pagamento, ingressos, desligamentos e previdência",
       "href": "/folha-de-pagamento/executivo-municipal/{folha-de-pagamento-ano}/1/visao-geral",
       "image": {
         "height": 50,
         "src": "/icons/pessoal.png",
         "width": 59.39
       },
-      "titulo": "Pessoal"
+      "titulo": "Pessoal e previdência"
+    },
+    {
+      "description": "Água, esgoto e resíduos sólidos dos municípios",
+      "href": "/area-tematica/saneamento-basico/agua-esgoto",
+      "image": {
+        "height": 50,
+        "src": "/icons/indicadores.png",
+        "width": 50
+      },
+      "titulo": "Saneamento básico"
     },
     {
       "description": "Equipamentos, leitos e estabelecimentos de saúde",

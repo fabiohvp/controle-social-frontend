@@ -23,7 +23,7 @@ export const PAGINAS_RAIZ_MUNICIPIO = {
     slug: "rankings",
     titulo: "Rankings",
     tituloCompleto: "Posições nos rankings",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2009, 2025),
   },
   prestacaoConta: {
@@ -36,21 +36,21 @@ export const PAGINAS_RAIZ_MUNICIPIO = {
   fiscalizacoes: {
     slug: "fiscalizacoes",
     titulo: "Fiscalizações",
-    implementado: false,
+    implementado: true,
   },
   // #13
   iegm: {
     slug: "iegm",
     titulo: "IEGM",
     tituloCompleto: "Índice de Efetividade da Gestão Municipal",
-    implementado: false,
+    implementado: true,
     anos: [2023, 2018, 2017, 2016, 2015],
   },
   // #13
   maisInformacoes: {
     slug: "mais-informacoes",
     titulo: "Mais informações",
-    implementado: false,
+    implementado: true,
   },
 } satisfies Record<string, Pagina>;
 

@@ -14,25 +14,25 @@ export const PAGINAS_PREVIDENCIA_MILITARES: PaginaPrevidencia[] = [
   {
     slug: "receitas",
     titulo: "Receitas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2020),
   },
   {
     slug: "despesas",
     titulo: "Despesas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2020),
   },
   {
     slug: "projecoes-atuariais",
     titulo: "Projeções atuariais",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2020, 2024),
   },
   {
     slug: "resultado-atuarial",
     titulo: "Resultado atuarial",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2020, 2025),
   },
   {

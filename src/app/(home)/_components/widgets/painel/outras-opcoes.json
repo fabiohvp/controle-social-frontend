@@ -2,14 +2,14 @@
   "titulo": "OUTRAS OPÇÕES",
   "artigos": [
     {
-      "description": "Avaliações sobre a gestão dos recursos públicos",
+      "description": "Avaliações e fiscalizações sobre a gestão dos recursos públicos",
       "href": "/boletins/{boletins-ano}",
       "image": {
         "height": 50,
         "src": "/icons/boletins-informativos.png",
         "width": 50
       },
-      "titulo": "Boletins e informativos"
+      "titulo": "Boletins e fiscalizações"
     },
     {
       "description": "Órgãos que cumpriram a obrigação de enviar dados ao TCE-ES",
@@ -19,7 +19,7 @@
         "src": "/icons/obrigacoes.png",
         "width": 37
       },
-      "titulo": "Obrigações"
+      "titulo": "Remessas e obrigações"
     },
     {
       "description": "Resultados de prestações dos órgãos públicos",
@@ -32,14 +32,14 @@
       "titulo": "Prestações de contas"
     },
     {
-      "description": "Acompanhe alguns trabalhos de fiscalização do TCE-ES",
-      "href": "/fiscalizacao/2020/saude/acoes-pandemia",
+      "description": "Catálogo de dados abertos e APIs públicas",
+      "href": "/wiki/dados-abertos",
       "image": {
         "height": 50,
-        "src": "/icons/fiscalizacoes.png",
-        "width": 45
+        "src": "/icons/indicadores.png",
+        "width": 50
       },
-      "titulo": "Fiscalizações"
+      "titulo": "Dados abertos"
     }
   ]
 }

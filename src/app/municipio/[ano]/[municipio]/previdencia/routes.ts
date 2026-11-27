@@ -21,31 +21,31 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
   {
     slug: "receitas",
     titulo: "Receitas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2017),
   },
   {
     slug: "despesas",
     titulo: "Despesas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2017),
   },
   {
     slug: "patrimonio",
     titulo: "Patrimônio",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2017),
   },
   {
     slug: "resultado-atuarial",
     titulo: "Resultado atuarial",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2017),
   },
   {
     slug: "projecoes-atuariais",
     titulo: "Projeções atuariais",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2019, 2025),
     // site oficial: com segregação de massa, o instituto não tem projeção própria
     filtrarUnidadesGestoras: (ugs) =>

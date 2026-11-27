@@ -29,14 +29,14 @@ export const PAGINAS_RAIZ_ESTADO = {
   fiscalizacoes: {
     slug: "fiscalizacoes",
     titulo: "Fiscalizações",
-    implementado: false,
+    implementado: true,
   },
   // #15
   iege: {
     slug: "iege",
     titulo: "IEGE",
     tituloCompleto: "Índice de Efetividade da Gestão Estadual",
-    implementado: false,
+    implementado: true,
     anos: [2019, 2018, 2017],
   },
 } satisfies Record<string, Pagina>;
