@@ -14,25 +14,25 @@ export const PAGINAS_GESTAO_ORCAMENTARIA: Pagina[] = [
   {
     slug: "receitas",
     titulo: "Receitas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2016),
   },
   {
     slug: "despesas",
     titulo: "Despesas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2016),
   },
   {
     slug: "despesas-por-poder",
     titulo: "Despesas por poder",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2016),
   },
   {
     slug: "resultado-orcamentario",
     titulo: "Resultado orçamentário",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2016),
   },
 ];
