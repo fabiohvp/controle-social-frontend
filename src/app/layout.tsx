@@ -1,3 +1,4 @@
+import CookieBanner from "@/components/cookies/CookieBanner";
 import GlobalStateProvider from "@/providers/GlobalProvider";
 import { globalState, initGlobalState } from "@/shared/globalState";
 import type { Metadata } from "next";
@@ -31,6 +32,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <GlobalStateProvider value={globalState}>
           {children}
+          <CookieBanner />
         </GlobalStateProvider>
       </body>
     </html>
