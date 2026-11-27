@@ -1,4 +1,6 @@
 import MenuHamburguerButton from "@/components/menu/MenuHamburguerButton";
+import SearchButton from "@/components/search/SearchButton";
+import SearchDialog from "@/components/search/SearchDialog";
 import HeaderFixedButtons from "../HeaderFixedButtons";
 import LogoComVersao from "../LogoComVersao";
 import DashboardHeaderItems from "./DashboardHeaderMenu";
@@ -14,7 +16,9 @@ export default function DashboardHeader() {
         <DashboardHeaderItems />
       </div>
       <HeaderFixedButtons className="hidden md:flex" />
+      <SearchButton className="shrink-0 xl:hidden" compact />
       <MenuHamburguerButton className="xl:hidden" />
+      <SearchDialog />
     </div>
   );
 }
