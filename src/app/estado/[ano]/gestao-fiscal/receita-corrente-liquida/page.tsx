@@ -1,18 +1,15 @@
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralEstado from "../../_components/BarraLateralEstado";
-import BreadcrumbGestaoFiscal from "../BreadcrumbGestaoFiscal";
+import ReceitaCorrenteLiquida from "@/components/gestao-fiscal/receita-corrente-liquida/ReceitaCorrenteLiquida";
+import { ESFERA_ESTADO } from "@/shared/esfera";
 
-export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
-	const resolvedParams = await params;
-
+/** Mesmo componente do município; muda só a esfera (EstadoControllers, id 81) */
+export default async function Page({
+  params,
+}: {
+  params: Promise<EstadoPageProps>;
+}) {
+  const { ano } = await params;
   return (
-    <DashboardLayout
-      className="flex flex-col gap-2 p-2"
-      itensBreadcrumb={BreadcrumbGestaoFiscal}
-      barraLateral={BarraLateralEstado}
-    >
-      receita correnta liquida: {resolvedParams.ano}
-    </DashboardLayout>
+    <ReceitaCorrenteLiquida esfera={ESFERA_ESTADO} anoExercicio={Number(ano)} />
   );
 }

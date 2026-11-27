@@ -2,8 +2,13 @@
 import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
 import { createDropdownValue } from "@/components/dropdowns/dropdown/DropdownValue";
 import { useGlobalState } from "@/providers/GlobalProvider";
+import { getUrlComSegmento } from "@/shared/paginas";
 import { useParams, usePathname } from "next/navigation";
-import { MunicipioPageProps, generateMunicipioUrl } from "../routes";
+import {
+  INDICE_SEGMENTO_MUNICIPIO,
+  INDICE_SEGMENTO_SUBPAGINA,
+  MunicipioPageProps,
+} from "../routes";
 
 type Props = {
   active?: boolean;
@@ -19,13 +24,14 @@ export default function BreadcrumbMunicipiosNomes({ active }: Props) {
     <li>
       <DropdownLinks<unknown>
         active={active}
+        // mantém a página/subpágina; descarta o código de UG (é do município anterior)
         generateUrl={(item) =>
-          generateMunicipioUrl({
-            ...routeParams,
-            globalState,
-            municipio: item[1].value,
+          getUrlComSegmento(
             pathname,
-          })
+            INDICE_SEGMENTO_MUNICIPIO,
+            item[1].value,
+            INDICE_SEGMENTO_SUBPAGINA + 1
+          )
         }
         items={
           new Map(

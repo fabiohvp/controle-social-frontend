@@ -11,6 +11,16 @@ export type MunicipioPanelProps = {
   style?: CSSProperties;
 } & MunicipioPageProps;
 
+/** Posições no pathname: /municipio/[ano]/[municipio]/[pagina]/[subpagina]/[unidadeGestora] */
+export const INDICE_SEGMENTO_ANO = 2;
+export const INDICE_SEGMENTO_MUNICIPIO = 3;
+export const INDICE_SEGMENTO_PAGINA = 4;
+export const INDICE_SEGMENTO_SUBPAGINA = 5;
+
+export function getUrlBaseMunicipio(ano: string, municipio: string) {
+  return `/municipio/${ano}/${municipio}`;
+}
+
 export function generateMunicipioUrl({
   ano,
   globalState,
@@ -25,6 +35,6 @@ export function generateMunicipioUrl({
 }
 
 export function getPagina(pathname: string) {
-  const pagina = pathname.split("/")[4];
+  const pagina = pathname.split("/")[INDICE_SEGMENTO_PAGINA];
   return pagina || "visao-geral";
 }
