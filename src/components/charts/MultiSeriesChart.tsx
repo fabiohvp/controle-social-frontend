@@ -20,6 +20,8 @@ type Props = {
   dados: MultiSerie | null;
   /** tipo de cada série (índice de `labels`); default: todas "bar" */
   tipos?: ("line" | "bar")[];
+  /** configuração de tipo e habilitação na legenda */
+  seriesConfig?: { tipo?: "line" | "bar"; habilitada?: boolean }[];
   cores?: string[];
   formato?: FormatoValor;
   /**
@@ -40,19 +42,12 @@ const COMPONENTS = [
   CanvasRenderer,
 ];
 
-const CORES_PADRAO = [
-  COLOR["chart-positivo"],
-  COLOR.despesa,
-  COLOR["chart-alerta"],
-  COLOR["chart-muito-positivo"],
-  COLOR["chart-negativo"],
-  COLOR.padraoNivel2,
-  COLOR.padraoNivel6,
-];
+const CORES_PADRAO = COLOR.padraoRange;
 
 export default function MultiSeriesChart({
   dados,
   tipos,
+  seriesConfig,
   cores = CORES_PADRAO,
   formato = "moeda",
   corrigirIpca = formato === "moeda" ? "categoria" : false,
@@ -67,10 +62,22 @@ export default function MultiSeriesChart({
   const getAno = (categoria: string) =>
     corrigirIpca === "categoria" ? Number(categoria) : Number(corrigirIpca);
 
+  const legendSelected = seriesConfig
+    ? Object.fromEntries(
+        dados.labels.map((label, indice) => [
+          label,
+          seriesConfig[indice]?.habilitada !== false,
+        ])
+      )
+    : undefined;
+
   const options: EChartsCoreOption = {
     color: cores,
     grid: { bottom: 30, left: 60, right: 20, top: 40 },
-    legend: { top: 0 },
+    legend: {
+      top: 0,
+      ...(legendSelected ? { selected: legendSelected } : {}),
+    },
     tooltip: {
       confine: true,
       trigger: "axis",
@@ -83,7 +90,7 @@ export default function MultiSeriesChart({
     },
     series: dados.labels.map((label, indice) => ({
       name: label,
-      type: tipos?.[indice] ?? "bar",
+      type: tipos?.[indice] ?? seriesConfig?.[indice]?.tipo ?? "bar",
       data: dados.series.map((serie) => {
         const valor = serie.values[indice];
         if (valor === null || valor === undefined) return null;

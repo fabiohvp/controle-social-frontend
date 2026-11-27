@@ -28,9 +28,9 @@ export const COLOR = {
   padraoOmisso: "#F0F0F0",
 
   padraoRange: [
-    "#607D8B",
     "#C5D7E0",
     "#8AA2AD",
+    "#607D8B",
     "#636F78",
     "#3D4C57",
     "#2A333B",

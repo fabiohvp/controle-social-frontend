@@ -14,6 +14,7 @@ type Props = {
   /** `{ name, value }[]` com valores monetários */
   dados: { name: string; value: number }[] | null;
   ano: number;
+  cores?: string[];
 };
 
 const COMPONENTS = [
@@ -24,17 +25,14 @@ const COMPONENTS = [
   LabelLayout,
 ];
 
-const CORES = [
-  COLOR["chart-positivo"],
-  COLOR.despesa,
-  COLOR["chart-alerta"],
-  COLOR["chart-muito-positivo"],
-  COLOR["chart-negativo"],
-  COLOR["chart-info"],
-];
+const CORES = COLOR.padraoRange;
 
 /** `CardEChartsDonut` do site oficial: percentual no gráfico e valor no tooltip */
-export default function ComposicaoChart({ dados, ano }: Props) {
+export default function ComposicaoChart({
+  dados,
+  ano,
+  cores = CORES,
+}: Props) {
   const corrigir = useCorrecaoIpca();
 
   if (!dados?.length) return <NoDataChart />;
@@ -45,7 +43,7 @@ export default function ComposicaoChart({ dados, ano }: Props) {
   }));
 
   const options: EChartsCoreOption = {
-    color: CORES,
+    color: cores,
     tooltip: {
       trigger: "item",
       confine: true,

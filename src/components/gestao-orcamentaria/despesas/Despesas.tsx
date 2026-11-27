@@ -3,11 +3,12 @@ import SingleSeriesChart from "@/components/charts/SingleSeriesChart";
 import AlertPanel from "@/components/panel/AlertPanel";
 import PanelWithDescription from "@/components/panel/PanelWithDescription";
 import { EsferaProps, getDadosApiEsfera } from "@/shared/esfera";
+import { COLOR } from "@/theme/colors";
 import { MultiSerie, SerieItem } from "@/types/Serie";
 import BarrasHorizontaisChart from "../_shared/BarrasHorizontaisChart";
 import CardResumo, { Sumario } from "../_shared/CardResumo";
 import ComposicaoChart from "../_shared/ComposicaoChart";
-import { filtrarSeries, getVariacaoAnual } from "../_shared/series";
+import { getVariacaoAnual } from "../_shared/series";
 import { TreemapNo } from "../_shared/TreemapChart";
 import DistribuicaoDespesas from "./DistribuicaoDespesas";
 
@@ -100,19 +101,20 @@ export default async function Despesas({ esfera, anoExercicio }: EsferaProps) {
   };
   const entePossessivo =
     esfera.tipo === "estado" ? "do Estado" : "do município";
-  const anual = filtrarSeries(evolucaoAnual, [
+
+  const configAnual: { tipo: "line" | "bar"; habilitada: boolean }[] = [
     { tipo: "line", habilitada: false },
     { tipo: "line", habilitada: true },
     { tipo: "bar", habilitada: true },
     { tipo: "bar", habilitada: true },
     { tipo: "bar", habilitada: true },
-  ]);
-  const mensal = filtrarSeries(evolucaoMensal, [
+  ];
+  const configMensal: { tipo: "line" | "bar"; habilitada: boolean }[] = [
     { tipo: "line", habilitada: true },
     { tipo: "bar", habilitada: false },
     { tipo: "bar", habilitada: true },
     { tipo: "bar", habilitada: false },
-  ]);
+  ];
 
   return (
     <div className="flex flex-col gap-2">
@@ -151,7 +153,11 @@ export default async function Despesas({ esfera, anoExercicio }: EsferaProps) {
           titulo="Evolução Despesas Empenhadas X Despesas Liquidadas X Despesas Pagas"
           descricao="Possibilita comparar os gastos realizados com o montante arrecadado no exercício e identificar a ocorrência de déficit (despesa maior que receita) ou superávit (receita maior que despesa)."
         >
-          <MultiSeriesChart dados={anual.dados} tipos={anual.tipos} />
+          <MultiSeriesChart
+            dados={evolucaoAnual}
+            seriesConfig={configAnual}
+            cores={COLOR.padraoRange}
+          />
         </PanelWithDescription>
         <PanelWithDescription
           className="lg:col-span-3"
@@ -172,8 +178,9 @@ export default async function Despesas({ esfera, anoExercicio }: EsferaProps) {
           descricao="Possibilita comparar os gastos realizados com o montante arrecadado no mês e identificar a ocorrência de déficit (despesa maior que receita) ou superávit (receita maior que a despesa)."
         >
           <MultiSeriesChart
-            dados={mensal.dados}
-            tipos={mensal.tipos}
+            dados={evolucaoMensal}
+            seriesConfig={configMensal}
+            cores={COLOR.padraoRange}
             corrigirIpca={anoExercicio}
           />
         </PanelWithDescription>
