@@ -1,18 +1,17 @@
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
+import ReceitaCorrenteLiquida from "@/components/gestao-fiscal/receita-corrente-liquida/ReceitaCorrenteLiquida";
+import { getEsferaMunicipio } from "@/shared/esfera";
+import { notFound } from "next/navigation";
 import { MunicipioPageProps } from "../../routes";
-import GestaoFiscalItensSubmenu from "../BreadcrumbGestaoFiscal";
 
-export default async function Page({ params }: { params: Promise<MunicipioPageProps> }) {
-	const resolvedParams = await params;
+/** Página de referência da arquitetura (#8): componente compartilhado com o Estado */
+export default async function Page({
+  params,
+}: {
+  params: Promise<MunicipioPageProps>;
+}) {
+  const { ano, municipio } = await params;
+  const esfera = await getEsferaMunicipio(municipio);
+  if (!esfera) notFound();
 
-  return (
-    <DashboardLayout
-      className="flex flex-col gap-2 p-2"
-      itensBreadcrumb={GestaoFiscalItensSubmenu}
-      barraLateral={BarraLateralMunicipios}
-    >
-      receita correnta liquida: {resolvedParams.ano} {resolvedParams.municipio}
-    </DashboardLayout>
-  );
+  return <ReceitaCorrenteLiquida esfera={esfera} anoExercicio={Number(ano)} />;
 }

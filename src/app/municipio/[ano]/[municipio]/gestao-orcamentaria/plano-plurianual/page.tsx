@@ -1,18 +1,15 @@
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
 import { MunicipioPageProps } from "../../routes";
-import BreadcrumbGestaoOrcamentaria from "../BreadcrumbGestaoOrcamentaria";
 
-export default async function Page({ params }: { params: Promise<MunicipioPageProps> }) {
-	const resolvedParams = await params;
-
+// TODO #9: implementar (layout/sidebar/breadcrumb vêm de gestao-orcamentaria/layout.tsx)
+export default async function Page({
+  params,
+}: {
+  params: Promise<MunicipioPageProps>;
+}) {
+  const { ano, municipio } = await params;
   return (
-    <DashboardLayout
-      className="flex flex-col gap-2 p-2"
-      itensBreadcrumb={BreadcrumbGestaoOrcamentaria}
-      barraLateral={BarraLateralMunicipios}
-    >
-      Plano plurianual: {resolvedParams.ano} {resolvedParams.municipio}
-    </DashboardLayout>
+    <>
+      Plano plurianual: {ano} {municipio}
+    </>
   );
 }
