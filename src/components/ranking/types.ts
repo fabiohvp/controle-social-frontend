@@ -48,6 +48,18 @@ export type CoresRanking =
       tipo: "gradiente";
       corMinima: string;
       corMaxima: string;
+    }
+  | {
+      /**
+       * Cada item tem o seu próprio limite (`valorExigido`): acima dele "não
+       * obedece". Usado quando o limite varia por município (ex.: art. 29-A).
+       */
+      tipo: "limiteDoItem";
+      corAbaixo: string;
+      corAcima: string;
+      descricaoAbaixo: string;
+      descricaoAcima: string;
+      exibirQuantidade?: boolean;
     };
 
 /** Campos numéricos do item que podem virar coluna. `diferenca` = aplicado - exigido. */

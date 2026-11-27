@@ -38,7 +38,8 @@ Campos opcionais (ver o tipo `RankingConfig`):
 
 | Campo | Uso |
 | --- | --- |
-| `cores` | `{ tipo: "faixas", faixas: [{ ate, cor, descricao }], exibirQuantidade?, opacidadePorPosicao? }` ou `{ tipo: "gradiente", corMinima, corMaxima }`. Helpers: `getCoresLimiteMinimo(15)`, `CORES_RANKING_PER_CAPITA`, paleta `CORES_RANKING` (`src/components/ranking/rankingUtils.ts`). Faixa: entra na primeira com `valor < ate`; a última fica sem `ate`. |
+| `cores` | `{ tipo: "faixas", faixas: [{ ate, cor, descricao }], exibirQuantidade?, opacidadePorPosicao? }`, `{ tipo: "gradiente", corMinima, corMaxima }` ou `{ tipo: "limiteDoItem", corAbaixo, corAcima, descricaoAbaixo, descricaoAcima }` (limite próprio de cada item em `valorExigido`, ex.: art. 29-A). Helpers: `getCoresLimiteMinimo(15)`, `getCoresLimitePessoal(alerta, prudencial, maximo)`, `CORES_RANKING_PER_CAPITA`, `CORES_RANKING_RESULTADO` (negativo/positivo com contagem), paleta `CORES_RANKING` (`src/components/ranking/rankingUtils.ts`). Faixa: entra na primeira com `valor < ate`; a última fica sem `ate`. |
+| `adaptador` | Converte respostas que não são `RankingItem[]` (hoje só `"artigo29A"`, em `_api/getRanking.ts`). |
 | `colunasExtras` | `[{ campo: "valorAplicado" \| "valorExigido" \| "diferenca", titulo, formato }]` |
 | `observacao` | 2º parágrafo do alerta (ex.: "Quanto mais alta for a posição...") |
 | `tendenciaQuandoParcial` | acrescenta " - Tendência" ao título quando o ano não fechou |
@@ -50,6 +51,43 @@ Campos opcionais (ver o tipo `RankingConfig`):
 A config deve conter apenas dados serializáveis (ela vai para um Client Component).
 Categoria nova: acrescente em `CategoriaRankingSlug`/`CATEGORIAS_RANKING` e um ícone em
 `_components/BarraLateralRankings.tsx`.
+
+### Endpoints fora de `RankingsControllers`
+
+`endpoint` é relativo a `RankingsControllers/`. Se começar com `MunicipioControllers/`
+é usado como está (`getRanking` só troca o prefixo) e aceita query extra, sempre antes
+do `anoExercicio` que é acrescentado. Usados por:
+
+| Ranking | Endpoint |
+| --- | --- |
+| `gestao-fiscal/superavit-e-deficit-financeiro` | `MunicipioControllers/BalancoPatrimonial/GetValorDeficitSuperavitRanking` |
+| `gestao-fiscal/balanco-patrimonial-rpps` | `.../BalancoPatrimonial/GetValorDeficitSuperavitRPPS` (só municípios com RPPS) |
+| `gestao-fiscal/balanco-patrimonial-exceto-rpps` | `.../BalancoPatrimonial/GetValorDeficitSuperavitExcetoRPPS` |
+| `gestao-fiscal/balanco-patrimonial-x-rcl` | `.../BalancoPatrimonial/GetValorDeficitSuperavitXRclRanking` |
+| `gestao-fiscal/despesa-corrente-x-receita-corrente` | `MunicipioControllers/LimiteDespesaReceita/GetRankingLimiteDespesaReceita` |
+| `despesa/poder-legislativo` | `MunicipioControllers/PoderLegislativo/GetRankingDespesaLegislativoArtigo29A?idEsferaAdministrativa=null` + `adaptador: "artigo29A"` |
+
+O art. 29-A devolve só `Populacao` e `DespesaPercentualMesEnvioObrigatorio` por id de
+município; o adaptador gera `valor` (despesa, % da receita), `valorExigido` (limite 3,5% a
+7% conforme a população) e usa `cores: { tipo: "limiteDoItem" }`. Diferente do site
+oficial, que separa um gráfico por faixa de população, aqui há uma tabela única.
+
+### Limites legais usados nas faixas
+
+Vêm de `Settings/GetAll` (`limites`) e estão fixos na config: saúde 15%, educação 25%,
+magistério do FUNDEB 70% (60% antes de 2021), pessoal executivo 48,6/51,3/54%, legislativo
+5,4/5,7/6%, consolidado 54/57/60%, despesa x receita corrente 85/95%, endividamento 108/120%.
+Se a API mudar esses valores, atualize as constantes no topo de `rankingsConfig.ts`.
+
+### Fora do escopo (rankings oficiais sem página aqui)
+
+- CAPAG (4), IVF (5), Situação Previdenciária e Cumprimento de deliberações: controllers
+  próprios e escala de notas/letras, não cabem em `RankingItem[]` + faixas.
+- Previdência (6): `RankingsControllers/Previdencia/*` usa `anoSelecionado` e devolve uma
+  linha por unidade gestora (vários por município); só `GetRankigsAporteFinanceiroXRclAjustada`
+  responde com dados.
+- Educação VAAT (6, `Educacao/GetRankingVAAT`): resposta é um objeto com 6 listas e todas
+  vêm sem valor em todos os anos (2021 a 2025).
 
 ## 3. Página
 
