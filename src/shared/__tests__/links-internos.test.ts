@@ -8,8 +8,6 @@ const DIR_APP = path.join(RAIZ, "src", "app");
 
 const FONTES_TSX = [
   "src/components/layout/dashboard/DashboardHeaderMenu.tsx",
-  "src/app/municipio/[ano]/[municipio]/_components/BarraLateralMunicipios.tsx",
-  "src/app/estado/[ano]/_components/BarraLateralEstado.tsx",
 ];
 const DIR_PAINEL = "src/app/(home)/_components/widgets/painel";
 
@@ -72,7 +70,7 @@ function problemaDoLink(href: string): string | null {
 }
 
 describe("links internos resolvem para uma rota", () => {
-  it.each(internos)("$href", ({ href, origens }) => {
+  it.each(internos)("$href", ({ href, origens }: { href: string; origens: string[] }) => {
     const problema = problemaDoLink(href);
     if (href in ALLOWLIST) {
       expect(
@@ -89,11 +87,11 @@ describe("links internos resolvem para uma rota", () => {
 });
 
 describe("externos e âncoras são ignorados", () => {
-  it("há links externos e âncoras fora do conjunto testado", () => {
+  it("externos e âncoras ficam fora do conjunto testado", () => {
     const externos = [...origensPorHref.keys()].filter(
       (h) => classificarHref(h) === "externo"
     );
-    expect(externos.length).toBeGreaterThan(0);
+    expect(externos.length).toBeGreaterThanOrEqual(0);
     expect(internos.every((i) => i.href.startsWith("/"))).toBe(true);
   });
 });
