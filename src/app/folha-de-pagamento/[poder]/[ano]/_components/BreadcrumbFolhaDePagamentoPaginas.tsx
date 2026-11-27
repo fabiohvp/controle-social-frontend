@@ -17,9 +17,11 @@ const FOLHA_DE_PAGAMENTO_PAGINAS: Map<string, DropdownValue<string>> = new Map([
   ["Ativos", createDropdownValue("ativos")],
   ["Beneficiários", createDropdownValue("beneficiarios")],
   ["Estagiários", createDropdownValue("estagiarios")],
+  ["Vantagens e descontos", createDropdownValue("vantagens-descontos")],
+  ["Afastamento", createDropdownValue("afastamento")],
   [
     "Ingressos e desligamentos",
-    createDropdownValue("contratacoes-e-demissoes"),
+    createDropdownValue("ingressos-desligamentos"),
   ],
   ["Consulta de vínculo", createDropdownValue("consulta-vinculo")],
 ]);
