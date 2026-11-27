@@ -47,29 +47,30 @@ type Props = {
 };
 
 function renderIcon(icone: EtiquetaItem["icone"]) {
+  const iconClass = "w-6 h-6 text-[#607D8B]";
   switch (icone) {
     case "home":
-      return <FaHome className="w-5 h-5" />;
+      return <FaHome className={iconClass} />;
     case "exchange":
-      return <FaExchangeAlt className="w-5 h-5" />;
+      return <FaExchangeAlt className={iconClass} />;
     case "cogs":
-      return <FaCogs className="w-5 h-5" />;
+      return <FaCogs className={iconClass} />;
     case "cart":
-      return <FaShoppingCart className="w-5 h-5" />;
+      return <FaShoppingCart className={iconClass} />;
     case "car":
-      return <FaCar className="w-5 h-5" />;
+      return <FaCar className={iconClass} />;
     case "handshake":
-      return <FaHandshake className="w-5 h-5" />;
+      return <FaHandshake className={iconClass} />;
     case "oil":
-      return <FaOilCan className="w-5 h-5" />;
+      return <FaOilCan className={iconClass} />;
     case "usd":
-      return <FaHandHoldingUsd className="w-5 h-5" />;
+      return <FaHandHoldingUsd className={iconClass} />;
     case "medkit":
-      return <FaMedkit className="w-5 h-5" />;
+      return <FaMedkit className={iconClass} />;
     case "teacher":
-      return <FaChalkboardTeacher className="w-5 h-5" />;
+      return <FaChalkboardTeacher className={iconClass} />;
     default:
-      return <FaHome className="w-5 h-5" />;
+      return <FaHome className={iconClass} />;
   }
 }
 
@@ -89,17 +90,17 @@ function ItemEtiqueta({
     <button
       type="button"
       onClick={onClick}
-      className="flex items-center gap-2.5 p-1.5 rounded hover:bg-slate-100 transition-colors text-left group cursor-pointer"
+      className="flex items-center gap-2.5 py-1.5 px-0.5 text-left cursor-pointer opacity-85 hover:opacity-100 transition-opacity w-full group"
       title={`${item.titulo} (clique para ver evolução anual e mensal)`}
     >
-      <div className="text-slate-500 group-hover:text-blue-600 transition-colors shrink-0">
+      <div className="text-[#607D8B] shrink-0">
         {renderIcon(item.icone)}
       </div>
       <div className="flex flex-col min-w-0">
-        <span className="text-xs font-semibold text-slate-500 truncate group-hover:text-slate-700">
+        <span className="text-[13px] font-normal text-[#607D8B] truncate leading-tight">
           {item.descricao}
         </span>
-        <span className="text-sm font-bold text-slate-700 group-hover:text-blue-600 leading-tight">
+        <span className="text-[14px] font-semibold text-[#607D8B] leading-tight">
           {formatMoneyKMB(valorCorrigido)}
         </span>
       </div>
