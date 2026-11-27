@@ -44,20 +44,20 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
     slug: "projecoes-atuariais",
     titulo: "Projeções atuariais",
     implementado: true,
-    anos: gerarAnos(2019, 2024),
+    anos: gerarAnos(2019),
     filtrarUnidadesGestoras: semInstituto,
   },
   {
     slug: "resultado-atuarial",
     titulo: "Resultado atuarial",
     implementado: true,
-    anos: gerarAnos(2019, 2025),
+    anos: gerarAnos(2019),
     filtrarUnidadesGestoras: semInstituto,
   },
   {
     slug: "situacao-previdenciaria",
     titulo: "Situação previdenciária",
     implementado: true,
-    anos: gerarAnos(2018, 2025),
+    anos: gerarAnos(2018),
   },
 ];

@@ -6,6 +6,7 @@ import {
 import useGeolocation from "@/hooks/useGeolocation";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { GlobalState } from "@/shared/globalState";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useState } from "react";
@@ -97,7 +98,7 @@ export default function MenuMobileModals() {
       <ul className="flex flex-col gap-1 self-start w-full md:w-1/2 lg:w-3/5">
         <li>
           <Link
-            href={`/municipio/2023/${municipio.nomeNormalizado}/visao-geral`}
+            href={`/municipio/${ANO_CORRENTE}/${municipio.nomeNormalizado}/visao-geral`}
             prefetch={false}
           >
             <section>
@@ -121,7 +122,7 @@ export default function MenuMobileModals() {
           </button>
         </li>
         <li>
-          <Link href="/estado/2023/visao-geral" prefetch={false}>
+          <Link href={`/estado/${ANO_CORRENTE}/visao-geral`} prefetch={false}>
             <section>
               <h5>ESTADO - PAINEL DE CONTROLE</h5>
               <div>Macrogestão governamental do ES</div>
@@ -132,7 +133,7 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
-          <Link href="/boletins/2023/" prefetch={false}>
+          <Link href={`/boletins/${ANO_CORRENTE}/`} prefetch={false}>
             <section>
               <h5>BOLETINS E INFORMATIVOS</h5>
               <div>Avaliação sobre a gestão dos recursos públicos</div>
@@ -143,7 +144,7 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
-          <Link href="/obrigacao-de-envio/2023/municipios" prefetch={false}>
+          <Link href={`/obrigacao-de-envio/${ANO_CORRENTE}/municipios`} prefetch={false}>
             <section>
               <h5>OBRIGAÇÕES</h5>
               <div>...dos jurisdicionados junto ao TCE-ES</div>
@@ -227,7 +228,7 @@ export default function MenuMobileModals() {
         </li>
         <li>
           <Link
-            href="/folha-de-pagamento/municipal/2023/1/visao-geral"
+            href={`/folha-de-pagamento/municipal/${ANO_CORRENTE}/1/visao-geral`}
             prefetch={false}
           >
             <section>
@@ -251,7 +252,7 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
-          <Link href="/municipio/2023/comparador" prefetch={false}>
+          <Link href={`/municipio/${ANO_CORRENTE}/comparador`} prefetch={false}>
             <section>
               <h5>COMPARAÇÃO DE MUNICÍPIOS</h5>
               <div>Compare dados entre municípios</div>
@@ -263,7 +264,7 @@ export default function MenuMobileModals() {
         </li>
         <li>
           <Link
-            href="/indicadores-consolidados/2023/receita"
+            href={`/indicadores-consolidados/${ANO_CORRENTE}/receita`}
             prefetch={false}
           >
             <section>
@@ -276,7 +277,7 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
-          <Link href="/rankings/2023/receita/arrecadada" prefetch={false}>
+          <Link href={`/rankings/${ANO_CORRENTE}/receita/arrecadada`} prefetch={false}>
             <section>
               <h5>RANKINGS</h5>
               <div>Classificação por indicador</div>

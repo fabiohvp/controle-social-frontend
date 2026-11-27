@@ -54,7 +54,7 @@ export const PAGINAS_GESTAO_FISCAL: Pagina[] = [
     slug: "superavit-deficit",
     titulo: "Superávit/déficit financeiro",
     implementado: true,
-    anos: gerarAnos(2021, 2025),
+    anos: gerarAnos(2021),
   },
   {
     slug: "pessoal",

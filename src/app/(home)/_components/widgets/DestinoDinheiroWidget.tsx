@@ -1,5 +1,6 @@
 "use client";
 import useGeolocation from "@/hooks/useGeolocation";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import Image from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
@@ -13,7 +14,7 @@ export default function DestinoDinheiroWidget(props: Props) {
 
   return (
     <Link
-      href={`/municipio/2023/${municipio.nomeNormalizado}/gestao-orcamentaria/destino-do-dinheiro`}
+      href={`/municipio/${ANO_CORRENTE}/${municipio.nomeNormalizado}/gestao-orcamentaria/destino-do-dinheiro`}
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className

@@ -1,4 +1,5 @@
 "use client";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "react-responsive-carousel";
@@ -37,7 +38,7 @@ export default function ComparativosWidget(props: Props) {
             />
           </Link>
           <Link
-            href="/rankings/2023/receita/arrecadada"
+            href={`/rankings/${ANO_CORRENTE}/receita/arrecadada`}
             prefetch={false}
           >
             <p className="carousel-title">Também temos rankings temáticos</p>

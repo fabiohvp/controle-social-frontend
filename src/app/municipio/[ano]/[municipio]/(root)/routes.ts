@@ -24,7 +24,7 @@ export const PAGINAS_RAIZ_MUNICIPIO = {
     titulo: "Rankings",
     tituloCompleto: "Posições nos rankings",
     implementado: true,
-    anos: gerarAnos(2009, 2025),
+    anos: gerarAnos(2009),
   },
   prestacaoConta: {
     slug: "prestacao-conta",

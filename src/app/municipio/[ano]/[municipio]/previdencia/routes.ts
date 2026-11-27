@@ -46,7 +46,7 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
     slug: "projecoes-atuariais",
     titulo: "Projeções atuariais",
     implementado: true,
-    anos: gerarAnos(2019, 2025),
+    anos: gerarAnos(2019),
     // site oficial: com segregação de massa, o instituto não tem projeção própria
     filtrarUnidadesGestoras: (ugs) =>
       ugs.some(isFundoFinanceiro) ? ugs.filter((ug) => !isInstituto(ug)) : ugs,
@@ -55,7 +55,7 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
     slug: "plano-amortizacao",
     titulo: "Plano de amortização",
     implementado: true,
-    anos: gerarAnos(2024, 2026),
+    anos: gerarAnos(2024),
     // site oficial: só o instituto (sem segregação) ou o fundo previdenciário
     filtrarUnidadesGestoras: (ugs) =>
       ugs.every(isInstituto) ? ugs : ugs.filter(isFundoPrevidenciario),
@@ -77,6 +77,6 @@ export const PAGINAS_PREVIDENCIA: PaginaPrevidencia[] = [
     slug: "situacao-previdenciaria",
     titulo: "Situação previdenciária",
     implementado: true,
-    anos: gerarAnos(2018, 2025),
+    anos: gerarAnos(2018),
   },
 ];

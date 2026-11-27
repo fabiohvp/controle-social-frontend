@@ -23,7 +23,7 @@ export const PAGINAS_RAIZ_ESTADO = {
     titulo: "Prestação de contas",
     tituloCompleto: "Prestações de contas",
     implementado: true,
-    anos: gerarAnos(2009, 2024),
+    anos: gerarAnos(2009),
   },
   // #15
   fiscalizacoes: {

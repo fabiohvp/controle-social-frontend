@@ -1,5 +1,6 @@
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import { getMunicipios } from "./municipio";
+import { ANO_CORRENTE } from "./paginas";
 
 type GlobalStateAno = {
   anoInicio: number;
@@ -29,28 +30,28 @@ export async function initGlobalState() {
       ({
         anos: {
           boletins: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2020,
+            anoAtual: ANO_CORRENTE,
           },
           estado: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2016,
+            anoAtual: ANO_CORRENTE,
           },
           folhaDePagamento: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2016,
+            anoAtual: ANO_CORRENTE,
           },
           municipio: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2009,
+            anoAtual: ANO_CORRENTE,
           },
           obrigacaoEnvio: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2020,
+            anoAtual: ANO_CORRENTE,
           },
           prestacaoDeConta: {
-            anoInicio: 2023,
-            anoAtual: 2023,
+            anoInicio: 2009,
+            anoAtual: ANO_CORRENTE,
           },
         },
         municipio: municipios.find((o) => o.codigo === "077")!,

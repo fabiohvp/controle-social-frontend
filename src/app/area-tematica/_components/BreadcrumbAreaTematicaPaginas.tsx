@@ -5,6 +5,7 @@ import {
   createDropdownValue,
 } from "@/components/dropdowns/dropdown/DropdownValue";
 import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import { usePathname } from "next/navigation";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
@@ -36,7 +37,7 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
   [
     "Pessoal",
     createDropdownValue(
-      "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral"
+      `/folha-de-pagamento/executivo-municipal/${ANO_CORRENTE}/1/visao-geral`
     ),
   ],
   ["Patrimônio", createDropdownValue("/area-tematica/patrimonio/visao-geral")],

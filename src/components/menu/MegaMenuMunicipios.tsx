@@ -11,6 +11,7 @@ import Input from "@/components/inputs/Input";
 import { normalize } from "@/formatters/string";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { GlobalState } from "@/shared/globalState";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
 import type { EChartsType } from "echarts/core";
 import Link from "next/link";
@@ -93,7 +94,7 @@ export default function MegaMenuMunicipios() {
     <DropdownMenu icon={<MapaEsIcon />} title="Municípios">
       <div className="border border-b-gray-200 flex gap-16 items-center px-2 py-3">
         <Link
-          href="/municipio/2023/comparador"
+          href={`/municipio/${ANO_CORRENTE}/comparador`}
           className="flex gap-1"
           prefetch={false}
         >
@@ -107,7 +108,7 @@ export default function MegaMenuMunicipios() {
           <IndicadoresIcon small /> Indicadores consolidados
         </Link>
         <Link
-          href="/rankings/2023/receita/arrecadada"
+          href={`/rankings/${ANO_CORRENTE}/receita/arrecadada`}
           className="flex gap-1"
           prefetch={false}
         >

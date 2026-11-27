@@ -27,11 +27,12 @@ export function getCodigoMunicipio(
 export const getDatasLimites = cache(
 	async (ano: number): Promise<DatasLimites> => {
 		const formatData = function (datasLimites: DatasLimites) {
+			if (!datasLimites) return {} as DatasLimites;
 			return Object.keys(datasLimites).reduce((acc, modulo) => {
 				const moduloKey = modulo as keyof typeof Modulo;
 				const dataLimite = datasLimites[moduloKey];
 
-				acc[moduloKey] = dataLimite.map((d) => ({
+				acc[moduloKey] = (dataLimite ?? []).map((d) => ({
 					...d,
 					data: new Date(d.data),
 				}));

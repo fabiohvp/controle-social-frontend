@@ -1,3 +1,5 @@
+import { ANO_CORRENTE } from "@/shared/paginas";
+
 export type FolhaDePagamentoPageProps = {
   ano: string;
   mes: string;
@@ -28,7 +30,7 @@ export function generateFolhaDePagamentoUrl({
   if (PAGINAS_SEM_FILTROS.includes(pagina)) {
     return `/folha-de-pagamento/${pagina}`;
   }
-  const baseUrl = `/folha-de-pagamento/${poder ?? "todos"}/${ano ?? 2023}`;
+  const baseUrl = `/folha-de-pagamento/${poder ?? "todos"}/${ano ?? ANO_CORRENTE}`;
   return `${baseUrl}/${mes ?? 1}/${pagina}/${unidadeGestora ?? ""}`;
 }
 

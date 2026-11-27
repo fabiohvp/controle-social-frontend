@@ -7,6 +7,7 @@ import {
   QUANTIDADE_MUNICIPIOS,
   getNomeNormalizadoMunicipio,
 } from "@/shared/municipio";
+import { ANO_CORRENTE } from "@/shared/paginas";
 import { COLOR } from "@/theme/colors";
 import {
   EsferaAdministrativa,
@@ -54,7 +55,7 @@ export default function ObrigacaoEnvioVisaoGeral({
       //TODO: fix ano inicial
       push(
         `/municipio/${
-          routeParams.ano ?? 2023
+          routeParams.ano ?? ANO_CORRENTE
         }/${nomeNormalizado}/obrigacao-de-envio`
       );
     });
