@@ -13,6 +13,8 @@ import {
 import {
   FaArrowTrendDown,
   FaGaugeHigh,
+  FaScaleBalanced,
+  FaShieldHalved,
   FaTriangleExclamation,
 } from "react-icons/fa6";
 import {
@@ -24,9 +26,11 @@ import { IndicadoresPageProps, generateIndicadoresUrl } from "../routes";
 
 const ICONES: Record<GrupoIndicadorSlug, ReactNode> = {
   alertas: <FaTriangleExclamation className="text-xl" />,
+  capag: <FaScaleBalanced className="text-xl" />,
   despesa: <FaArrowTrendDown className="text-xl" />,
   educacao: <FaGraduationCap className="text-xl" />,
   iegm: <FaGaugeHigh className="text-xl" />,
+  ivf: <FaShieldHalved className="text-xl" />,
   pessoal: <FaUsers className="text-xl" />,
   previdencia: <FaPiggyBank className="text-xl" />,
   receita: <FaChartBar className="text-xl" />,

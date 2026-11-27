@@ -263,6 +263,17 @@ export default function MenuMobileModals() {
           </Link>
         </li>
         <li>
+          <Link href="/prefeito-por-um-dia" prefetch={false}>
+            <section>
+              <h5>PREFEITO POR UM DIA</h5>
+              <div>Jogo interativo de gestão pública municipal</div>
+            </section>
+            <div className="icon text-2xl">
+              🎮
+            </div>
+          </Link>
+        </li>
+        <li>
           <Link
             href={`/indicadores-consolidados/${ANO_CORRENTE}/receita`}
             prefetch={false}

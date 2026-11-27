@@ -9,6 +9,8 @@ import { generatePatrimonioUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
+  ["Balanço patrimonial", createDropdownValue("balanco-patrimonial")],
+  ["Variação patrimonial", createDropdownValue("variacao-patrimonial")],
 ]);
 
 export default function BreadcrumbPatrimonioPaginas() {

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
-    "analyze": "npm run build && source-map-explorer .next/static/**/*.js"
+    "analyze": "npm run build && source-map-explorer .next/static/**/*.js",
+    "validate:values": "python scripts/validate_values.py",
+    "validate:values:create-issues": "python scripts/validate_values.py --create-issues"
   },
   "dependencies": {
     "@types/node": "^22.20.7",

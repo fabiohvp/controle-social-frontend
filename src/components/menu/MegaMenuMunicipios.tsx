@@ -101,7 +101,7 @@ export default function MegaMenuMunicipios() {
           <ComparadorIcon small /> Comparação entre municípios
         </Link>
         <Link
-          href="/indicadores/consolidados/2021/receita-orcamentaria/antecipacao"
+          href={`/indicadores-consolidados/${ANO_CORRENTE}/receita`}
           className="flex gap-1"
           prefetch={false}
         >

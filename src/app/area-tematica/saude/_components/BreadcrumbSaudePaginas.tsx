@@ -17,6 +17,10 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Gestão com a função saúde", createDropdownValue("gastos-com-saude")],
   ["População com plano de saúde", createDropdownValue("acesso-a-saude")],
   ["Planos municipais de saúde", createDropdownValue("plano-saude")],
+  [
+    "Detalhamento plano de saúde",
+    createDropdownValue("detalhamento-plano-saude"),
+  ],
 ]);
 
 export default function BreadcrumbSaudePaginas() {

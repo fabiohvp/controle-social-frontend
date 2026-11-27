@@ -101,11 +101,15 @@ export function isOmisso(valor: number | null | undefined) {
 
 export function formatValorRanking(
   valor: number | null | undefined,
-  formato: FormatoRanking
+  formato: FormatoRanking,
+  valorTexto?: string
 ) {
+  if (valorTexto) return valorTexto;
   if (isOmisso(valor)) return "-";
 
   switch (formato) {
+    case "texto":
+      return valorTexto || String(valor);
     case "monetario":
     case "perCapita":
       return `R$ ${formatFloat(valor!)}`;

@@ -10,6 +10,7 @@ import { generateConcessaoPublicaUrl, getPagina } from "../routes";
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
   ["Despesas com PPP", createDropdownValue("despesas-ppp")],
+  ["Detalhamento de PPP", createDropdownValue("detalhamento-ppp")],
 ]);
 
 export default function BreadcrumbConcessaoPublicaPaginas() {

@@ -61,7 +61,7 @@ export default function RankingTabela({ ano, config, itens, titulo }: Props) {
         tooltip: {
           formatter: linha.omisso
             ? `${linha.nomeMapa}<br/>${DESCRICAO_OMISSO}`
-            : `${linha.posicaoExibida}º - ${linha.nomeMapa}<br/>${formatValorRanking(linha.valor, config.formato)}`,
+            : `${linha.posicaoExibida}º - ${linha.nomeMapa}<br/>${formatValorRanking(linha.valor, config.formato, linha.valorTexto)}`,
         },
       })),
     [config.formato, linhas]
@@ -175,7 +175,7 @@ function getColumns(
         linha.omisso ? (
           <span className="text-gray-medium">sem dados</span>
         ) : (
-          formatValorRanking(linha.valor, config.formato)
+          formatValorRanking(linha.valor, config.formato, linha.valorTexto)
         ),
     },
     ...(config.colunasExtras ?? []).map(

@@ -6,6 +6,15 @@ const nextConfig = {
     // aninhados fariam o Next inferir a raiz errada.
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/prefeitoPorUmDia",
+        destination: "/prefeito-por-um-dia",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

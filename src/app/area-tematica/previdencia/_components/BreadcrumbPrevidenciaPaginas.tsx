@@ -9,6 +9,16 @@ import { generatePrevidenciaUrl, getPagina } from "../routes";
 
 const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Visão geral", createDropdownValue("visao-geral")],
+  [
+    "Distribuição de investimentos",
+    createDropdownValue("distribuicao-investimentos"),
+  ],
+  ["Enquadramento", createDropdownValue("enquadramento")],
+  ["Desenquadramento", createDropdownValue("desenquadramento")],
+  ["Aplicação em fundos", createDropdownValue("aplicacao-fundos")],
+  ["Cumprimento de prazos DAIR", createDropdownValue("cumprimento-prazos-dair")],
+  ["Adesão Pró-Gestão", createDropdownValue("adesao-progestao")],
+  ["Reuniões de comitê", createDropdownValue("reunioes-comite")],
 ]);
 
 export default function BreadcrumbPrevidenciaPaginas() {

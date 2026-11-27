@@ -187,6 +187,11 @@ function DropdownAreasTematicas({}: {}) {
             Saúde
           </Link>
         </DropdownItem>
+        <DropdownItem>
+          <Link href="/prefeito-por-um-dia" prefetch={false}>
+            Prefeito por um dia (jogo)
+          </Link>
+        </DropdownItem>
       </ul>
     </DropdownMenu>
   );

@@ -46,6 +46,8 @@ const CORES_PADRAO = [
   COLOR["chart-alerta"],
   COLOR["chart-muito-positivo"],
   COLOR["chart-negativo"],
+  COLOR.padraoNivel2,
+  COLOR.padraoNivel6,
 ];
 
 export default function MultiSeriesChart({

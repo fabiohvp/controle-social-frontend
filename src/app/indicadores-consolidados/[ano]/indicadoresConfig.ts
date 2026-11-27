@@ -8,6 +8,8 @@ export type GrupoIndicadorSlug =
   | "saude"
   | "previdencia"
   | "alertas"
+  | "capag"
+  | "ivf"
   | "iegm";
 
 export type GrupoIndicador = {
@@ -24,6 +26,8 @@ export const GRUPOS_INDICADOR: GrupoIndicador[] = [
   { slug: "saude", titulo: "Saúde" },
   { slug: "previdencia", titulo: "Previdência" },
   { slug: "alertas", titulo: "Alertas LRF" },
+  { slug: "capag", titulo: "CAPAG" },
+  { slug: "ivf", titulo: "IVF" },
   { slug: "iegm", titulo: "IEGM" },
 ];
 
@@ -219,6 +223,71 @@ export const INDICADORES: IndicadorConfig[] = [
     titulo: "Resultado primário",
     tituloCompleto: "Alertas - Resultado primário",
     abaOficial: "resultadoPrimario",
+  },
+  {
+    slug: "alerta-despesas-correntes-x-receitas-correntes",
+    grupo: "alertas",
+    titulo: "Receitas e Despesas Correntes",
+    tituloCompleto: "Alertas - Relação de Receitas e Despesas Correntes",
+    abaOficial: "despesasXReceitasCorrentes",
+  },
+  // CAPAG
+  {
+    slug: "capag",
+    grupo: "capag",
+    titulo: "Capacidade de pagamento",
+    tituloCompleto: "CAPAG - Capacidade de pagamento TCEES",
+    abaOficial: "capacidadePagamento",
+  },
+  {
+    slug: "capag-endividamento",
+    grupo: "capag",
+    titulo: "Endividamento",
+    tituloCompleto: "CAPAG - Endividamento TCEES",
+    abaOficial: "endividamentoCapag",
+  },
+  {
+    slug: "capag-liquidez",
+    grupo: "capag",
+    titulo: "Liquidez relativa",
+    tituloCompleto: "CAPAG - Liquidez relativa TCEES",
+    abaOficial: "liquidezCapag",
+  },
+  {
+    slug: "capag-poupanca-corrente",
+    grupo: "capag",
+    titulo: "Poupança corrente",
+    tituloCompleto: "CAPAG - Poupança corrente TCEES",
+    abaOficial: "poupancaCorrenteCapag",
+  },
+  // IVF
+  {
+    slug: "indice-vulnerabilidade-fiscal",
+    grupo: "ivf",
+    titulo: "IVF Geral",
+    tituloCompleto: "IVF - Índice de Vulnerabilidade Fiscal",
+    abaOficial: "indiceVulnerabilidadeFiscal",
+  },
+  {
+    slug: "ivf-endividamento",
+    grupo: "ivf",
+    titulo: "Endividamento",
+    tituloCompleto: "IVF - Endividamento",
+    abaOficial: "ivfEndividamento",
+  },
+  {
+    slug: "ivf-liquidez",
+    grupo: "ivf",
+    titulo: "Liquidez",
+    tituloCompleto: "IVF - Liquidez",
+    abaOficial: "ivfLiquidez",
+  },
+  {
+    slug: "ivf-margem",
+    grupo: "ivf",
+    titulo: "Margem",
+    tituloCompleto: "IVF - Margem",
+    abaOficial: "ivfMargem",
   },
   // IEGM
   {

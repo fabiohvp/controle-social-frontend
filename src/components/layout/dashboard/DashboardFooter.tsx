@@ -26,6 +26,15 @@ export default function DashboardFooter() {
               </div>
             )}
             <div className="flex justify-center gap-2 mt-1">
+              <Link
+                href="/prefeito-por-um-dia"
+                prefetch={false}
+                className="font-semibold text-primary hover:underline"
+              >
+                🎮 Prefeito por um Dia
+              </Link>
+            </div>
+            <div className="flex justify-center gap-2 mt-1">
               <>
                 <button
                   className="cursor-pointer"

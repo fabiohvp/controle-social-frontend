@@ -39,7 +39,7 @@ export default async function Page({ params }: Props) {
       }
     >
       {slug === "manual" &&
-        (Number(ano) === ANO_SEM_MANUAL ? (
+        (Number(ano) >= ANO_SEM_MANUAL ? (
           <AlertPanel type="warning">
             Manual não produzido para esse ano. Os manuais foram produzidos
             apenas até o ano de 2017.
@@ -49,6 +49,7 @@ export default async function Page({ params }: Props) {
             src={`/api/fiscalizacao/iegm/manual?ano=${ano}`}
             title="Manual do IEGM"
             className="h-full w-full"
+            style={{ minHeight: "800px" }}
           />
         ))}
       {slug === "relatorio" && (
@@ -56,6 +57,7 @@ export default async function Page({ params }: Props) {
           src={`/api/fiscalizacao/iegm/relatorio?ano=${ano}`}
           title="Relatório do IEGM"
           className="h-full w-full"
+          style={{ minHeight: "800px" }}
         />
       )}
       {indice.metodo && (

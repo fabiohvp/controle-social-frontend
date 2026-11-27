@@ -12,6 +12,10 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
   ["Escolas", createDropdownValue("escolas")],
   ["Profissionais", createDropdownValue("profissionais")],
   ["Inativos", createDropdownValue("inativos")],
+  ["IDEB", createDropdownValue("ideb")],
+  ["Abandono escolar", createDropdownValue("abandono")],
+  ["PAEBES", createDropdownValue("paebes")],
+  ["Fluência em leitura", createDropdownValue("fluencia")],
 ]);
 
 export default function BreadcrumbEducacaoPaginas() {

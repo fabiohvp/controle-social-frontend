@@ -13,6 +13,7 @@ export type RankingItem = {
   valor: number | null;
   valorAplicado?: number | null;
   valorExigido?: number | null;
+  valorTexto?: string;
 };
 
 /**
@@ -20,8 +21,14 @@ export type RankingItem = {
  * - `perCapita`: R$ por habitante/aluno com 2 casas
  * - `percentual`: 2 casas seguidas de %
  * - `numero`: número com 2 casas, sem unidade (índices, notas)
+ * - `texto`: texto/conceito (ex.: A, B, C, D)
  */
-export type FormatoRanking = "monetario" | "numero" | "perCapita" | "percentual";
+export type FormatoRanking =
+  | "monetario"
+  | "numero"
+  | "perCapita"
+  | "percentual"
+  | "texto";
 
 /**
  * Faixa de cor do mapa/tabela. As faixas são avaliadas em ordem: o item entra na

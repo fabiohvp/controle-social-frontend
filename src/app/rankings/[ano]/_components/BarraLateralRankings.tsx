@@ -3,10 +3,13 @@ import SidebarItem from "@/components/sidebar/SidebarItem";
 import { useParams } from "next/navigation";
 import { ReactNode } from "react";
 import {
+  FaBook,
   FaChartBar,
   FaDollarSign,
   FaGraduationCap,
   FaHeartbeat,
+  FaLandmark,
+  FaSignal,
   FaUsers,
 } from "react-icons/fa";
 import { FaArrowTrendDown, FaTriangleExclamation } from "react-icons/fa6";
@@ -21,6 +24,9 @@ const ICONES: Record<CategoriaRankingSlug, ReactNode> = {
   receita: <FaChartBar className="text-xl" />,
   resultado: <FaDollarSign className="text-xl" />,
   saude: <FaHeartbeat className="text-xl" />,
+  previdencia: <FaLandmark className="text-xl" />,
+  contas: <FaBook className="text-xl" />,
+  isp: <FaSignal className="text-xl" />,
 };
 
 const CATEGORIAS = getCategoriasComRankings();
