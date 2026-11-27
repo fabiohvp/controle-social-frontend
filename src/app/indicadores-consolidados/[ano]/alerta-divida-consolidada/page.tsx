@@ -1,3 +1,14 @@
-export default function Page() {
-  return <>page //TODO: implementar pagina</>;
+import PaginaIndicador, {
+  getMetadataIndicador,
+} from "../_components/PaginaIndicador";
+import { IndicadoresPageProps } from "../routes";
+
+export const metadata = getMetadataIndicador("alerta-divida-consolidada");
+
+export default function Page({
+  params,
+}: {
+  params: Promise<IndicadoresPageProps>;
+}) {
+  return <PaginaIndicador params={params} slug="alerta-divida-consolidada" />;
 }
