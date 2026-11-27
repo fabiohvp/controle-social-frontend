@@ -2,7 +2,7 @@
 import BreadcrumbAno from "@/components/breadcrumb/BreadcrumbAno";
 import { useAtom } from "jotai";
 import BreadcrumbFiscalizacaoLabel from "../../_components/BreadcrumbFiscalizacaoLabel";
-import { generateTransparenciaPassivaUrl } from "../transparencia-passiva/routes";
+import { generatePortalTransparenciaUrl } from "./routes";
 import BreadcrumbPortalTransparenciaLabel from "./_components/BreadcrumbPortalTransparenciaLabel";
 import BreadcrumbPortalTransparenciaPaginas from "./_components/BreadcrumbPortalTransparenciaPaginas";
 import { portalTransparenciaState } from "./portalTransparenciaState";
@@ -17,7 +17,7 @@ export default function BreadcrumbPortalTransparencia() {
       <BreadcrumbPortalTransparenciaPaginas />
       <BreadcrumbAno
         anos={state.anos}
-        generateUrl={generateTransparenciaPassivaUrl}
+        generateUrl={generatePortalTransparenciaUrl}
       />
     </>
   );
