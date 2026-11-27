@@ -21,37 +21,37 @@ export const PAGINAS_GESTAO_ORCAMENTARIA: Pagina[] = [
   {
     slug: "diretrizes-orcamentarias",
     titulo: "Diretrizes orçamentárias",
-    implementado: false,
+    implementado: true,
     anos: [2026, 2022, 2018],
   },
   {
     slug: "programas-e-acoes",
     titulo: "Programas e ações",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2018),
   },
   {
     slug: "receitas",
     titulo: "Receitas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2013),
   },
   {
     slug: "despesas",
     titulo: "Despesas",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2013),
   },
   {
     slug: "destino-do-dinheiro",
     titulo: "Destino do dinheiro",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2013),
   },
   {
     slug: "resultado-orcamentario",
     titulo: "Resultado orçamentário",
-    implementado: false,
+    implementado: true,
     anos: gerarAnos(2014),
   },
 ];
