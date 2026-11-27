@@ -47,10 +47,14 @@ export const getDatasLimites = cache(
 				.json()
 				.then(({ datasLimites }) => formatData(datasLimites[ano]));
 		}
-		const res = await fetch(
-			`${ENV.vercelUrl}/municipio/datas-limites?ano=${ano}`
+		// importa o JSON direto em vez de fazer fetch para o próprio site, que na
+		// Vercel é bloqueado pelo checkpoint/proteção do deployment
+		const { default: datasLimites } = await import(
+			"../../public/data/datas-limites.json"
 		);
-		return res.json().then(formatData);
+		return formatData(
+			(datasLimites as unknown as Record<string, DatasLimites>)[ano]
+		);
 	}
 );
 
@@ -89,16 +93,13 @@ export const getMunicipios = cache(async () => {
 			}
 		);
 	}
-	const res = await fetch(`${ENV.vercelUrl}/municipio`);
-	return res.json().then((data) => {
-		const _municipios = data.map((d: EsferaAdministrativa) => ({
-			codigo: d.codigo,
-			nome: d.nome,
-			nomeNormalizado: d.nomeNormalizado,
-		}));
-		municipios = _municipios;
-		return municipios;
-	});
+	const { default: data } = await import("../../public/data/municipios.json");
+	municipios = (data as EsferaAdministrativa[]).map((d) => ({
+		codigo: d.codigo,
+		nome: d.nome,
+		nomeNormalizado: d.nomeNormalizado,
+	}));
+	return municipios;
 });
 
 export function getNomeNormalizadoMunicipio(
