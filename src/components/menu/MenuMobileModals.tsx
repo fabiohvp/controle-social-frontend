@@ -263,7 +263,7 @@ export default function MenuMobileModals() {
         </li>
         <li>
           <Link
-            href="/indicadores-consolidados/2023/receita/orcamentaria"
+            href="/indicadores-consolidados/2023/receita"
             prefetch={false}
           >
             <section>
