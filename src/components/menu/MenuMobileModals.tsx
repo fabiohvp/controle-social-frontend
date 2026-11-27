@@ -195,7 +195,7 @@ export default function MenuMobileModals() {
             prefetch={false}
           >
             <section>
-              <h5>CONCESSÕES COMUNS E PPP</h5>
+              <h5>DESESTATIZAÇÕES</h5>
               <div>...existentes no Estado e nos municípios</div>
             </section>
             <div className="icon">
@@ -263,7 +263,7 @@ export default function MenuMobileModals() {
         </li>
         <li>
           <Link
-            href="/indicadores-consolidados/2023/receita/orcamentaria"
+            href="/indicadores-consolidados/2023/receita"
             prefetch={false}
           >
             <section>

@@ -13,7 +13,7 @@ export default function DestinoDinheiroWidget(props: Props) {
 
   return (
     <Link
-      href={`/municipio/2023/${municipio.nomeNormalizado}/gestao-orcamentaria/destino-dinheiro`}
+      href={`/municipio/2023/${municipio.nomeNormalizado}/gestao-orcamentaria/destino-do-dinheiro`}
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className

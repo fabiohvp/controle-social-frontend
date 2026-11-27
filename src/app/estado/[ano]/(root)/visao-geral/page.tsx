@@ -1,7 +1,4 @@
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralEstado from "../../_components/BarraLateralEstado";
 import { EstadoPageProps } from "../../routes";
-import BreadcrumbEstado from "../BreadcrumbEstado";
 import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
 import { ObrigacoesJuntoTceesWidget } from "./_components/widgets/ObrigacoesJuntoTceesWidget";
 import { PessoalConsolidadoWidget } from "./_components/widgets/PessoalConsolidadoWidget";
@@ -18,12 +15,7 @@ export default async function Page({ params }: { params: Promise<EstadoPageProps
   const resolvedParams = await params;
 
   return (
-    <DashboardLayout
-      className="gap-2 p-2"
-      exibirBotaoIPCA
-      itensBreadcrumb={BreadcrumbEstado}
-      barraLateral={BarraLateralEstado}
-    >
+    <>
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
         <ReceitasXDespesasWidget style={PANEL_STYLE} {...resolvedParams} />
@@ -38,6 +30,6 @@ export default async function Page({ params }: { params: Promise<EstadoPageProps
         <PessoalExecutivoWidget style={GAUGE_STYLE} {...resolvedParams} />
         <PessoalLegislativoWidget style={GAUGE_STYLE} {...resolvedParams} />
       </div>
-    </DashboardLayout>
+    </>
   );
 }

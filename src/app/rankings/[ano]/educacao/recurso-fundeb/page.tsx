@@ -1,3 +1,10 @@
-export default function Page() {
-  return <>page //TODO: implementar pagina</>;
+import PaginaRanking, { getMetadataRanking } from "../../_components/PaginaRanking";
+import { RankingsPageProps } from "../../routes";
+
+const RANKING = "educacao/recurso-fundeb";
+
+export const metadata = getMetadataRanking(RANKING);
+
+export default function Page(props: { params: Promise<RankingsPageProps> }) {
+  return <PaginaRanking {...props} ranking={RANKING} />;
 }

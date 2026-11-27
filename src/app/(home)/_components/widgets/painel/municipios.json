@@ -23,7 +23,7 @@
     },
     {
       "description": "Visão geral da situação dos municípios capixabas",
-      "href": "/indicadores-consolidados/{municipio-ano}/receita/orcamentaria",
+      "href": "/indicadores-consolidados/{municipio-ano}/receita",
       "image": {
         "height": 50,
         "src": "/icons/indicadores.png",
@@ -50,6 +50,16 @@
         "width": 50
       },
       "titulo": "Rankings"
+    },
+    {
+      "description": "Acompanhamento detalhado da execução da receita e da despesa",
+      "href": "/execucao-orcamentaria/receita",
+      "image": {
+        "height": 50,
+        "src": "/icons/indicadores.png",
+        "width": 50
+      },
+      "titulo": "Execução orçamentária"
     }
   ]
 }

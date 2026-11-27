@@ -1,19 +1,11 @@
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralEstado from "../../_components/BarraLateralEstado";
-import { EstadoPageProps } from "../../routes";
-import BreadcrumbEstado from "../BreadcrumbEstado";
+import { EstadoPageProps } from "@/app/estado/[ano]/routes";
 
-export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
-	const resolvedParams = await params;
-
-  return (
-    <DashboardLayout
-      className="gap-2 p-2"
-      exibirBotaoIPCA
-      itensBreadcrumb={BreadcrumbEstado}
-      barraLateral={BarraLateralEstado}
-    >
-      Prestação conta: {resolvedParams.ano}
-    </DashboardLayout>
-  );
+// TODO #9: implementar (layout/sidebar/breadcrumb vêm de (root)/layout.tsx)
+export default async function Page({
+  params,
+}: {
+  params: Promise<EstadoPageProps>;
+}) {
+  const { ano } = await params;
+  return <>Prestação conta: {ano}</>;
 }

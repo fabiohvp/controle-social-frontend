@@ -13,10 +13,22 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
     createDropdownValue("/area-tematica/assistencia-social/referenciamento"),
   ],
   [
-    "Concessões e PPP",
+    "Atos de pessoal",
+    createDropdownValue("/area-tematica/atos-de-pessoal/admissao"),
+  ],
+  [
+    "Desestatizações",
     createDropdownValue("/area-tematica/concessao-publica/visao-geral"),
   ],
+  [
+    "Contratações públicas",
+    createDropdownValue("/area-tematica/contratacoes-publicas/contratacoes"),
+  ],
   ["Educação", createDropdownValue("/area-tematica/educacao/visao-geral")],
+  [
+    "Emendas parlamentares",
+    createDropdownValue("/area-tematica/emendas-parlamentares/emendas"),
+  ],
   [
     "Estrutura administrativa",
     createDropdownValue("/area-tematica/estrutura-administrativa"),
@@ -26,6 +38,15 @@ const PAGES: Map<string, DropdownValue<string>> = new Map([
     createDropdownValue(
       "/folha-de-pagamento/executivo-municipal/2023/1/visao-geral"
     ),
+  ],
+  ["Patrimônio", createDropdownValue("/area-tematica/patrimonio/visao-geral")],
+  [
+    "Previdência",
+    createDropdownValue("/area-tematica/previdencia/visao-geral"),
+  ],
+  [
+    "Saneamento básico",
+    createDropdownValue("/area-tematica/saneamento-basico/agua-esgoto"),
   ],
   ["Saúde", createDropdownValue("/area-tematica/saude/estabelecimentos")],
 ]);

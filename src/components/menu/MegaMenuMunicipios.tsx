@@ -107,7 +107,7 @@ export default function MegaMenuMunicipios() {
           <IndicadoresIcon small /> Indicadores consolidados
         </Link>
         <Link
-          href="/rankings/2023/municipios/receita-receita-arrecadada"
+          href="/rankings/2023/receita/arrecadada"
           className="flex gap-1"
           prefetch={false}
         >

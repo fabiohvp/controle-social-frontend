@@ -1,43 +1,21 @@
 "use client";
-import DropdownLinks from "@/components/dropdowns/dropdown/DropdownLinks";
+import BreadcrumbMenu from "@/components/breadcrumb/BreadcrumbMenu";
+import { useParams } from "next/navigation";
 import {
-  DropdownValue,
-  createDropdownValue,
-} from "@/components/dropdowns/dropdown/DropdownValue";
-import { dropdownStartsWithComparer } from "@/components/dropdowns/dropdown/dropdownComparers";
-import { useParams, usePathname } from "next/navigation";
-import { EstadoPageProps, generateEstadoUrl, getPagina } from "../routes";
-
-const PAGES: Map<string, DropdownValue<string>> = new Map([
-  ["Visão geral", createDropdownValue("visao-geral")],
-  ["Obrigações junto ao TCE-ES", createDropdownValue("obrigacao-de-envio")],
-  [
-    "Gestão orçamentária",
-    createDropdownValue("gestao-orcamentaria/planejamento-governamental"),
-  ],
-  ["Gestão fiscal", createDropdownValue("gestao-fiscal/meta-arrecadacao")],
-  ["Prestação de contas", createDropdownValue("prestacao-conta")],
-]);
+  EstadoPageProps,
+  INDICE_SEGMENTO_PAGINA,
+  getUrlBaseEstado,
+} from "../routes";
+import { MENU_ESTADO } from "./menuEstado";
 
 export default function BreadcrumbEstadoPaginas() {
-  const pathname = usePathname();
-  const routeParams = useParams() as EstadoPageProps;
-  const pagina = getPagina(pathname);
+  const { ano } = useParams() as EstadoPageProps;
 
   return (
-    <li>
-      <DropdownLinks
-        comparer={dropdownStartsWithComparer}
-        generateUrl={(item) =>
-          generateEstadoUrl({
-            ...routeParams,
-            pagina: item[1].value,
-            pathname,
-          })
-        }
-        items={PAGES}
-        selected={createDropdownValue(pagina)}
-      />
-    </li>
+    <BreadcrumbMenu
+      itens={MENU_ESTADO}
+      urlBase={getUrlBaseEstado(ano)}
+      indiceSegmento={INDICE_SEGMENTO_PAGINA}
+    />
   );
 }

@@ -1,0 +1,6 @@
+npm error code ENOTEMPTY
+npm error syscall rmdir
+npm error path F:\___My\controle-social-frontend\.claude\worktrees\issue-14\node_modules\es-abstract\2017
+npm error errno -4051
+npm error ENOTEMPTY: directory not empty, rmdir 'F:\___My\controle-social-frontend\.claude\worktrees\issue-14\node_modules\es-abstract\2017'
+npm error A complete log of this run can be found in: C:\Users\Fabio-PC\AppData\Local\npm-cache\_logs\2026-11-27T10_46_21_536Z-debug-0.log

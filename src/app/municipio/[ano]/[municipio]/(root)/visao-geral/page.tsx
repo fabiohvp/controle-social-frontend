@@ -1,7 +1,4 @@
-import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import BarraLateralMunicipios from "../../_components/BarraLateralMunicipios";
 import { MunicipioPageProps } from "../../routes";
-import BreadcrumbMunicipio from "../BreadcrumbMunicipio";
 import { DespesaReceitaCorrentesWidget } from "./_components/widgets/DespesaReceitaCorrentesWidget";
 import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
 import { FundoFinanceiroWidget } from "./_components/widgets/FundoFinanceiroWidget";
@@ -23,12 +20,7 @@ export default async function Page({ params }: { params: Promise<MunicipioPagePr
   const resolvedParams = await params;
 
   return (
-    <DashboardLayout
-      className="gap-2 p-2"
-      exibirBotaoIPCA
-      itensBreadcrumb={BreadcrumbMunicipio}
-      barraLateral={BarraLateralMunicipios}
-    >
+    <>
       {/* subtrai 4 rem por causa do p-2 padding do layout */}
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
         <ReceitasXDespesasWidget style={PANEL_STYLE} {...resolvedParams} />
@@ -57,6 +49,6 @@ export default async function Page({ params }: { params: Promise<MunicipioPagePr
           {...resolvedParams}
         />
       </div>
-    </DashboardLayout>
+    </>
   );
 }

@@ -12,6 +12,634 @@ export default function Novidades({ className, ...props }: Props) {
         ng-bind-html="slide.resumo | unsafe"
       ></p>
       <div className="p-2">
+        <h5 className="mb-1 font-normal">11/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/fiscalizacoes/levantamentoODS/2025"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Levantamento sobre os Objetivos do Desenvolvimento Sustentável
+              (ODS)
+            </a>
+            : examina o grau de maturidade da governança do Centro de Governo
+            local na implementação da Agenda 2030 e de seus ODS.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">09/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/estado/2026/gestaoFiscal/destinacaoFundeb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Destinação de recursos ao Fundeb
+            </a>
+            : apresenta as receitas de ICMS, ITCMD e IPVA destinadas ao Fundeb
+            e permite conferir os valores transferidos pelo Estado com os
+            registrados pela Secretaria do Tesouro Nacional.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">07/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/obrigacaoEnvio/2025/monitoramentoDeliberacao/municipios/todos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Monitoramento de Deliberações
+            </a>
+            : o painel passou a exibir todas as decisões do Tribunal, e não
+            apenas os processos de prestação de contas.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">06/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/emendasParlamentares/despesas"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Emendas individuais impositivas por transferência especial
+            </a>
+            : inclusão dos dados estaduais no painel de empenhos, liquidações e
+            pagamentos relacionados às emendas (emendas pix), declarados pelos
+            municípios no CidadES-Prestação de Contas Mensal.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">05/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2026/vila-velha/previdencia/planoAmortizacao/076E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Planos de amortização dos RPPS (Regimes Próprios de Previdência
+              Social)
+            </a>
+            : detalha o plano de amortização do déficit atuarial e agora mostra
+            também os pagamentos feitos pelo patrocinador.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">04/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/contratacoesPublicas/atasRegistroPrecos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Atas de Registro de Preços
+            </a>
+            : quantidades, valores, evolução e características das atas
+            celebradas pelos órgãos estaduais e municipais.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">03/2026</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/emendasParlamentares/comparativoReceitas"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Emendas individuais impositivas por transferência especial -
+              comparativo
+            </a>
+            : compara os valores transferidos pelo Governo Federal com os
+            declarados ao TCE-ES pelo Estado e pelos municípios, conforme a ADPF
+            854 do STF.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">12/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/contratacoesPublicas/obrasServicosEngenharia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Obras e serviços de engenharia
+            </a>
+            : quantidades, valores firmados, contratados e pagos, com detalhes
+            de situação e evolução de cada obra.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">11/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/saneamentoBasico/residuosSolidos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Observatório do saneamento básico - Resíduos Sólidos
+            </a>
+            : passa a abordar limpeza urbana e manejo de resíduos sólidos nos 78
+            municípios capixabas, em seis painéis.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/emendasParlamentares/emendas"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Emendas individuais impositivas por transferência especial
+            </a>
+            : dois painéis sobre as emendas e as respectivas despesas.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/concessoesPPP/visaoGeral"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Desestatizações - Concessões comuns, PPP e privatizações
+            </a>
+            : antigo painel de Concessões comuns e PPP, agora com privatizações,
+            entidades estruturadoras, verificadores e editais e contratos.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">10/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/previdencia/visaoGeral/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Investimentos dos institutos de previdência
+            </a>
+            : panorama dos investimentos dos RPPS, com distribuição, enquadramento
+            legal, fundos, DAIR, Pró-Gestão RPPS, comitês de investimento e
+            certificações.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">09/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/atosPessoal/concursoPublico"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Concursos públicos
+            </a>
+            : concursos para provimento de pessoal efetivo, que originam os atos
+            de admissão encaminhados pelo CidadES.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">07/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/atosPessoal/admissao"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Atos de pessoal de admissão e de concessão de benefícios
+            </a>
+            : decisões do TCEES sobre atos de admissão de pessoal e sobre atos de
+            concessão inicial de aposentadoria, transferência para a reserva e
+            reforma.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">05/2025</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/contratacoesPublicas/contratacoes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contratações
+            </a>
+            : licitações, adesões a atas, contratações diretas, credenciamentos e
+            chamamentos públicos celebrados pelos órgãos estaduais e municipais.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">12/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2024/vitoria/previdencia/situacaoPrevidenciaria/077E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Índice de Situação Previdenciária 2024
+            </a>
+            : ISP-RPPS dos institutos de previdência do estado e dos municípios,
+            calculado pela Secretaria de Previdência do Governo Federal.
+          </li>
+          <li>
+            <Link href="/fiscalizacao/2023/iegm/geral" prefetch={false}>
+              Painel sobre o Índice de Efetividade da Gestão Municipal (IEGM) 2023
+            </Link>
+            .
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">11/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/contratacoesPublicas/instrumentos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instrumentos contratuais
+            </a>
+            : quantidades, valores firmados e contratados, situação, evolução e
+            valores pagos e medidos dos instrumentos dos órgãos.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/estado/2024/previdenciaMilitares/segurados/500E2900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Painel sobre segurados do Fundo de Proteção Social dos Militares do
+              Estado do Espírito Santo
+            </a>
+            : militares em atividade e beneficiários (reserva, reforma e pensão).
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">10/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/estado/2023/previdencia/projecoesAtuariais/500E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Projeções atuariais
+            </a>
+            : agora é possível comparar receita, despesa e resultado orçamentário
+            projetados com os valores executados.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">09/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/educacao/visaoGeral/2024/todos/todos/null/null/1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Educação
+            </a>
+            : painéis atualizados com dados de 2023 (visão geral, escolas, Ideb,
+            abandono escolar, Paebes e prova de fluência).
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/saude/planoSaude"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Planos Municipais de Saúde
+            </a>
+            : metas e cumprimento nos municípios, atualizados com dados de 2023.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/assistenciaSocial/referenciamento"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Assistência Social
+            </a>
+            : capacidade de referenciamento, espaço físico, serviços e recursos
+            humanos, atualizados com dados de 2023.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">07/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/estado/2024/previdenciaMilitares/receitas/500E2900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Painéis sobre Previdência dos Militares do Estado do Espírito Santo
+            </a>
+            : receitas, despesas, resultado atuarial e projeções atuariais.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/patrimonio/visaoGeral"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Informações patrimoniais
+            </a>
+            : ativos, passivos, patrimônio líquido, variações patrimoniais e
+            liquidez.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2024/vitoria/gestaoFiscal/educacaoFundeb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fundeb e limites com educação
+            </a>
+            : destinação e recebimento de recursos do Fundeb em 2024, com as
+            despesas com educação comparadas aos limites legais.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">06/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/saude/visaoGeral"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Painéis de saúde: estabelecimentos, leitos, equipamentos e gastos
+            </a>
+            : estabelecimentos, leitos, equipamentos e valores aplicados na função
+            saúde por município.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">05/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2023/vitoria/gestaoFiscal/capag"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Índice de Vulnerabilidade Fiscal (IVF) dos municípios
+            </a>
+            : grau de vulnerabilidade das finanças municipais, com base em
+            endividamento, liquidez, margem e Índice de Situação Previdenciária.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">04/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2024/vila-velha/previdencia/planoAmortizacao/076E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Planos de amortização dos RPPS (Regimes Próprios de Previdência
+              Social)
+            </a>
+            : detalha o plano de amortização do déficit atuarial do RPPS.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">03/2024</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2023/vitoria/previdencia/contribuicaoPrevidenciaria/077E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contribuições Previdenciárias Patronais
+            </a>
+            : contribuições devidas e pagas pelas unidades gestoras municipais ao
+            respectivo RPPS, extraídas das remessas mensais do CidadES.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/pessoal/ingressosDesligamentos/2024/null/null/null/null/1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ingressos e desligamentos na Administração Pública
+            </a>
+            : agora com visualização por cargo e unidade gestora.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/pessoal/vantagensDescontos/2024/null/null/null/null/1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vantagens e descontos na Administração Pública
+            </a>
+            : valores apurados em determinado período e sua evolução.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/pessoal/afastamento/2024/null/null/null/null/1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Afastamentos na Administração Pública
+            </a>
+            : servidores afastados por lotação, cargo, tipo de afastamento e
+            unidade gestora.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">11/2023</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/educacao/visaoGeral"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Painel de Educação
+            </a>
+            : passa a apresentar Ideb, Paebes, avaliação de fluência e taxa de
+            abandono escolar.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/execucaoOrcamentaria/receita"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Execução orçamentária municipal
+            </a>
+            : arrecadação das receitas estimadas e realização das despesas
+            autorizadas.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/saneamentoBasico/aguaEsgoto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Observatório do saneamento básico
+            </a>
+            : situação dos serviços de água e esgotamento sanitário no estado e
+            em seus municípios, em sete painéis.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/saude/planoSaude"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Planos municipais de saúde
+            </a>
+            : metas e cumprimento nos municípios do Espírito Santo.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/fiscalizacoes/crimesContraPatrimonio/2022"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Investigação dos crimes contra o patrimônio
+            </a>
+            : auditoria sobre a eficácia do esclarecimento dos crimes contra o
+            patrimônio.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">10/2023</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2023/vitoria/previdencia/situacaoPrevidenciaria/077E0900001"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Índice de Situação Previdenciária 2023
+            </a>
+            : ISP-RPPS obtido pelos institutos de previdência do estado e dos
+            municípios em 2023.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">09/2023</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/rankings/2022/gestaoFiscal/balancoPatrimonial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rankings sobre superávit e déficit financeiro
+            </a>
+            : além do ranking consolidado por município, foram criados rankings
+            para os Regimes Próprios de Previdência Social (RPPS), para os demais
+            órgãos (exceto RPPS) e para a relação entre superávit/déficit e a
+            Receita Corrente Líquida (RCL).
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
+        <h5 className="mb-1 font-normal">08/2023</h5>
+        <hr />
+        <ul className="styled">
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2023/vitoria/gestaoFiscal/capag"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Capacidade de Pagamento (CAPAG) dos municípios
+            </a>
+            : indica se um novo endividamento representa risco de crédito, com base
+            em endividamento, poupança corrente e índice de liquidez.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/prestacaoConta/processo/2022/municipios/null/06/Gestão"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Disponibilização das Prestações de Contas Anuais não autuadas
+            </a>
+            : critérios adotados a partir do exercício de 2021 para a constituição
+            de processos de PCA, conforme a Resolução TC 352/2021.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/municipio/2023/vitoria/gestaoFiscal/educacaoFundeb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fundeb e limites com educação
+            </a>
+            : destinação e recebimento de recursos do Fundeb em 2023, com as
+            despesas com educação comparadas aos limites legais.
+          </li>
+        </ul>
+      </div>
+      <div className="p-2">
         <h5 className="mb-1 font-normal">07/2023</h5>
         <hr />
         <ul className="styled">
@@ -31,6 +659,18 @@ export default function Novidades({ className, ...props }: Props) {
               Receita Corrente Líquida (RCL)
             </Link>
             nos municípios.
+          </li>
+          <li>
+            <a
+              href="https://paineldecontrole.tcees.tc.br/areasTematicas/assistenciaSocial/referenciamento"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Painéis de Assistência Social
+            </a>
+            : informações do Censo do SUAS sobre os CRAS (capacidade de
+            referenciamento, espaço físico e equipamentos, serviços e recursos
+            humanos).
           </li>
         </ul>
       </div>
@@ -103,7 +743,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Resultado da Fiscalização sobre
-            <Link href="/cancerColoDeUtero/2022" prefetch={false}>
+            <Link href="/fiscalizacao/2022/saude/cancer-colo-de-utero" prefetch={false}>
               Câncer de colo de útero
             </Link>{" "}
             prefetch={false}, ano de 2022.
@@ -118,7 +758,7 @@ export default function Novidades({ className, ...props }: Props) {
             </Link>
             e dos
             <Link
-              href="/municipio/202/vitoria/previdencia-receita/077E0900001"
+              href="/municipio/2022/vitoria/previdencia-receita/077E0900001"
               prefetch={false}
             >
               municípios
@@ -404,7 +1044,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Resultado da Fiscalização de
-            <Link href="/saude/doencasCronicas/2021" prefetch={false}>
+            <Link href="/fiscalizacao/2021/saude/doencas-cronicas-nao-transmissiveis" prefetch={false}>
               Doenças Crônicas Não Transmissíveis
             </Link>
             no ano de 2021.
@@ -462,7 +1102,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking que permite comparar a
             <Link
-              href="/rankings/2021/municipios/resultado-despesasCorrentesReceitasCorrentes"
+              href="/rankings/2021/gestao-fiscal/despesa-corrente-x-receita-corrente"
               prefetch={false}
             >
               relação de despesas correntes e receitas correntes
@@ -538,7 +1178,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel sobre o
-            <Link href="/IEGM/2018/iIEGM" prefetch={false}>
+            <Link href="/fiscalizacao/2018/iegm/geral" prefetch={false}>
               Índice de Efetividade da Gestão Municipal (IEGM) 2018
             </Link>
             .
@@ -757,7 +1397,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Painel com informações sobre o
-            <Link href="/estado/2019/iege" prefetch={false}>
+            <Link href="/fiscalizacao/2019/iege" prefetch={false}>
               Índice de Efetividade da Gestão Estadual (IEGE)
             </Link>
             , referente ao exercício de 2019
@@ -1036,7 +1676,7 @@ export default function Novidades({ className, ...props }: Props) {
           </li>
           <li>
             Nova seção
-            <Link href="/fiscalizacoes/receita-municipal" prefetch={false}>
+            <Link href="/fiscalizacao/receita-municipal" prefetch={false}>
               &quot;Receita Pública Municipal&quot;
             </Link>
             , onde são apresentados resultados das auditorias temáticas de
@@ -1128,7 +1768,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2020/municipios/educacao-educacaoPorAplicacaoFUNDEB"
+              href="/rankings/2020/educacao/recurso-fundeb"
               prefetch={false}
             >
               Aplicação do FUNDEB
@@ -1197,7 +1837,7 @@ export default function Novidades({ className, ...props }: Props) {
             Inclusão do ranking do limite constitucional da despesa total do
             <Link
               title="Poder Legislativo (artigo 29-A da Constituição Federal)"
-              href="/rankings/2016/municipios/despesa-despesaLegislativoArtigo29"
+              href="/rankings/2016/despesa/poder-legislativo"
               prefetch={false}
             >
               Poder Legislativo (artigo 29-A da Constituição Federal)
@@ -1234,7 +1874,7 @@ export default function Novidades({ className, ...props }: Props) {
         <ul className="styled">
           <li>
             Dados do
-            <Link href="/IEGM/2015/indiceIEGM" prefetch={false}>
+            <Link href="/fiscalizacao/2015/iegm/geral" prefetch={false}>
               Índice de Efetividade da Gestão Municipal
             </Link>
             de 2015
@@ -1251,7 +1891,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
+              href="/rankings/2017/resultado/despesa-liquidada-x-receita-arrecadada"
               prefetch={false}
             >
               Receitas Arrecadadas x Despesas Liquidadas
@@ -1261,7 +1901,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
+              href="/rankings/2017/resultado/despesa-liquidada-x-despesa-paga"
               prefetch={false}
             >
               Despesas Liquidadas x Despesas Pagas

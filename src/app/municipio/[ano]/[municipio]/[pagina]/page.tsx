@@ -1,35 +1,18 @@
-import { globalState } from "@/shared/globalState";
 import { redirect } from "next/navigation";
-import { generateGestaoFiscalUrl } from "../gestao-fiscal/routes";
-import { generateGestaoOrcamentariaUrl } from "../gestao-orcamentaria/routes";
-import { MunicipioPageProps, generateMunicipioUrl } from "../routes";
+import { MunicipioPageProps, getUrlBaseMunicipio } from "../routes";
 
 type Props = { params: Promise<MunicipioPageProps> };
 
-const redirects = new Map<string, (params: any) => string>([
-  ["area-tematica", () => "/area-tematica/concessao-publica/visao-geral"],
-  ["gestao-fiscal", generateGestaoFiscalUrl],
-  ["gestao-orcamentaria", generateGestaoOrcamentariaUrl],
-]);
+/**
+ * /municipio/[ano]/[municipio]/<pagina> sem page.tsx própria (páginas da raiz
+ * ainda não implementadas, slugs antigos): vai para a visão geral. As seções
+ * (gestao-fiscal etc.) têm a própria page.tsx que redireciona para a página padrão.
+ */
+export default async function Page({ params }: Props) {
+  const { ano, municipio, pagina } = await params;
 
-export default async function Page(props: Props) {
-	const resolvedParams = await props.params;
-  const pagina = resolvedParams.pagina;
-
-  for (const [key, getUrl] of redirects) {
-    if (pagina === key) {
-      const url = getUrl({
-        ...resolvedParams,
-        pathname: "",
-      });
-      return redirect(url);
-    }
+  if (pagina === "area-tematica") {
+    redirect("/area-tematica/assistencia-social/referenciamento");
   }
-  const url = generateMunicipioUrl({
-    ...resolvedParams,
-    globalState,
-    pagina: "",
-    pathname: "",
-  });
-  redirect(url);
+  redirect(`${getUrlBaseMunicipio(ano, municipio)}/visao-geral`);
 }

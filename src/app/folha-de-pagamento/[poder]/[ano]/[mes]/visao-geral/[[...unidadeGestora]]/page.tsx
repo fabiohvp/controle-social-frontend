@@ -1,10 +1,29 @@
+import {
+  ContribuicaoPrevidenciariaWidget,
+  DescontosWidget,
+  PagamentosConsolidadosWidget,
+  SituacaoRemessaWidget,
+  VantagensDestaqueWidget,
+  VantagensWidget,
+} from "@/app/folha-de-pagamento/_components/visao-geral/VisaoGeralWidgets";
 import { FOLHA_DE_PAGAMENTO_PANEL_TITLE } from "@/app/folha-de-pagamento/folhaDePagamentoConstants";
 import PessoalIcon from "@/components/images/icons/PessoalIcon";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
 import PanelWithTitleCollapsible from "@/components/panel/PanelWithTitleCollapsible";
 import BreadcrumbFolhaDePagamento from "../../BreadcrumbFolhaDePagamento";
 
-export default function Page() {
+type Props = {
+  params: Promise<{
+    ano: string;
+    mes: string;
+    poder: string;
+    unidadeGestora?: string[];
+  }>;
+};
+
+export default async function Page({ params }: Props) {
+  const filtros = await params;
+
   return (
     <DashboardLayout
       className="px-2 pt-2"
@@ -32,9 +51,16 @@ export default function Page() {
         </div>
       </PanelWithTitleCollapsible>
       <div className="mt-2">
-        <h3>Agentes públicos ativos</h3>
+        <h3>Informações consolidadas</h3>
         <hr />
-        {/* <div>TODO: implementar graficos</div> */}
+        <div className="gap-2 grid grid-cols-1 md:grid-cols-3 mt-2">
+          <PagamentosConsolidadosWidget filtros={filtros} />
+          <ContribuicaoPrevidenciariaWidget filtros={filtros} />
+          <SituacaoRemessaWidget filtros={filtros} />
+          <VantagensDestaqueWidget filtros={filtros} />
+          <VantagensWidget filtros={filtros} />
+          <DescontosWidget filtros={filtros} />
+        </div>
       </div>
     </DashboardLayout>
   );

@@ -1,5 +1,4 @@
 import { EsferaAdministrativa } from "@/types/EsferaAdministrativa";
-import { ENV } from "./env";
 import { getMunicipios } from "./municipio";
 
 type GlobalStateAno = {
@@ -15,11 +14,6 @@ export type GlobalState = {
     municipio: GlobalStateAno;
     obrigacaoEnvio: GlobalStateAno;
     prestacaoDeConta: GlobalStateAno;
-  };
-  apis: {
-    google: {
-      key: string;
-    };
   };
   //consorcio: EsferaAdministrativa;
   //estado: EsferaAdministrativa;
@@ -57,11 +51,6 @@ export async function initGlobalState() {
           prestacaoDeConta: {
             anoInicio: 2023,
             anoAtual: 2023,
-          },
-        },
-        apis: {
-          google: {
-            key: ENV.apiGoogleMapsKey,
           },
         },
         municipio: municipios.find((o) => o.codigo === "077")!,
