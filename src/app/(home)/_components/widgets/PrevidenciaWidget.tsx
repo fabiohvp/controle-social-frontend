@@ -13,7 +13,7 @@ export default function PrevidenciaWidget(props: Props) {
 
   return (
     <Link
-      href={`/municipio/2023/${municipio.nomeNormalizado}/previdencia/receita`}
+      href={`/municipio/2023/${municipio.nomeNormalizado}/previdencia/receitas`}
       className={twMerge(
         "bg-neutral-100 flex justify-center gap-20 p-12",
         props.className
