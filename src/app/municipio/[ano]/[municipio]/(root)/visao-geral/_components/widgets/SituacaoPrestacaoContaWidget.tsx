@@ -1,3 +1,4 @@
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { BsArrowReturnRight } from "react-icons/bs";
@@ -59,11 +60,12 @@ async function getData(
 ) {
   const municipios = await getMunicipios();
   const codigo = getCodigoMunicipio(municipios, municipio!);
-  const res = await fetch(
+  if (!codigo) return [];
+  const data = await fetchJson<Data[]>(
     `${ENV.apiUrl}/MunicipioControllers/PrestacaoConta/GetProcessosPrefeituraECamara?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
   );
-  const data = (await res.json()) as Data[];
+  if (!Array.isArray(data)) return [];
   return data.filter((o) =>
-    o.processo.unidadesGestoras.some((p) => p.codigo.includes(codigoFiltro))
+    o?.processo?.unidadesGestoras?.some((p) => p?.codigo?.includes(codigoFiltro))
   );
 }

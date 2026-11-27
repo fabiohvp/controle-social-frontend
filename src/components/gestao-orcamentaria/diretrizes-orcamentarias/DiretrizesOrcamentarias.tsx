@@ -50,18 +50,17 @@ function Item({ titulo, valor }: { titulo: string; valor: string | number }) {
   );
 }
 
+export function getAnoInicialPpa(ano: number): number {
+  return 2018 + Math.floor((ano - 2018) / 4) * 4;
+}
+
 export default async function DiretrizesOrcamentarias({
   esfera,
   anoExercicio,
-  anoLdo,
-}: EsferaProps & { anoLdo?: number }) {
-  const anosQuadrienio = [0, 1, 2, 3].map((i) => anoExercicio + i);
-  const anoSelecionado = anosQuadrienio.includes(anoLdo ?? 0)
-    ? (anoLdo as number)
-    : anoExercicio;
+}: EsferaProps) {
   const parametros = {
-    anoInicialPPAVigente: anoExercicio,
-    anoVigenciaLDO: anoSelecionado,
+    anoInicialPPAVigente: getAnoInicialPpa(anoExercicio),
+    anoVigenciaLDO: anoExercicio,
   };
 
   const [ldos, programas] = await Promise.all([
@@ -90,21 +89,6 @@ export default async function DiretrizesOrcamentarias({
           liquidadas e os restos a pagar não processados liquidados.
         </strong>
       </AlertPanel>
-
-      <nav aria-label="Ano da LDO" className="flex gap-1 border-b border-gray-300">
-        {anosQuadrienio.map((ano) => (
-          <Link
-            key={ano}
-            href={`?ldo=${ano}`}
-            scroll={false}
-            prefetch={false}
-            aria-current={ano === anoSelecionado ? "page" : undefined}
-            className={`px-4 py-2 ${ano === anoSelecionado ? "border-b-2 border-blue-dark font-bold text-blue-dark" : "text-gray-dark"}`}
-          >
-            {ano}
-          </Link>
-        ))}
-      </nav>
 
       {!ldo ? (
         <AlertPanel type="warning">

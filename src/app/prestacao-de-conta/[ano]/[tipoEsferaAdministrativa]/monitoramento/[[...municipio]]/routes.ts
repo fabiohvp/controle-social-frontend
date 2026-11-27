@@ -1,6 +1,6 @@
 export type MonitoramentoPageProps = {
   ano: string;
-  municipio: string;
+  municipio?: string | string[];
   tipoEsferaAdministrativa: string;
 };
 
@@ -12,7 +12,8 @@ export function generateMonitoramentoUrl({
   if (tipoEsferaAdministrativa === "estado") {
     return `/prestacao-de-conta/${ano}/${tipoEsferaAdministrativa}/monitoramento`;
   }
+  const mun = Array.isArray(municipio) ? municipio[0] : municipio;
   return `/prestacao-de-conta/${ano}/${tipoEsferaAdministrativa}/monitoramento/${
-    municipio ?? "todos"
+    mun ?? "todos"
   }`;
 }

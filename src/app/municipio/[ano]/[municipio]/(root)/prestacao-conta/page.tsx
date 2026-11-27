@@ -1,15 +1,16 @@
+import PrestacaoContaRaiz from "@/components/prestacao-conta/PrestacaoContaRaiz";
+import { getEsferaMunicipio } from "@/shared/esfera";
+import { notFound } from "next/navigation";
 import { MunicipioPageProps } from "../../routes";
 
-// TODO #9: implementar (layout/sidebar/breadcrumb vêm de (root)/layout.tsx)
 export default async function Page({
   params,
 }: {
   params: Promise<MunicipioPageProps>;
 }) {
   const { ano, municipio } = await params;
-  return (
-    <>
-      Prestação conta: {ano} {municipio}
-    </>
-  );
+  const esfera = await getEsferaMunicipio(municipio);
+  if (!esfera) notFound();
+
+  return <PrestacaoContaRaiz ano={ano} esfera={esfera} />;
 }

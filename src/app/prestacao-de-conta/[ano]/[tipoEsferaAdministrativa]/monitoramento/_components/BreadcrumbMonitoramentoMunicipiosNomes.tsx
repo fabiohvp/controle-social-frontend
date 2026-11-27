@@ -29,6 +29,10 @@ export default function BreadcrumbMonitoramentoMunicipiosNomes({
     return <></>;
   }
 
+  const currentMunicipio = Array.isArray(routeParams.municipio)
+    ? routeParams.municipio[0]
+    : routeParams.municipio || "todos";
+
   return (
     <li>
       <DropdownLinks<unknown>
@@ -47,7 +51,7 @@ export default function BreadcrumbMonitoramentoMunicipiosNomes({
             ])
           )
         }
-        selected={createDropdownValue(routeParams.municipio)}
+        selected={createDropdownValue(currentMunicipio)}
       />
     </li>
   );

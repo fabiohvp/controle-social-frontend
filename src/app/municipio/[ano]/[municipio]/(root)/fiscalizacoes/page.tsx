@@ -19,7 +19,7 @@ export default async function Page({
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
           <Link
-            href={`/fiscalizacao/${ano}/controle-interno/prefeituras`}
+            href="/fiscalizacao/2020/controle-interno/prefeituras"
             className="p-4 rounded border hover:bg-neutral-50 transition"
           >
             <h3 className="font-semibold text-primary">Controle Interno</h3>
@@ -28,7 +28,7 @@ export default async function Page({
             </p>
           </Link>
           <Link
-            href={`/fiscalizacao/${ano}/portal-transparencia/prefeituras`}
+            href="/fiscalizacao/2020/portal-transparencia/prefeituras"
             className="p-4 rounded border hover:bg-neutral-50 transition"
           >
             <h3 className="font-semibold text-primary">Portais de Transparência</h3>
@@ -37,7 +37,7 @@ export default async function Page({
             </p>
           </Link>
           <Link
-            href={`/fiscalizacao/${ano}/transparencia-passiva/prefeituras`}
+            href="/fiscalizacao/2018/transparencia-passiva/prefeituras"
             className="p-4 rounded border hover:bg-neutral-50 transition"
           >
             <h3 className="font-semibold text-primary">Transparência Passiva</h3>

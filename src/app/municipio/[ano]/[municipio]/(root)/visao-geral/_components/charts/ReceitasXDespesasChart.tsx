@@ -1,13 +1,14 @@
 "use client";
 import { Ipca, ipcaState } from "@/components/buttons/ipca/ipcaState";
 import EChart from "@/components/charts/EChart";
-import { formatCurrencyKMB } from "@/formatters/number";
+import { formatCurrency, formatCurrencyKMB } from "@/formatters/number";
 import { calculateIpca } from "@/shared/math";
 import { COLOR } from "@/theme/colors";
 import { BarChart } from "echarts/charts";
 import {
   DatasetComponent,
   GridComponent,
+  TooltipComponent,
   VisualMapComponent,
 } from "echarts/components";
 import type { EChartsCoreOption } from "echarts/core";
@@ -31,10 +32,20 @@ type Props = {
 function getOptions(props: Props, ipca: Ipca) {
   return {
     grid: {
-      bottom: 0,
-      left: 120,
+      bottom: 25,
+      left: 130,
       top: 10,
       right: 60,
+      containLabel: false,
+    },
+    tooltip: {
+      trigger: "item",
+      formatter: (params: any) => {
+        const val = ipca.enabled
+          ? calculateIpca(params.value, parseInt(props.ano), ipca.values)
+          : params.value;
+        return `${params.name}: <b>${formatCurrency(val)}</b>`;
+      },
     },
     yAxis: {
       axisLine: { show: false },
@@ -50,6 +61,9 @@ function getOptions(props: Props, ipca: Ipca) {
     xAxis: {
       splitLine: { show: false },
       type: "value",
+      axisLabel: {
+        formatter: (value: number) => formatCurrencyKMB(value),
+      },
     },
     series: [
       {
@@ -102,10 +116,11 @@ export default function ReceitasXDespesasChart(props: Props) {
 
   return (
     <EChart
-      style={{ height: "130px" }}
+      style={{ height: "140px" }}
       components={[
         DatasetComponent,
         GridComponent,
+        TooltipComponent,
         VisualMapComponent,
         BarChart,
         CanvasRenderer,

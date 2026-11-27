@@ -6,10 +6,13 @@ const PT_BR_FLOAT_FORMAT = new Intl.NumberFormat("pt-BR", {
 const PT_BR_INT_FORMAT = new Intl.NumberFormat("pt-BR");
 
 export function formatCurrency(value: number, fractionDigits = 2) {
-  if (!value) {
+  if (value === undefined || value === null || isNaN(value)) {
     value = 0;
   }
-  return value.toFixed(fractionDigits).replace(".", ",");
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(value);
 }
 
 export function formatCurrencyKMB(value: number) {

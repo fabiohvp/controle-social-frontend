@@ -1,6 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -30,10 +31,13 @@ export async function SaudeWidget({
   style,
 }: MunicipioPanelProps) {
   const data = await getData({ ano, municipio });
+  const hasValue =
+    data?.aplicacaoPercentual != null &&
+    !Number.isNaN(Number(data.aplicacaoPercentual));
 
   return (
     <PanelWithTitle
-      bodyProps={{ style }}
+      bodyProps={{ className: hasValue ? undefined : "center", style }}
       header="Saúde"
       legend={
         <LegendaTooltip id="saude-tooltip">
@@ -47,10 +51,14 @@ export async function SaudeWidget({
         </LegendaTooltip>
       }
     >
-      <GaugeChart
-        {...CHART_SETTINGS}
-        selectedValue={data.aplicacaoPercentual / 100}
-      />
+      {hasValue ? (
+        <GaugeChart
+          {...CHART_SETTINGS}
+          selectedValue={Number(data!.aplicacaoPercentual) / 100}
+        />
+      ) : (
+        <div className="m-auto opacity-60 text-sm">Sem dados</div>
+      )}
     </PanelWithTitle>
   );
 }
@@ -59,10 +67,9 @@ const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
-    const res = await fetch(
+    if (!codigo) return null;
+    return fetchJson<{ aplicacaoPercentual?: number; [key: string]: unknown }>(
       `${ENV.apiUrl}/MunicipioControllers/Saude/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
-    const data = await res.json();
-    return data as { [key: string]: number };
   }
 );

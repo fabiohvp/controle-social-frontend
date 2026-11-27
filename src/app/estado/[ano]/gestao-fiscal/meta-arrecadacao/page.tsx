@@ -1,11 +1,17 @@
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
+import MetaArrecadacao from "@/components/gestao-fiscal/meta-arrecadacao/MetaArrecadacao";
+import { ESFERA_ESTADO } from "@/shared/esfera";
 
-// TODO #9: implementar (layout/sidebar/breadcrumb vêm de gestao-fiscal/layout.tsx)
 export default async function Page({
   params,
 }: {
   params: Promise<EstadoPageProps>;
 }) {
   const { ano } = await params;
-  return <>Metas de arrecadação: {ano}</>;
+  return (
+    <MetaArrecadacao
+      esfera={ESFERA_ESTADO}
+      anoExercicio={Number(ano)}
+    />
+  );
 }

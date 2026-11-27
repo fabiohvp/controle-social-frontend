@@ -1,6 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -31,7 +32,7 @@ const CHART_SETTINGS = {
     },
   ],
   style: { height: "200px" },
-  title: "Tende a obedecer ao limite de 120% da RCL", //TODO: condicional para quando o valor ultrapassar
+  title: "Tende a obedecer ao limite de 120% da RCL",
 };
 
 export async function DividaConsolidadaLiquidaWidget({
@@ -43,7 +44,7 @@ export async function DividaConsolidadaLiquidaWidget({
 
   return (
     <PanelWithTitle
-      bodyProps={{ style }}
+      bodyProps={{ className: data ? undefined : "center", style }}
       header="Desp. x receitas correntes"
       legend={
         <LegendaTooltip id="despesa-receita-correntes-tooltip">
@@ -62,7 +63,11 @@ export async function DividaConsolidadaLiquidaWidget({
         </LegendaTooltip>
       }
     >
-      <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
+      {data?.valorApurado != null ? (
+        <GaugeChart {...CHART_SETTINGS} selectedValue={data.valorApurado / 100} />
+      ) : (
+        <div className="m-auto opacity-60 text-sm">Sem dados</div>
+      )}
     </PanelWithTitle>
   );
 }
@@ -71,17 +76,23 @@ const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
-    const res = await fetch(
+    if (!codigo) return null;
+    const res = await fetchJson<{
+      valorAlerta?: number;
+      valorApurado?: string | number;
+      valorMaximo?: number;
+    }>(
       `${ENV.apiUrl}/MunicipioControllers/LimiteDespesaReceita/GetLimiteDespesaReceita?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
-    const data = await res.json();
+    if (!res || res.valorApurado == null) return null;
+    const valorApuradoNum =
+      typeof res.valorApurado === "number"
+        ? res.valorApurado
+        : parseFloat(String(res.valorApurado).replace(",", "."));
     return {
-      ...data,
-      valorApurado: parseFloat(data?.valorApurado.replace(",", ".")),
-    } as {
-      valorAlerta: number;
-      valorApurado: number;
-      valorMaximo: number;
+      valorAlerta: Number(res.valorAlerta ?? 0),
+      valorApurado: valorApuradoNum,
+      valorMaximo: Number(res.valorMaximo ?? 0),
     };
   }
 );

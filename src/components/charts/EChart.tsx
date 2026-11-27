@@ -16,6 +16,8 @@ import { twMerge } from "tailwind-merge";
 // @ts-ignore-next-line
 import EChartsLanguageEnglish from "echarts/i18n/langEN";
 
+import ChartSkeleton from "./ChartSkeleton";
+
 export type LabelFormatter = {
   fontSize: number | string;
   fontWeight: "normal" | "bold" | "bolder" | "lighter" | number;
@@ -49,7 +51,10 @@ export default function EChart({
   ...props
 }: Props) {
   const [chart, setChart] = useState<EChartsType>();
-  const element = useCallback((element: HTMLDivElement) => {
+  const [isReady, setIsReady] = useState(false);
+
+  const element = useCallback((element: HTMLDivElement | null) => {
+    if (!element) return;
     use(components);
 
     registerLocale("EN", EChartsLanguageEnglish);
@@ -58,6 +63,7 @@ export default function EChart({
 
     chart.setOption(options);
     setChart(chart);
+    setIsReady(true);
 
     const resizeChart = () => {
       chart.resize();
@@ -72,7 +78,7 @@ export default function EChart({
 
   useEffect(() => {
     chart?.setOption(options, settings);
-  }, [options, settings]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
+  }, [options, settings]);
 
   useEffect(() => {
     if (loading === true) {
@@ -83,11 +89,18 @@ export default function EChart({
   }, [loading]);
 
   return (
-    <div
-      ref={element}
-      className={twMerge("echart", className)}
-      style={{ width: "100%", height: "100%", ...style }}
-      {...props}
-    />
+    <div className="relative w-full" style={{ height: style?.height ?? "100%", width: style?.width ?? "100%" }}>
+      {(!isReady || loading) && (
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <ChartSkeleton height="100%" />
+        </div>
+      )}
+      <div
+        ref={element}
+        className={twMerge("echart", className)}
+        style={{ width: "100%", height: "100%", ...style }}
+        {...props}
+      />
+    </div>
   );
 }

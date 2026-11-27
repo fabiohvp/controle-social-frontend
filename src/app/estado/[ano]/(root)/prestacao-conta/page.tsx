@@ -1,11 +1,13 @@
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
+import PrestacaoContaRaiz from "@/components/prestacao-conta/PrestacaoContaRaiz";
+import { ESFERA_ESTADO } from "@/shared/esfera";
 
-// TODO #9: implementar (layout/sidebar/breadcrumb vêm de (root)/layout.tsx)
 export default async function Page({
   params,
 }: {
   params: Promise<EstadoPageProps>;
 }) {
   const { ano } = await params;
-  return <>Prestação conta: {ano}</>;
+  return <PrestacaoContaRaiz ano={ano} esfera={ESFERA_ESTADO} />;
 }
+

@@ -22,7 +22,7 @@ export const PAGINAS_GESTAO_ORCAMENTARIA: Pagina[] = [
     slug: "diretrizes-orcamentarias",
     titulo: "Diretrizes orçamentárias",
     implementado: true,
-    anos: [2026, 2022, 2018],
+    anos: gerarAnos(2018),
   },
   {
     slug: "programas-e-acoes",

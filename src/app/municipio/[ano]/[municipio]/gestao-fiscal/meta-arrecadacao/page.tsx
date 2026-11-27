@@ -1,15 +1,21 @@
+import MetaArrecadacao from "@/components/gestao-fiscal/meta-arrecadacao/MetaArrecadacao";
+import { getEsferaMunicipio } from "@/shared/esfera";
+import { notFound } from "next/navigation";
 import { MunicipioPageProps } from "../../routes";
 
-// TODO #9: implementar (layout/sidebar/breadcrumb vêm de gestao-fiscal/layout.tsx)
 export default async function Page({
   params,
 }: {
   params: Promise<MunicipioPageProps>;
 }) {
   const { ano, municipio } = await params;
+  const esfera = await getEsferaMunicipio(municipio);
+  if (!esfera) notFound();
+
   return (
-    <>
-      Metas de arrecadação: {ano} {municipio}
-    </>
+    <MetaArrecadacao
+      esfera={esfera}
+      anoExercicio={Number(ano)}
+    />
   );
 }

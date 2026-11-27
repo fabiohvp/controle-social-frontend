@@ -1,6 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -40,10 +41,12 @@ export async function PessoalLegislativoWidget({
   style,
 }: MunicipioPanelProps) {
   const data = await getData({ ano, municipio });
+  const hasValue =
+    data?.valorPercentual != null && !Number.isNaN(Number(data.valorPercentual));
 
   return (
     <PanelWithTitle
-      bodyProps={{ style }}
+      bodyProps={{ className: hasValue ? undefined : "center", style }}
       header="Pessoal - Legislativo"
       legend={
         <LegendaTooltip id="pessoal-legislativo-tooltip">
@@ -65,10 +68,14 @@ export async function PessoalLegislativoWidget({
         </LegendaTooltip>
       }
     >
-      <GaugeChart
-        {...CHART_SETTINGS}
-        selectedValue={data.valorPercentual / 100}
-      />
+      {hasValue ? (
+        <GaugeChart
+          {...CHART_SETTINGS}
+          selectedValue={Number(data!.valorPercentual) / 100}
+        />
+      ) : (
+        <div className="m-auto opacity-60 text-sm">Sem dados</div>
+      )}
     </PanelWithTitle>
   );
 }
@@ -77,10 +84,9 @@ const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
-    const res = await fetch(
+    if (!codigo) return null;
+    return fetchJson<{ valorPercentual?: number; [key: string]: unknown }>(
       `${ENV.apiUrl}/MunicipioControllers/PessoalLegislativo/GetSumario?idEsferaAdministrativa=${codigo}&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
-    const data = await res.json();
-    return data as { [key: string]: number };
   }
 );

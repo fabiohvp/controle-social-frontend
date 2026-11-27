@@ -1,11 +1,12 @@
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
+import ObrigacaoEnvioEnte from "@/components/obrigacao-de-envio/ObrigacaoEnvioEnte";
+import { ESFERA_ESTADO } from "@/shared/esfera";
 
-// TODO #9: implementar (layout/sidebar/breadcrumb vêm de (root)/layout.tsx)
 export default async function Page({
   params,
 }: {
   params: Promise<EstadoPageProps>;
 }) {
   const { ano } = await params;
-  return <>Obrigação Envio: {ano}</>;
+  return <ObrigacaoEnvioEnte ano={ano} esfera={ESFERA_ESTADO} />;
 }

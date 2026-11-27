@@ -1,6 +1,7 @@
 import GaugeChart from "@/components/charts/GaugeChart";
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { COLOR } from "@/theme/colors";
@@ -35,10 +36,11 @@ export async function FundoPrevidenciarioWidget({
   style,
 }: MunicipioPanelProps) {
   const data = await getData({ ano, municipio });
+  const hasValue = data?.valor != null && !Number.isNaN(Number(data.valor));
 
   return (
     <PanelWithTitle
-      bodyProps={{ style }}
+      bodyProps={{ className: hasValue ? undefined : "center", style }}
       header="Previdência - Fundo Previdenciário"
       legend={
         <LegendaTooltip id="previdencia-fundo-previdenciario-tooltip">
@@ -53,7 +55,11 @@ export async function FundoPrevidenciarioWidget({
         </LegendaTooltip>
       }
     >
-      <GaugeChart {...CHART_SETTINGS} selectedValue={Math.abs(data?.valor)} />
+      {hasValue ? (
+        <GaugeChart {...CHART_SETTINGS} selectedValue={Math.abs(Number(data!.valor))} />
+      ) : (
+        <div className="m-auto opacity-60 text-sm">Sem dados</div>
+      )}
     </PanelWithTitle>
   );
 }
@@ -62,10 +68,9 @@ const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
-    const res = await fetch(
+    if (!codigo) return null;
+    return fetchJson<{ valor?: number; [key: string]: unknown }>(
       `${ENV.apiUrl}/PrevidenciaControllers/Patrimonio/GetIValorIndiceCobertura?codigoUnidadeGestora=${codigo}E0900002&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
-    const data = await res.json();
-    return data as { [key: string]: number };
   }
 );

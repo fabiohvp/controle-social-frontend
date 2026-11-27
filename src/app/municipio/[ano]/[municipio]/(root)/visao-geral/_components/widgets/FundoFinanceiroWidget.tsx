@@ -1,6 +1,7 @@
 import PanelWithTitle from "@/components/panel/PanelWithTitle";
 import LegendaTooltip from "@/components/tooltip/LegendaTooltip";
 import { formatCurrency } from "@/formatters/number";
+import { fetchJson } from "@/shared/api";
 import { ENV } from "@/shared/env";
 import { getCodigoMunicipio, getMunicipios } from "@/shared/municipio";
 import { cache } from "react";
@@ -12,6 +13,7 @@ export async function FundoFinanceiroWidget({
   style,
 }: MunicipioPanelProps) {
   const data = await getData({ ano, municipio });
+  const hasValue = data?.valor != null && !Number.isNaN(Number(data.valor));
 
   return (
     <PanelWithTitle
@@ -29,9 +31,13 @@ export async function FundoFinanceiroWidget({
         </LegendaTooltip>
       }
     >
-      <div className="font-bold text-3xl">{formatCurrency(data?.valor)}</div>
+      <div className="font-bold text-3xl">
+        {hasValue ? formatCurrency(Number(data!.valor)) : "-"}
+      </div>
       <div className="text-sm">
-        Necessidade de cobertura financeira nos próximos 75 anos
+        {hasValue
+          ? "Necessidade de cobertura financeira nos próximos 75 anos"
+          : "Sem registro de fundo financeiro"}
       </div>
     </PanelWithTitle>
   );
@@ -41,10 +47,9 @@ const getData = cache(
   async ({ ano, municipio }: Partial<MunicipioPageProps>) => {
     const municipios = await getMunicipios();
     const codigo = getCodigoMunicipio(municipios, municipio!);
-    const res = await fetch(
+    if (!codigo) return null;
+    return fetchJson<{ valor?: number; [key: string]: unknown }>(
       `${ENV.apiUrl}/PrevidenciaControllers/Patrimonio/GetNecessidadeCoberturaFinanceira?codigoUnidadeGestora=${codigo}E0900001&anoExercicio=${ano}&v=${ENV.apiVersion}`
     );
-    const data = await res.json();
-    return data as { [key: string]: number };
   }
 );
