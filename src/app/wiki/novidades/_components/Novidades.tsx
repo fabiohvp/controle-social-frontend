@@ -462,7 +462,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking que permite comparar a
             <Link
-              href="/rankings/2021/municipios/resultado-despesasCorrentesReceitasCorrentes"
+              href="/rankings/2021/gestao-fiscal/despesa-corrente-x-receita-corrente"
               prefetch={false}
             >
               relação de despesas correntes e receitas correntes
@@ -1128,7 +1128,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2020/municipios/educacao-educacaoPorAplicacaoFUNDEB"
+              href="/rankings/2020/educacao/recurso-fundeb"
               prefetch={false}
             >
               Aplicação do FUNDEB
@@ -1197,7 +1197,7 @@ export default function Novidades({ className, ...props }: Props) {
             Inclusão do ranking do limite constitucional da despesa total do
             <Link
               title="Poder Legislativo (artigo 29-A da Constituição Federal)"
-              href="/rankings/2016/municipios/despesa-despesaLegislativoArtigo29"
+              href="/rankings/2016/despesa/poder-legislativo"
               prefetch={false}
             >
               Poder Legislativo (artigo 29-A da Constituição Federal)
@@ -1251,7 +1251,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2017/municipios/resultado-receitaArrecadadaDespesaLiquidada"
+              href="/rankings/2017/resultado/despesa-liquidada-x-receita-arrecadada"
               prefetch={false}
             >
               Receitas Arrecadadas x Despesas Liquidadas
@@ -1261,7 +1261,7 @@ export default function Novidades({ className, ...props }: Props) {
           <li>
             Ranking de &quot;
             <Link
-              href="/rankings/2017/municipios/resultado-despesaLiquidadaDespesaPaga"
+              href="/rankings/2017/resultado/despesa-liquidada-x-despesa-paga"
               prefetch={false}
             >
               Despesas Liquidadas x Despesas Pagas

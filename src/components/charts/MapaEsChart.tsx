@@ -33,6 +33,8 @@ export type SelectedRegion = {
   name: string;
   itemStyle: { color: string };
   silent: boolean;
+  /** Tooltip do município (exige `chartGeoOptions.tooltip.show`). */
+  tooltip?: { formatter: string };
 };
 
 export type MapaEsProps = {
@@ -40,6 +42,8 @@ export type MapaEsProps = {
   className?: string;
   chartGeoOptions?: Partial<GeoOption>;
   getChart?: Dispatch<SetStateAction<EChartsType | null>>;
+  /** Substitui o destino padrão do clique (mesma página no município clicado). */
+  getUrlMunicipio?: (nomeNormalizado: string) => string;
   legends?: { color: string; name: string; value: number }[];
   onInit?: (chart: EChartsType, ref: HTMLDivElement) => void;
   selectedRegions?: SelectedRegion[];
@@ -51,6 +55,7 @@ function MapaEsChart({
   className,
   chartGeoOptions,
   getChart,
+  getUrlMunicipio,
   legends,
   onInit,
   selectedRegions,
@@ -73,6 +78,10 @@ function MapaEsChart({
         municipios,
         params.name
       )!;
+      if (getUrlMunicipio) {
+        if (nomeNormalizado) push(getUrlMunicipio(nomeNormalizado));
+        return;
+      }
       push(
         generateMunicipioUrl({
           ...routeParams,
