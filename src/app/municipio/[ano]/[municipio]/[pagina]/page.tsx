@@ -7,7 +7,7 @@ import { MunicipioPageProps, generateMunicipioUrl } from "../routes";
 type Props = { params: Promise<MunicipioPageProps> };
 
 const redirects = new Map<string, (params: any) => string>([
-  ["area-tematica", () => "/area-tematica/concessao-publica/visao-geral"],
+  ["area-tematica", () => "/area-tematica/assistencia-social/referenciamento"],
   ["gestao-fiscal", generateGestaoFiscalUrl],
   ["gestao-orcamentaria", generateGestaoOrcamentariaUrl],
 ]);

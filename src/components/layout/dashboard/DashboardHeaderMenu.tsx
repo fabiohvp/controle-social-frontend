@@ -7,6 +7,7 @@ import FiscalizacaoIcon from "@/components/images/icons/header/FiscalizacaoIcon"
 import InteligenciaArtificialIcon from "@/components/images/icons/header/InteligenciaArtificialIcon";
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
+import ExternalLink from "@/components/links/ExternalLink";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
@@ -16,6 +17,7 @@ import { useParams, usePathname } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 const MES_DEFAULT = 1;
+const PAINEL_OFICIAL_URL = "https://paineldecontrole.tcees.tc.br";
 
 type AnoProps = {
   ano: string;
@@ -79,6 +81,7 @@ function DropdownAreasTematicas({}: {}) {
   const globalState = useGlobalState();
   const municipios = globalState.municipios;
   const params = useParams<AnoMesMunicipioProps>();
+  const isFolhaDePagamento = usePathname().startsWith("/folha-de-pagamento");
 
   return (
     <DropdownMenu icon={<AreaTematicaIcon />} title="Áreas temáticas">
@@ -110,11 +113,11 @@ function DropdownAreasTematicas({}: {}) {
           </Link>
         </DropdownItem>
         <DropdownItem>
-          {/* TODO: fix this link */}
           <Link
             href={`/folha-de-pagamento/executivo-municipal/${
-              params.ano ?? globalState.anos.folhaDePagamento.anoAtual
-            }/${params.mes ?? MES_DEFAULT}/visao-geral/${
+              (isFolhaDePagamento && params.ano) ||
+              globalState.anos.folhaDePagamento.anoAtual
+            }/${(isFolhaDePagamento && params.mes) || MES_DEFAULT}/visao-geral/${
               getCodigoMunicipio(municipios, params.municipio ?? "") ?? ""
             }`}
             prefetch={false}
@@ -133,9 +136,6 @@ function DropdownAreasTematicas({}: {}) {
 }
 
 function DropdownFiscalizacoes() {
-  const globalState = useGlobalState();
-  const params = useParams<AnoProps>();
-
   return (
     <DropdownMenu icon={<FiscalizacaoIcon />} title="Fiscalizações">
       <ul className="font-normal">
@@ -187,25 +187,22 @@ function DropdownFiscalizacoes() {
             Educação - Levantamento Oferta x Demanda
           </Link>
         </DropdownItem>
+        {/* TODO: trocar pelas rotas internas quando IEGE/IEGM forem implementados (docs/PLANO-IMPLEMENTACAO.md, Fase 6) */}
         <DropdownItem>
-          <Link
-            href={`/estado/${
-              params.ano ?? globalState.anos.estado.anoAtual
-            }/iege`}
-            prefetch={false}
+          <ExternalLink
+            href={`${PAINEL_OFICIAL_URL}/fiscalizacoes/iege/2019`}
+            rel="noopener noreferrer"
           >
             Índice de efetividade de gestão estadual (IEGE)
-          </Link>
+          </ExternalLink>
         </DropdownItem>
         <DropdownItem>
-          <Link
-            href={`/municipio/${
-              params.ano ?? globalState.anos.municipio.anoAtual
-            }/iegm`}
-            prefetch={false}
+          <ExternalLink
+            href={`${PAINEL_OFICIAL_URL}/fiscalizacoes/iegm/2023/iIEGM`}
+            rel="noopener noreferrer"
           >
             Índice de efetividade de gestão municipal (IEGM)
-          </Link>
+          </ExternalLink>
         </DropdownItem>
         <DropdownItem>
           <Link

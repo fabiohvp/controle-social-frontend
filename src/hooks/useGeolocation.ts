@@ -8,7 +8,6 @@ import { useCallback, useEffect, useState } from "react";
 interface EnrichedGeolocationCoordinates
   extends Partial<GeolocationCoordinates> {
   municipio: EsferaAdministrativa;
-  addresses?: google.maps.GeocoderResult[];
   timestamp?: GeolocationPosition["timestamp"];
   error?: GeolocationPositionError;
 }
@@ -18,7 +17,6 @@ function useGeolocation(
   isEnabled = true
 ): EnrichedGeolocationCoordinates {
   const globalState = useGlobalState();
-  const googleApiKey = globalState.apis.google.key;
 
   const [data, setData] = useState<EnrichedGeolocationCoordinates>({
     municipio: globalState.municipio,
@@ -38,35 +36,28 @@ function useGeolocation(
       ) {
         return;
       }
+      // A chave do Google fica no servidor: ver src/app/api/geocode/route.ts
       const res = await fetch(
-        `https://maps.google.com/maps/api/geocode/json?address=${coords.latitude},${coords.longitude}&key=${googleApiKey}`
+        `/api/geocode?lat=${coords.latitude}&lng=${coords.longitude}`
       );
-      const json = (await res.json()) as {
-        results: google.maps.GeocoderResult[];
-      };
-      //TODO: add log when error
-
-      const local = json.results?.find((o) => o.types.includes("locality"));
-      let nomeCidade = local?.address_components.find((o) =>
-        o.types.includes("administrative_area_level_2")
-      )?.long_name;
+      const json = (await res.json()) as { nomeMunicipio: string | null };
       let municipio: EsferaAdministrativa = data.municipio;
 
-      if (nomeCidade) {
-        nomeCidade = normalize(nomeCidade);
-        municipio = globalState.municipios.find(
-          (o) => o.nomeNormalizado === nomeCidade
-        )!;
+      if (json.nomeMunicipio) {
+        const nomeNormalizado = normalize(json.nomeMunicipio);
+        municipio =
+          globalState.municipios.find(
+            (o) => o.nomeNormalizado === nomeNormalizado
+          ) ?? municipio;
       }
 
       setData({
         ...coords,
-        addresses: json.results,
         municipio,
         timestamp,
       });
     },
-    [googleApiKey]
+    []
   );
 
   const setError = useCallback((error: any) => {

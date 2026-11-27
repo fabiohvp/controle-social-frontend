@@ -17,7 +17,7 @@ export default function BarraLateralEstado() {
         href={`/estado/${routeParams.ano}/visao-geral`}
         icon={<FaEye />}
         text="Visão geral"
-        tooltip="Visão geral do município"
+        tooltip="Visão geral do Estado"
       />
       <SidebarItem
         href={`/estado/${routeParams.ano}/obrigacao-de-envio`}

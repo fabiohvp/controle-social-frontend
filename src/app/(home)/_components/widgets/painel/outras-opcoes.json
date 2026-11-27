@@ -33,13 +33,13 @@
     },
     {
       "description": "Acompanhe alguns trabalhos de fiscalização do TCE-ES",
-      "href": "/estado/{estado-ano}/visao-geral",
+      "href": "/fiscalizacao/2020/saude/acoes-pandemia",
       "image": {
         "height": 50,
         "src": "/icons/fiscalizacoes.png",
         "width": 45
       },
-      "titulo": "Fsicalizações"
+      "titulo": "Fiscalizações"
     }
   ]
 }
