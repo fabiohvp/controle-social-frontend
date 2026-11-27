@@ -25,7 +25,11 @@ export default async function PaginaRanking({ params, ranking }: Props) {
 
   let itens: RankingItem[] | null = null;
   try {
-    itens = await getRanking({ ano, endpoint: config.endpoint });
+    itens = await getRanking({
+      ano,
+      endpoint: config.endpoint,
+      adaptador: config.adaptador,
+    });
   } catch (error) {
     console.error(error);
   }

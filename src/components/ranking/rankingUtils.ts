@@ -53,6 +53,48 @@ export function getCoresLimiteMinimo(limite: number): CoresRanking {
   };
 }
 
+/**
+ * Limites legais crescentes de despesa com pessoal (LRF): abaixo do alerta,
+ * acima do alerta, acima do prudencial e acima do limite máximo (% da RCL).
+ */
+export function getCoresLimitePessoal(
+  alerta: number,
+  prudencial: number,
+  maximo: number
+): CoresRanking {
+  return {
+    tipo: "faixas",
+    faixas: [
+      {
+        ate: alerta,
+        cor: CORES_RANKING.verdePastelClaro,
+        descricao: `está(ão) abaixo dos limites (abaixo de ${alerta}% da RCL)`,
+      },
+      {
+        ate: prudencial,
+        cor: CORES_RANKING.amareloMuitoClaro,
+        descricao: `está(ão) acima do limite de alerta (entre ${alerta}% e ${prudencial}% da RCL)`,
+      },
+      {
+        ate: maximo,
+        cor: CORES_RANKING.laranjaPastel,
+        descricao: `está(ão) acima do limite prudencial (entre ${prudencial}% e ${maximo}% da RCL)`,
+      },
+      {
+        cor: CORES_RANKING.vermelhoPastel,
+        descricao: `está(ão) acima do limite legal (a partir de ${maximo}% da RCL)`,
+      },
+    ],
+    exibirQuantidade: true,
+  };
+}
+
+/** Negativo x positivo com contagem na legenda (rankings de resultado). */
+export const CORES_RANKING_RESULTADO: CoresRanking = {
+  ...CORES_RANKING_PADRAO,
+  exibirQuantidade: true,
+};
+
 export function isOmisso(valor: number | null | undefined) {
   return valor === null || valor === undefined || valor === 1e-16;
 }
@@ -123,7 +165,7 @@ export function getLinhasRanking(
         : index > 0 && validos[index - 1].valor === item.valor
           ? null
           : index + 1,
-    cor: getCor(item.valor!, index, validos.length, cores, minimo, maximo),
+    cor: getCor(item, index, cores, minimo, maximo),
   }));
   // posições empatadas calculadas localmente herdam a anterior
   linhas.forEach((linha, index) => {
@@ -179,6 +221,24 @@ export function getLegendasRanking(
         name: `Maior: ${formatValorRanking(Math.max(...valores), config.formato)}`,
       },
     ];
+  } else if (cores.tipo === "limiteDoItem") {
+    const validas = linhas.filter((linha) => !linha.omisso);
+    const acima = validas.filter(isAcimaLimite).length;
+    const abaixo = validas.length - acima;
+    legendas = [
+      {
+        color: cores.corAbaixo,
+        name: cores.exibirQuantidade
+          ? `${abaixo} ${cores.descricaoAbaixo}`
+          : cores.descricaoAbaixo,
+      },
+      {
+        color: cores.corAcima,
+        name: cores.exibirQuantidade
+          ? `${acima} ${cores.descricaoAcima}`
+          : cores.descricaoAcima,
+      },
+    ];
   } else {
     legendas = cores.faixas.map((faixa) => {
       const quantidade = linhas.filter(
@@ -212,14 +272,21 @@ function getFaixa(
   );
 }
 
+function isAcimaLimite(item: Pick<RankingItem, "valor" | "valorExigido">) {
+  return !isOmisso(item.valorExigido) && item.valor! > item.valorExigido!;
+}
+
 function getCor(
-  valor: number,
+  item: RankingItem,
   index: number,
-  total: number,
   cores: CoresRanking,
   minimo: number,
   maximo: number
 ) {
+  const valor = item.valor!;
+  if (cores.tipo === "limiteDoItem") {
+    return isAcimaLimite(item) ? cores.corAcima : cores.corAbaixo;
+  }
   if (cores.tipo === "gradiente") {
     const proporcao = maximo === minimo ? 1 : (valor - minimo) / (maximo - minimo);
     return interpolateColor(cores.corMinima, cores.corMaxima, proporcao);
