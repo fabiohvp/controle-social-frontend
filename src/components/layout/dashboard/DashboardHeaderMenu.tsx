@@ -7,7 +7,6 @@ import FiscalizacaoIcon from "@/components/images/icons/header/FiscalizacaoIcon"
 import InteligenciaArtificialIcon from "@/components/images/icons/header/InteligenciaArtificialIcon";
 import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
-import ExternalLink from "@/components/links/ExternalLink";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
@@ -17,7 +16,6 @@ import { useParams, usePathname } from "next/navigation";
 import DropdownMenu from "../../dropdowns/dropdown/DropdownMenu";
 
 const MES_DEFAULT = 1;
-const PAINEL_OFICIAL_URL = "https://paineldecontrole.tcees.tc.br";
 
 type AnoProps = {
   ano: string;
@@ -165,6 +163,14 @@ function DropdownFiscalizacoes() {
         </DropdownItem>
         <DropdownItem>
           <Link
+            href="/fiscalizacao/2022/crimes-contra-patrimonio"
+            prefetch={false}
+          >
+            Crimes contra o patrimônio
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
             href={`/fiscalizacao/2020/educacao/desigualdade-educacional/manifestacao-tecnica`}
             prefetch={false}
           >
@@ -187,22 +193,20 @@ function DropdownFiscalizacoes() {
             Educação - Levantamento Oferta x Demanda
           </Link>
         </DropdownItem>
-        {/* TODO: trocar pelas rotas internas quando IEGE/IEGM forem implementados (docs/PLANO-IMPLEMENTACAO.md, Fase 6) */}
         <DropdownItem>
-          <ExternalLink
-            href={`${PAINEL_OFICIAL_URL}/fiscalizacoes/iege/2019`}
-            rel="noopener noreferrer"
-          >
+          <Link href="/fiscalizacao/2019/iege" prefetch={false}>
             Índice de efetividade de gestão estadual (IEGE)
-          </ExternalLink>
+          </Link>
         </DropdownItem>
         <DropdownItem>
-          <ExternalLink
-            href={`${PAINEL_OFICIAL_URL}/fiscalizacoes/iegm/2023/iIEGM`}
-            rel="noopener noreferrer"
-          >
+          <Link href="/fiscalizacao/2023/iegm/geral" prefetch={false}>
             Índice de efetividade de gestão municipal (IEGM)
-          </ExternalLink>
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link href="/fiscalizacao/2025/levantamento-ods" prefetch={false}>
+            Levantamento ODS
+          </Link>
         </DropdownItem>
         <DropdownItem>
           <Link
@@ -231,6 +235,14 @@ function DropdownFiscalizacoes() {
             prefetch={false}
           >
             Transparência passiva
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
+          <Link
+            href="/fiscalizacao/2024/violencia-contra-mulheres"
+            prefetch={false}
+          >
+            Violência contra mulheres e meninas
           </Link>
         </DropdownItem>
       </ul>
