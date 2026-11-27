@@ -6,11 +6,12 @@ import { ENV } from "@/shared/env";
 import { MultiSerie, SerieItem } from "@/types/Serie";
 import { FaHeartbeat, FaUserFriends, FaUserGraduate, FaUserShield } from "react-icons/fa";
 import { PrevidenciaProps } from "../previdenciaApi";
+import SeguradosTabs, { EstatisticaItem } from "./SeguradosTabs";
 
 type DadosSegurados = {
-  servidores?: { quantidade: number } | number;
-  aposentados?: { quantidade: number } | number;
-  pensionistas?: { quantidade: number } | number;
+  servidores?: EstatisticaItem | { quantidade: number } | number;
+  aposentados?: EstatisticaItem | { quantidade: number } | number;
+  pensionistas?: EstatisticaItem | { quantidade: number } | number;
   relacaoAtivosInativos?: SerieItem[];
   evolucaoBeneficiarios?: MultiSerie;
   evolucaoTipoAposentadoria?: MultiSerie;
@@ -32,10 +33,20 @@ async function getSegurados(esfera: PrevidenciaProps["esfera"], codigoUG: string
   }
 }
 
-function getValor(val: { quantidade: number } | number | undefined): number {
+function getValor(val: EstatisticaItem | { quantidade: number } | number | undefined): number {
   if (val === undefined || val === null) return 0;
   if (typeof val === "number") return val;
-  return val.quantidade ?? 0;
+  if (typeof val.quantidade === "number") return val.quantidade;
+  if (val.quantidade && typeof val.quantidade === "object" && "series" in val.quantidade) {
+    const ms = val.quantidade as MultiSerie;
+    if (ms.series?.length) {
+      return ms.series.reduce((acc, s) => {
+        const lastVal = s.values?.[s.values.length - 1] ?? 0;
+        return acc + lastVal;
+      }, 0);
+    }
+  }
+  return 0;
 }
 
 export default async function Segurados(props: PrevidenciaProps) {
@@ -46,6 +57,11 @@ export default async function Segurados(props: PrevidenciaProps) {
   const aposentados = getValor(dados?.aposentados);
   const pensionistas = getValor(dados?.pensionistas);
   const totalInativos = aposentados + pensionistas;
+
+  const isMilitares = esfera.tipo === "estado" && codigoUnidadeGestora.includes("500E29");
+  const labels: [string, string, string] = isMilitares
+    ? ["Militares", "Reservistas/Reformados", "Pensionistas"]
+    : ["Servidores", "Aposentados", "Pensionistas"];
 
   return (
     <div className="flex flex-col gap-4" id="segurados-rpps">
@@ -137,6 +153,13 @@ export default async function Segurados(props: PrevidenciaProps) {
           </PanelWithDescription>
         )}
       </div>
+
+      <SeguradosTabs
+        labels={labels}
+        servidores={dados?.servidores as EstatisticaItem}
+        aposentados={dados?.aposentados as EstatisticaItem}
+        pensionistas={dados?.pensionistas as EstatisticaItem}
+      />
     </div>
   );
 }
