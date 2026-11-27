@@ -1,6 +1,7 @@
 "use client";
 
 import CloseButton from "@/components/buttons/CloseButton";
+import type { JSX } from "react";
 
 export type ModalProps = {
   setShow: (show: boolean) => void;

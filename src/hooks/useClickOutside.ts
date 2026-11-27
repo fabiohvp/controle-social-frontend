@@ -1,7 +1,7 @@
 import { RefObject, SetStateAction, useEffect } from "react";
 
 type Props = {
-  element: RefObject<HTMLElement>;
+  element: RefObject<HTMLElement | null>;
   toggle: (value: SetStateAction<boolean>) => void;
 };
 

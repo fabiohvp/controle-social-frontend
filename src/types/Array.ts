@@ -26,9 +26,9 @@ export function makeSortedMapByValue<K, V>(
   map: Map<K, V>,
   getValue: (item: [K, V]) => string
 ) {
-  map[Symbol.iterator] = function* () {
+  map[Symbol.iterator] = function* (this: Map<K, V>) {
     yield* [...this.entries()].sort((a: [K, V], b: [K, V]) =>
       getValue(a).localeCompare(getValue(b))
     );
-  };
+  } as unknown as Map<K, V>[typeof Symbol.iterator];
 }

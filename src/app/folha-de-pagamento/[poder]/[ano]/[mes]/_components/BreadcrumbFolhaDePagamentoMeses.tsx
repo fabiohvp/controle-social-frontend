@@ -17,7 +17,7 @@ export default function BreadcrumbFolhaDePagamentoMeses() {
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({
             ...routeParams,

@@ -20,7 +20,7 @@ export default function BreadcrumbPrestacaoDeContaTipoUnidadeGestora({
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         bodyProps={{ className: "!min-w-[260px]" }}
         generateUrl={(item) =>
           generatePrestacaoDeContaUrl({

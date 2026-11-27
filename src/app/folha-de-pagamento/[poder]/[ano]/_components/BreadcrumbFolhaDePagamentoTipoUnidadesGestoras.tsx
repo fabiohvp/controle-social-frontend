@@ -66,7 +66,7 @@ export default function BreadcrumbFolhaDePagamentoTipoUnidadesGestoras() {
         </DropdownItemLabel>
       ) : (
         <li>
-          <DropdownLinks
+          <DropdownLinks<unknown>
             bodyProps={{ className: "!min-w-[400px]" }}
             comparer={dropdownStartsWithComparer}
             generateUrl={(item) =>
@@ -127,7 +127,7 @@ function BreadcrumbFolhaDePagamentoUnidadesGestoras({
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         bodyProps={{ className: "!min-w-[400px]" }}
         generateUrl={(item) =>
           generateFolhaDePagamentoUrl({

@@ -38,7 +38,7 @@ export default function DropdownMunicipiosNomes({
   ];
 
   return (
-    <Dropdown
+    <Dropdown<unknown>
       active={active}
       buttonProps={{ className: "!bg-white border" }}
       items={items.map((municipio) => ({

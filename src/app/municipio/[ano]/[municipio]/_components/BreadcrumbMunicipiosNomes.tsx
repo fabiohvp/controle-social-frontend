@@ -17,7 +17,7 @@ export default function BreadcrumbMunicipiosNomes({ active }: Props) {
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         active={active}
         generateUrl={(item) =>
           generateMunicipioUrl({

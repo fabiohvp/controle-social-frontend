@@ -22,7 +22,7 @@ export default function BreadcrumbMunicipioMunicipiosNomes({ active }: Props) {
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         active={active}
         generateUrl={(item) =>
           generateJulgamentoDeContaUrl({

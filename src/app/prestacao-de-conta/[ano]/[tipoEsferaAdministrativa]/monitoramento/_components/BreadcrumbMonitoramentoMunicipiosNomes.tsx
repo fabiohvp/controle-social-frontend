@@ -31,7 +31,7 @@ export default function BreadcrumbMonitoramentoMunicipiosNomes({
 
   return (
     <li>
-      <DropdownLinks
+      <DropdownLinks<unknown>
         active={active}
         generateUrl={(item) =>
           generateMonitoramentoUrl({
