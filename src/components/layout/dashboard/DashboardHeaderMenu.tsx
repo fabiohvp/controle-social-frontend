@@ -9,6 +9,7 @@ import ObrigacoesIcon from "@/components/images/icons/header/ObrigacoesIcon";
 import PrestacaoContaIcon from "@/components/images/icons/header/PrestacaoContaIcon";
 import ExternalLink from "@/components/links/ExternalLink";
 import MegaMenuMunicipios from "@/components/menu/MegaMenuMunicipios";
+import SearchButton from "@/components/search/SearchButton";
 import { useGlobalState } from "@/providers/GlobalProvider";
 import { getCodigoMunicipio } from "@/shared/municipio";
 import clsx from "clsx";
@@ -72,6 +73,9 @@ export default function DashboardHeaderItems() {
       </li>
       <li className={clsx("px-3", { active: route.startsWith("/boletins") })}>
         <LinkBoletins />
+      </li>
+      <li className="px-3">
+        <SearchButton className="h-full" />
       </li>
     </ul>
   );

@@ -1,0 +1,35 @@
+.search-dialog {
+  background-color: white;
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+  color: var(--color-gray-dark);
+  margin: 10vh auto auto;
+  max-height: min(36rem, calc(100dvh - 12vh));
+  overflow: hidden;
+  padding: 0;
+  width: min(40rem, calc(100vw - 2rem));
+}
+
+.search-dialog:modal {
+  /* impede que a rolagem dentro do modal role a página por baixo */
+  overscroll-behavior: contain;
+}
+
+.search-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.4);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* o modal fica dentro do <header>: anula "header a { height: 100% }" de globals.css */
+.search-dialog a {
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .search-dialog {
+    margin-top: 1rem;
+    max-height: calc(100dvh - 2rem);
+  }
+}
