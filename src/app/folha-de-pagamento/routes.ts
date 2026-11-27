@@ -6,6 +6,15 @@ export type FolhaDePagamentoPageProps = {
   unidadeGestora: string;
 };
 
+// Páginas sem filtros (poder/ano/mês/UG), cujo conteúdo é um painel externo
+// ou um formulário. Ficam diretamente em /folha-de-pagamento/<pagina>.
+export const PAGINAS_SEM_FILTROS = [
+  "afastamento",
+  "consulta-vinculo",
+  "ingressos-desligamentos",
+  "vantagens-descontos",
+];
+
 export function generateFolhaDePagamentoUrl({
   ano,
   mes,
@@ -16,25 +25,18 @@ export function generateFolhaDePagamentoUrl({
 }: FolhaDePagamentoPageProps & { pathname: string }) {
   pagina = pagina || getPagina(pathname);
 
-  if (pagina === "consulta-vinculo") {
-    return "/folha-de-pagamento/consulta-vinculo";
+  if (PAGINAS_SEM_FILTROS.includes(pagina)) {
+    return `/folha-de-pagamento/${pagina}`;
   }
   const baseUrl = `/folha-de-pagamento/${poder ?? "todos"}/${ano ?? 2023}`;
-
-  if (pagina === "contratacoes-e-demissoes") {
-    return `${baseUrl}/${pagina}/${unidadeGestora ?? ""}`;
-  }
   return `${baseUrl}/${mes ?? 1}/${pagina}/${unidadeGestora ?? ""}`;
 }
 
 export function getPagina(pathname: string) {
-  let paginaIndex = 5;
+  const segments = pathname.split("/");
 
-  if (pathname.includes("/consulta-vinculo")) {
-    paginaIndex = 2;
-  } else if (pathname.includes("/contratacoes-e-demissoes")) {
-    paginaIndex = 4;
+  if (PAGINAS_SEM_FILTROS.includes(segments[2])) {
+    return segments[2];
   }
-  const pagina = pathname.split("/")[paginaIndex];
-  return pagina;
+  return segments[5];
 }
