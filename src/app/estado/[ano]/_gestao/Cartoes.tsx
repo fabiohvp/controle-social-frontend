@@ -1,4 +1,16 @@
 import MultiSeriesChart from "@/components/charts/MultiSeriesChart";
+import MedidorLimite, {
+  COR_MEDIDOR,
+  FaixaMedidor,
+  SituacaoMedidor,
+} from "@/components/gestao-fiscal/_comum/MedidorLimite";
+import {
+  faixasMinimo,
+  faixasPessoal,
+  pct,
+  situacaoMaximo,
+  situacaoMinimo,
+} from "@/components/gestao-fiscal/_comum/medidores";
 import SingleSeriesChart from "@/components/charts/SingleSeriesChart";
 import PanelWithDescription from "@/components/panel/PanelWithDescription";
 import SectionTitle from "@/components/panel/SectionTitle";
@@ -185,11 +197,14 @@ export function CartaoSerie({
   formato,
   tipo,
   negativoVermelho,
+  cor,
 }: CartaoBase & {
   dados: SerieItem[] | null | undefined;
   formato?: FormatoValor;
   tipo?: "line" | "bar";
   negativoVermelho?: boolean;
+  /** cor da série (padrão #607D8B, como no site oficial) */
+  cor?: string;
 }) {
   return (
     <PanelWithDescription
@@ -202,6 +217,7 @@ export function CartaoSerie({
         formato={formato}
         tipo={tipo}
         negativoVermelho={negativoVermelho}
+        cor={cor}
       />
     </PanelWithDescription>
   );
@@ -215,7 +231,9 @@ export function CartaoMulti({
   tipos,
   formato,
   corrigirIpca,
+  cores,
 }: CartaoBase & {
+  cores?: string[];
   dados: MultiSerie | null | undefined;
   tipos?: ("line" | "bar")[];
   formato?: FormatoValor;
@@ -233,6 +251,7 @@ export function CartaoMulti({
         tipos={tipos}
         formato={formato}
         corrigirIpca={corrigirIpca}
+        cores={cores}
       />
     </PanelWithDescription>
   );
@@ -291,14 +310,16 @@ type Limites = {
   prudencial?: number;
   /** texto depois do número no limite (ex.: "da RCL") */
   base: string;
+  /** substitui "Obedeceu ao limite de" (ex.: "Tende a obedecer ao limite de", na dívida) */
+  textoObedece?: string;
 };
 
 function getSituacao(percentual: number, limites: Limites) {
   const { limite, tipo, alerta, prudencial, base } = limites;
   if (tipo === "minimo") {
     return percentual >= limite
-      ? { texto: `Obedeceu ao limite mínimo de ${formatFloat(limite)}% ${base}`, cor: "text-green-700", barra: "bg-green-600" }
-      : { texto: `Não obedeceu ao limite mínimo de ${formatFloat(limite)}% ${base}`, cor: "text-red-700", barra: "bg-red-600" };
+      ? { texto: `Obedeceu o limite mínimo de ${pct(limite)} ${base}`, cor: "text-green-700", barra: "bg-green-600" }
+      : { texto: `Não obedeceu o limite mínimo de ${pct(limite)} ${base}`, cor: "text-red-700", barra: "bg-red-600" };
   }
   if (percentual > limite) {
     return { texto: `Ultrapassou o limite máximo de ${formatFloat(limite)}% ${base}`, cor: "text-red-700", barra: "bg-red-600" };
@@ -309,7 +330,7 @@ function getSituacao(percentual: number, limites: Limites) {
   if (alerta !== undefined && percentual >= alerta) {
     return { texto: `Ultrapassou o limite de alerta de ${formatFloat(alerta)}% ${base}`, cor: "text-yellow-600", barra: "bg-yellow-500" };
   }
-  return { texto: `Obedeceu ao limite de ${formatFloat(limite)}% ${base}`, cor: "text-blue-dark", barra: "bg-blue-dark" };
+  return { texto: `${limites.textoObedece ?? "Obedeceu ao limite de"} ${pct(limite)} ${base}`, cor: "text-blue-dark", barra: "bg-blue-dark" };
 }
 
 /**
@@ -321,42 +342,62 @@ export function CartaoLimite({
   descricao,
   largura = 4,
   percentual,
+  corAlerta,
   ...limites
-}: CartaoBase & Limites & { percentual: number | null | undefined }) {
-  const temDado = percentual !== null && percentual !== undefined;
-  const topo = Math.max(limites.limite * 1.2, temDado ? percentual * 1.05 : 0, 1);
-  const posicao = (valor: number) => `${Math.min(100, Math.max(0, (valor / topo) * 100))}%`;
-  const situacao = temDado ? getSituacao(percentual, limites) : null;
+}: CartaoBase &
+  Limites & {
+    percentual: number | null | undefined;
+    /** cor da faixa entre alerta e limite quando não há prudencial (padrão: amarelo) */
+    corAlerta?: string;
+  }) {
+  const temDado = percentual !== null && percentual !== undefined && !Number.isNaN(percentual);
+  const valor = temDado ? (percentual as number) : null;
+  const { limite, tipo, alerta, prudencial } = limites;
+
+  let min = 0;
+  let max: number;
+  let faixas: FaixaMedidor[];
+  let situacao: SituacaoMedidor;
+
+  if (tipo === "minimo") {
+    // site oficial: escala de 0 a 70% (ou 100% para limites altos, como o FUNDEB)
+    max = Math.max(limite >= 50 ? 100 : 70, valor ?? 0);
+    faixas = faixasMinimo(limite, max);
+    situacao = valor === null ? "ok" : situacaoMinimo(valor, limite);
+  } else {
+    // site oficial: escala de 40% a 110% do limite máximo (70% do valor, se menor)
+    max = Math.max(limite * 1.1, valor ?? 0);
+    min = Math.min(max * 0.4, Math.max(valor ?? max, 0) * 0.7, valor ?? 0);
+    if (alerta !== undefined && prudencial !== undefined) {
+      faixas = faixasPessoal(alerta, prudencial, limite, max);
+    } else if (alerta !== undefined) {
+      faixas = [
+        { ate: alerta, cor: COR_MEDIDOR.ok, rotulo: pct(alerta) },
+        { ate: limite, cor: corAlerta ?? COR_MEDIDOR.atencao, rotulo: pct(limite) },
+        { ate: max, cor: COR_MEDIDOR.ruim },
+      ];
+    } else {
+      faixas = [
+        { ate: limite, cor: COR_MEDIDOR.ok, rotulo: pct(limite) },
+        { ate: max, cor: COR_MEDIDOR.ruim },
+      ];
+    }
+    if (min < 0) faixas = [{ ate: 0, cor: COR_MEDIDOR.muitoPositivo, rotulo: "0%" }, ...faixas];
+    situacao = valor === null ? "ok" : situacaoMaximo(valor, alerta ?? limite, limite);
+  }
 
   return (
-    <PanelWithDescription
+    <MedidorLimite
       className={COLUNAS[largura]}
       titulo={titulo}
       descricao={descricao}
-      bodyProps={{ className: "flex-col items-center justify-center min-h-[140px]" }}
-    >
-      {temDado && situacao ? (
-        <>
-          <span className={`font-extrabold text-3xl ${situacao.cor}`}>
-            {formatPercent(percentual)}
-          </span>
-          <div className="bg-gray-200 h-3 mt-3 relative rounded-full w-full">
-            <div
-              className={`absolute h-3 left-0 rounded-full ${situacao.barra}`}
-              style={{ width: posicao(Math.max(percentual, 0)) }}
-            />
-            <div
-              className="absolute bg-black h-5 -top-1 w-0.5"
-              style={{ left: posicao(limites.limite) }}
-              title={`Limite: ${formatFloat(limites.limite)}%`}
-            />
-          </div>
-          <span className="mt-2 text-center text-xs">{situacao.texto}</span>
-        </>
-      ) : (
-        <span className="text-gray-light text-sm">Informação indisponível</span>
-      )}
-    </PanelWithDescription>
+      valor={valor}
+      min={min}
+      max={max}
+      faixas={faixas}
+      situacao={situacao}
+      texto={valor === null ? undefined : getSituacao(valor, limites).texto}
+    />
   );
 }
 

@@ -166,7 +166,13 @@ export default async function Receitas(props: Props) {
         titulo="Receitas X Despesas"
         descricao="Comparativo entre as receitas e despesas do município."
       >
-        <SingleSeriesChart dados={receitaXDespesa} tipo="bar" />
+        <SingleSeriesChart
+          dados={receitaXDespesa}
+          tipo="bar"
+          coresItens={receitaXDespesa?.map((item) =>
+            /despesa/i.test(item.nome ?? "") ? COLOR.despesa : COLOR.receita
+          )}
+        />
       </PanelWithDescription>
       <PanelWithDescription
         className="lg:col-span-12"

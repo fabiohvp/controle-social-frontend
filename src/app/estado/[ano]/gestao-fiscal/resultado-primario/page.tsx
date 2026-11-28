@@ -83,6 +83,7 @@ export default async function Page({
       />
       <CartaoSerie
         titulo="Receita e Despesa Primária"
+        cor="#3D4C57"
         descricao="O gráfico compara as receitas primárias realizadas e as despesas primarias executadas."
         dados={receitaDespesaPrimaria}
         tipo="bar"
@@ -90,6 +91,7 @@ export default async function Page({
       />
       <CartaoSerie
         titulo="Resultado Primário"
+        cor="#3D4C57"
         descricao="O gráfico compara o Resultado Primário apresentado com a Meta Fiscal prevista na LDO."
         dados={resultadoPrimario}
         tipo="bar"
@@ -98,6 +100,7 @@ export default async function Page({
       <CartaoMulti
         largura={12}
         titulo="Evolução mensal - Receita e Despesa Primária"
+        cores={["#607D8B", "#3D4C57"]}
         descricao="O gráfico demonstra o comportamento das receitas e despesas primárias durante o exercício."
         dados={mensalReceitaDespesa}
         tipos={["line", "bar"]}
@@ -106,6 +109,7 @@ export default async function Page({
       <CartaoSerie
         largura={12}
         titulo="Evolução mensal - Resultado Primário"
+        cor="#3D4C57"
         descricao="O gráfico demonstra o comportamento do resultado primário durante o exercício."
         dados={mensalResultado}
         tipo="bar"
@@ -114,6 +118,7 @@ export default async function Page({
       <CartaoMulti
         largura={12}
         titulo="Evolução anual - Resultado Primário"
+        cores={["#3D4C57", "#CEDEE5"]}
         descricao="O gráfico demonstra o comportamento do resultado primário anual em relação aos anos anteriores"
         dados={anualResultado}
         tipos={["line", "line"]}

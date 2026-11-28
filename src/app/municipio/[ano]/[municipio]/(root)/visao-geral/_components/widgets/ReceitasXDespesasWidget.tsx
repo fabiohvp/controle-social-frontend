@@ -27,7 +27,7 @@ export async function ReceitasXDespesasWidget({
   return (
     <PanelWithTitle
       bodyProps={{ className: data ? undefined : "center", style }}
-      header="Receitas X Despesas"
+      header="Receita X Despesa"
     >
       {data?.despesa && data?.receita ? (
         <ReceitasXDespesasChart

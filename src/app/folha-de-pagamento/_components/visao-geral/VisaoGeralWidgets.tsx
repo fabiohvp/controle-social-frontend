@@ -104,7 +104,7 @@ export async function SituacaoRemessaWidget({ filtros }: Props) {
     <Painel titulo="Situação da remessa">
       {data?.length ? (
         <FolhaDonutChart
-          colors={["#459D49", "#E68465", "#B37476"]}
+          colors={["#607D8B", "#E68364", "#A43E3B"]}
           items={data}
           tipo="inteiro"
         />

@@ -1,4 +1,5 @@
 import { EstadoPageProps } from "@/app/estado/[ano]/routes";
+import { COLOR } from "@/theme/colors";
 import { SerieItem } from "@/types/Serie";
 import { getDadosEstado } from "../../_gestao/api";
 import {
@@ -124,10 +125,13 @@ async function BlocoEndividamento({
         tipo="maximo"
         limite={bloco.limite}
         alerta={bloco.alerta}
+        corAlerta={COLOR["chart-alerta"]}
         base="da RCL"
+        textoObedece="Tende a obedecer ao limite de"
       />
       <CartaoSerie
         titulo={`Evolução ${bloco.nomePeriodo}`}
+        cor="#3D4C57"
         descricao={`O gráfico demonstra o comportamento d${bloco.nomeIndicador.startsWith("Dívida") ? "a" : "as"} ${bloco.nomeIndicador} durante os ${bloco.nomePeriodo === "bimestral" ? "bimestres" : "quadrimestres"}.`}
         dados={periodica}
         tipo="bar"
@@ -135,14 +139,15 @@ async function BlocoEndividamento({
       />
       <CartaoSerie
         titulo="Evolução anual"
+        cor="#8AA2AD"
         descricao={`O gráfico demonstra o comportamento d${bloco.nomeIndicador.startsWith("Dívida") ? "a" : "as"} ${bloco.nomeIndicador} durante os cinco últimos anos.`}
         dados={anual}
         tipo="bar"
-        negativoVermelho
       />
       <CartaoSerie
         largura={12}
         titulo="Evolução percentual anual"
+        cor="#8AA2AD"
         descricao={`O gráfico demonstra, em percentuais, o comportamento d${bloco.nomeIndicador.startsWith("Dívida") ? "a" : "as"} ${bloco.nomeIndicador} durante os cinco últimos anos.`}
         dados={percentual}
         formato="percentual"

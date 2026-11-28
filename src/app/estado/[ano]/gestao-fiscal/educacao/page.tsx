@@ -57,7 +57,7 @@ export default async function Page({
         percentual={sumario?.aplicacaoPercentual}
         tipo="minimo"
         limite={25}
-        base="da receita de impostos e transferências"
+        base="da receita"
       />
       <CartaoSerie
         titulo="Evolução mensal da aplicação em Educação"

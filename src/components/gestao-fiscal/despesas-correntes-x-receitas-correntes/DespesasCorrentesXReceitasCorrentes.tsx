@@ -121,7 +121,7 @@ export default async function DespesasCorrentesXReceitasCorrentes({
         <MultiSeriesChart
           dados={valoresMensal}
           tipos={["line", "line"]}
-          cores={[COLOR.receita, COLOR.despesa]}
+          cores={[COLOR["chart-muito-positivo"], COLOR.receita]}
           corrigirIpca={anoExercicio}
         />
       </PanelWithDescription>
@@ -133,7 +133,7 @@ export default async function DespesasCorrentesXReceitasCorrentes({
         <MultiSeriesChart
           dados={valoresAnual}
           tipos={["line", "line"]}
-          cores={[COLOR.receita, COLOR.despesa]}
+          cores={[COLOR["chart-muito-positivo"], COLOR.receita]}
         />
       </PanelWithDescription>
 

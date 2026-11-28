@@ -15,6 +15,8 @@ export const COLOR = {
   "chart-negativo": "#E68364",
   "chart-positivo": "#607D8B",
   "chart-muito-positivo": "#8AA2AD",
+  /** barras com valor negativo (resultado, variação) no site oficial */
+  "chart-barra-negativa": "#F28B82",
 
   // Paleta oficial TCE-ES (PadraoRange do legado)
   padraoNivel1: "#EFF0F1",

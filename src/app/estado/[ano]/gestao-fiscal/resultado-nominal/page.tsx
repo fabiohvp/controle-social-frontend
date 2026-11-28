@@ -60,6 +60,7 @@ export default async function Page({
       <CartaoMulti
         largura={12}
         titulo="Evolução anual"
+        cores={["#607D8B", "#CEDEE5"]}
         descricao="Evolução do Resultado nominal dos últimos 5 anos"
         dados={evolucaoAnual}
         tipos={["line", "line"]}
@@ -67,6 +68,7 @@ export default async function Page({
       <CartaoSerie
         largura={12}
         titulo="Evolução mensal - Resultado nominal"
+        cor="#3D4C57"
         descricao="O gráfico demonstra o comportamento do resultado primário durante o exercício."
         dados={evolucaoMensal}
         tipo="bar"

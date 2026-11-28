@@ -158,7 +158,7 @@ async function SecaoPoder({
           limite={poder.limite}
           alerta={poder.limite * 0.9}
           prudencial={poder.limite * 0.95}
-          base="da RCL ajustada"
+          base="da RCL"
         />
       )}
       <CartaoSerie

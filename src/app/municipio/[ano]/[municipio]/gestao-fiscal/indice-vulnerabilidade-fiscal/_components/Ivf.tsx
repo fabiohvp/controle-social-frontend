@@ -126,7 +126,7 @@ export default async function Ivf({ esfera, anoExercicio }: EsferaProps) {
             tipo="line"
             formato="numero"
             corrigirIpca={false}
-            cor={COLOR["chart-alerta"]}
+            cor={COLOR["chart-positivo"]}
           />
         </PanelWithDescription>
 

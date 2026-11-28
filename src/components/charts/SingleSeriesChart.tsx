@@ -21,6 +21,8 @@ type Props = {
   /** pinta de vermelho valores negativos (barras) */
   negativoVermelho?: boolean;
   cor?: string;
+  /** cor de cada ponto (sobrepõe `cor`), na ordem de `dados` */
+  coresItens?: string[];
   style?: CSSProperties;
 };
 
@@ -39,6 +41,7 @@ export default function SingleSeriesChart({
   corrigirIpca = formato === "moeda",
   negativoVermelho,
   cor = COLOR["chart-positivo"],
+  coresItens,
   style,
 }: Props) {
   const corrigir = useCorrecaoIpca();
@@ -73,13 +76,13 @@ export default function SingleSeriesChart({
     series: [
       {
         type: tipo,
-        data: valores.map((valor) => ({
+        data: valores.map((valor, indice) => ({
           value: valor,
           itemStyle: {
             color:
               negativoVermelho && valor !== null && valor < 0
-                ? COLOR.negativo
-                : cor,
+                ? COLOR["chart-barra-negativa"]
+                : (coresItens?.[indice] ?? cor),
           },
         })),
         itemStyle: { color: cor },

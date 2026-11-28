@@ -1,34 +1,80 @@
+import DadosAcumuladosAte from "@/components/panel/DadosAcumuladosAte";
+import { CSSProperties, Suspense } from "react";
 import { EstadoPageProps } from "../../routes";
-import { EducacaoWidget } from "./_components/widgets/EducacaoWidget";
+import {
+  DespesaReceitaCorrentesEstadoWidget,
+  DividaConsolidadaLiquidaEstadoWidget,
+  EducacaoEstadoWidget,
+  PessoalAssembleiaEstadoWidget,
+  PessoalConsolidadoEstadoWidget,
+  PessoalExecutivoEstadoWidget,
+  PessoalJudiciarioEstadoWidget,
+  PessoalMinisterioPublicoEstadoWidget,
+  PessoalTribunalDeContasEstadoWidget,
+  SaudeEstadoWidget,
+} from "./_components/widgets/MedidoresEstado";
 import { ObrigacoesJuntoTceesWidget } from "./_components/widgets/ObrigacoesJuntoTceesWidget";
-import { PessoalConsolidadoWidget } from "./_components/widgets/PessoalConsolidadoWidget";
-import { PessoalExecutivoWidget } from "./_components/widgets/PessoalExecutivoWidget";
-import { PessoalLegislativoWidget } from "./_components/widgets/PessoalLegislativoWidget";
 import { ReceitasXDespesasWidget } from "./_components/widgets/ReceitasXDespesasWidget";
-import { SaudeWidget } from "./_components/widgets/SaudeWidget";
 
-const WIDGET_HEIGHT = "155px";
-const PANEL_STYLE = { minHeight: WIDGET_HEIGHT };
-const GAUGE_STYLE = { height: WIDGET_HEIGHT };
+const PANEL_STYLE = { minHeight: "155px" };
+const GAUGE_STYLE = { minHeight: "290px" };
+
+/** unidade gestora do Governo do Estado, usada no "Dados acumulados até" */
+const UG_GOVERNO = "500E0100001";
+
+function WidgetSkeleton({ style }: { style: CSSProperties }) {
+  return (
+    <div
+      style={style}
+      className="bg-white rounded border border-gray-200/60 p-4 flex items-center justify-center animate-pulse"
+    >
+      <div className="h-6 w-24 bg-gray-200/80 rounded" />
+    </div>
+  );
+}
 
 export default async function Page({ params }: { params: Promise<EstadoPageProps> }) {
   const resolvedParams = await params;
 
+  // mesma ordem dos medidores do site oficial
+  const medidores = [
+    SaudeEstadoWidget,
+    EducacaoEstadoWidget,
+    PessoalConsolidadoEstadoWidget,
+    PessoalExecutivoEstadoWidget,
+    PessoalJudiciarioEstadoWidget,
+    PessoalAssembleiaEstadoWidget,
+    PessoalMinisterioPublicoEstadoWidget,
+    PessoalTribunalDeContasEstadoWidget,
+    DespesaReceitaCorrentesEstadoWidget,
+    DividaConsolidadaLiquidaEstadoWidget,
+  ];
+
   return (
     <>
-      {/* subtrai 4 rem por causa do p-2 padding do layout */}
+      <Suspense fallback={null}>
+        <DadosAcumuladosAte
+          ano={resolvedParams.ano}
+          controller="EstadoControllers"
+          codigoUnidadeGestora={UG_GOVERNO}
+        />
+      </Suspense>
+
       <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
-        <ReceitasXDespesasWidget style={PANEL_STYLE} {...resolvedParams} />
-        <ObrigacoesJuntoTceesWidget style={PANEL_STYLE} {...resolvedParams} />
-        <SaudeWidget style={GAUGE_STYLE} {...resolvedParams} />
-        <EducacaoWidget style={GAUGE_STYLE} {...resolvedParams} />
+        <Suspense fallback={<WidgetSkeleton style={PANEL_STYLE} />}>
+          <ReceitasXDespesasWidget style={PANEL_STYLE} {...resolvedParams} />
+        </Suspense>
+        <Suspense fallback={<WidgetSkeleton style={PANEL_STYLE} />}>
+          <ObrigacoesJuntoTceesWidget style={PANEL_STYLE} {...resolvedParams} />
+        </Suspense>
       </div>
 
-      {/* TODO: adicionar mãos com valor em cima dos gráficos */}
-      <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-5 gap-2">
-        <PessoalConsolidadoWidget style={GAUGE_STYLE} {...resolvedParams} />
-        <PessoalExecutivoWidget style={GAUGE_STYLE} {...resolvedParams} />
-        <PessoalLegislativoWidget style={GAUGE_STYLE} {...resolvedParams} />
+      <div className="grid auto-rows-max grid-cols-responsive grid-cols-responsive-4 gap-2">
+        {medidores.map((Medidor, indice) => (
+          <Suspense key={indice} fallback={<WidgetSkeleton style={GAUGE_STYLE} />}>
+            <Medidor {...resolvedParams} />
+          </Suspense>
+        ))}
       </div>
     </>
   );

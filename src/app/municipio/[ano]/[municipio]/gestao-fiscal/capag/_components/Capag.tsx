@@ -282,7 +282,7 @@ export default async function Capag({ esfera, anoExercicio }: EsferaProps) {
         <MultiSeriesChart
           dados={mensais?.liquidez ?? null}
           corrigirIpca={anoExercicio}
-          cores={["#607D8B", "#3D4C57", "#F28B82"]}
+          cores={["#607D8B", "#3D4C57", "#E68364"]}
         />
       </PanelWithDescription>
 

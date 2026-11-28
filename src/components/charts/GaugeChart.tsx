@@ -22,6 +22,13 @@ export type GaugeChartProps = {
   title: string;
 };
 
+/** posições (0..1) dos pontos de corte em milésimos, para achar o passo dos rótulos */
+function calcularDivisoes(values: number[]) {
+  const pontos = [...values, 1].map((v) => Math.round(v * 1000)).filter((v) => v > 0);
+  const divisor = mdc(pontos) || 1;
+  return Math.min(1000 / divisor, 1000);
+}
+
 export default function GaugeChart(props: GaugeChartProps) {
   return (
     <EChart
@@ -50,10 +57,7 @@ export default function GaugeChart(props: GaugeChartProps) {
             center: ["50%", "50%"],
             min: 0,
             max: 1,
-            splitNumber: Math.min(
-              100 / mdc(props.items.map((item) => item.value * 100)),
-              100
-            ),
+            splitNumber: calcularDivisoes(props.items.map((item) => item.value)),
             axisLine: {
               lineStyle: {
                 width: 30,
@@ -78,7 +82,7 @@ export default function GaugeChart(props: GaugeChartProps) {
               rotate: "tangential",
               formatter: function (value: any) {
                 for (const item of props.items) {
-                  if (item.value === value) return item.name;
+                  if (Math.abs(item.value - value) < 0.0006) return item.name;
                 }
                 return "";
               },

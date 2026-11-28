@@ -21,6 +21,8 @@ type Props = {
   valor: number | null | undefined;
   /** valor máximo da escala do medidor (o "upperLimit" do site oficial) */
   max: number;
+  /** valor mínimo da escala (negativo na DCL do site oficial); padrão 0 */
+  min?: number;
   /** faixas em ordem crescente; a última vai até o fim da escala */
   faixas: FaixaMedidor[];
   situacao: SituacaoMedidor;
@@ -35,6 +37,7 @@ type Props = {
 };
 
 export const COR_MEDIDOR = {
+  muitoPositivo: COLOR["chart-muito-positivo"],
   ok: COLOR["chart-positivo"],
   atencao: COLOR["chart-info"],
   alerta: COLOR["chart-alerta"],
@@ -60,6 +63,7 @@ export default function MedidorLimite({
   descricao,
   valor,
   max,
+  min = 0,
   faixas,
   situacao,
   texto,
@@ -76,7 +80,8 @@ export default function MedidorLimite({
   const items = faixas.map((faixa, indice) => ({
     color: faixa.cor,
     name: indice === faixas.length - 1 ? "" : (faixa.rotulo ?? ""),
-    value: indice === faixas.length - 1 ? 1 : limitar(faixa.ate / max),
+    value:
+      indice === faixas.length - 1 ? 1 : limitar((faixa.ate - min) / (max - min)),
   }));
 
   return (
@@ -104,7 +109,7 @@ export default function MedidorLimite({
           </div>
           <GaugeChart
             items={items}
-            selectedValue={limitar(valor / max)}
+            selectedValue={limitar((valor - min) / (max - min))}
             style={{ height: "170px", width: "100%" }}
             title={nomeMedidor}
           />

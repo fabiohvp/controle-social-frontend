@@ -1,6 +1,7 @@
 "use client";
 import EChart from "@/components/charts/EChart";
 import { formatFloat, formatInt } from "@/formatters/number";
+import { COLOR } from "@/theme/colors";
 import { PieChart } from "echarts/charts";
 import { LegendComponent, TooltipComponent } from "echarts/components";
 import { LabelLayout } from "echarts/features";
@@ -17,14 +18,8 @@ type Props = {
   tipo: "inteiro" | "moeda";
 };
 
-const DEFAULT_COLORS = [
-  "#2a333b",
-  "#3d4c57",
-  "#607d8b",
-  "#8aa2ad",
-  "#c5d7e0",
-  "#F4B351",
-];
+// paleta PadraoRange do site oficial (do mais claro para o mais escuro)
+const DEFAULT_COLORS = COLOR.padraoRange;
 
 export function formatValor(value: number, tipo: Props["tipo"]) {
   return tipo === "moeda" ? `R$ ${formatFloat(value)}` : formatInt(value);

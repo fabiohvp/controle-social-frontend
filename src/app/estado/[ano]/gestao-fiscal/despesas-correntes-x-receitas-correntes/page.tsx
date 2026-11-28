@@ -78,6 +78,7 @@ export default async function Page({
       <CartaoMulti
         largura={8}
         titulo="Evolução mensal de despesas correntes e receitas correntes"
+        cores={["#8AA2AD", "#607D8B"]}
         descricao="Evolução das despesas correntes e das receitas correntes."
         dados={valoresMensal}
         tipos={["line", "line"]}
@@ -86,6 +87,7 @@ export default async function Page({
       <CartaoMulti
         largura={12}
         titulo="Evolução anual de despesas correntes e receitas correntes"
+        cores={["#8AA2AD", "#607D8B"]}
         descricao="Evolução das despesas correntes e das receitas correntes."
         dados={valoresAnual}
         tipos={["bar", "bar"]}

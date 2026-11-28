@@ -16,14 +16,7 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 
-const CORES_DONUT = [
-  COLOR["chart-positivo"],
-  COLOR.despesa,
-  COLOR["chart-alerta"],
-  COLOR["chart-muito-positivo"],
-  COLOR["chart-negativo"],
-  COLOR["chart-info"],
-];
+const CORES_DONUT = COLOR.padraoRange;
 
 const formatarMoeda = getFormatadorValor("moeda");
 const formatarAbreviado = getFormatadorAbreviado("moeda");
